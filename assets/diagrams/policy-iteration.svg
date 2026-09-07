@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="446.4pt" height="655.2pt" viewBox="0 0 446.4 655.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>Evaluate a policy, then improve it</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Evaluate a policy, then improve it</dc:title>
+    <dc:date>2026-09-07T17:29:45.992174</dc:date>
+    <dc:description>Initialize a policy; Evaluate: estimate its state values; Improve: choose greedy actions; Is the policy unchanged?; Return an optimal policy</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 655.2 
+L 446.4 655.2 
+L 446.4 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 180.774194 138.978606 
+Q 180.774194 164.915538 180.774194 189.17542 
+" clip-path="url(#p237c2a30c2)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183.774194 183.17542 
+L 180.774194 189.17542 
+L 177.774194 183.17542 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 180.774194 262.760026 
+Q 180.774194 288.696959 180.774194 312.956841 
+" clip-path="url(#p237c2a30c2)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183.774194 306.956841 
+L 180.774194 312.956841 
+L 177.774194 306.956841 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 180.774194 386.541447 
+Q 180.774194 412.47838 180.774194 436.738262 
+" clip-path="url(#p237c2a30c2)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183.774194 430.738262 
+L 180.774194 436.738262 
+L 177.774194 430.738262 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 332.8 474.369399 
+L 417.651613 474.369399 
+L 417.651613 226.806557 
+L 334.477051 226.806557 
+" clip-path="url(#p237c2a30c2)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 340.477051 229.806557 
+L 334.477051 226.806557 
+L 340.477051 223.806557 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 180.774194 510.322868 
+Q 180.774194 536.259801 180.774194 560.519683 
+" clip-path="url(#p237c2a30c2)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183.774194 554.519683 
+L 180.774194 560.519683 
+L 177.774194 554.519683 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #0f172a; font: 700 15px 'DejaVu Sans'; text-anchor: middle" x="223.2" y="33.080716" transform="rotate(-0 223.2 33.080716)">Evaluate a policy, then improve it</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_7">
+     <path d="M 416.491608 377.28915 
+L 416.491608 323.886806 
+L 401.841295 323.886806 
+L 401.841295 377.28915 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'" transform="translate(411.649889 374.31915) rotate(-90)">No: repeat</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_8">
+     <path d="M 170.988803 543.135266 
+L 190.559584 543.135266 
+L 190.559584 529.384953 
+L 170.988803 529.384953 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'; text-anchor: middle" x="180.774194" y="538.743547" transform="rotate(-0 180.774194 538.743547)">Yes</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 35.465806 138.744918 
+L 326.082581 138.744918 
+Q 334.567742 138.744918 334.567742 130.257049 
+L 334.567742 75.793224 
+Q 334.567742 67.305355 326.082581 67.305355 
+L 35.465806 67.305355 
+Q 26.980645 67.305355 26.980645 75.793224 
+L 26.980645 130.257049 
+Q 26.980645 138.744918 35.465806 138.744918 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 35.465806 262.526339 
+L 326.082581 262.526339 
+Q 334.567742 262.526339 334.567742 254.03847 
+L 334.567742 199.574645 
+Q 334.567742 191.086776 326.082581 191.086776 
+L 35.465806 191.086776 
+Q 26.980645 191.086776 26.980645 199.574645 
+L 26.980645 254.03847 
+Q 26.980645 262.526339 35.465806 262.526339 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 35.465806 386.30776 
+L 326.082581 386.30776 
+Q 334.567742 386.30776 334.567742 377.819891 
+L 334.567742 323.356066 
+Q 334.567742 314.868197 326.082581 314.868197 
+L 35.465806 314.868197 
+Q 26.980645 314.868197 26.980645 323.356066 
+L 26.980645 377.819891 
+Q 26.980645 386.30776 35.465806 386.30776 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 35.465806 510.08918 
+L 326.082581 510.08918 
+Q 334.567742 510.08918 334.567742 501.601311 
+L 334.567742 447.137486 
+Q 334.567742 438.649617 326.082581 438.649617 
+L 35.465806 438.649617 
+Q 26.980645 438.649617 26.980645 447.137486 
+L 26.980645 501.601311 
+Q 26.980645 510.08918 35.465806 510.08918 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #fef3c7; stroke: #d97706; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 35.465806 633.870601 
+L 326.082581 633.870601 
+Q 334.567742 633.870601 334.567742 625.382732 
+L 334.567742 570.918907 
+Q 334.567742 562.431038 326.082581 562.431038 
+L 35.465806 562.431038 
+Q 26.980645 562.431038 26.980645 570.918907 
+L 26.980645 625.382732 
+Q 26.980645 633.870601 35.465806 633.870601 
+z
+" clip-path="url(#p237c2a30c2)" style="fill: #dcfce7; stroke: #16a34a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_4">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180.774194" y="106.060449" transform="rotate(-0 180.774194 106.060449)">Initialize a policy</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180.774194" y="229.84187" transform="rotate(-0 180.774194 229.84187)">Evaluate: estimate its state values</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180.774194" y="353.623291" transform="rotate(-0 180.774194 353.623291)">Improve: choose greedy actions</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180.774194" y="477.404711" transform="rotate(-0 180.774194 477.404711)">Is the policy unchanged?</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180.774194" y="601.186132" transform="rotate(-0 180.774194 601.186132)">Return an optimal policy</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p237c2a30c2">
+   <rect x="4" y="4" width="438.4" height="647.2"/>
+  </clipPath>
+ </defs>
+</svg>

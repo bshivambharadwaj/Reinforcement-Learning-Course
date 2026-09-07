@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="360pt" height="655.2pt" viewBox="0 0 360 655.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>A Bellman backup with a known model</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>A Bellman backup with a known model</dc:title>
+    <dc:date>2026-09-07T17:29:45.893956</dc:date>
+    <dc:description>Select a current state; Enumerate available actions; Use transition probabilities and rewards; Combine reward with next-state values; Update the current value</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 655.2 
+L 360 655.2 
+L 360 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 180 138.978606 
+Q 180 164.915538 180 189.17542 
+" clip-path="url(#pceb813534f)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 183.17542 
+L 180 189.17542 
+L 177 183.17542 
+z
+" clip-path="url(#pceb813534f)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 180 262.760026 
+Q 180 288.696959 180 312.956841 
+" clip-path="url(#pceb813534f)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 306.956841 
+L 180 312.956841 
+L 177 306.956841 
+z
+" clip-path="url(#pceb813534f)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 180 386.541447 
+Q 180 412.47838 180 436.738262 
+" clip-path="url(#pceb813534f)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 430.738262 
+L 180 436.738262 
+L 177 430.738262 
+z
+" clip-path="url(#pceb813534f)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 180 510.322868 
+Q 180 536.259801 180 560.519683 
+" clip-path="url(#pceb813534f)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 554.519683 
+L 180 560.519683 
+L 177 554.519683 
+z
+" clip-path="url(#pceb813534f)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #0f172a; font: 700 15px 'DejaVu Sans'; text-anchor: middle" x="180" y="33.080716" transform="rotate(-0 180 33.080716)">A Bellman backup with a known model</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 54.96969 138.744918 
+L 305.03031 138.744918 
+Q 312.33135 138.744918 312.33135 130.257049 
+L 312.33135 75.793224 
+Q 312.33135 67.305355 305.03031 67.305355 
+L 54.96969 67.305355 
+Q 47.66865 67.305355 47.66865 75.793224 
+L 47.66865 130.257049 
+Q 47.66865 138.744918 54.96969 138.744918 
+z
+" clip-path="url(#pceb813534f)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 54.96969 262.526339 
+L 305.03031 262.526339 
+Q 312.33135 262.526339 312.33135 254.03847 
+L 312.33135 199.574645 
+Q 312.33135 191.086776 305.03031 191.086776 
+L 54.96969 191.086776 
+Q 47.66865 191.086776 47.66865 199.574645 
+L 47.66865 254.03847 
+Q 47.66865 262.526339 54.96969 262.526339 
+z
+" clip-path="url(#pceb813534f)" style="fill: #fef3c7; stroke: #d97706; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 54.96969 386.30776 
+L 305.03031 386.30776 
+Q 312.33135 386.30776 312.33135 377.819891 
+L 312.33135 323.356066 
+Q 312.33135 314.868197 305.03031 314.868197 
+L 54.96969 314.868197 
+Q 47.66865 314.868197 47.66865 323.356066 
+L 47.66865 377.819891 
+Q 47.66865 386.30776 54.96969 386.30776 
+z
+" clip-path="url(#pceb813534f)" style="fill: #ccfbf1; stroke: #0d9488; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 54.96969 510.08918 
+L 305.03031 510.08918 
+Q 312.33135 510.08918 312.33135 501.601311 
+L 312.33135 447.137486 
+Q 312.33135 438.649617 305.03031 438.649617 
+L 54.96969 438.649617 
+Q 47.66865 438.649617 47.66865 447.137486 
+L 47.66865 501.601311 
+Q 47.66865 510.08918 54.96969 510.08918 
+z
+" clip-path="url(#pceb813534f)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 54.96969 633.870601 
+L 305.03031 633.870601 
+Q 312.33135 633.870601 312.33135 625.382732 
+L 312.33135 570.918907 
+Q 312.33135 562.431038 305.03031 562.431038 
+L 54.96969 562.431038 
+Q 47.66865 562.431038 47.66865 570.918907 
+L 47.66865 625.382732 
+Q 47.66865 633.870601 54.96969 633.870601 
+z
+" clip-path="url(#pceb813534f)" style="fill: #dcfce7; stroke: #16a34a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_2">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180" y="106.060449" transform="rotate(-0 180 106.060449)">Select a current state</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180" y="229.84187" transform="rotate(-0 180 229.84187)">Enumerate available actions</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(94.066797 346.628666)">Use transition probabilities and</text>
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(158.088516 360.617916)">rewards</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(91.487813 470.410086)">Combine reward with next-state</text>
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(162.11125 484.399336)">values</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="180" y="601.186132" transform="rotate(-0 180 601.186132)">Update the current value</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pceb813534f">
+   <rect x="27.895" y="4" width="304.21" height="647.2"/>
+  </clipPath>
+ </defs>
+</svg>

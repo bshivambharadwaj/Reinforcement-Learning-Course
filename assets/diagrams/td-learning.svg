@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="612pt" height="277.2pt" viewBox="0 0 612 277.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>TD combines sampling and bootstrapping</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>TD combines sampling and bootstrapping</dc:title>
+    <dc:date>2026-09-07T17:29:46.086657</dc:date>
+    <dc:description>Monte Carlo: Learn from experience; Dynamic programming: Use value estimates; Temporal difference: Sample a step and bootstrap</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 277.2 
+L 612 277.2 
+L 612 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 153.331333 134.433026 
+Q 228.722203 161.032865 302.531573 187.074711 
+" clip-path="url(#ped32b54117)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 297.871596 182.249298 
+L 302.531573 187.074711 
+L 295.875256 187.907445 
+z
+" clip-path="url(#ped32b54117)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 458.668667 134.433026 
+Q 383.277797 161.032865 309.468427 187.074711 
+" clip-path="url(#ped32b54117)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 316.124744 187.907445 
+L 309.468427 187.074711 
+L 314.128404 182.249298 
+z
+" clip-path="url(#ped32b54117)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #0f172a; font: 700 15px 'DejaVu Sans'; text-anchor: middle" x="306" y="32.654067" transform="rotate(-0 306 32.654067)">TD combines sampling and bootstrapping</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_4">
+     <path d="M 205.140014 167.90849 
+L 252.307045 167.90849 
+L 252.307045 154.158177 
+L 205.140014 154.158177 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'; text-anchor: middle" x="228.723529" y="163.516771" transform="rotate(-0 228.723529 163.516771)">Sampling</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_5">
+     <path d="M 349.009674 167.90849 
+L 417.543267 167.90849 
+L 417.543267 154.158177 
+L 349.009674 154.158177 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'; text-anchor: middle" x="383.276471" y="163.516771" transform="rotate(-0 383.276471 163.516771)">Bootstrapping</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 35.621176 135.493846 
+L 267.272941 135.493846 
+Q 275.8 135.493846 275.8 127.210769 
+L 275.8 74.061026 
+Q 275.8 65.777949 267.272941 65.777949 
+L 35.621176 65.777949 
+Q 27.094118 65.777949 27.094118 74.061026 
+L 27.094118 127.210769 
+Q 27.094118 135.493846 35.621176 135.493846 
+z
+" clip-path="url(#ped32b54117)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 344.727059 135.493846 
+L 576.378824 135.493846 
+Q 584.905882 135.493846 584.905882 127.210769 
+L 584.905882 74.061026 
+Q 584.905882 65.777949 576.378824 65.777949 
+L 344.727059 65.777949 
+Q 336.2 65.777949 336.2 74.061026 
+L 336.2 127.210769 
+Q 336.2 135.493846 344.727059 135.493846 
+z
+" clip-path="url(#ped32b54117)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 190.174118 256.288718 
+L 421.825882 256.288718 
+Q 430.352941 256.288718 430.352941 248.005641 
+L 430.352941 194.855897 
+Q 430.352941 186.572821 421.825882 186.572821 
+L 190.174118 186.572821 
+Q 181.647059 186.572821 181.647059 194.855897 
+L 181.647059 248.005641 
+Q 181.647059 256.288718 190.174118 256.288718 
+z
+" clip-path="url(#ped32b54117)" style="fill: #dcfce7; stroke: #16a34a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_4">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'" transform="translate(118.196981 96.676585)">Monte Carlo</text>
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'" transform="translate(89.29534 110.665835)">Learn from experience</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(397.211847 96.676585)">Dynamic programming</text>
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(404.691847 110.665835)">Use value estimates</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'" transform="translate(251.378125 217.471457)">Temporal difference</text>
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'" transform="translate(226.246562 231.460707)">Sample a step and bootstrap</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="ped32b54117">
+   <rect x="4" y="4" width="604" height="269.2"/>
+  </clipPath>
+ </defs>
+</svg>

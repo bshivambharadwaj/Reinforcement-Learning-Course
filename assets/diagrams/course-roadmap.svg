@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="360pt" height="1033.2pt" viewBox="0 0 360 1033.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>Your path through reinforcement learning</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Your path through reinforcement learning</dc:title>
+    <dc:date>2026-09-07T17:29:45.348992</dc:date>
+    <dc:description>01 / Foundations: Agent loop, MDPs, returns; 02 / Evaluate decisions: Values, advantage, Bellman; 03 / Plan and learn: DP, Monte Carlo, TD; 04 / Learn action values: SARSA, Q-learning, DQN; 05 / Improve the policy: Gradients, actor-critic, GAE; 06 / Control updates: TRPO, PPO, entropy; 07 / Extend the setting: Offline, model-based, MARL; 08 / Modern applications: RLHF, DPO, GRPO, agents</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 1033.2 
+L 360 1033.2 
+L 360 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 180 139.8469 
+Q 180 165.966551 180 190.409151 
+" clip-path="url(#p30637e2cd3)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 184.409151 
+L 180 190.409151 
+L 177 184.409151 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 180 264.437178 
+Q 180 290.556829 180 314.999429 
+" clip-path="url(#p30637e2cd3)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 308.999429 
+L 180 314.999429 
+L 177 308.999429 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 180 389.027455 
+Q 180 415.147107 180 439.589707 
+" clip-path="url(#p30637e2cd3)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 433.589707 
+L 180 439.589707 
+L 177 433.589707 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 180 513.617733 
+Q 180 539.737384 180 564.179984 
+" clip-path="url(#p30637e2cd3)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 558.179984 
+L 180 564.179984 
+L 177 558.179984 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 180 638.208011 
+Q 180 664.327662 180 688.770262 
+" clip-path="url(#p30637e2cd3)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 682.770262 
+L 180 688.770262 
+L 177 682.770262 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 180 762.798289 
+Q 180 788.91794 180 813.36054 
+" clip-path="url(#p30637e2cd3)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 807.36054 
+L 180 813.36054 
+L 177 807.36054 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 180 887.388567 
+Q 180 913.508218 180 937.950818 
+" clip-path="url(#p30637e2cd3)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 183 931.950818 
+L 180 937.950818 
+L 177 931.950818 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #0f172a; font: 700 15px 'DejaVu Sans'; text-anchor: middle" x="180" y="33.196267" transform="rotate(-0 180 33.196267)">Your path through reinforcement learning</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 66.69552 139.625417 
+L 293.30448 139.625417 
+Q 299.9208 139.625417 299.9208 131.082083 
+L 299.9208 76.262361 
+Q 299.9208 67.719028 293.30448 67.719028 
+L 66.69552 67.719028 
+Q 60.0792 67.719028 60.0792 76.262361 
+L 60.0792 131.082083 
+Q 60.0792 139.625417 66.69552 139.625417 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 66.69552 264.215694 
+L 293.30448 264.215694 
+Q 299.9208 264.215694 299.9208 255.672361 
+L 299.9208 200.852639 
+Q 299.9208 192.309306 293.30448 192.309306 
+L 66.69552 192.309306 
+Q 60.0792 192.309306 60.0792 200.852639 
+L 60.0792 255.672361 
+Q 60.0792 264.215694 66.69552 264.215694 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 66.69552 388.805972 
+L 293.30448 388.805972 
+Q 299.9208 388.805972 299.9208 380.262639 
+L 299.9208 325.442917 
+Q 299.9208 316.899583 293.30448 316.899583 
+L 66.69552 316.899583 
+Q 60.0792 316.899583 60.0792 325.442917 
+L 60.0792 380.262639 
+Q 60.0792 388.805972 66.69552 388.805972 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #ccfbf1; stroke: #0d9488; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 66.69552 513.39625 
+L 293.30448 513.39625 
+Q 299.9208 513.39625 299.9208 504.852917 
+L 299.9208 450.033194 
+Q 299.9208 441.489861 293.30448 441.489861 
+L 66.69552 441.489861 
+Q 60.0792 441.489861 60.0792 450.033194 
+L 60.0792 504.852917 
+Q 60.0792 513.39625 66.69552 513.39625 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 66.69552 637.986528 
+L 293.30448 637.986528 
+Q 299.9208 637.986528 299.9208 629.443194 
+L 299.9208 574.623472 
+Q 299.9208 566.080139 293.30448 566.080139 
+L 66.69552 566.080139 
+Q 60.0792 566.080139 60.0792 574.623472 
+L 60.0792 629.443194 
+Q 60.0792 637.986528 66.69552 637.986528 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 66.69552 762.576806 
+L 293.30448 762.576806 
+Q 299.9208 762.576806 299.9208 754.033472 
+L 299.9208 699.21375 
+Q 299.9208 690.670417 293.30448 690.670417 
+L 66.69552 690.670417 
+Q 60.0792 690.670417 60.0792 699.21375 
+L 60.0792 754.033472 
+Q 60.0792 762.576806 66.69552 762.576806 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #fef3c7; stroke: #d97706; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 66.69552 887.167083 
+L 293.30448 887.167083 
+Q 299.9208 887.167083 299.9208 878.62375 
+L 299.9208 823.804028 
+Q 299.9208 815.260694 293.30448 815.260694 
+L 66.69552 815.260694 
+Q 60.0792 815.260694 60.0792 823.804028 
+L 60.0792 878.62375 
+Q 60.0792 887.167083 66.69552 887.167083 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #ccfbf1; stroke: #0d9488; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 66.69552 1011.757361 
+L 293.30448 1011.757361 
+Q 299.9208 1011.757361 299.9208 1003.214028 
+L 299.9208 948.394306 
+Q 299.9208 939.850972 293.30448 939.850972 
+L 66.69552 939.850972 
+Q 60.0792 939.850972 60.0792 948.394306 
+L 60.0792 1003.214028 
+Q 60.0792 1011.757361 66.69552 1011.757361 
+z
+" clip-path="url(#p30637e2cd3)" style="fill: #dcfce7; stroke: #16a34a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_2">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'" transform="translate(134.089609 99.71291)">01 / Foundations</text>
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'" transform="translate(108.485391 113.70216)">Agent loop, MDPs, returns</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'" transform="translate(116.341797 224.303187)">02 / Evaluate decisions</text>
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'" transform="translate(103.235469 238.292437)">Values, advantage, Bellman</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(128.175391 348.893465)">03 / Plan and learn</text>
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(124.612422 362.882715)">DP, Monte Carlo, TD</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(113.964766 473.483743)">04 / Learn action values</text>
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(112.889688 487.472993)">SARSA, Q-learning, DQN</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(116.324609 598.074021)">05 / Improve the policy</text>
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(105.372734 612.063271)">Gradients, actor-critic, GAE</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'" transform="translate(123.781406 722.664299)">06 / Control updates</text>
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'" transform="translate(125.943594 736.653549)">TRPO, PPO, entropy</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(116.815313 847.254576)">07 / Extend the setting</text>
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(103.772578 861.243826)">Offline, model-based, MARL</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'" transform="translate(112.062969 971.844854)">08 / Modern applications</text>
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'" transform="translate(108.963203 985.834104)">RLHF, DPO, GRPO, agents</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p30637e2cd3">
+   <rect x="42.16" y="4" width="275.68" height="1025.2"/>
+  </clipPath>
+ </defs>
+</svg>

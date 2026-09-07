@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="446.4pt" height="781.2pt" viewBox="0 0 446.4 781.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>Reuse experience in shuffled minibatches</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Reuse experience in shuffled minibatches</dc:title>
+    <dc:date>2026-09-07T17:29:46.428508</dc:date>
+    <dc:description>Behavior policy selects an action; Environment produces a transition; Store it in the replay buffer; Sample a random minibatch; Compute the TD loss; Update the online Q-network</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 781.2 
+L 446.4 781.2 
+L 446.4 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 181.575484 139.36018 
+Q 181.575484 165.37834 181.575484 189.71945 
+" clip-path="url(#pdb486af73d)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 184.575484 183.71945 
+L 181.575484 189.71945 
+L 178.575484 183.71945 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 181.575484 263.497794 
+Q 181.575484 289.515955 181.575484 313.857065 
+" clip-path="url(#pdb486af73d)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 184.575484 307.857065 
+L 181.575484 313.857065 
+L 178.575484 307.857065 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 181.575484 387.635409 
+Q 181.575484 413.65357 181.575484 437.994679 
+" clip-path="url(#pdb486af73d)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 184.575484 431.994679 
+L 181.575484 437.994679 
+L 178.575484 431.994679 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 181.575484 511.773024 
+Q 181.575484 537.791184 181.575484 562.132294 
+" clip-path="url(#pdb486af73d)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 184.575484 556.132294 
+L 181.575484 562.132294 
+L 178.575484 556.132294 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 181.575484 635.910639 
+Q 181.575484 661.928799 181.575484 686.269909 
+" clip-path="url(#pdb486af73d)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 184.575484 680.269909 
+L 181.575484 686.269909 
+L 178.575484 680.269909 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 330.73 723.998165 
+L 413.979032 723.998165 
+L 413.979032 103.310092 
+L 332.407051 103.310092 
+" clip-path="url(#pdb486af73d)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 338.407051 106.310092 
+L 332.407051 103.310092 
+L 338.407051 100.310092 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #0f172a; font: 700 15px 'DejaVu Sans'; text-anchor: middle" x="223.2" y="33.131601" transform="rotate(-0 223.2 33.131601)">Reuse experience in shuffled minibatches</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_8">
+     <path d="M 412.979285 456.961003 
+L 412.979285 370.347253 
+L 398.328973 370.347253 
+L 398.328973 456.961003 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'" transform="translate(408.137567 453.991003) rotate(-90)">Updated behavior</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 39.011516 139.132661 
+L 324.139452 139.132661 
+Q 332.464355 139.132661 332.464355 130.620367 
+L 332.464355 75.999817 
+Q 332.464355 67.487523 324.139452 67.487523 
+L 39.011516 67.487523 
+Q 30.686613 67.487523 30.686613 75.999817 
+L 30.686613 130.620367 
+Q 30.686613 139.132661 39.011516 139.132661 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #fef3c7; stroke: #d97706; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 39.011516 263.270275 
+L 324.139452 263.270275 
+Q 332.464355 263.270275 332.464355 254.757982 
+L 332.464355 200.137431 
+Q 332.464355 191.625138 324.139452 191.625138 
+L 39.011516 191.625138 
+Q 30.686613 191.625138 30.686613 200.137431 
+L 30.686613 254.757982 
+Q 30.686613 263.270275 39.011516 263.270275 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #ccfbf1; stroke: #0d9488; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 39.011516 387.40789 
+L 324.139452 387.40789 
+Q 332.464355 387.40789 332.464355 378.895596 
+L 332.464355 324.275046 
+Q 332.464355 315.762752 324.139452 315.762752 
+L 39.011516 315.762752 
+Q 30.686613 315.762752 30.686613 324.275046 
+L 30.686613 378.895596 
+Q 30.686613 387.40789 39.011516 387.40789 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 39.011516 511.545505 
+L 324.139452 511.545505 
+Q 332.464355 511.545505 332.464355 503.033211 
+L 332.464355 448.412661 
+Q 332.464355 439.900367 324.139452 439.900367 
+L 39.011516 439.900367 
+Q 30.686613 439.900367 30.686613 448.412661 
+L 30.686613 503.033211 
+Q 30.686613 511.545505 39.011516 511.545505 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 39.011516 635.683119 
+L 324.139452 635.683119 
+Q 332.464355 635.683119 332.464355 627.170826 
+L 332.464355 572.550275 
+Q 332.464355 564.037982 324.139452 564.037982 
+L 39.011516 564.037982 
+Q 30.686613 564.037982 30.686613 572.550275 
+L 30.686613 627.170826 
+Q 30.686613 635.683119 39.011516 635.683119 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 39.011516 759.820734 
+L 324.139452 759.820734 
+Q 332.464355 759.820734 332.464355 751.30844 
+L 332.464355 696.68789 
+Q 332.464355 688.175596 324.139452 688.175596 
+L 39.011516 688.175596 
+Q 30.686613 688.175596 30.686613 696.68789 
+L 30.686613 751.30844 
+Q 30.686613 759.820734 39.011516 759.820734 
+z
+" clip-path="url(#pdb486af73d)" style="fill: #dcfce7; stroke: #16a34a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_3">
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="181.575484" y="106.345404" transform="rotate(-0 181.575484 106.345404)">Behavior policy selects an action</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="181.575484" y="230.483019" transform="rotate(-0 181.575484 230.483019)">Environment produces a transition</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="181.575484" y="354.620634" transform="rotate(-0 181.575484 354.620634)">Store it in the replay buffer</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="181.575484" y="478.758248" transform="rotate(-0 181.575484 478.758248)">Sample a random minibatch</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="181.575484" y="602.895863" transform="rotate(-0 181.575484 602.895863)">Compute the TD loss</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="181.575484" y="727.033478" transform="rotate(-0 181.575484 727.033478)">Update the online Q-network</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdb486af73d">
+   <rect x="8.14" y="4" width="430.12" height="773.2"/>
+  </clipPath>
+ </defs>
+</svg>

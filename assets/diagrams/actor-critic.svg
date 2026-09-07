@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="849.6pt" height="529.2pt" viewBox="0 0 849.6 529.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>The actor chooses; the critic evaluates</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>The actor chooses; the critic evaluates</dc:title>
+    <dc:date>2026-09-07T17:30:38.331386</dc:date>
+    <dc:description>Current state; Actor: Action probabilities; Critic: Value estimate; Environment: Action leads to feedback; TD error / advantage estimate</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 529.2 
+L 849.6 529.2 
+L 849.6 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 390.823299 137.087947 
+Q 315.14382 164.233265 241.042916 190.812367 
+" clip-path="url(#p8416f10197)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 247.703476 191.610452 
+L 241.042916 190.812367 
+L 245.67772 185.96277 
+z
+" clip-path="url(#p8416f10197)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 394.586871 137.087947 
+Q 470.26635 164.233265 544.367254 190.812367 
+" clip-path="url(#p8416f10197)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 539.732449 185.96277 
+L 544.367254 190.812367 
+L 537.706694 191.610452 
+z
+" clip-path="url(#p8416f10197)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 239.461447 260.344704 
+Q 315.140926 287.490022 389.24183 314.069124 
+" clip-path="url(#p8416f10197)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 384.607025 309.219527 
+L 389.24183 314.069124 
+L 382.58127 314.867209 
+z
+" clip-path="url(#p8416f10197)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 392.705085 384.926786 
+Q 392.705085 410.747238 392.705085 434.890639 
+" clip-path="url(#p8416f10197)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 395.705085 428.890639 
+L 392.705085 434.890639 
+L 389.705085 428.890639 
+z
+" clip-path="url(#p8416f10197)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 547.830508 259.66973 
+L 547.830508 472.375676 
+L 517.412644 472.375676 
+" clip-path="url(#p8416f10197)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 523.412644 475.375676 
+L 517.412644 472.375676 
+L 523.412644 469.375676 
+z
+" clip-path="url(#p8416f10197)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 269.674576 472.375676 
+L 28.962712 472.375676 
+L 28.962712 225.862162 
+L 112.872102 225.862162 
+" clip-path="url(#p8416f10197)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 106.872102 222.862162 
+L 112.872102 225.862162 
+L 106.872102 228.862162 
+z
+" clip-path="url(#p8416f10197)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 515.735593 472.375676 
+L 820.637288 472.375676 
+L 820.637288 225.862162 
+L 672.538068 225.862162 
+" clip-path="url(#p8416f10197)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 678.538068 228.862162 
+L 672.538068 225.862162 
+L 678.538068 222.862162 
+z
+" clip-path="url(#p8416f10197)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #0f172a; font: 700 15px 'DejaVu Sans'; text-anchor: middle" x="424.8" y="33.005764" transform="rotate(-0 424.8 33.005764)">The actor chooses; the critic evaluates</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_9">
+     <path d="M 298.528935 294.365697 
+L 331.75581 294.365697 
+L 331.75581 280.615384 
+L 298.528935 280.615384 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'; text-anchor: middle" x="315.142373" y="289.973978" transform="rotate(-0 315.142373 289.973978)">Action</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_10">
+     <path d="M 343.9961 417.622454 
+L 441.414069 417.622454 
+L 441.414069 403.872141 
+L 343.9961 403.872141 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'; text-anchor: middle" x="392.705085" y="413.230735" transform="rotate(-0 392.705085 413.230735)">Reward + next state</text>
+   </g>
+   <g id="text_4">
+    <g id="patch_11">
+     <path d="M 554.705665 370.718216 
+L 554.705665 327.519622 
+L 540.955352 327.519622 
+L 540.955352 370.718216 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'" transform="translate(550.313946 368.198216) rotate(-90)">Baseline</text>
+   </g>
+   <g id="text_5">
+    <g id="patch_12">
+     <path d="M 44.846512 383.62056 
+L 44.846512 314.617278 
+L 30.1962 314.617278 
+L 30.1962 383.62056 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'" transform="translate(40.004793 380.65056) rotate(-90)">Improve actor</text>
+   </g>
+   <g id="text_6">
+    <g id="patch_13">
+     <path d="M 819.4038 375.376419 
+L 819.4038 322.861419 
+L 804.753488 322.861419 
+L 804.753488 375.376419 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'" transform="translate(814.562082 372.406419) rotate(-90)">Train critic</text>
+   </g>
+   <g id="patch_14">
+    <path d="M 276.450169 138.173784 
+L 508.96 138.173784 
+Q 517.518644 138.173784 517.518644 129.721892 
+L 517.518644 75.488919 
+Q 517.518644 67.037027 508.96 67.037027 
+L 276.450169 67.037027 
+Q 267.891525 67.037027 267.891525 75.488919 
+L 267.891525 129.721892 
+Q 267.891525 138.173784 276.450169 138.173784 
+z
+" clip-path="url(#p8416f10197)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 121.324746 261.430541 
+L 353.834576 261.430541 
+Q 362.39322 261.430541 362.39322 252.978649 
+L 362.39322 198.745676 
+Q 362.39322 190.293784 353.834576 190.293784 
+L 121.324746 190.293784 
+Q 112.766102 190.293784 112.766102 198.745676 
+L 112.766102 252.978649 
+Q 112.766102 261.430541 121.324746 261.430541 
+z
+" clip-path="url(#p8416f10197)" style="fill: #fef3c7; stroke: #d97706; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 431.575593 261.430541 
+L 664.085424 261.430541 
+Q 672.644068 261.430541 672.644068 252.978649 
+L 672.644068 198.745676 
+Q 672.644068 190.293784 664.085424 190.293784 
+L 431.575593 190.293784 
+Q 423.016949 190.293784 423.016949 198.745676 
+L 423.016949 252.978649 
+Q 423.016949 261.430541 431.575593 261.430541 
+z
+" clip-path="url(#p8416f10197)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 276.450169 384.687297 
+L 508.96 384.687297 
+Q 517.518644 384.687297 517.518644 376.235405 
+L 517.518644 322.002432 
+Q 517.518644 313.550541 508.96 313.550541 
+L 276.450169 313.550541 
+Q 267.891525 313.550541 267.891525 322.002432 
+L 267.891525 376.235405 
+Q 267.891525 384.687297 276.450169 384.687297 
+z
+" clip-path="url(#p8416f10197)" style="fill: #ccfbf1; stroke: #0d9488; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 276.450169 507.944054 
+L 508.96 507.944054 
+Q 517.518644 507.944054 517.518644 499.492162 
+L 517.518644 445.259189 
+Q 517.518644 436.807297 508.96 436.807297 
+L 276.450169 436.807297 
+Q 267.891525 436.807297 267.891525 445.259189 
+L 267.891525 499.492162 
+Q 267.891525 507.944054 276.450169 507.944054 
+z
+" clip-path="url(#p8416f10197)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_7">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="392.705085" y="105.640718" transform="rotate(-0 392.705085 105.640718)">Current state</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'" transform="translate(223.106927 221.90285)">Actor</text>
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'" transform="translate(184.740989 235.8921)">Action probabilities</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(533.492696 221.90285)">Critic</text>
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(506.776446 235.8921)">Value estimate</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(357.589303 345.159606)">Environment</text>
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'" transform="translate(324.807585 359.148856)">Action leads to feedback</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(335.325475 468.416363)">TD error / advantage</text>
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'" transform="translate(368.503366 482.405613)">estimate</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8416f10197">
+   <rect x="4" y="4" width="841.6" height="521.2"/>
+  </clipPath>
+ </defs>
+</svg>

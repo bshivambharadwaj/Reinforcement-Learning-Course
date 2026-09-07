@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="446.4pt" height="781.2pt" viewBox="0 0 446.4 781.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>PPO alternates collection and improvement</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>PPO alternates collection and improvement</dc:title>
+    <dc:date>2026-09-07T17:29:46.721554</dc:date>
+    <dc:description>Freeze the old policy snapshot; Collect a fresh rollout; Compute returns and GAE advantages; Run minibatch update epochs; Clipped actor objective: Critic loss + entropy bonus; Update current parameters</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 781.2 
+L 446.4 781.2 
+L 446.4 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 182.986452 139.36018 
+Q 182.986452 165.37834 182.986452 189.71945 
+" clip-path="url(#p1bc7385d1e)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 185.986452 183.71945 
+L 182.986452 189.71945 
+L 179.986452 183.71945 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 182.986452 263.497794 
+Q 182.986452 289.515955 182.986452 313.857065 
+" clip-path="url(#p1bc7385d1e)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 185.986452 307.857065 
+L 182.986452 313.857065 
+L 179.986452 307.857065 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 182.986452 387.635409 
+Q 182.986452 413.65357 182.986452 437.994679 
+" clip-path="url(#p1bc7385d1e)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 185.986452 431.994679 
+L 182.986452 437.994679 
+L 179.986452 431.994679 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 182.986452 511.773024 
+Q 182.986452 537.791184 182.986452 562.132294 
+" clip-path="url(#p1bc7385d1e)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 185.986452 556.132294 
+L 182.986452 562.132294 
+L 179.986452 556.132294 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 182.986452 635.910639 
+Q 182.986452 661.928799 182.986452 686.269909 
+" clip-path="url(#p1bc7385d1e)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 185.986452 680.269909 
+L 182.986452 686.269909 
+L 179.986452 680.269909 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 327.085 723.998165 
+L 407.512097 723.998165 
+L 407.512097 103.310092 
+L 328.762051 103.310092 
+" clip-path="url(#p1bc7385d1e)" style="fill: none; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 334.762051 106.310092 
+L 328.762051 103.310092 
+L 334.762051 100.310092 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #64748b; stroke: #64748b; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #0f172a; font: 700 15px 'DejaVu Sans'; text-anchor: middle" x="223.2" y="33.131601" transform="rotate(-0 223.2 33.131601)">PPO alternates collection and improvement</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_8">
+     <path d="M 406.794543 455.569519 
+L 406.794543 371.738738 
+L 392.144231 371.738738 
+L 392.144231 455.569519 
+z
+" style="fill: #f8fafc"/>
+    </g>
+    <text style="fill: #475569; font: 9px 'DejaVu Sans'" transform="translate(401.952825 452.599519) rotate(-90)">Refresh snapshot</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 45.255048 139.132661 
+L 320.717855 139.132661 
+Q 328.760565 139.132661 328.760565 130.620367 
+L 328.760565 75.999817 
+Q 328.760565 67.487523 320.717855 67.487523 
+L 45.255048 67.487523 
+Q 37.212339 67.487523 37.212339 75.999817 
+L 37.212339 130.620367 
+Q 37.212339 139.132661 45.255048 139.132661 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #dbeafe; stroke: #2563eb; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 45.255048 263.270275 
+L 320.717855 263.270275 
+Q 328.760565 263.270275 328.760565 254.757982 
+L 328.760565 200.137431 
+Q 328.760565 191.625138 320.717855 191.625138 
+L 45.255048 191.625138 
+Q 37.212339 191.625138 37.212339 200.137431 
+L 37.212339 254.757982 
+Q 37.212339 263.270275 45.255048 263.270275 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #ccfbf1; stroke: #0d9488; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 45.255048 387.40789 
+L 320.717855 387.40789 
+Q 328.760565 387.40789 328.760565 378.895596 
+L 328.760565 324.275046 
+Q 328.760565 315.762752 320.717855 315.762752 
+L 45.255048 315.762752 
+Q 37.212339 315.762752 37.212339 324.275046 
+L 37.212339 378.895596 
+Q 37.212339 387.40789 45.255048 387.40789 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 45.255048 511.545505 
+L 320.717855 511.545505 
+Q 328.760565 511.545505 328.760565 503.033211 
+L 328.760565 448.412661 
+Q 328.760565 439.900367 320.717855 439.900367 
+L 45.255048 439.900367 
+Q 37.212339 439.900367 37.212339 448.412661 
+L 37.212339 503.033211 
+Q 37.212339 511.545505 45.255048 511.545505 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 45.255048 635.683119 
+L 320.717855 635.683119 
+Q 328.760565 635.683119 328.760565 627.170826 
+L 328.760565 572.550275 
+Q 328.760565 564.037982 320.717855 564.037982 
+L 45.255048 564.037982 
+Q 37.212339 564.037982 37.212339 572.550275 
+L 37.212339 627.170826 
+Q 37.212339 635.683119 45.255048 635.683119 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #fef3c7; stroke: #d97706; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 45.255048 759.820734 
+L 320.717855 759.820734 
+Q 328.760565 759.820734 328.760565 751.30844 
+L 328.760565 696.68789 
+Q 328.760565 688.175596 320.717855 688.175596 
+L 45.255048 688.175596 
+Q 37.212339 688.175596 37.212339 696.68789 
+L 37.212339 751.30844 
+Q 37.212339 759.820734 45.255048 759.820734 
+z
+" clip-path="url(#p1bc7385d1e)" style="fill: #dcfce7; stroke: #16a34a; stroke-width: 1.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_3">
+    <text style="fill: #172554; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="182.986452" y="106.345404" transform="rotate(-0 182.986452 106.345404)">Freeze the old policy snapshot</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #134e4a; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="182.986452" y="230.483019" transform="rotate(-0 182.986452 230.483019)">Collect a fresh rollout</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="182.986452" y="354.620634" transform="rotate(-0 182.986452 354.620634)">Compute returns and GAE advantages</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #3b0764; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="182.986452" y="478.758248" transform="rotate(-0 182.986452 478.758248)">Run minibatch update epochs</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'" transform="translate(119.440827 595.901238)">Clipped actor objective</text>
+    <text style="fill: #78350f; font: 500 11px 'DejaVu Sans'" transform="translate(108.455436 609.890488)">Critic loss + entropy bonus</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #14532d; font: 500 11px 'DejaVu Sans'; text-anchor: middle" x="182.986452" y="727.033478" transform="rotate(-0 182.986452 727.033478)">Update current parameters</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p1bc7385d1e">
+   <rect x="15.43" y="4" width="415.54" height="773.2"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,3 +1,5 @@
+![Reinforcement Learning — From Fundamentals to Modern RL](assets/course-banner.png)
+
 # Reinforcement Learning: From Fundamentals to Modern RL
 
 A GitHub-native short course that builds Reinforcement Learning from first principles to modern methods used in deep RL, RLHF, reasoning models, multimodal systems, and AI agents.
@@ -74,19 +76,13 @@ Read each topic in this order: intuition, equation, worked example, then algorit
 
 **Prerequisites:** basic Python; vectors and functions; expectations and conditional probability; derivatives and gradient descent. Neural-network familiarity becomes useful in Part II. This README is a conceptual course with numerical examples, not a complete set of runnable implementations.
 
+**Diagram colors:** blue = observations and data; teal = environment; violet = learning; amber = choices; green = successful outcomes; rose = failures. Labels explain each role as well.
+
 ### Running Example: A Delivery Robot
 
 A robot carries a parcel through a small town. Each ordinary move costs $-1$, successful delivery gives $+10$ on the final transition, and delivery ends the episode. Some examples add traffic, battery constraints, or failure penalties explicitly. This setting lets us reuse one intuition across many algorithms.
 
-```mermaid
-flowchart LR
-    S[Depot: start] -->|Move east: -1| J[Junction]
-    J -->|Safe route: -1| K[Residential street]
-    K -->|Deliver: +10| G[House: terminal]
-    J -->|Shortcut| U[Uncertain road]
-    U -->|Success: +10| G
-    U -->|Failure: -10| F[Breakdown: terminal]
-```
+![One parcel, two possible routes](assets/diagrams/delivery-robot.svg)
 
 The safe trajectory has rewards $[-1,-1,+10]$. The shortcut illustrates uncertainty; its probabilities and entry cost must be specified before calculating its expected return. The robot's challenge is to choose actions with good total outcomes, not merely avoid every immediate cost.
 
@@ -101,7 +97,7 @@ The safe trajectory has rewards $[-1,-1,+10]$. The shortcut illustrates uncertai
 | $p(s',r\mid s,a)$ | Joint next-state and reward probability |
 | $\gamma$ | Discount factor |
 | $G_t$ | Discounted return starting at time $t$ |
-| $V^\pi, Q^\pi, A^\pi$ | State value, action value, and advantage under $\pi$ |
+| $V^{\pi}, Q^{\pi}, A^{\pi}$ | State value, action value, and advantage under $\pi$ |
 | $\alpha$ | Learning rate: how far an estimate moves toward a target |
 | $\theta,w,\phi$ | Learned parameters of policies, values, or reward models |
 | $\lambda$ | Trace parameter used in GAE and related estimators |
@@ -115,39 +111,7 @@ Uppercase letters denote random variables; lowercase letters usually denote obse
 
 ## Course Roadmap
 
-```text
-Agent–Environment Loop
-        ↓
-       MDP
-        ↓
- Policies & Returns
-        ↓
- V, Q & Advantage
-        ↓
- Bellman Equations
-        ↓
-Dynamic Programming
-        ↓
- Monte Carlo / TD
-        ↓
- SARSA / Q-Learning
-        ↓
-Function Approximation
-        ↓
- DQN & Deep RL
-        ↓
-Policy Gradients
-        ↓
-Actor–Critic / GAE
-        ↓
- TRPO / PPO
-        ↓
-Offline & Model-Based RL
-        ↓
-RLHF / DPO / GRPO
-        ↓
-Reasoning, Multimodal RL & Agents
-```
+![Your path through reinforcement learning](assets/diagrams/course-roadmap.svg)
 
 <a id="who-this-course-is-for"></a>
 
@@ -186,23 +150,14 @@ Unlike supervised learning, the agent is not normally given the correct action f
 
 The basic interaction is:
 
-```text
-             action aₜ
-        ┌──────────────►
-        │
-   ┌────┴────┐       ┌─────────────┐
-   │  Agent  │       │ Environment │
-   └────▲────┘       └──────┬──────┘
-        │                   │
-        └──── sₜ₊₁,rₜ₊₁ ◄───┘
-```
+![Act, observe, and learn](assets/diagrams/agent-environment.svg)
 
 The central challenge is that an action can affect not only the immediate reward but also the states—and therefore rewards—the agent encounters later.
 
 A common objective is
 
 $$
-J(\pi)=\mathbb{E}_{\pi}\left[\sum_{t=0}^{\infty}\gamma^t R_{t+1}\right].
+J(\pi)=\mathbb{E}_{\pi}\left[\sum_{t=0}^{\infty}\gamma^{t} R_{t+1}\right].
 $$
 
 RL is therefore fundamentally about **sequential decision making under uncertainty**.
@@ -250,17 +205,7 @@ The abstraction matters because RL algorithms operate on these interactions rath
 
 At a junction, the robot observes its location and battery level, chooses “go east,” spends one unit of energy, and reaches another junction. That gives one transition $(s,a,r,s')$. An episode might run from parcel pickup until delivery or failure.
 
-```mermaid
-flowchart LR
-    S[Observe state or observation] --> A[Policy chooses action]
-    A --> E[Environment executes action]
-    E --> R[Receive reward and next observation]
-    R --> U[Update estimates during training]
-    U --> T{Episode ended?}
-    T -->|No| S
-    T -->|Yes| N[Reset for another episode]
-    N --> S
-```
+![From one step to the next episode](assets/diagrams/interaction-loop.svg)
 
 A **time step** is one interaction; an **episode** contains many steps; a **training run** usually contains many episodes. During evaluation, we normally freeze the learned parameters to measure the behavior we have learned.
 
@@ -396,7 +341,7 @@ For discrete actions, probabilities satisfy $\sum_a\pi(a|s)=1$ and $\pi(a|s)\geq
 Immediate reward alone is insufficient for long-horizon decisions. RL therefore defines the **return**:
 
 $$
-G_t=R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+\cdots.
+G_t=R_{t+1}+\gamma R_{t+2}+\gamma^{2}R_{t+3}+\cdots.
 $$
 
 Equivalently,
@@ -418,7 +363,7 @@ Discounting can encode time preference, help keep continuing-task returns finite
 Suppose the robot receives rewards $-1,-1,+10$ and then terminates. With $\gamma=0.9$:
 
 $$
-G_0=-1+0.9(-1)+0.9^2(10)=6.2.
+G_0=-1+0.9(-1)+0.9^{2}(10)=6.2.
 $$
 
 Working backward gives $G_2=10$, $G_1=-1+0.9(10)=8$, and $G_0=-1+0.9(8)=6.2$. This is why the recursive definition is useful in code.
@@ -446,7 +391,7 @@ Values compress potentially long future trajectories into a single expectation. 
 
 ### Value averages over possible futures
 
-Suppose following the current policy from a junction produces return $10$ half the time and $2$ half the time. Then $V^\pi(s)=6$. A value estimate of $6$ does not promise that any single delivery will earn exactly $6$.
+Suppose following the current policy from a junction produces return $10$ half the time and $2$ half the time. Then $V^{\pi}(s)=6$. A value estimate of $6$ does not promise that any single delivery will earn exactly $6$.
 
 **Analogy:** a city's average travel time describes what to expect, not the duration of every trip. Likewise, state value depends on both the environment and the policy: a skilled robot and an inexperienced robot can have different values for the same junction.
 
@@ -479,15 +424,15 @@ Q-learning and DQN build directly on this idea.
 
 ### Compare options at one junction
 
-Suppose $Q^\pi(s,\text{east})=8$ and $Q^\pi(s,\text{north})=3$. These values include the first chosen action and all subsequent behavior under $\pi$.
+Suppose $Q^{\pi}(s,\text{east})=8$ and $Q^{\pi}(s,\text{north})=3$. These values include the first chosen action and all subsequent behavior under $\pi$.
 
 The connection to state value is
 
 $$
-V^\pi(s)=\sum_a\pi(a|s)Q^\pi(s,a).
+V^{\pi}(s)=\sum_a\pi(a|s)Q^{\pi}(s,a).
 $$
 
-If the policy chooses each action equally often, $V^\pi(s)=5.5$. A greedy improvement would choose east. Greedy behavior with respect to an inaccurate estimate is not necessarily optimal, and greedifying $Q^\pi$ once need not produce the globally optimal policy.
+If the policy chooses each action equally often, $V^{\pi}(s)=5.5$. A greedy improvement would choose east. Greedy behavior with respect to an inaccurate estimate is not necessarily optimal, and greedifying $Q^{\pi}$ once need not produce the globally optimal policy.
 
 **Analogy:** $V$ rates your overall prospects at a junction; $Q$ rates the individual roads available there.
 
@@ -514,16 +459,16 @@ Advantages are central to modern policy-gradient algorithms because subtracting 
 
 ### Worked example: better than your usual choice
 
-Using the previous equal-probability policy, $V^\pi(s)=5.5$. Therefore:
+Using the previous equal-probability policy, $V^{\pi}(s)=5.5$. Therefore:
 
 $$
-A^\pi(s,\text{east})=8-5.5=2.5,\qquad
-A^\pi(s,\text{north})=3-5.5=-2.5.
+A^{\pi}(s,\text{east})=8-5.5=2.5,\qquad
+A^{\pi}(s,\text{north})=3-5.5=-2.5.
 $$
 
 North still has positive expected return, but it is worse than this policy's average choice. That distinction matters when improving behavior.
 
-**Analogy:** scoring 70 on an exam means something different when your expected score was 50 versus 90. Advantage measures performance relative to expectation. For the exact value functions, $\sum_a\pi(a|s)A^\pi(s,a)=0$; sampled or approximate advantages need not average to exactly zero.
+**Analogy:** scoring 70 on an exam means something different when your expected score was 50 versus 90. Advantage measures performance relative to expectation. For the exact value functions, $\sum_a\pi(a|s)A^{\pi}(s,a)=0$; sampled or approximate advantages need not average to exactly zero.
 
 ---
 
@@ -547,13 +492,7 @@ $$
 
 Conceptually:
 
-```text
-Value now
-   =
-Immediate reward
-   +
-Discounted value of what comes next
-```
+![A long future, one step at a time](assets/diagrams/bellman-decomposition.svg)
 
 This recursive structure is the foundation of dynamic programming and temporal-difference learning.
 
@@ -566,11 +505,11 @@ $$
 -1+0.9[0.75(8)+0.25(4)]=5.3.
 $$
 
-For $V^\pi$, also average these action-specific targets using the policy's action probabilities. For $Q^\pi$, fix the first action and average subsequent actions under the policy:
+For $V^{\pi}$, also average these action-specific targets using the policy's action probabilities. For $Q^{\pi}$, fix the first action and average subsequent actions under the policy:
 
 $$
-Q^\pi(s,a)=\sum_{s',r}p(s',r|s,a)
-\left[r+\gamma\sum_{a'}\pi(a'|s')Q^\pi(s',a')\right].
+Q^{\pi}(s,a)=\sum_{s',r}p(s',r|s,a)
+\left[r+\gamma\sum_{a'}\pi(a'|s')Q^{\pi}(s',a')\right].
 $$
 
 **Analogy:** the remaining travel time equals time to the next junction plus remaining travel time from there. Bellman equations express this consistency for expected discounted reward.
@@ -584,19 +523,19 @@ $$
 For the optimal value function:
 
 $$
-V^*(s)=\max_a \mathbb{E}\left[R_{t+1}+\gamma V^*(S_{t+1})|S_t=s,A_t=a\right].
+V^{*}(s)=\max_a \mathbb{E}\left[R_{t+1}+\gamma V^{*}(S_{t+1})|S_t=s,A_t=a\right].
 $$
 
 For action values:
 
 $$
-Q^*(s,a)=\mathbb{E}\left[R_{t+1}+\gamma\max_{a'}Q^*(S_{t+1},a')\right].
+Q^{*}(s,a)=\mathbb{E}\left[R_{t+1}+\gamma\max_{a'}Q^{*}(S_{t+1},a')\right].
 $$
 
-Once $Q^*$ is known, an optimal action can be selected greedily:
+Once $Q^{*}$ is known, an optimal action can be selected greedily:
 
 $$
-a^*=\arg\max_a Q^*(s,a).
+a^{*}=\arg\max_a Q^{*}(s,a).
 $$
 
 The difference from the expectation equation is crucial: evaluation asks what happens **under a policy**; optimality asks what happens when future choices are optimal.
@@ -606,15 +545,7 @@ The difference from the expectation equation is crucial: evaluation asks what ha
 
 The agent controls its action but cannot choose which random outcome occurs. That is why the maximum goes over actions while an expectation remains over next states and rewards.
 
-```mermaid
-flowchart TD
-    S[Current state] --> A[Action east]
-    S --> B[Action north]
-    A --> AO[Average over possible east outcomes]
-    B --> BO[Average over possible north outcomes]
-    AO --> M[Choose the larger expected target]
-    BO --> M
-```
+![Average outcomes, then choose an action](assets/diagrams/bellman-optimality.svg)
 
 **Analogy:** choose the route with the best expected travel result, not the route whose luckiest possible traffic conditions are best. For finite discounted MDPs, Bellman optimality has a unique value-function solution, although several actions can tie for optimality.
 
@@ -628,18 +559,7 @@ Dynamic Programming (DP) solves MDPs when the environment model is known.
 
 The key operation is a **Bellman backup**:
 
-```text
-       current state
-            │
-       possible actions
-        /    |    \
-       ↓     ↓     ↓
-   possible next states
-        \    |    /
-         future values
-              ↓
-      update current value
-```
+![A Bellman backup with a known model](assets/diagrams/dynamic-programming.svg)
 
 DP is rarely the final solution for huge modern environments because exact dynamics and full state sweeps are often unavailable. But it provides the conceptual blueprint for much of RL.
 
@@ -660,7 +580,7 @@ A full backup enumerates outcomes, computes reward plus discounted next-state va
 
 ## 13. Policy Evaluation
 
-Policy evaluation estimates $V^\pi$ for a fixed policy.
+Policy evaluation estimates $V^{\pi}$ for a fixed policy.
 
 An iterative update is
 
@@ -668,7 +588,7 @@ $$
 V_{k+1}(s)\leftarrow\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma V_k(s')].
 $$
 
-Repeated Bellman expectation backups converge to $V^\pi$ under standard finite discounted-MDP assumptions.
+Repeated Bellman expectation backups converge to $V^{\pi}$ under standard finite discounted-MDP assumptions.
 
 This gives us the first half of a powerful pattern:
 
@@ -691,10 +611,10 @@ If the first trip segment costs $1$ and leads deterministically to a state curre
 
 ## 14. Policy Improvement
 
-Suppose we know $V^\pi$. We can improve the policy by choosing actions that look better according to one-step lookahead:
+Suppose we know $V^{\pi}$. We can improve the policy by choosing actions that look better according to one-step lookahead:
 
 $$
-\pi'(s)=\arg\max_a\sum_{s',r}p(s',r|s,a)[r+\gamma V^\pi(s')].
+\pi'(s)=\arg\max_a\sum_{s',r}p(s',r|s,a)[r+\gamma V^{\pi}(s')].
 $$
 
 The policy improvement theorem explains why a policy constructed greedily with respect to the current value function is at least as good as the original policy under the usual assumptions.
@@ -704,9 +624,9 @@ This creates the evaluation–improvement loop at the heart of many RL algorithm
 
 ### Why the improvement is justified
 
-For each state, calculate the expected reward plus discounted $V^\pi$ for every action. The largest of these numbers is at least their average under $\pi$. Consequently, choosing a maximizing action gives $Q^\pi(s,\pi'(s))\geq V^\pi(s)$.
+For each state, calculate the expected reward plus discounted $V^{\pi}$ for every action. The largest of these numbers is at least their average under $\pi$. Consequently, choosing a maximizing action gives $Q^{\pi}(s,\pi'(s))\geq V^{\pi}(s)$.
 
-With exact evaluation in the standard discounted setting, repeatedly using those improved choices yields $V^{\pi'}(s)\geq V^\pi(s)$ for every state. Approximate learned values can misrank actions, so this guarantee does not automatically transfer to neural-network training.
+With exact evaluation in the standard discounted setting, repeatedly using those improved choices yields $V^{\pi'}(s)\geq V^{\pi}(s)$ for every state. Approximate learned values can misrank actions, so this guarantee does not automatically transfer to neural-network training.
 
 **Analogy:** improve the courier's instructions one junction at a time using an accurate assessment of the existing plan. When actions tie, use a consistent tie-breaking rule to avoid unnecessary policy changes.
 
@@ -718,19 +638,7 @@ With exact evaluation in the standard discounted setting, repeatedly using those
 
 Policy iteration alternates:
 
-```text
-Initialize policy π
-       ↓
-Policy Evaluation
-       ↓
-Policy Improvement
-       ↓
-Is policy stable? ── No ──┐
-       │                  │
-      Yes                 └── repeat
-       ↓
-Optimal policy
-```
+![Evaluate a policy, then improve it](assets/diagrams/policy-iteration.svg)
 
 It exposes a recurring RL pattern: **prediction + control**.
 
@@ -835,13 +743,7 @@ $$
 
 contains an existing estimate. This is called **bootstrapping**.
 
-```text
-Monte Carlo       Dynamic Programming
-experience              bootstrap
-      \                   /
-       \                 /
-        Temporal Difference
-```
+![TD combines sampling and bootstrapping](assets/diagrams/td-learning.svg)
 
 TD can learn before an episode ends and is one of the most important ideas in RL.
 
@@ -931,20 +833,7 @@ For the same next-state values $8$ and $2$, Q-learning's target is $-1+0.9\max(8
 
 **Analogy:** test unfamiliar restaurants to gather information while keeping a separate estimate of the best known dining choice. With $n$ actions and uniform random exploration, the unique greedy action is selected with probability $1-\epsilon+\epsilon/n$.
 
-```mermaid
-flowchart TD
-    S[Observe state] --> E{Explore?}
-    E -->|Probability epsilon| R[Choose a random action]
-    E -->|Otherwise| G[Choose a greedy action]
-    R --> X[Execute action and observe transition]
-    G --> X
-    X --> T[Target: reward plus discounted maximum next Q]
-    T --> U[Move current Q toward target]
-    U --> D{True terminal state?}
-    D -->|No| S
-    D -->|Yes| N[Start next episode]
-    N --> S
-```
+![Explore with behavior; learn a greedy target](assets/diagrams/q-learning.svg)
 
 The diagram's next-Q term is zero at termination. Tabular convergence requires sufficient state-action coverage and suitable decreasing step sizes; it is not guaranteed just by using the update equation. Exploration that decays too quickly can leave useful actions undiscovered.
 
@@ -996,13 +885,13 @@ with a neural network.
 A typical squared TD objective is
 
 $$
-L(\theta)=\mathbb{E}\left[(y-Q(s,a;\theta))^2\right]
+L(\theta)=\mathbb{E}\left[(y-Q(s,a;\theta))^{2}\right]
 $$
 
 with target
 
 $$
-y=r+\gamma\max_{a'}Q(s',a';\theta^-).
+y=r+\gamma\max_{a'}Q(s',a';\theta^{-}).
 $$
 
 DQN demonstrated that value-based RL could learn useful policies directly from high-dimensional observations when combined with stabilization techniques.
@@ -1013,7 +902,7 @@ DQN demonstrated that value-based RL could learn useful policies directly from h
 For a small discrete action set, the network takes a state and outputs one Q-value per action. The selected action's prediction is trained toward a detached target:
 
 $$
-y=r+\gamma(1-d)\max_{a'}Q(s',a';\theta^-),
+y=r+\gamma(1-d)\max_{a'}Q(s',a';\theta^{-}),
 $$
 
 where $d=1$ means true termination. Detaching means that the target is treated as constant when differentiating the loss. A Huber loss is also commonly used to reduce sensitivity to large TD errors.
@@ -1048,15 +937,7 @@ Replay also makes the data distribution partly off-policy because stored transit
 
 ### How replay is used
 
-```mermaid
-flowchart LR
-    P[Behavior policy] --> E[Environment]
-    E --> B[Replay buffer of transitions]
-    B --> M[Sample random minibatch]
-    M --> L[Compute TD loss]
-    L --> Q[Update online Q-network]
-    Q --> P
-```
+![Reuse experience in shuffled minibatches](assets/diagrams/experience-replay.svg)
 
 **Analogy:** shuffle practice questions instead of repeatedly studying adjacent pages. Minibatches become less temporally correlated, but replay does not make the underlying experience perfectly independent or eliminate distribution shift.
 
@@ -1070,10 +951,10 @@ Buffer capacity determines how long experiences remain available. Too small a bu
 
 If the same rapidly changing network predicts both the current Q-value and its bootstrap target, the target itself moves during optimization.
 
-DQN therefore maintains a target network $\theta^-$:
+DQN therefore maintains a target network $\theta^{-}$:
 
 $$
-y=r+\gamma\max_{a'}Q(s',a';\theta^-).
+y=r+\gamma\max_{a'}Q(s',a';\theta^{-}).
 $$
 
 The target parameters are periodically copied or slowly updated from the online network.
@@ -1085,10 +966,10 @@ Together, **experience replay + target networks** address two major sources of i
 
 ### Hold the measuring stick steady
 
-For a hard update, periodically set $\theta^-\leftarrow\theta$. A soft update instead uses
+For a hard update, periodically set $\theta^{-}\leftarrow\theta$. A soft update instead uses
 
 $$
-\theta^-\leftarrow(1-\tau)\theta^-+\tau\theta,
+\theta^{-}\leftarrow(1-\tau)\theta^{-}+\tau\theta,
 $$
 
 where a small $\tau\in(0,1]$ makes the target change slowly.
@@ -1119,7 +1000,7 @@ The policy-gradient theorem gives a gradient of the form
 
 $$
 \nabla_\theta J(\theta)\propto
-\mathbb{E}\left[\nabla_\theta\log\pi_\theta(A_t|S_t)Q^\pi(S_t,A_t)\right].
+\mathbb{E}\left[\nabla_\theta\log\pi_\theta(A_t|S_t)Q^{\pi}(S_t,A_t)\right].
 $$
 
 This formulation naturally supports stochastic policies and large or continuous action spaces.
@@ -1131,7 +1012,7 @@ The likelihood-ratio identity $\nabla_\theta p_\theta=p_\theta\nabla_\theta\log 
 
 **Analogy:** increase the chance of choosing a route when evidence says it produces better outcomes. The update changes the probability distribution over actions, not the action that already occurred.
 
-The expectation in a policy-gradient formula must use the appropriate policy-induced state distribution. For the discounted episodic objective defined earlier, an explicit trajectory estimator includes $\gamma^tG_t$ at time $t$; equivalent theorem statements may absorb discount weights into a discounted visitation distribution. This convention matters when translating notation into code.
+The expectation in a policy-gradient formula must use the appropriate policy-induced state distribution. For the discounted episodic objective defined earlier, an explicit trajectory estimator includes $\gamma^{t}G_t$ at time $t$; equivalent theorem statements may absorb discount weights into a discounted visitation distribution. This convention matters when translating notation into code.
 
 ---
 
@@ -1142,7 +1023,7 @@ The expectation in a policy-gradient formula must use the appropriate policy-ind
 REINFORCE is a Monte Carlo policy-gradient algorithm:
 
 $$
-\theta\leftarrow\theta+\alpha\gamma^t G_t\nabla_\theta\log\pi_\theta(A_t|S_t).
+\theta\leftarrow\theta+\alpha\gamma^{t} G_t\nabla_\theta\log\pi_\theta(A_t|S_t).
 $$
 
 Intuitively:
@@ -1167,7 +1048,7 @@ Choosing $b(S_t)=V(S_t)$ leads naturally toward advantage-based actor–critic m
 For a finite episode and the discounted start-state objective, one estimator is
 
 $$
-\hat g=\sum_{t=0}^{T-1}\gamma^t
+\hat g=\sum_{t=0}^{T-1}\gamma^{t}
 \nabla_\theta\log\pi_\theta(A_t|S_t)[G_t-b(S_t)].
 $$
 
@@ -1185,17 +1066,7 @@ A state-only baseline preserves the expected gradient because $\sum_a\pi(a|s)\na
 
 Actor–critic methods combine two learners:
 
-```text
-                 ┌───────────┐
-        state ──►│   Actor   │──► action
-                 │  πθ(a|s)  │
-                 └─────▲─────┘
-                       │ advantage / TD signal
-                 ┌─────┴─────┐
-                 │  Critic   │
-                 │ Vw or Qw  │
-                 └───────────┘
-```
+![The actor chooses; the critic evaluates](assets/diagrams/actor-critic.svg)
 
 The **actor** changes the policy. The **critic** estimates value information used to judge the actor's actions.
 
@@ -1248,7 +1119,7 @@ This separation improves learning efficiency and reduces policy-gradient varianc
 
 Suppose the critic predicts value $5$, but reward plus discounted next value is $6.2$. The estimated advantage is $+1.2$, so the sampled action receives a positive policy-gradient weight. The critic also moves its prediction toward $6.2$.
 
-With the exact $V^\pi$, the expected one-step TD error conditioned on $(s,a)$ equals $A^\pi(s,a)$. With an approximate critic, it can be biased. A multi-step target uses more observed rewards before bootstrapping and offers another trade-off.
+With the exact $V^{\pi}$, the expected one-step TD error conditioned on $(s,a)$ equals $A^{\pi}(s,a)$. With an approximate critic, it can be biased. A multi-step target uses more observed rewards before bootstrapping and offers another trade-off.
 
 **A2C** usually refers to a synchronous advantage actor–critic implementation that collects batches from several environments before updating. **A3C** uses asynchronous workers. The broader actor–critic idea does not require either execution pattern.
 
@@ -1261,7 +1132,7 @@ With the exact $V^\pi$, the expected one-step TD error conditioned on $(s,a)$ eq
 Generalized Advantage Estimation (GAE) balances bias and variance by combining multi-step TD residuals:
 
 $$
-\hat A_t^{GAE(\gamma,\lambda)}=\sum_{l=0}^{\infty}(\gamma\lambda)^l\delta_{t+l}.
+\hat A_t^{GAE(\gamma,\lambda)}=\sum_{l=0}^{\infty}(\gamma\lambda)^{l}\delta_{t+l}.
 $$
 
 where
@@ -1342,7 +1213,7 @@ The clipped objective is
 $$
 L^{CLIP}(\theta)=\mathbb{E}\left[
 \min\left(r_t(\theta)\hat A_t,
-\operatorname{clip}(r_t(\theta),1-\epsilon,1+\epsilon)\hat A_t\right)
+\mathrm{clip}(r_t(\theta),1-\epsilon,1+\epsilon)\hat A_t\right)
 \right].
 $$
 
@@ -1359,16 +1230,7 @@ Let $\hat A_t=2$ and the clipping width be $0.2$. If the probability ratio rises
 
 Clipping removes an incentive in the surrogate; it does **not** enforce a hard bound on every probability ratio or guarantee a KL limit. See the original [PPO paper](https://arxiv.org/abs/1707.06347).
 
-```mermaid
-flowchart TD
-    O[Freeze old policy snapshot] --> R[Collect rollout using old policy]
-    R --> A[Compute returns and GAE advantages]
-    A --> M[Run several minibatch update epochs]
-    M --> L[Clipped actor objective plus critic loss and entropy bonus]
-    L --> U[Update current parameters]
-    U --> F[Refresh snapshot and collect fresh rollout]
-    F --> R
-```
+![PPO alternates collection and improvement](assets/diagrams/ppo-training.svg)
 
 Keep old log probabilities and advantage targets fixed during each update batch. PPO reuses a recent rollout for several epochs; indefinitely recycling an old replay buffer changes this training setup.
 
@@ -1442,17 +1304,7 @@ $$
 
 and then plans through predicted futures.
 
-```text
-Real experience
-      ↓
-Learn world model
-      ↓
-Imagine future trajectories
-      ↓
-Plan / improve policy
-      ↓
-Take better actions
-```
+![Learn in the world; plan with a model](assets/diagrams/world-model.svg)
 
 The attraction is data efficiency and planning capability. The danger is **model error**: planning can exploit inaccuracies in the learned model.
 
@@ -1461,14 +1313,7 @@ The attraction is data efficiency and planning capability. The danger is **model
 
 **Analogy:** practice deliveries inside a simulator before spending battery on real roads. A Dyna-style learner combines updates from real transitions with updates from simulated transitions. Model predictive control instead plans a short action sequence, executes its first action, observes the real outcome, and replans.
 
-```mermaid
-flowchart LR
-    E[Real environment] --> D[Observed transitions]
-    D --> M[Fit dynamics and reward model]
-    M --> P[Simulate candidate futures]
-    P --> A[Choose action or improve policy]
-    A --> E
-```
+![Close the loop with real feedback](assets/diagrams/model-based-loop.svg)
 
 Errors compound over long imagined trajectories. A planner may discover actions that look excellent in the model but fail in reality. Shorter planning horizons, frequent replanning, and model uncertainty estimates can help. A world model can predict latent representations rather than raw pixels; model-based RL is defined by using predicted dynamics for planning or learning.
 
@@ -1518,19 +1363,7 @@ RLHF aligns a model's behavior with human preferences rather than relying only o
 
 A classic pipeline is:
 
-```text
-Pretrained model
-      ↓
-Supervised fine-tuning
-      ↓
-Human preference data
-      ↓
-Reward model
-      ↓
-RL optimization (e.g. PPO)
-      ↓
-Preference-optimized policy
-```
+![From demonstrations to preference feedback](assets/diagrams/rlhf-pipeline.svg)
 
 In one common formulation, a reward model learns from comparisons between responses, and the language-model policy is optimized against that learned reward while being regularized against excessive drift from a reference model.
 
@@ -1608,15 +1441,7 @@ For preferred $y_w$ and rejected $y_l$, DPO favors a larger log-likelihood margi
 
 Conceptually:
 
-```text
-Preference pairs
-     ↓
-Preferred vs rejected response
-     ↓
-Direct policy objective
-     ↓
-Updated language model
-```
+![Learn directly from preferred and rejected pairs](assets/diagrams/dpo-pipeline.svg)
 
 DPO is best understood as **preference optimization**, not as a drop-in replacement for every RL problem. It is particularly useful when pairwise preference data are available and online environment interaction is unnecessary.
 
@@ -1646,21 +1471,7 @@ Group Relative Policy Optimization (GRPO) is a policy-optimization approach used
 
 A simplified intuition is:
 
-```text
-                Prompt
-                  │
-        ┌─────────┼─────────┐
-        ↓         ↓         ↓
-     Output 1  Output 2  ... Output G
-        │         │             │
-        ↓         ↓             ↓
-      reward    reward        reward
-        └─────────┬─────────────┘
-                  ↓
-          group-relative signal
-                  ↓
-             policy update
-```
+![Compare several attempts at the same prompt](assets/diagrams/grpo-training.svg)
 
 This is attractive for reasoning tasks where many candidate solutions can be sampled and scored using verifiable or learned rewards.
 
@@ -1674,8 +1485,8 @@ Modern reasoning RL raises deeper questions than simply maximizing final-answer 
 For sampled responses with rewards $[0,1,1,0]$, the mean is $0.5$ and population standard deviation is $0.5$. The normalized sequence-level signals are approximately $[-1,+1,+1,-1]$:
 
 $$
-\hat A_i=\frac{r_i-\operatorname{mean}(r_1,\ldots,r_G)}
-{\operatorname{std}(r_1,\ldots,r_G)+\varepsilon}.
+\hat A_i=\frac{r_i-\mathrm{mean}(r_1,\ldots,r_G)}
+{\mathrm{std}(r_1,\ldots,r_G)+\varepsilon}.
 $$
 
 **Analogy:** compare several attempts at the same puzzle so that feedback is relative to that puzzle's difficulty. If all rewards are equal, this signal is zero; the group offers no reward-based ranking.
@@ -1728,26 +1539,7 @@ A high reward does not imply that every path to it is acceptable. Real agents of
 
 A useful conceptual architecture is:
 
-```text
-             Multimodal observations
-      text / image / tools / memory
-                     │
-                     ▼
-             ┌───────────────┐
-             │  AI Policy    │
-             │  / Agent      │
-             └───────┬───────┘
-                     │ action
-                     ▼
-             ┌───────────────┐
-             │ Environment   │
-             │ tools / world │
-             └───────┬───────┘
-                     │
-          observation + feedback
-                     │
-                     └────────────► next step
-```
+![A tool-using agent learns across many steps](assets/diagrams/multimodal-agent.svg)
 
 The core RL problem remains recognizable: **learn which actions produce desirable long-term outcomes**. What changes is the scale and richness of the state, action, feedback, and environment.
 
@@ -1771,8 +1563,8 @@ Evaluate successful completion, failures, and cost on held-out tasks. Process re
 | Method | Main thing learned | Data or model needed | Target intuition |
 |---|---|---|---|
 | Policy/value iteration | Tabular values and greedy policy | Known transition and reward model | Average all modeled outcomes |
-| Monte Carlo prediction | $V^\pi$ or $Q^\pi$ | Episodes from the evaluated policy, or appropriate correction | Complete sampled return |
-| TD(0) prediction | $V^\pi$ | Transitions under the evaluated policy | Reward plus next-state value |
+| Monte Carlo prediction | $V^{\pi}$ or $Q^{\pi}$ | Episodes from the evaluated policy, or appropriate correction | Complete sampled return |
+| TD(0) prediction | $V^{\pi}$ | Transitions under the evaluated policy | Reward plus next-state value |
 | SARSA | Action values for the behavior policy | On-policy transitions and next actions | Reward plus chosen next-action value |
 | Q-learning | Optimal action values in the tabular setting | Exploratory transitions with sufficient coverage | Reward plus maximum next-action value |
 | DQN | Neural action values | Off-policy transitions, usually replay | Detached target-network bootstrap |
@@ -1852,31 +1644,31 @@ Do not skip the classical material: PPO, RLHF, and reasoning RL become much easi
 ### Return
 
 $$
-G_t=\sum_{k=0}^{\infty}\gamma^kR_{t+k+1}
+G_t=\sum_{k=0}^{\infty}\gamma^{k}R_{t+k+1}
 $$
 
 ### State Value
 
 $$
-V^\pi(s)=\mathbb{E}_\pi[G_t|S_t=s]
+V^{\pi}(s)=\mathbb{E}_\pi[G_t|S_t=s]
 $$
 
 ### Action Value
 
 $$
-Q^\pi(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=a]
+Q^{\pi}(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=a]
 $$
 
 ### Advantage
 
 $$
-A^\pi(s,a)=Q^\pi(s,a)-V^\pi(s)
+A^{\pi}(s,a)=Q^{\pi}(s,a)-V^{\pi}(s)
 $$
 
 ### Bellman Expectation
 
 $$
-V^\pi(s)=\mathbb{E}_\pi[R_{t+1}+\gamma V^\pi(S_{t+1})|S_t=s]
+V^{\pi}(s)=\mathbb{E}_\pi[R_{t+1}+\gamma V^{\pi}(S_{t+1})|S_t=s]
 $$
 
 ### Q-Learning
@@ -1894,7 +1686,7 @@ $$
 ### GAE
 
 $$
-\hat A_t=\sum_{l=0}^{\infty}(\gamma\lambda)^l\delta_{t+l}
+\hat A_t=\sum_{l=0}^{\infty}(\gamma\lambda)^{l}\delta_{t+l}
 $$
 
 ### PPO Ratio
@@ -1954,7 +1746,7 @@ For fast-moving topics such as reasoning RL and GRPO, prefer the original model 
 
 # Repository Structure
 
-The current workspace contains this `README.md`. The structure below is a **proposed layout** for future course materials; the other files and directories are not yet included.
+The current workspace contains `README.md`, the course banner in `assets/course-banner.png`, and the SVG diagrams with their generator in `assets/diagrams/`. The notebooks, exercises, dependency file, and standalone license file below are a **proposed layout** and are not yet included.
 
 ```text
 reinforcement-learning-course/
@@ -1970,7 +1762,8 @@ reinforcement-learning-course/
 │   └── 07_preference_and_grpo.ipynb
 │
 ├── assets/
-│   └── diagrams/
+│   ├── course-banner.png
+│   └── diagrams/             # SVG images and generate_diagrams.py
 │
 ├── exercises/
 │   └── exercises.md
