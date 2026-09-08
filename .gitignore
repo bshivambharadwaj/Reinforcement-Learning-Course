@@ -1,0 +1,26 @@
+# Local environments and Python/Jupyter caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Local authoring and content-generation resources
+/tools/
+/assets/diagrams/generate_diagrams.py
+/assets/equations/generate_equations.py
+/assets/equations/equations.json
+/assets/STYLE.md
+/assets/banner-prompt.txt
+/.agents/
+/.codex/
+
+# Editor settings, credentials, and operating-system files
+/.vscode/
+/.idea/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

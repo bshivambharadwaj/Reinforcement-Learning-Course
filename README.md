@@ -577,7 +577,7 @@ The key operation is a **Bellman backup**:
 
 DP is rarely the final solution for huge modern environments because exact dynamics and full state sweeps are often unavailable. But it provides the conceptual blueprint for much of RL.
 
-**Planned notebook:** `notebooks/01_mdp_dynamic_programming.ipynb`
+**Notebook:** [01_mdp_dynamic_programming](notebooks/01_mdp_dynamic_programming.ipynb)
 
 
 ### What having a model means
@@ -691,7 +691,7 @@ Once values converge, derive the greedy policy.
 
 Policy iteration performs more explicit evaluation between improvements; value iteration performs frequent improvement with shorter evaluation. Both are manifestations of **generalized policy iteration**.
 
-**Planned notebook:** `notebooks/01_mdp_dynamic_programming.ipynb`
+**Notebook:** [01_mdp_dynamic_programming](notebooks/01_mdp_dynamic_programming.ipynb)
 
 
 ### Compare the two DP algorithms
@@ -765,7 +765,7 @@ contains an existing estimate. This is called **bootstrapping**.
 
 TD can learn before an episode ends and is one of the most important ideas in RL.
 
-**Planned notebook:** `notebooks/02_mc_vs_td.ipynb`
+**Notebook:** [02_mc_vs_td](notebooks/02_mc_vs_td.ipynb)
 
 
 ### A numerical TD update
@@ -842,7 +842,7 @@ A common exploration strategy is ε-greedy:
 
 This introduces the **exploration–exploitation trade-off**: use what we know, or gather information that may improve future decisions?
 
-**Planned notebook:** `notebooks/03_q_learning.ipynb`
+**Notebook:** [03_q_learning](notebooks/03_q_learning.ipynb)
 
 
 ### Q-learning learns a greedy target while exploring
@@ -983,7 +983,7 @@ The target parameters are periodically copied or slowly updated from the online 
 
 Together, **experience replay + target networks** address two major sources of instability in deep Q-learning.
 
-**Planned notebook:** `notebooks/04_dqn.ipynb`
+**Notebook:** [04_dqn](notebooks/04_dqn.ipynb)
 
 
 ### Hold the measuring stick steady
@@ -1062,7 +1062,7 @@ Its weakness is high variance. A baseline can reduce variance:
 
 Choosing b(S<sub>t</sub>)=V(S<sub>t</sub>) leads naturally toward advantage-based actor–critic methods.
 
-**Planned notebook:** `notebooks/05_policy_gradient.ipynb`
+**Notebook:** [05_policy_gradient](notebooks/05_policy_gradient.ipynb)
 
 
 ### A complete REINFORCE update
@@ -1245,7 +1245,7 @@ The clipping mechanism discourages excessively large policy changes.
 
 PPO became influential because it combines strong empirical performance with a relatively simple optimization procedure and later became a major algorithm in RLHF pipelines.
 
-**Planned notebook:** `notebooks/06_ppo.ipynb`
+**Notebook:** [06_ppo](notebooks/06_ppo.ipynb)
 
 
 ### What clipping does
@@ -1513,7 +1513,7 @@ This is attractive for reasoning tasks where many candidate solutions can be sam
 
 Modern reasoning RL raises deeper questions than simply maximizing final-answer correctness: how should intermediate reasoning, efficiency, exploration, tool use, and robustness be rewarded without teaching the model to exploit the evaluator?
 
-**Planned notebook:** `notebooks/07_preference_and_grpo.ipynb`
+**Notebook:** [07_preference_and_grpo](notebooks/07_preference_and_grpo.ipynb)
 
 
 ### A group-relative advantage example
@@ -1622,17 +1622,33 @@ Offline and model-based RL are broad settings or method families, not single upd
 
 # Practical Track
 
-The following notebooks are a **proposed practical track**; they are not included in the current workspace. Each planned notebook connects several concepts. You can work through the numerical examples in this README now.
+These seven self-contained notebooks connect the theory to working experiments. Each includes explanations, analogies, diagrams, reproducible code, saved result plots, correctness checks, and exercises with hints. The classical lessons use NumPy; the neural-network lessons use small CPU-only PyTorch models. No datasets, pretrained models, or API keys are needed.
 
 | Notebook | Concepts |
 |---|---|
-| `01_mdp_dynamic_programming.ipynb` | MDP, Bellman equations, policy evaluation, policy iteration, value iteration |
-| `02_mc_vs_td.ipynb` | Monte Carlo, TD learning, bias/variance intuition |
-| `03_q_learning.ipynb` | SARSA, Q-learning, epsilon-greedy exploration |
-| `04_dqn.ipynb` | Function approximation, replay buffer, target network, DQN |
-| `05_policy_gradient.ipynb` | REINFORCE, baselines, policy gradients |
-| `06_ppo.ipynb` | Actor–critic, GAE, PPO clipping |
-| `07_preference_and_grpo.ipynb` | Preference data, relative rewards, simplified modern post-training concepts |
+| [01 — MDP and Dynamic Programming](notebooks/01_mdp_dynamic_programming.ipynb) | Grid-world MDP, Bellman equations, policy evaluation, policy iteration, value iteration |
+| [02 — Monte Carlo versus TD](notebooks/02_mc_vs_td.ipynb) | Random-walk prediction, first-visit MC, TD(0), bias and variance |
+| [03 — SARSA and Q-learning](notebooks/03_q_learning.ipynb) | Cliff walking, on-policy and off-policy learning, epsilon-greedy exploration |
+| [04 — DQN](notebooks/04_dqn.ipynb) | Neural Q-values, replay buffer, target network, terminal masking |
+| [05 — Policy Gradients](notebooks/05_policy_gradient.ipynb) | REINFORCE, discounted returns, action-independent baselines |
+| [06 — PPO](notebooks/06_ppo.ipynb) | Actor–critic, vectorized rollouts, GAE, clipping, KL monitoring |
+| [07 — Preferences and GRPO](notebooks/07_preference_and_grpo.ipynb) | Synthetic preferences, reward modeling, DPO, simplified group-relative policy updates |
+
+### Run the notebooks
+
+Use **Python 3.10 or newer**. From the repository root:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m ipykernel install --sys-prefix --name python3 --display-name "Python (RL Course)"
+jupyter lab
+```
+
+On Windows PowerShell, replace the activation command with `.venv\Scripts\Activate.ps1`. Open a notebook and select the **Python (RL Course)** kernel. Choose **Restart Kernel and Run All Cells** to reproduce the experiment from scratch. Work through notebooks 01–07 in order; each also runs independently. GitHub displays the saved outputs without installing anything.
+
+The examples use seeded runs and small environments so they can finish on a CPU. Exact training curves can vary across dependency versions. Notebook 07 uses a finite set of synthetic responses to explain post-training objectives; it does not train a language model.
 
 ---
 
@@ -1651,7 +1667,7 @@ The following notebooks are a **proposed practical track**; they are not include
 | 30–32 | Use PPO ratio 1.4, advantage 2, width 0.2 | Clipped surrogate contribution 2.4 |
 | 33–40 | Define a tool agent's observations, actions, episode, and scoring rule | Separate task success from a proxy score and specify missing information |
 
-When implementing the planned notebooks, begin with a tiny environment whose values you can compute by hand. Track episode return, success rate, and episode length; evaluate with fixed parameters on separate episodes and use multiple random seeds before drawing performance conclusions.
+When extending these notebooks, begin with a tiny environment whose values you can compute by hand. Track episode return, success rate, and episode length; evaluate with fixed parameters on separate episodes and use multiple random seeds before drawing performance conclusions.
 
 ---
 
@@ -1661,11 +1677,11 @@ When implementing the planned notebooks, begin with a tiny environment whose val
 
 ### Path A — New to RL
 
-Read Topics **1–20** in order, then implement the planned exercises for notebooks 1–3.
+Read Topics **1–20** in order, then complete notebooks 1–3 and their exercises.
 
 ### Path B — ML Engineer Moving Into Deep RL
 
-Review Topics **3, 7–11, 17–20**, then study **21–32** and the planned exercises for notebooks 4–6.
+Review Topics **3, 7–11, 17–20**, then study **21–32** and complete notebooks 4–6 and their exercises.
 
 ### Path C — LLM / Agent Engineer
 
@@ -1784,7 +1800,7 @@ For fast-moving topics such as reasoning RL and GRPO, prefer the original model 
 
 # Repository Structure
 
-The current workspace contains `README.md`, the MIT `LICENSE`, the course banner in `assets/course-banner.png`, the SVG diagrams with their generator in `assets/diagrams/`, and equation images with editable LaTeX in `assets/equations/`. The notebooks, exercises, and dependency file below are a **proposed layout** and are not yet included.
+The repository includes seven executable notebooks with saved outputs and setup dependencies. Exercises appear in this README and inside each notebook. Rendered diagrams and equations are included so the course displays without running generation tools.
 
 ```text
 reinforcement-learning-course/
@@ -1801,11 +1817,8 @@ reinforcement-learning-course/
 │
 ├── assets/
 │   ├── course-banner.png
-│   ├── diagrams/             # SVG images and generate_diagrams.py
-│   └── equations/            # SVG equations, LaTeX JSON, and generator
-│
-├── exercises/
-│   └── exercises.md
+│   ├── diagrams/             # Rendered SVG diagrams
+│   └── equations/            # Rendered SVG equations
 │
 ├── requirements.txt
 └── LICENSE
@@ -1821,7 +1834,7 @@ reinforcement-learning-course/
 
 **2. Classical RL before modern post-training.** Modern methods make more sense when Bellman equations, TD learning, advantages, and policy gradients are understood first.
 
-**3. Implementation only where it teaches something.** The proposed practical track uses a small number of focused notebooks rather than turning every concept into repetitive code.
+**3. Implementation only where it teaches something.** The practical track uses a small number of focused notebooks rather than turning every concept into repetitive code.
 
 **4. Connect theory to current AI systems.** RL is presented not only as game-playing theory but as a foundation for reasoning models, preference optimization, multimodal systems, and agents.
 
