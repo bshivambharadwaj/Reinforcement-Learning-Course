@@ -1852,7 +1852,14 @@ Corrections, examples, implementation improvements, and suggestions for addition
 
 ## License
 
-This course is licensed under the MIT License.
+This course uses separate licenses for educational content and code:
+
+| Material | License |
+|---|---|
+| README, explanatory documentation, notebook Markdown cells, diagrams, equations, banner, images, and other non-code assets (including saved plots) | [CC BY 4.0](LICENSE-CC-BY-4.0) |
+| Source code, notebook code cells, and code examples in documentation | [MIT](LICENSE-MIT) |
+
+For content reuse, credit **shivam bharadwaj**, link to this repository and the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/), and indicate any changes. See [LICENSE](LICENSE) for the scope of each license. Separately identified third-party material retains its own license.
 
 ---
 

@@ -1,21 +1,17 @@
-MIT License
+Reinforcement Learning Course — Licensing
 
 Copyright (c) 2026 shivam bharadwaj
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository uses different licenses for educational content and code:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Educational content: Creative Commons Attribution 4.0 International
+   (CC BY 4.0). This includes README.md, explanatory documentation, notebook
+   Markdown cells, and course diagrams, equations, images, banners, and other
+   non-code assets, including saved notebook plots. See LICENSE-CC-BY-4.0.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. Code: MIT License. This includes source files, notebook code cells, and
+   code examples embedded in documentation. See LICENSE-MIT.
+
+These licenses apply to the respective parts of mixed-content files; users
+do not choose either license for the entire repository. Any separately
+identified third-party material retains its own license.
