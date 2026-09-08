@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1040" viewBox="0 0 1000 1040" role="img" aria-labelledby="title desc">
+<title id="title">RL Algorithm Family Tree</title><desc id="desc">Conceptual connections, not a complete historical timeline. Value and policy methods meet in actor-critic. RLHF is a feedback setup; DPO is a separate preference branch.</desc>
+<rect width="1000" height="1040" rx="24" fill="#F5F1E8"/>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<text x="40" y="44" font-size="16" fill="#AF824A" font-weight="700">THE EVOLUTION OF IDEAS</text>
+<text x="40" y="84" font-size="30" fill="#292332" font-weight="700">RL Algorithm Family Tree</text>
+<text x="40" y="114" font-size="16" fill="#87708C" font-weight="400">Connections explain shared ideas; they do not imply universal replacement.</text>
+<rect x="55" y="150" width="350" height="96" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="73" y="182" font-size="22" fill="#292332" font-weight="700">Value estimation</text>
+<text x="73" y="211" font-size="16" fill="#292332" font-weight="400">Estimate consequences before acting</text>
+<rect x="595" y="150" width="350" height="96" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="613" y="182" font-size="22" fill="#292332" font-weight="700">Policy optimization</text>
+<text x="613" y="211" font-size="16" fill="#292332" font-weight="400">Optimize action probabilities directly</text>
+<rect x="55" y="286" width="350" height="96" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="73" y="318" font-size="22" fill="#292332" font-weight="700">Monte Carlo / TD</text>
+<text x="73" y="347" font-size="16" fill="#292332" font-weight="400">Observed returns or bootstrapped values</text>
+<rect x="595" y="286" width="350" height="96" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="613" y="318" font-size="22" fill="#292332" font-weight="700">REINFORCE</text>
+<text x="613" y="347" font-size="16" fill="#292332" font-weight="400">Complete-return policy gradients</text>
+<rect x="55" y="422" width="350" height="96" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="73" y="454" font-size="22" fill="#292332" font-weight="700">SARSA / Q-learning</text>
+<text x="73" y="483" font-size="16" fill="#292332" font-weight="400">Behavior targets vs greedy targets</text>
+<rect x="595" y="422" width="350" height="96" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="613" y="454" font-size="22" fill="#292332" font-weight="700">Actor–Critic / GAE</text>
+<text x="613" y="483" font-size="16" fill="#292332" font-weight="400">A learned critic supports the actor</text>
+<rect x="55" y="558" width="350" height="96" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="73" y="590" font-size="22" fill="#292332" font-weight="700">DQN</text>
+<text x="73" y="619" font-size="16" fill="#292332" font-weight="400">Neural Q-values · Replay · Targets</text>
+<rect x="595" y="558" width="350" height="96" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="613" y="590" font-size="22" fill="#292332" font-weight="700">TRPO / PPO</text>
+<text x="613" y="619" font-size="16" fill="#292332" font-weight="400">Control the size of policy updates</text>
+<polyline points="230,246 230,286" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="225,277 235,277 230,286" fill="#87708C"/>
+<polyline points="230,382 230,422" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="225,413 235,413 230,422" fill="#87708C"/>
+<polyline points="230,518 230,558" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="225,549 235,549 230,558" fill="#87708C"/>
+<polyline points="770,246 770,286" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="765,277 775,277 770,286" fill="#87708C"/>
+<polyline points="770,382 770,422" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="765,413 775,413 770,422" fill="#87708C"/>
+<polyline points="770,518 770,558" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="765,549 775,549 770,558" fill="#87708C"/>
+<polyline points="405,334 490,334 490,470 595,470" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="586,465 586,475 595,470" fill="#87708C"/>
+<text x="438" y="316" font-size="13" fill="#87708C" font-weight="400">value baseline</text>
+<rect x="55" y="694" width="350" height="100" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="73" y="726" font-size="22" fill="#292332" font-weight="700">KL-regularized preferences</text>
+<text x="73" y="755" font-size="16" fill="#292332" font-weight="400">A reward objective plus a reference</text>
+<rect x="595" y="694" width="350" height="100" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="613" y="726" font-size="22" fill="#292332" font-weight="700">PPO-based RLHF</text>
+<text x="613" y="755" font-size="16" fill="#292332" font-weight="400">Preference reward + policy optimization</text>
+<polyline points="770,654 770,694" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="765,685 775,685 770,694" fill="#87708C"/>
+<polyline points="595,744 405,744" fill="none" stroke="#87708C" stroke-width="2.5" stroke-dasharray="7 5"/>
+<polygon points="414,739 414,749 405,744" fill="#87708C"/>
+<rect x="55" y="840" width="350" height="100" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="73" y="872" font-size="22" fill="#292332" font-weight="700">DPO</text>
+<text x="73" y="901" font-size="16" fill="#292332" font-weight="400">Direct loss on fixed preference pairs</text>
+<rect x="595" y="840" width="350" height="100" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="613" y="872" font-size="22" fill="#292332" font-weight="700">GRPO-style updates</text>
+<text x="613" y="901" font-size="16" fill="#292332" font-weight="400">Group-relative signals; no learned critic</text>
+<polyline points="230,794 230,840" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="225,831 235,831 230,840" fill="#87708C"/>
+<polyline points="770,794 770,840" fill="none" stroke="#87708C" stroke-width="2.5" stroke-dasharray="7 5"/>
+<polygon points="765,831 775,831 770,840" fill="#87708C"/>
+<text x="782" y="826" font-size="12" fill="#87708C" font-weight="400">replace the baseline</text>
+<text x="40" y="978" font-size="16" fill="#292332" font-weight="400">Known model? DP supplies exact planning/evaluation; it is not an off-policy learner.</text>
+<text x="40" y="1010" font-size="14" fill="#87708C" font-weight="400">Solid: connection · Dashed: adaptation · Shivam Bharadwaj · CC BY 4.0</text>
+</g></svg>

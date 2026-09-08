@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" role="img" aria-labelledby="title desc">
+<title id="title">The agent and the evaluator</title><desc id="desc">Policy chooses a bounded tool action, the environment returns an observation, and an independent evaluator checks task success, cost, and violations.</desc>
+<rect width="1000" height="660" rx="24" fill="#F5F1E8"/>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<text x="40" y="45" font-size="16" fill="#AF824A" font-weight="700">THE AGENT IS ONLY ONE PART OF THE SYSTEM</text>
+<text x="40" y="88" font-size="28" fill="#292332" font-weight="700">Train on feedback. Verify the actual outcome.</text>
+<rect x="40" y="150" width="270" height="125" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="58" y="182" font-size="22" fill="#292332" font-weight="700">Observation / history</text>
+<text x="58" y="211" font-size="16" fill="#292332" font-weight="400">Task · Tool results · Memory</text>
+<text x="58" y="235" font-size="16" fill="#292332" font-weight="400">Optional images or audio</text>
+<rect x="365" y="150" width="270" height="125" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="383" y="182" font-size="22" fill="#292332" font-weight="700">Learned policy</text>
+<text x="383" y="211" font-size="16" fill="#292332" font-weight="400">Select tool and arguments</text>
+<text x="383" y="235" font-size="16" fill="#292332" font-weight="400">Choose whether to stop</text>
+<rect x="690" y="150" width="270" height="125" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="708" y="182" font-size="22" fill="#292332" font-weight="700">Tool boundary</text>
+<text x="708" y="211" font-size="16" fill="#292332" font-weight="400">Allowed actions · Budget</text>
+<text x="708" y="235" font-size="16" fill="#292332" font-weight="400">Validation before execution</text>
+<polyline points="310,212 365,212" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="356,207 356,217 365,212" fill="#87708C"/>
+<polyline points="635,212 690,212" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="681,207 681,217 690,212" fill="#87708C"/>
+<rect x="690" y="340" width="270" height="125" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="708" y="372" font-size="22" fill="#292332" font-weight="700">Environment</text>
+<text x="708" y="401" font-size="16" fill="#292332" font-weight="400">Execute action</text>
+<text x="708" y="425" font-size="16" fill="#292332" font-weight="400">Return result or error</text>
+<polyline points="825,275 825,340" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="820,331 830,331 825,340" fill="#87708C"/>
+<polyline points="690,402 175,402 175,275" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="170,284 180,284 175,275" fill="#87708C"/>
+<text x="245" y="390" font-size="17" fill="#87708C" font-weight="400">new observation; delayed consequences</text>
+<rect x="40" y="510" width="410" height="100" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="58" y="542" font-size="22" fill="#292332" font-weight="700">Training feedback</text>
+<text x="58" y="571" font-size="16" fill="#292332" font-weight="400">Task reward + explicit regularization</text>
+<rect x="550" y="510" width="410" height="100" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="568" y="542" font-size="22" fill="#292332" font-weight="700">Independent evaluation</text>
+<text x="568" y="571" font-size="16" fill="#292332" font-weight="400">Success · Cost · Failures · Violations</text>
+<polyline points="825,465 825,510" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="820,501 830,501 825,510" fill="#87708C"/>
+<polyline points="690,437 500,437 500,480 245,480 245,510" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="240,501 250,501 245,510" fill="#87708C"/>
+<polyline points="40,560 18,560 18,124 500,124 500,150" fill="none" stroke="#87708C" stroke-width="2.5" stroke-dasharray="7 5"/>
+<polygon points="495,141 505,141 500,150" fill="#87708C"/>
+<text x="315" y="116" font-size="12" fill="#87708C" font-weight="400">policy update</text>
+<text x="40" y="642" font-size="15" fill="#87708C" font-weight="400">A rising training score is not proof of task completion. · Shivam Bharadwaj · CC BY 4.0</text>
+</g></svg>

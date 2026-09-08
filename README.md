@@ -1,14 +1,20 @@
 ![Reinforcement Learning — From Fundamentals to Modern RL](assets/course-banner.png)
 
-# Reinforcement Learning: From Fundamentals to Modern RL
+# From Bellman Equations to Reasoning Agents
 
-**40 topics • 7 notebooks • Classical RL → Modern RL**
+**40 topics • 11 notebooks • Classical RL → Reasoning Agents**
+
+*A systems-oriented course connecting classical reinforcement learning to modern reasoning models and AI agents.*
 
 **Created by [Shivam Bharadwaj](https://github.com/bshivambharadwaj)**
 
-Learn how agents make decisions—from your first Bellman update to PPO, LLM alignment, GRPO, and reasoning agents. Build intuition with a delivery robot, work through the mathematics, and run seven small, documented experiments on your CPU.
+For the learner who says: **“I know ML and LLMs, but how did we get from Q-learning to PPO, RLHF, and GRPO?”**
+
+Follow **classical RL → deep RL → PPO → RLHF → DPO → GRPO → reasoning RL → agents**. Reuse a delivery-robot intuition, inspect the updates, compare methods on one task, fine-tune a real small language model, and train a tool-selection agent. The original seven lessons need no model downloads; the optional small-model lab downloads a pinned public checkpoint.
 
 **[Start Learning](#topic-1) | [Notebooks](#practical-track) | [Advanced RL](#part-ii-advanced-and-modern-reinforcement-learning) | [Exercises](#exercises)**
+
+**Reading depth:** this README is the quick-read course. Explore all 40 [Chapters](chapters/README.md) for derivations, worked examples, diagrams, and exercises with answers.
 
 ⭐ If this course helps you, star this repo to help others discover it.
 
@@ -19,6 +25,8 @@ Learn how agents make decisions—from your first Bellman update to PPO, LLM ali
 - [How to Use This Course](#how-to-use-this-course)
 - [Prerequisites](#prerequisites)
 - [Course Roadmap](#course-roadmap)
+- [Algorithm Family Tree](#algorithm-family-tree)
+- [Failure-Mode Track](#failure-mode-track)
 - [What Makes This Course Different?](#what-makes-this-course-different)
 - [Who This Course Is For](#who-this-course-is-for)
 - [What You Will Learn](#what-you-will-learn)
@@ -134,10 +142,10 @@ Uppercase letters denote random variables; lowercase letters usually denote obse
 
 ## Course Roadmap
 
-**Foundations → Value-Based RL → Deep RL → Policy Optimization → RLHF → Reasoning/Agents**
+**Foundations → Value Methods → Deep RL → Policy Optimization → Preference Learning → Reasoning RL → Agents**
 
 <p align="center">
-  <img src="assets/diagrams/course-roadmap.svg" alt="Six stages: Foundations, Value-Based RL, Deep RL, Policy Optimization, RLHF, and Reasoning/Agents" width="760">
+  <img src="assets/diagrams/course-roadmap.svg" alt="Seven stages from foundations and value methods to preference learning, reasoning RL, and agents" width="760">
 </p>
 
 | Stage | Difficulty | Learning progression | Practice |
@@ -146,20 +154,50 @@ Uppercase letters denote random variables; lowercase letters usually denote obse
 | [Value-Based RL · 12–20](#topic-12) | Beginner → Intermediate | First plan with a known model; then learn values from sampled experience using MC, TD, SARSA, and Q-learning. | Notebooks 01–03. |
 | [Deep RL · 21–24](#topic-21) | Intermediate | Replace a Q-table with a network and learn why replay and target networks matter. | Notebook 04. |
 | [Policy Optimization · 25–32](#topic-25) | Intermediate → Advanced | Optimize action probabilities directly, then add baselines, a critic, GAE, and PPO clipping. | Notebooks 05–06. |
-| [RLHF and Preferences · 36–38](#topic-36) | Advanced | Replace a hand-written reward with preference feedback; distinguish reward modeling, PPO-based RLHF, and DPO. | Notebook 07: synthetic preferences and DPO. |
-| [Reasoning and Agents · 39–40](#topic-39) | Advanced | Connect group-relative advantages to reasoning tasks, then define observations, actions, and feedback for multimodal and tool-using agents. | Notebook 07: simplified GRPO; Topic 40 design exercises. |
+| [RLHF and Preferences · 36–38](#topic-36) | Advanced | Replace a hand-written reward with preference feedback; distinguish reward modeling, PPO-based RLHF, and DPO. | Notebooks 07 and 09: synthetic objectives and real small-model SFT/DPO. |
+| [Reasoning RL · 39](#topic-39) | Advanced | Generate candidate trajectories, verify outcomes, and inspect group-relative credit. | Notebook 10: two-step reasoning and GRPO-style updates. |
+| [Agents and Multimodal RL · 40](#topic-40) | Advanced | Specify tool observations, delayed feedback, constraints, and independent evaluation. | Notebook 11: a learned tool-selection agent and evaluator-gaming capstone. |
 
 After policy optimization, read **[Topics 33–35](#topic-33)** as a bridge: offline data changes what you can learn from, world models change how you plan, and multiple agents change whose behavior affects the environment. Then continue to preference learning and reasoning.
 
-Before moving on, explain the current method's **data source, update target, and evaluation rule** without looking at the notes. The modern lessons build on these same choices; Notebook 07 illustrates their objectives with a small response space rather than training a language model.
+Before moving on, explain the current method's **data source, update target, and evaluation rule** without looking at the notes. The modern lessons build on these same choices. Notebook 08 compares algorithms on one environment. Notebook 07 isolates preference objectives; Notebook 09 trains a real pretrained model; Notebook 10 isolates reasoning credit assignment; Notebook 11 closes the loop with tools.
 
 <a id="what-makes-this-course-different"></a>
 
 ### What Makes This Course Different?
 
 - **One connected progression:** Bellman equations lead into deep RL, PPO, LLM alignment, DPO, and GRPO.
-- **Intuition you can test:** analogies and worked examples connect to seven self-contained notebooks with saved plots and seeded experiments.
-- **Modern systems in context:** reasoning, multimodal RL, and agents build on the classical foundations, with clear distinctions between working toy implementations and conceptual extensions.
+- **Intuition you can test:** analogies and worked examples connect to eleven notebooks with saved plots, result tables, and seeded experiments.
+- **Modern systems in context:** reasoning, multimodal RL, and agents build on the classical foundations, with explicit distinctions between a pretrained-model lab, structured reasoning experiments, and open research problems.
+
+<a id="algorithm-family-tree"></a>
+
+## Algorithm Family Tree
+
+<p align="center">
+  <img src="assets/diagrams/algorithm-family-tree.svg" width="760" alt="Value estimation and policy optimization meet in actor-critic; PPO supports RLHF and group-relative methods; DPO is a separate preference branch">
+</p>
+
+Read arrows as **conceptual connections**, not a complete historical genealogy or claims that one method always replaces another. Value estimates support both greedy action selection and policy-gradient baselines. Actor–critic combines a policy with a learned evaluator; TRPO and PPO address update size. RLHF names a feedback setup, not a single optimizer. GRPO-style methods can replace a learned value baseline with within-group comparisons in suitable tasks. DPO takes a separate route from KL-regularized reward optimization to a fixed-pair preference loss.
+
+**Knowledge check:** is PPO “the next version of Q-learning”? No. Both seek better decisions, but one learns a policy through a surrogate objective and the other learns action values through a greedy bootstrap target. Their ideas connect through shared values, sampling, and policy improvement.
+
+<a id="failure-mode-track"></a>
+
+## Failure-Mode Track
+
+Treat each failure as a testable hypothesis. Track task success separately from the quantity being optimized.
+
+| Failure | Where to study it | What to inspect |
+|---|---|---|
+| Sparse rewards | [Returns](#topic-6), [reasoning lab](notebooks/10_verifiable_reasoning_grpo.ipynb) | Successful samples and tied-group rate before trusting an optimizer |
+| Maximization bias | [Q-learning](#topic-20) | Noisy action estimates; compare selection and evaluation with separate estimators |
+| Deadly triad and unstable bootstrapping | [Function approximation](#topic-21), [target networks](#topic-24) | Q-value scale, TD loss, target drift, and actual return |
+| Distribution shift | [Offline RL](#topic-33), [small-model lab](notebooks/09_small_model_sft_dpo.ipynb) | Support in training data; test prompts and task splits |
+| Policy collapse | [PPO](#topic-31), [entropy](#topic-32) | Entropy, KL, and return after each update |
+| Reward hacking and overoptimization | [Reward models](#topic-37), [agent capstone](notebooks/11_tool_agent_capstone.ipynb) | Proxy reward versus an independent success checker |
+| Reasoning length artifacts | [GRPO](#topic-39) | Reward by length; token/sequence normalization; fixed-budget comparisons |
+| Evaluator gaming | [Agents](#topic-40), [capstone](notebooks/11_tool_agent_capstone.ipynb) | Adversarial outputs, invalid tool calls, and hidden-test success |
 
 <a id="who-this-course-is-for"></a>
 
@@ -426,6 +464,11 @@ Working backward gives G<sub>2</sub>=10, G<sub>1</sub>=−1+0.9(10)=8, and G<sub
 
 For bounded rewards and γ&lt;1, the geometric weights keep the infinite sum bounded. The rough effective horizon 1/(1−γ) is a useful intuition, not a hard cutoff.
 
+
+> **Failure Mode — sparse rewards:** if almost every trip fails, most sampled returns look alike. Before changing the optimizer, count successful episodes and verify that random exploration can reach any rewarding outcome. Curriculum or justified shaping can help, but changing the reward also changes what you are teaching.
+
+**Knowledge check:** can two actions with the same immediate reward have different values? Yes: their future state distributions can differ.
+
 ---
 
 <a id="topic-7"></a>
@@ -613,6 +656,8 @@ The agent controls its action but cannot choose which random outcome occurs. Tha
 
 ## 12. Dynamic Programming
 
+> **Why this algorithm exists:** If the environment model is known, sampling every outcome wastes information. Dynamic programming uses that model to propagate future consequences backward. Its price is enumerating states and outcomes; an unknown or inaccurate map removes this advantage.
+
 Dynamic Programming (DP) solves MDPs when the environment model is known.
 
 The key operation is a **Bellman backup**:
@@ -634,11 +679,16 @@ A full backup enumerates outcomes, computes reward plus discounted next-state va
 
 **Analogy:** if you have a complete road map with reliable travel-time distributions, you can compare routes at your desk. Without that map, you must learn from journeys. DP assumes the model is available; learning a model from experience belongs to model-based RL.
 
+
+**Read the source:** [Sutton & Barto, Chapter 4](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-13"></a>
 
 ## 13. Policy Evaluation
+
+> **Why this algorithm exists:** Before improving a policy, ask how well it already performs. Policy evaluation separates that question from action selection, making the later improvement step interpretable.
 
 Policy evaluation estimates V<sup>π</sup> for a fixed policy.
 
@@ -671,6 +721,8 @@ If the first trip segment costs 1 and leads deterministically to a state current
 
 ## 14. Policy Improvement
 
+> **Why this algorithm exists:** A value estimate becomes useful for control when it helps choose a better action. Policy improvement turns an evaluator into a decision rule through one-step lookahead.
+
 Suppose we know V<sup>π</sup>. We can improve the policy by choosing actions that look better according to one-step lookahead:
 
 <p align="center">
@@ -695,6 +747,8 @@ With exact evaluation in the standard discounted setting, repeatedly using those
 <a id="topic-15"></a>
 
 ## 15. Policy Iteration
+
+> **Why this algorithm exists:** A single greedy improvement changes the policy whose value you need. Policy iteration closes this loop by alternating evaluation and improvement until the policy stabilizes.
 
 Policy iteration alternates:
 
@@ -727,6 +781,8 @@ For a finite discounted MDP, exact policy iteration with consistent tie handling
 
 ## 16. Value Iteration
 
+> **Why this algorithm exists:** Fully evaluating every intermediate policy can be expensive. Value iteration interleaves local greedy improvement with value backups instead of waiting for a complete policy-evaluation solve.
+
 Value iteration combines truncated evaluation and improvement into a single optimality update:
 
 <p align="center">
@@ -751,11 +807,16 @@ Policy iteration performs more explicit evaluation between improvements; value i
 
 After stopping, extract a greedy policy using reward plus discounted next-state value. For finite discounted MDPs, the Bellman optimality operator contracts maximum value error by at most γ each application, explaining convergence. Stopping at a tolerance produces an approximation.
 
+
+**Read the source:** [Sutton & Barto, Chapter 4](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-17"></a>
 
 ## 17. Monte Carlo Methods
+
+> **Why this algorithm exists:** When you cannot enumerate dynamics but can finish episodes, observed returns provide learning targets. Monte Carlo removes the need for a transition model or bootstrap estimate, at the cost of waiting for outcomes and coping with return variance.
 
 **[Try it in Notebook 02 → Monte Carlo versus TD](notebooks/02_mc_vs_td.ipynb)**
 
@@ -785,11 +846,16 @@ If visits to a junction have produced returns 4, 8, and 6, their sample mean is 
 
 **Analogy:** judge a route only after completing the delivery. You observe the whole outcome, but traffic and later choices can make that outcome noisy. For a fixed policy and suitable sampling, MC targets avoid bootstrap bias, although finite-sample estimates remain uncertain.
 
+
+**Read the source:** [Sutton & Barto, Chapter 5](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-18"></a>
 
 ## 18. Temporal-Difference Learning
+
+> **Why this algorithm exists:** Waiting for a whole delivery is unnecessary when the next state already has a useful value estimate. TD learns after each transition by bootstrapping; imperfect estimates now influence later estimates.
 
 Temporal-Difference (TD) learning combines ideas from Monte Carlo and dynamic programming.
 
@@ -830,11 +896,16 @@ Suppose V(s)=5, the next reward is −1, V(s&#x27;)=8, γ=0.9, and α=0.1. The t
 
 At a true terminal transition, the TD target is just the reward. A time-limit cutoff may still require bootstrapping if it merely interrupts a continuing task.
 
+
+**Read the source:** [Sutton & Barto, Chapter 6](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-19"></a>
 
 ## 19. SARSA
+
+> **Why this algorithm exists:** An exploratory courier actually takes occasional risky turns. SARSA evaluates that behavior, including the sampled next action, so its learned values reflect the cost of exploration.
 
 **[Try it in Notebook 03 → SARSA and Q-Learning](notebooks/03_q_learning.ipynb)**
 
@@ -861,11 +932,16 @@ Suppose the next state has Q-values 8 and 2, but exploration selects the second 
 
 Choose the next action before forming the update, then actually execute that same action on the next step. Resampling it afterward would break the intended transition sequence. If the episode truly terminates, omit the next-action value entirely.
 
+
+**Read the source:** [Sutton & Barto, Chapter 6](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-20"></a>
 
 ## 20. Q-Learning and Exploration
+
+> **Why this algorithm exists:** Sometimes we want to learn a greedy deployment policy while collecting data with an exploratory behavior policy. Q-learning separates those roles through a maximum over next-action values. This is not a guarantee that it is safer or better than SARSA during training.
 
 Q-learning uses the target
 
@@ -907,6 +983,14 @@ For the same next-state values 8 and 2, Q-learning's target is −1+0.9max (8,
 
 The diagram's next-Q term is zero at termination. Tabular convergence requires sufficient state-action coverage and suitable decreasing step sizes; it is not guaranteed just by using the update equation. Exploration that decays too quickly can leave useful actions undiscovered.
 
+
+> **Failure Mode — maximization bias:** even unbiased noisy action estimates can produce an optimistic maximum. The action selected as “best” is often the one with a favorable error. Double Q-learning separates action selection and evaluation across estimators; it addresses this mechanism without promising uniformly better returns. [Original Double Q-learning paper](https://proceedings.neurips.cc/paper/2010/hash/091d584fced301b442654dd8c23b3fc9-Abstract.html).
+
+**Knowledge check:** why can Q-learning have a good greedy policy and poor exploratory training returns? Its target and behavior policies differ. Compare both in [Notebook 08](notebooks/08_one_problem_many_algorithms.ipynb).
+
+
+**Read the source:** [Watkins & Dayan: Q-learning](https://doi.org/10.1007/BF00992698).
+
 ---
 
 <a id="part-ii-advanced-and-modern-reinforcement-learning"></a>
@@ -916,6 +1000,8 @@ The diagram's next-Q term is zero at termination. Tabular convergence requires s
 <a id="topic-21"></a>
 
 ## 21. Function Approximation
+
+> **Why this method exists:** A table cannot reuse what it learned about one observation at another. Function approximation shares parameters across states; the benefit is generalization and the risk is interference between estimates.
 
 Tabular methods store a separate value for each state or state-action pair. That becomes impossible when spaces are huge or continuous.
 
@@ -938,11 +1024,21 @@ A table memorizes each junction separately. A function approximator can learn th
 
 The **deadly triad** refers to function approximation, bootstrapping, and off-policy learning together: this combination can make value learning diverge. Deep RL therefore needs care with targets, data distributions, and optimization. Increasing network size does not by itself solve these problems.
 
+
+> **Failure Mode — the deadly triad:** function approximation, bootstrapping, and off-policy learning can interact to destabilize value estimates. Parameter sharing spreads errors, bootstrap targets reuse them, and the training distribution may differ from the target policy's distribution. The combination is a warning about possible instability, not a statement that every DQN run must diverge.
+
+> **Engineering Note:** monitor value magnitudes and actual return together. A falling regression loss alone cannot establish that the policy improved.
+
+
+**Read the source:** [Sutton & Barto, Chapter 11](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-22"></a>
 
 ## 22. Deep Q-Networks
+
+> **Why this algorithm exists:** Images and large state spaces make a separate Q entry for every observation impractical. DQN replaces the table with a neural estimator; replay and a delayed target help train it from correlated, changing data.
 
 **[Try it in Notebook 04 → DQN](notebooks/04_dqn.ipynb)**
 
@@ -981,11 +1077,16 @@ where d=1 means true termination. Detaching means that the target is treated as 
 
 **Analogy:** the network is a shared route-rating system; replay supplies past journeys and a target network supplies a more stable estimate of what comes next. Standard DQN fits discrete actions naturally because it can enumerate them; maximizing over arbitrary continuous actions requires additional machinery.
 
+
+**Read the source:** [Mnih et al.: DQN](https://doi.org/10.1038/nature14236).
+
 ---
 
 <a id="topic-23"></a>
 
 ## 23. Experience Replay
+
+> **Why this method exists:** Consecutive transitions are correlated and discarding each after one update is wasteful. Replay reshuffles stored experience and reuses it. This suits off-policy value learning; it does not automatically make old trajectories valid for an on-policy objective.
 
 Sequential observations are strongly correlated. Training directly on consecutive transitions can make neural optimization unstable.
 
@@ -1023,6 +1124,8 @@ Buffer capacity determines how long experiences remain available. Too small a bu
 
 ## 24. Target Networks
 
+> **Why this method exists:** The bootstrap target depends on a value function that is also being updated. A target network slows that feedback loop. Holding the measuring stick still briefly helps, but cannot repair a wrong reward, terminal mask, or unstable optimization setting.
+
 If the same rapidly changing network predicts both the current Q-value and its bootstrap target, the target itself moves during optimization.
 
 DQN therefore maintains a target network θ<sup>−</sup>:
@@ -1052,11 +1155,19 @@ where a small τ∈(0,1] makes the target change slowly.
 
 A minimal DQN loop is: collect transitions, store them, sample a minibatch, construct masked detached targets, update the online network, and occasionally update the target network. These techniques improve stability but do not guarantee convergence with nonlinear approximation.
 
+
+**Knowledge check:** should a true terminal target include the target network's next-state value? No. Its future contribution is zero. For an external time cutoff, bootstrapping may still be appropriate if the task continues and you retain the final observation.
+
+
+**Read the source:** [Mnih et al.: DQN](https://doi.org/10.1038/nature14236).
+
 ---
 
 <a id="topic-25"></a>
 
 ## 25. Policy Gradient Methods
+
+> **Why this algorithm exists:** A greedy maximum over Q is awkward for some action spaces and does not directly represent a stochastic decision rule. Policy gradients optimize the policy distribution itself; the challenge shifts to noisy credit assignment.
 
 **[Try it in Notebook 05 → Policy Gradients](notebooks/05_policy_gradient.ipynb)**
 
@@ -1090,11 +1201,16 @@ The likelihood-ratio identity ∇<sub>θ</sub>p<sub>θ</sub>=p<sub>θ</sub>∇<s
 
 The expectation in a policy-gradient formula must use the appropriate policy-induced state distribution. For the discounted episodic objective defined earlier, an explicit trajectory estimator includes γ<sup>t</sup>G<sub>t</sub> at time t; equivalent theorem statements may absorb discount weights into a discounted visitation distribution. This convention matters when translating notation into code.
 
+
+**Read the source:** [Sutton & Barto, Chapter 13](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-26"></a>
 
 ## 26. REINFORCE
+
+> **Why this algorithm exists:** REINFORCE provides a direct Monte Carlo policy-gradient estimator without a learned critic. Its simplicity exposes the score-function idea, but complete-return weights can be noisy.
 
 REINFORCE is a Monte Carlo policy-gradient algorithm:
 
@@ -1134,11 +1250,19 @@ Collect an episode, compute its returns backward, evaluate log probabilities, an
 
 A state-only baseline preserves the expected gradient because ∑<sub>a</sub>π(a&#124;s)∇log π(a&#124;s)=0. It can reduce variance without supplying a new reward objective.
 
+
+> **Common Misconception:** any number subtracted from a return is a safe baseline. The baseline must not depend on the sampled action in a way that changes the expected score-function estimator. A learned state baseline also needs careful gradient separation; see the lagged baseline in Notebook 05.
+
+
+**Read the source:** [Williams: REINFORCE](https://doi.org/10.1007/BF00992696).
+
 ---
 
 <a id="topic-27"></a>
 
 ## 27. Actor–Critic Methods
+
+> **Why this algorithm exists:** REINFORCE asks every episode to supply a fresh full-return estimate. A critic shares predictive information across visits and supplies shorter bootstrap targets or baselines, often reducing variance while introducing approximation error.
 
 **[Try it in Notebook 06 → PPO](notebooks/06_ppo.ipynb)**
 
@@ -1172,11 +1296,16 @@ For a one-step implementation:
 
 The critic can update from partial trajectories, reducing the need to wait for full Monte Carlo returns. This introduces dependence on critic accuracy: a systematically wrong coach can mislead the actor. Actor and critic may use separate networks or share some representation layers.
 
+
+**Read the source:** [Sutton & Barto, Chapter 13](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-28"></a>
 
 ## 28. Advantage Actor–Critic
+
+> **Why this algorithm exists:** Raw success can reflect an easy state rather than a good action. An advantage signal compares an action with the state baseline, focusing the actor on whether it did better than expected.
 
 Rather than weighting policy updates by raw return, advantage actor–critic methods estimate
 
@@ -1203,11 +1332,16 @@ With the exact V<sup>π</sup>, the expected one-step TD error conditioned on (s,
 
 **A2C** usually refers to a synchronous advantage actor–critic implementation that collects batches from several environments before updating. **A3C** uses asynchronous workers. The broader actor–critic idea does not require either execution pattern.
 
+
+**Read the source:** [Mnih et al.: asynchronous actor-critic](https://arxiv.org/abs/1602.01783).
+
 ---
 
 <a id="topic-29"></a>
 
 ## 29. Generalized Advantage Estimation
+
+> **Why this method exists:** One-step advantages depend strongly on the critic; long returns can be noisy. GAE blends multi-step TD residuals so lambda controls how far observed rewards carry credit before bootstrapping.
 
 **[Try it in Notebook 06 → PPO](notebooks/06_ppo.ipynb)**
 
@@ -1244,11 +1378,19 @@ Here d<sub>t</sub> marks true termination and c<sub>t</sub> is zero at an episod
 
 **Analogy:** combine the coach's immediate feedback with feedback from later checkpoints. At λ=0, only one TD residual is used. At λ=1, a complete episode telescopes to Monte Carlo return minus the current value estimate. A truncated rollout retains its final bootstrap term.
 
+
+**Knowledge check:** at lambda=1, does every truncated rollout become a complete Monte Carlo return? No. A finite rollout that stops before true termination retains its endpoint bootstrap contribution.
+
+
+**Read the source:** [Schulman et al.: GAE](https://arxiv.org/abs/1506.02438).
+
 ---
 
 <a id="topic-30"></a>
 
 ## 30. Trust Region Policy Optimization
+
+> **Why this algorithm exists:** A promising sampled gradient can move action probabilities far enough to invalidate the local improvement estimate. TRPO constrains distributional change; its practical approximations are not an unconditional performance guarantee.
 
 Large policy updates can destroy useful behavior. Trust Region Policy Optimization (TRPO) formalizes the idea that policy improvement should occur within a constrained region.
 
@@ -1276,11 +1418,16 @@ A small change in neural-network weights can still cause a large change in actio
 
 Practical TRPO uses approximations to solve the constrained update, including curvature information and a line search. The theoretical motivation should not be read as a blanket guarantee of improvement in every sampled implementation.
 
+
+**Read the source:** [Schulman et al.: TRPO](https://arxiv.org/abs/1502.05477).
+
 ---
 
 <a id="topic-31"></a>
 
 ## 31. Proximal Policy Optimization
+
+> **Why this algorithm exists:** TRPO-inspired update control is useful but its constrained solve is involved. PPO uses a simpler clipped surrogate with first-order optimization. Clipping limits incentives in that objective; it is not a hard bound on policy change.
 
 PPO makes constrained policy optimization much easier to implement.
 
@@ -1318,11 +1465,21 @@ Clipping removes an incentive in the surrogate; it does **not** enforce a hard b
 
 Keep old log probabilities and advantage targets fixed during each update batch. PPO reuses a recent rollout for several epochs; indefinitely recycling an old replay buffer changes this training setup.
 
+
+> **Failure Mode — policy collapse:** repeated updates on one rollout can remove useful action diversity or move far beyond the collector. Inspect entropy, approximate KL, task return, and the number of optimization epochs. KL-based early stopping is a diagnostic control, not a rollback guarantee.
+
+**Knowledge check:** can a PPO probability ratio exceed the clipping interval? Yes. The objective clips one term; it does not project all probabilities into an interval.
+
+
+**Read the source:** [Schulman et al.: PPO](https://arxiv.org/abs/1707.06347).
+
 ---
 
 <a id="topic-32"></a>
 
 ## 32. Entropy Regularization
+
+> **Why this method exists:** Early lucky actions can drive a policy toward certainty before it has explored alternatives. Entropy regularization rewards diversity, but its strength must still permit reliable execution.
 
 A policy can collapse too quickly toward deterministic behavior. Entropy measures uncertainty in the action distribution:
 
@@ -1347,11 +1504,16 @@ For two actions, probabilities (0.5,0.5) have entropy log 2, while (1,0) has e
 
 A KL penalty to a reference policy serves a different purpose: it discourages departure from a specific distribution, which may itself be highly concentrated. For a practical objective, entropy is averaged over visited states or summed over a trajectory, rather than added as an unspecified single-state number.
 
+
+**Read the source:** [Sutton & Barto, Chapter 13](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-33"></a>
 
 ## 33. Offline Reinforcement Learning
+
+> **Why this method exists:** Some tasks supply only logged interactions. Offline RL tries to improve behavior without collecting corrections, making unsupported actions and distribution shift central concerns.
 
 Traditional RL assumes the agent can interact with the environment. Offline RL instead learns from a fixed dataset:
 
@@ -1372,11 +1534,16 @@ Behavior cloning simply imitates logged actions. Offline RL uses reward and temp
 
 **Off-policy is not the same as offline:** off-policy Q-learning can continue collecting new experience; offline RL holds the training dataset fixed. Evaluating a new policy from logs also requires coverage assumptions and careful uncertainty assessment.
 
+
+> **Failure Mode — distribution shift:** a large predicted value for an action absent from the logs is unsupported optimism, not evidence. Report coverage limitations and evaluate outside the training dataset only with an appropriate evaluation design. [Offline RL tutorial](https://arxiv.org/abs/2005.01643).
+
 ---
 
 <a id="topic-34"></a>
 
 ## 34. Model-Based Reinforcement Learning
+
+> **Why this method exists:** Real interaction can cost far more than computation. A dynamics model lets an agent rehearse or plan, while requiring checks against errors that a planner may exploit.
 
 Model-free RL learns values or policies without explicitly learning environment dynamics.
 
@@ -1405,11 +1572,16 @@ The attraction is data efficiency and planning capability. The danger is **model
 
 Errors compound over long imagined trajectories. A planner may discover actions that look excellent in the model but fail in reality. Shorter planning horizons, frequent replanning, and model uncertainty estimates can help. A world model can predict latent representations rather than raw pixels; model-based RL is defined by using predicted dynamics for planning or learning.
 
+
+**Read the source:** [Sutton & Barto, Chapter 8](http://incompleteideas.net/book/the-book-2nd.html).
+
 ---
 
 <a id="topic-35"></a>
 
 ## 35. Multi-Agent Reinforcement Learning
+
+> **Why this method exists:** When other decision-makers adapt, a single stationary-environment assumption can fail. Multi-agent methods address coordination, competition, and training information shared across learners.
 
 Many environments contain multiple learning agents.
 
@@ -1447,6 +1619,8 @@ In **centralized training with decentralized execution**, training can use joint
 
 ## 36. Reinforcement Learning from Human Feedback
 
+> **Why this method exists:** Next-token imitation does not directly optimize which responses people prefer. RLHF supplies preference-derived feedback; PPO is one possible optimizer within that feedback pipeline.
+
 **[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
 
 RLHF aligns a model's behavior with human preferences rather than relying only on next-token prediction.
@@ -1483,11 +1657,52 @@ The reference is typically a frozen starting policy for the RL stage. It differs
 
 **Analogy:** a writer learns from an editor's preferences while retaining useful behavior learned earlier. The result is optimized for measured preferences; a high reward-model score does not establish universal correctness or alignment.
 
+
+### From tokens to trajectories: what changes in LM PPO?
+
+Autoregressive generation chooses one token conditioned on the prompt and preceding tokens.
+The probability of a completion is a product of these conditional decisions; its log probability
+is their sum. EOS ends a response. In a tool agent, a tool result changes the subsequent context,
+so a response may be one segment of a longer episode.
+
+| Classical term | Post-training counterpart | Implementation consequence |
+|---|---|---|
+| State | Prompt, generated prefix, and available tool observations | Mask information that would leak future outcomes |
+| Action | Next token or a structured tool decision | Store the log probability of the sampled action |
+| Trajectory | Completion tokens, or multiple tool turns | Preserve boundaries and valid-token masks |
+| Reward | Learned preference score or a verifier result | Separate the task signal from regularization |
+| Advantage | Return minus a value baseline, or a group-relative estimate | Detach targets before optimizing the policy |
+| Reference policy | Usually the frozen SFT starting policy | Anchors behavior through a reference penalty |
+| Old policy | Policy that generated the current rollout | Supplies PPO's denominator; refreshes for new rollouts |
+| KL penalty | Cost of drifting from the reference distribution | Its target and coefficient are distinct from PPO clipping |
+
+**A concrete token trace:** a prompt asking for a sum is followed by the actions `The`, ` answer`,
+` is`, ` 6`, and EOS (illustrative tokens; tokenization depends on the model). A final verifier
+score arrives after the answer. A critic and GAE can carry that signal backward through valid
+token positions. A token-level sampled log-ratio penalty can provide additional per-step costs.
+Do not compute loss on prompt tokens or padding as if they were sampled completion actions.
+
+An outcome score may arrive only at the end. A process score rates intermediate steps. Assigning
+one final score to many tokens does not prove which token caused success. For a continuing agent,
+the end of a text segment is not necessarily the end of the whole task.
+
+> **Common Misconception:** PPO's old policy and the SFT reference are interchangeable. They have
+different jobs. Updating the reference every minibatch silently changes the regularized objective.
+
+**Knowledge check:** can the reference stay frozen while the old policy changes every rollout?
+Yes—that is precisely why the two must be named and stored separately.
+
+Read [InstructGPT](https://arxiv.org/abs/2203.02155) for the SFT, preference-model, and PPO pipeline.
+Run [Notebook 09](notebooks/09_small_model_sft_dpo.ipynb) for an affordable SFT→DPO route that
+uses a different optimizer after SFT; it does not implement LM PPO.
+
 ---
 
 <a id="topic-37"></a>
 
 ## 37. Reward Models and Preference Learning
+
+> **Why this method exists:** Comparisons are often easier to obtain than a hand-written reward for every response. A reward model generalizes those comparisons into scores, which remain fallible proxies rather than truth labels.
 
 **[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
 
@@ -1523,11 +1738,18 @@ Minimizing it encourages larger score differences in favor of preferred response
 
 **Analogy:** asking an editor “which draft is better?” is often easier than asking for a perfectly calibrated numerical quality score. Different editors may disagree, and models can learn superficial cues such as verbosity. Hold out preference examples and separately check task performance to detect failures beyond the training comparisons.
 
+
+> **Failure Mode — reward-model overoptimization:** the policy may learn features that the reward model likes more than evaluators do. Keep independent task checks, held-out preferences, and examples from later policies. A rising proxy score with flat or falling true performance is a failure signal. [Reward-model overoptimization study](https://arxiv.org/abs/2210.10760).
+
+**Knowledge check:** does a reward model trained on pairwise choices provide an absolute truth scale? No; pairwise score differences do not identify a unique prompt-dependent offset.
+
 ---
 
 <a id="topic-38"></a>
 
 ## 38. Direct Preference Optimization
+
+> **Why this algorithm exists:** A fixed preference dataset can support a direct policy loss under a KL-regularized formulation. DPO avoids a separate reward-model-and-online-RL loop in this setting; it is not a general replacement for sequential environment learning.
 
 **[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
 
@@ -1559,11 +1781,16 @@ DPO minimizes −𝔼[log σ(βΔ<sub>θ</sub>)]. Response log probability is 
 
 DPO's formulation is connected to KL-regularized reward optimization, but standard training uses fixed preference pairs and requires no online rollout-and-critic loop.
 
+
+> **Engineering Note:** mask prompt and padding tokens, include completion termination consistently, and keep the reference fixed. Compare the preference margin with generated-answer quality; improving one need not improve the other. [Train a real model in Notebook 09](notebooks/09_small_model_sft_dpo.ipynb).
+
 ---
 
 <a id="topic-39"></a>
 
 ## 39. GRPO and Reinforcement Learning for Reasoning
+
+> **Why this algorithm exists:** For a prompt with several scored attempts, within-group comparisons can supply advantages without training a separate critic. The savings depend on obtaining informative reward variation; identical scores give no reward-ranking signal.
 
 **[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
 
@@ -1597,11 +1824,44 @@ The original [DeepSeekMath paper](https://arxiv.org/abs/2402.03300) combines gro
 
 With outcome rewards, the same response-level signal can weight multiple token decisions. This does not identify which intermediate step caused success. Verifiable rewards, such as passing tests, reduce dependence on subjective scoring but still depend on evaluator quality.
 
+
+### Reasoning RL: verify an outcome, inspect the path
+
+Treat a reasoning attempt as a trajectory, not a magical “reasoning score.” Specify the prompt
+distribution, candidate sampling budget, output parser, checker, and whether intermediate steps
+receive labels. A checker can validate arithmetic or test results while still missing unsupported
+claims, brittle strategies, or exploitative formatting.
+
+| Design choice | Benefit | Failure to test |
+|---|---|---|
+| Outcome reward | Cheap when final correctness is verifiable | Correct answer reached through an invalid intermediate trace |
+| Process supervision | More local feedback about intermediate steps | Inconsistent or costly step labels; polished but wrong steps |
+| Multiple attempts per prompt | Within-prompt comparisons | All scores tied; sampling cost hidden from comparisons |
+| Strict output parser | Reduces answer-list and formatting exploits | Rejecting valid alternatives or accepting ambiguous outputs |
+| Token/sequence weighting | Defines how long and short outputs contribute | Length-related reward artifacts and unequal effective weights |
+
+> **Failure Mode — length artifacts:** if longer outputs receive more accumulated shaping reward,
+or a loss weights sequences through their token counts, length can become an optimization target.
+Report accuracy and reward by length, specify normalization, and compare methods under equal
+generation budgets. An arbitrary length penalty may discourage useful work too.
+
+**Run [Notebook 10 → Verifiable Reasoning](notebooks/10_verifiable_reasoning_grpo.ipynb).** It samples
+two-step arithmetic traces, compares outcome and process feedback, and exposes tied groups and
+an answer-list attack. Fixed-length structured outputs keep the credit-assignment experiment
+inspectable; they do not demonstrate variable-length LLM training.
+
+**Knowledge check:** if all eight candidates fail, does group normalization reveal which failure
+was closest to correct? No; identical scalar rewards contain no such ranking.
+
+References: [DeepSeekMath](https://arxiv.org/abs/2402.03300), [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050).
+
 ---
 
 <a id="topic-40"></a>
 
 ## 40. Multimodal RL and RL for AI Agents
+
+> **Why this method exists:** Useful agents decide what to observe, which tool to call, and when to stop. RL makes those choices trainable from delayed outcomes, but also exposes the environment and evaluator as parts of the learning system.
 
 Sequential optimization also extends beyond text-only responses.
 
@@ -1658,6 +1918,105 @@ A practical training design must specify episode boundaries, what information th
 
 Evaluate successful completion, failures, and cost on held-out tasks. Process rewards can guide intermediate decisions, but a plausible-looking intermediate step is not proof that it improves final outcomes.
 
+
+### Design an agent as an RL system
+
+Topic 40 is the final integration lab: observations, decisions, and feedback now cross tool and
+modality boundaries. Start with a precise task contract before selecting an optimizer.
+
+| Component | Tool-agent example | Question to settle |
+|---|---|---|
+| Hidden environment state | Files, database records, task outcome | What can change without being observed? |
+| Observation/history | Task text, screenshot, tool response, memory | Is this sufficient, or is a history/belief representation needed? |
+| Policy action | Read, query, calculate, edit, submit, stop | Which actions and arguments are permitted? |
+| Transition | Tool execution plus environment change | How are errors, latency, and retries represented? |
+| Reward and cost | Verified completion, tool cost, violation count | What is optimized, and what is independently measured? |
+| Episode boundary | Accepted submission or exhausted budget | Which boundaries are true task termination versus collection cutoffs? |
+
+### Tool selection and long-horizon credit
+
+A useful action may gather information rather than complete the task. Reading the right file can
+enable a later correct patch, yet receive no immediate success reward. Represent failed calls and
+their observations in the trajectory. Multi-step returns, critics, process feedback, and task
+curricula offer different ways to carry delayed credit; none removes the need for an accurate task
+boundary and evaluator. A high-level policy may select a tool while another component generates
+arguments. State explicitly which component is trained.
+
+<p align="center">
+  <img src="assets/diagrams/agent-evaluation-loop.svg" width="760" alt="Policy selects tools, environment returns observations, and independent evaluation checks success and cost">
+</p>
+
+### Multimodal observations and actions
+
+A VLM can encode task text plus a screenshot, image, or video frame before choosing a text token,
+tool call, or spatial action. A robotics policy may additionally consume proprioception and emit
+continuous controls. Partial observability remains: one frame need not reveal velocity or hidden
+UI state. Learning a better policy cannot by itself recover information absent from its observation.
+
+Separate **perception errors** (the relevant object was misread), **decision errors** (the wrong
+tool or action was selected), and **execution errors** (the tool failed). Compare with an oracle
+symbolic observation to locate the bottleneck. Log preprocessing, image resolution, coordinate
+conventions, and action grounding; these are part of the experiment, not incidental UI details.
+Multimodal supervised training and multimodal RL are different training setups; a VLM is not
+automatically an RL-trained agent. [PaLM-E](https://arxiv.org/abs/2303.03378) provides context on
+embodied multimodal representations, not evidence that every such system uses RL.
+
+### Reward shaping, constraints, and safety
+
+For potential-based shaping, add **gamma × Phi(next state) − Phi(current state)** with boundary
+conditions appropriate to the task. In a finite episode with gamma=1 and zero terminal potential,
+the additions telescope; arbitrary “progress bonuses” need not preserve the original objective.
+[Notebook 11](notebooks/11_tool_agent_capstone.ipynb) checks this identity on an actual tool trace.
+
+A constrained objective can maximize expected return subject to an expected cost budget. That
+is weaker than forbidding a dangerous action on every trajectory. Enforce unavailable operations
+outside the policy with tool permissions, validation, or action masks; then measure violations
+and invalid requests separately. A large negative reward is not a permission system.
+[Constrained Policy Optimization](https://arxiv.org/abs/1705.10528) is a reference for learning under
+expected constraints; it does not replace those runtime controls.
+
+### Evaluate the agent, not its self-report
+
+| Evaluation axis | Record | Stress test |
+|---|---|---|
+| Task completion | Independent verified success rate | Hidden tests and perturbed task instances |
+| Efficiency | Calls, tokens, elapsed time, retries | Equal resource budgets |
+| Reliability | Seed variation and failure traces | Tool errors, missing observations, longer tasks |
+| Constraints | Invalid requests and executed violations | Inputs that tempt a forbidden shortcut |
+| Generalization | Split definition and held-out success | New operands, new templates, or new tools—reported separately |
+| Reward validity | Training score versus external success | Fake completion messages and answer-list attacks |
+
+> **Failure Mode — evaluator gaming:** an agent rewarded for printing “SUCCESS” can learn to do
+that without solving the task. In the capstone, the naive evaluator and a strict submission
+checker disagree by design. The exploit is measured with a learned policy, not just described.
+
+### Capstone: learn a tool-selection policy
+
+**[Notebook 11 → Tool-Agent Capstone](notebooks/11_tool_agent_capstone.ipynb)** trains a policy to
+read an arithmetic task, call the appropriate tool, and submit a checked answer. It compares
+verified reward, potential shaping, and a vulnerable evaluator across seeds, then tests unseen
+operands. Tools do arithmetic; the policy learns routing. This is an agent-RL capstone, not an
+LLM or VLM training claim. Replacing the symbolic observation with an image is an explicit extension.
+
+Submit a task contract, result table, success and failure traces, an evaluator exploit test, and
+a discussion of what generalizes. A second route is to extend the [shared-task comparison](notebooks/08_one_problem_many_algorithms.ipynb)
+with another algorithm under the same interaction budget.
+
+### Open research questions
+
+How can feedback credit information-gathering actions over long horizons? How do we evaluate
+agents when task instances and tools change? Can process supervision stay reliable at scale?
+How should multimodal policies distinguish uncertainty in perception from uncertainty in action
+value? How can evaluation remain independent as the policy learns to exploit observable tests?
+These are questions to investigate, not solved capabilities of this course.
+
+**Knowledge check:** would replacing the learned policy with a fixed sequence of tool calls still
+be RL? No. Tool use describes an interface; learning from interaction outcomes supplies the RL part.
+
+References: [WebArena](https://arxiv.org/abs/2307.13854),
+[potential-based shaping](https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf),
+[process supervision](https://arxiv.org/abs/2305.20050).
+
 ---
 
 <a id="algorithm-comparison"></a>
@@ -1688,7 +2047,11 @@ Offline and model-based RL are broad settings or method families, not single upd
 
 # Practical Track
 
-These seven self-contained notebooks connect the theory to working experiments. Each includes explanations, analogies, diagrams, reproducible code, saved result plots, correctness checks, and exercises with hints. The classical lessons use NumPy; the neural-network lessons use small CPU-only PyTorch models. No datasets, pretrained models, or API keys are needed.
+The **seven core notebooks** build the fundamentals with NumPy and small CPU PyTorch experiments.
+**Four integrated labs** add algorithm comparisons, real small-model post-training, verified reasoning,
+and a tool-agent capstone. Each links to theory, documents its experiment, and includes saved outputs.
+Notebook 09 requires a public pretrained-model download and the optional modern dependencies; the
+other ten use generated environments/data and need no model downloads or API keys.
 
 | Notebook | Concepts |
 |---|---|
@@ -1699,6 +2062,13 @@ These seven self-contained notebooks connect the theory to working experiments. 
 | [05 — Policy Gradients](notebooks/05_policy_gradient.ipynb) | REINFORCE, discounted returns, action-independent baselines |
 | [06 — PPO](notebooks/06_ppo.ipynb) | Actor–critic, vectorized rollouts, GAE, clipping, KL monitoring |
 | [07 — Preferences and GRPO](notebooks/07_preference_and_grpo.ipynb) | Synthetic preferences, reward modeling, DPO, simplified group-relative policy updates |
+| [08 — One Problem, Many Algorithms](notebooks/08_one_problem_many_algorithms.ipynb) | DP, MC/TD prediction, MC control, SARSA, Q-learning, DQN, REINFORCE, actor-critic, PPO; equal-budget comparisons |
+| [09 — Small-Model SFT → DPO](notebooks/09_small_model_sft_dpo.ipynb) | Real SmolLM2-135M, completion masking, cached SFT reference, synthetic preferences, held-out generation |
+| [10 — Verifiable Reasoning and GRPO](notebooks/10_verifiable_reasoning_grpo.ipynb) | Two-step neural reasoning policy, grouped candidates, outcome/process feedback, evaluator attack |
+| [11 — Tool-Agent Capstone](notebooks/11_tool_agent_capstone.ipynb) | Learned tool routing, potential shaping, held-out operands, reward gaming versus verified success |
+
+The integrated labs share readable implementations under [`rl_course/`](rl_course/). This is learner-facing
+algorithm code, not an authoring tool. Keep the whole repository when running these notebooks.
 
 ### Run the notebooks
 
@@ -1712,9 +2082,31 @@ python -m ipykernel install --sys-prefix --name python3 --display-name "Python (
 jupyter lab
 ```
 
-On Windows PowerShell, replace the activation command with `.venv\Scripts\Activate.ps1`. Open a notebook and select the **Python (RL Course)** kernel. Choose **Restart Kernel and Run All Cells** to reproduce the experiment from scratch. Work through notebooks 01–07 in order; each also runs independently. GitHub displays the saved outputs without installing anything.
+On Windows PowerShell, replace the activation command with `.venv\Scripts\Activate.ps1`. Open a notebook and select the **Python (RL Course)** kernel. Choose **Restart Kernel and Run All Cells** to reproduce the experiment from scratch. Start with notebooks 01–07, then choose integrated labs 08–11. Each runs independently from the full repository. GitHub displays the saved outputs without installing anything.
 
-The examples use seeded runs and small environments so they can finish on a CPU. Exact training curves can vary across dependency versions. Notebook 07 uses a finite set of synthetic responses to explain post-training objectives; it does not train a language model.
+For the real small-model lab, also run `python -m pip install -r requirements-modern.txt`.
+It uses a pinned model revision and trains only its final decoder layer and normalization. Allow
+several GB of RAM and disk/cache space for the model and dependencies. Model downloading needs
+internet access on the first run. The lab prints actual training time; other machines may differ.
+
+**Colab:** use the badges below or inside each notebook. Core lessons use Colab's scientific Python
+packages; integrated labs clone the repository, and Notebook 09 installs its optional dependencies.
+All defaults use CPU. Colab links use the published `main` branch, so local changes must be pushed
+before they appear there. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for checks, versions, and interpretation.
+
+| Notebook | Run in browser |
+|---|---|
+| 01 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/01_mdp_dynamic_programming.ipynb) |
+| 02 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/02_mc_vs_td.ipynb) |
+| 03 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/03_q_learning.ipynb) |
+| 04 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/04_dqn.ipynb) |
+| 05 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/05_policy_gradient.ipynb) |
+| 06 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/06_ppo.ipynb) |
+| 07 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/07_preference_and_grpo.ipynb) |
+| 08 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/08_one_problem_many_algorithms.ipynb) |
+| 09 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/09_small_model_sft_dpo.ipynb) |
+| 10 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/10_verifiable_reasoning_grpo.ipynb) |
+| 11 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/11_tool_agent_capstone.ipynb) |
 
 ---
 
@@ -1866,12 +2258,18 @@ For fast-moving topics such as reasoning RL and GRPO, prefer the original model 
 
 # Repository Structure
 
-The repository includes seven executable notebooks with saved outputs and setup dependencies. Exercises appear in this README and inside each notebook. Rendered diagrams and equations are included so the course displays without running generation tools.
+The repository includes eleven executable notebooks with saved outputs, shared lab implementations, and setup dependencies. Exercises appear in this README and inside each notebook. Rendered diagrams and equations are included so the course displays without running generation tools.
 
 ```text
 reinforcement-learning-course/
 │
 ├── README.md
+├── chapters/                 # 40 chapters, each with ten numbered sections
+│   ├── README.md             # Chapter index and learning paths
+│   ├── NOTATION.md           # Mathematical conventions and reading guide
+│   ├── ASSESSMENT.md         # Problem sets, capstone, and assessment rubric
+│   ├── 01-what-is-reinforcement-learning/
+│   └── ...                  # One README per chapter, through Chapter 40
 ├── notebooks/
 │   ├── 01_mdp_dynamic_programming.ipynb
 │   ├── 02_mc_vs_td.ipynb
@@ -1879,15 +2277,27 @@ reinforcement-learning-course/
 │   ├── 04_dqn.ipynb
 │   ├── 05_policy_gradient.ipynb
 │   ├── 06_ppo.ipynb
-│   └── 07_preference_and_grpo.ipynb
+│   ├── 07_preference_and_grpo.ipynb
+│   ├── 08_one_problem_many_algorithms.ipynb
+│   ├── 09_small_model_sft_dpo.ipynb
+│   ├── 10_verifiable_reasoning_grpo.ipynb
+│   └── 11_tool_agent_capstone.ipynb
 │
 ├── assets/
 │   ├── course-banner.png
+│   ├── course-cover.svg
+│   ├── course-social-preview.png
 │   ├── diagrams/             # Rendered SVG diagrams
 │   └── equations/            # Rendered SVG equations
 │
+├── rl_course/                # Learner-facing implementations for integrated labs
 ├── requirements.txt
-└── LICENSE
+├── requirements-modern.txt
+├── REPRODUCIBILITY.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── LICENSE-MIT
+└── LICENSE-CC-BY-4.0
 ```
 
 ---
@@ -1912,7 +2322,7 @@ reinforcement-learning-course/
 
 ## Contributing
 
-Corrections, examples, implementation improvements, and suggestions for additional references are welcome through issues and pull requests.
+Corrections, examples, implementation improvements, and suggestions for additional references are welcome through issues and pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) for experiment and review expectations.
 
 <a id="license"></a>
 

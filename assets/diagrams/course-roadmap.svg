@@ -1,38 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="510" viewBox="0 0 1000 510" role="img" aria-labelledby="title desc">
-  <title id="title">From foundations to reasoning agents</title>
-  <desc id="desc">Follow six stages in order, left to right across each row: Foundations, Value-Based RL, Deep RL, Policy Optimization, RLHF, Reasoning and Agents.</desc>
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#87708C"/></marker>
-  </defs>
-  <rect width="1000" height="510" rx="24" fill="#F5F1E8"/>
-  <g font-family="DejaVu Sans, Arial, sans-serif" fill="#292332">
-    <text x="42" y="49" font-size="15" letter-spacing="3" fill="#76562F">THE COURSE AT A GLANCE</text>
-    <text x="42" y="89" font-size="29" font-weight="700">From foundations to reasoning agents</text>
-    <g fill="none" stroke="#87708C" stroke-width="2.5" marker-end="url(#arrow)">
-      <path d="M320 198H357"/><path d="M638 198H675"/>
-      <path d="M820 262V284H24V360H39"/>
-      <path d="M320 360H357"/><path d="M638 360H675"/>
-    </g>
-    <g stroke-width="1.5">
-      <rect x="42" y="133" width="276" height="129" rx="14" fill="#ECE2D2" stroke="#AF824A"/>
-      <rect x="360" y="133" width="276" height="129" rx="14" fill="#E3E7DC" stroke="#768165"/>
-      <rect x="678" y="133" width="280" height="129" rx="14" fill="#E9E0EB" stroke="#87708C"/>
-      <rect x="42" y="303" width="276" height="129" rx="14" fill="#E9E0EB" stroke="#87708C"/>
-      <rect x="360" y="303" width="276" height="129" rx="14" fill="#ECE2D2" stroke="#AF824A"/>
-      <rect x="678" y="303" width="280" height="129" rx="14" fill="#E3E7DC" stroke="#768165"/>
-    </g>
-    <g font-size="14" fill="#62576B">
-      <text x="62" y="160">01 · BEGINNER</text><text x="380" y="160">02 · BEGINNER → INTERMEDIATE</text><text x="698" y="160">03 · INTERMEDIATE</text>
-      <text x="62" y="330">04 · INTERMEDIATE → ADVANCED</text><text x="380" y="330">05 · ADVANCED</text><text x="698" y="330">06 · ADVANCED</text>
-    </g>
-    <g font-size="23" font-weight="700">
-      <text x="62" y="197">Foundations</text><text x="380" y="197">Value-Based RL</text><text x="698" y="197">Deep RL</text>
-      <text x="62" y="367">Policy Optimization</text><text x="380" y="367">RLHF</text><text x="698" y="367">Reasoning / Agents</text>
-    </g>
-    <g font-size="16">
-      <text x="62" y="231">MDPs · Returns · Bellman</text><text x="380" y="231">Planning · MC / TD · Q-learning</text><text x="698" y="231">DQN · Replay · Target networks</text>
-      <text x="62" y="401">REINFORCE · GAE · PPO</text><text x="380" y="401">Preferences · Rewards · DPO</text><text x="698" y="401">GRPO · Tools · Multimodal RL</text>
-    </g>
-    <text x="42" y="476" font-size="16" fill="#62576B">40 topics · 7 notebooks · Build intuition, inspect the update, run the experiment.</text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="680" viewBox="0 0 1000 680" role="img" aria-labelledby="title desc">
+<title id="title">From Bellman equations to reasoning agents</title><desc id="desc">Seven stages, from foundations through value methods, deep RL, policy optimization, preference learning, reasoning RL, and agents.</desc>
+<rect width="1000" height="680" rx="24" fill="#F5F1E8"/>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<text x="40" y="45" font-size="16" fill="#AF824A" font-weight="700">THE LEARNING PROGRESSION</text>
+<text x="40" y="86" font-size="28" fill="#292332" font-weight="700">One thread: improve decisions from feedback</text>
+<rect x="40" y="130" width="280" height="130" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="58" y="162" font-size="20" fill="#292332" font-weight="700">01  Foundations</text>
+<text x="58" y="191" font-size="16" fill="#292332" font-weight="400">MDPs · Returns · Bellman</text>
+<polyline points="320,195 360,195" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="351,190 351,200 360,195" fill="#87708C"/>
+<rect x="360" y="130" width="280" height="130" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="378" y="162" font-size="20" fill="#292332" font-weight="700">02  Value Methods</text>
+<text x="378" y="191" font-size="16" fill="#292332" font-weight="400">DP · MC / TD · Q-learning</text>
+<polyline points="640,195 680,195" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="671,190 671,200 680,195" fill="#87708C"/>
+<rect x="680" y="130" width="280" height="130" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="698" y="162" font-size="20" fill="#292332" font-weight="700">03  Deep RL</text>
+<text x="698" y="191" font-size="16" fill="#292332" font-weight="400">DQN · Replay · Target values</text>
+<rect x="40" y="310" width="280" height="130" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="58" y="342" font-size="20" fill="#292332" font-weight="700">04  Policy Optimization</text>
+<text x="58" y="371" font-size="16" fill="#292332" font-weight="400">REINFORCE · Actor–critic</text>
+<text x="58" y="395" font-size="16" fill="#292332" font-weight="400">GAE · TRPO · PPO</text>
+<polyline points="320,375 360,375" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="351,370 351,380 360,375" fill="#87708C"/>
+<rect x="360" y="310" width="280" height="130" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="378" y="342" font-size="20" fill="#292332" font-weight="700">05  Preference Learning</text>
+<text x="378" y="371" font-size="16" fill="#292332" font-weight="400">RLHF · Reward models</text>
+<text x="378" y="395" font-size="16" fill="#292332" font-weight="400">DPO: a separate objective</text>
+<polyline points="640,375 680,375" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="671,370 671,380 680,375" fill="#87708C"/>
+<rect x="680" y="310" width="280" height="130" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="698" y="342" font-size="20" fill="#292332" font-weight="700">06  Reasoning RL</text>
+<text x="698" y="371" font-size="16" fill="#292332" font-weight="400">Verifiable rewards · GRPO</text>
+<text x="698" y="395" font-size="16" fill="#292332" font-weight="400">Outcome vs process credit</text>
+<polyline points="820,260 820,282 22,282 22,375 40,375" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="31,370 31,380 40,375" fill="#87708C"/>
+<rect x="360" y="510" width="600" height="105" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="378" y="542" font-size="22" fill="#292332" font-weight="700">07  Agents and Multimodal RL</text>
+<text x="378" y="571" font-size="16" fill="#292332" font-weight="400">Tools · Observations · Long-horizon credit · Independent evaluation</text>
+<polyline points="820,440 820,510" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="815,501 825,501 820,510" fill="#87708C"/>
+<text x="40" y="552" font-size="15" fill="#AF824A" font-weight="700">BUILD → MEASURE → EXPLAIN</text>
+<text x="40" y="580" font-size="18" fill="#292332" font-weight="400">40 topics · 11 notebooks</text>
+<text x="40" y="650" font-size="13" fill="#87708C" font-weight="400">Shivam Bharadwaj · From Bellman Equations to Reasoning Agents · CC BY 4.0</text>
+</g></svg>

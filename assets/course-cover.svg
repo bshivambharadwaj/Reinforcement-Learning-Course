@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+<title id="title">From Bellman Equations to Reasoning Agents</title><desc id="desc">A systems-oriented reinforcement learning course by Shivam Bharadwaj, with 40 topics and 11 practical notebooks.</desc>
+<rect width="1280" height="640" rx="24" fill="#FFFFFF"/>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<rect x="26" y="26" width="1228" height="588" rx="24" fill="#F5F1E8"/>
+<rect x="26" y="26" width="12" height="588" rx="6" fill="#AF824A"/>
+<text x="78" y="94" font-size="20" fill="#AF824A" font-weight="700">REINFORCEMENT LEARNING · A CONNECTED COURSE</text>
+<text x="78" y="179" font-size="53" fill="#292332" font-weight="700">From Bellman Equations</text>
+<text x="78" y="247" font-size="53" fill="#292332" font-weight="700">to Reasoning Agents</text>
+<text x="78" y="304" font-size="23" fill="#87708C" font-weight="400">Understand the update. Run the experiment. Question the reward.</text>
+<rect x="78" y="355" width="337" height="113" rx="14" fill="#E3E7DC" stroke="#768165" stroke-width="1.5"/>
+<text x="96" y="387" font-size="22" fill="#292332" font-weight="700">Classical foundations</text>
+<text x="96" y="416" font-size="16" fill="#292332" font-weight="400">Values · TD · Q-learning · DQN</text>
+<rect x="470" y="355" width="337" height="113" rx="14" fill="#E9E0EB" stroke="#87708C" stroke-width="1.5"/>
+<text x="488" y="387" font-size="22" fill="#292332" font-weight="700">Modern post-training</text>
+<text x="488" y="416" font-size="16" fill="#292332" font-weight="400">PPO · RLHF · DPO · GRPO</text>
+<rect x="862" y="355" width="337" height="113" rx="14" fill="#ECE2D2" stroke="#AF824A" stroke-width="1.5"/>
+<text x="880" y="387" font-size="22" fill="#292332" font-weight="700">Reasoning and agents</text>
+<text x="880" y="416" font-size="16" fill="#292332" font-weight="400">Verification · Tools · Evaluation</text>
+<polyline points="415,411 470,411" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="461,406 461,416 470,411" fill="#87708C"/>
+<polyline points="807,411 862,411" fill="none" stroke="#87708C" stroke-width="2.5" />
+<polygon points="853,406 853,416 862,411" fill="#87708C"/>
+<text x="78" y="530" font-size="24" fill="#292332" font-weight="700">40 topics  •  11 notebooks  •  One problem, many algorithms</text>
+<text x="78" y="574" font-size="21" fill="#87708C" font-weight="400">Created by Shivam Bharadwaj</text>
+</g></svg>

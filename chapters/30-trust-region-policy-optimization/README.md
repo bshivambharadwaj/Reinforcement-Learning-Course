@@ -1,0 +1,125 @@
+# 30. Trust Region Policy Optimization
+
+**Advanced** · **Created by Shivam Bharadwaj**
+
+[← Chapter 29](../29-generalized-advantage-estimation/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 31 →](../31-proximal-policy-optimization/README.md)
+
+[Quick-read Topic 30](../../README.md#topic-30) · [Notation](../NOTATION.md)
+
+- [30.1 Limit policy change in distribution space](#section-30-1)
+- [30.2 Start from the performance-difference identity](#section-30-2)
+- [30.3 Express the sampled surrogate](#section-30-3)
+- [30.4 Define the practical constraint](#section-30-4)
+- [30.5 Derive the local quadratic step](#section-30-5)
+- [30.6 Calculate a scalar trust-region step](#section-30-6)
+- [30.7 Explain conjugate gradients and line search](#section-30-7)
+- [30.8 Identify what KL does not constrain](#section-30-8)
+- [30.9 Laboratory extension and PPO bridge](#section-30-9)
+- [30.10 Problems, worked answers, and reading](#section-30-10)
+
+---
+
+<a id="section-30-1"></a>
+
+## 30.1 Limit policy change in distribution space
+
+Trust Region Policy Optimization (TRPO) seeks a policy update that improves a local surrogate while limiting its average KL divergence from the old policy. A small parameter change alone is not a reliable measure of behavioral change.
+
+**Prerequisites:** Chapters 9 and 25–29; constrained optimization and matrix-vector products. **Targets:** connect the performance-difference identity to a surrogate, derive the local trust-region step, and distinguish theoretical bounds from the practical algorithm.
+
+Two route-selection networks can have nearby weights but very different choices at a critical junction. A distributional constraint measures change closer to the policy's actual behavior.
+
+<a id="section-30-2"></a>
+
+## 30.2 Start from the performance-difference identity
+
+For a discounted MDP with the same initial distribution, define normalized discounted state occupancy d_pi(s)=(1−gamma)sum_t gamma^t Pr_pi(S_t=s). Then:
+
+```text
+J(pi_new) − J(pi_old)
+  = [1/(1−gamma)] E_(s~d_new,a~pi_new)[A_old(s,a)]
+```
+
+The new occupancy is the difficult part: it depends on the policy being optimized. Replacing it with old occupancy produces a tractable surrogate but introduces a distribution-shift approximation.
+
+<a id="section-30-3"></a>
+
+## 30.3 Express the sampled surrogate
+
+With old-policy data and adequate support, use the action ratio r_theta=pi_theta(a|s)/pi_old(a|s). The surrogate includes E_old[r_theta A_old]. At the old parameters, its policy gradient matches the corresponding local objective gradient under the standard setup.
+
+This ratio corrects the action distribution at sampled states. It does not exactly replace old state occupancy with new occupancy. That remaining mismatch motivates controlling policy movement.
+
+<a id="section-30-4"></a>
+
+## 30.4 Define the practical constraint
+
+TRPO commonly constrains the average D_KL(pi_old(.|s) || pi_theta(.|s)) over sampled old-policy states to be at most delta. The direction of KL matters and should be documented.
+
+Theoretical monotonic-improvement bounds involve stronger quantities and assumptions than a finite-sample average constraint alone. Practical TRPO approximates the objective, constraint, and optimization; it should not be advertised as guaranteeing every measured update improves return.
+
+<a id="section-30-5"></a>
+
+## 30.5 Derive the local quadratic step
+
+Near the old parameters, linearize the surrogate as g dot x and approximate KL as 0.5 xᵀF x, where F is the local Fisher/KL curvature matrix. Solving the constrained quadratic problem gives:
+
+```text
+x = sqrt(2 delta / (gᵀ F^(-1) g)) * F^(-1) g
+```
+
+This assumes suitable positive curvature on the relevant subspace. In practice, damping and iterative linear solves handle numerical difficulties. The natural-gradient direction rescales coordinates according to policy-distribution sensitivity.
+
+<a id="section-30-6"></a>
+
+## 30.6 Calculate a scalar trust-region step
+
+Let g=2, F=4, and delta=0.02. The constraint is 0.5×4×x²≤0.02, so |x|≤0.1. Maximizing 2x selects x=0.1, with predicted improvement 0.2.
+
+The formula gives F^(-1)g=0.5 and gᵀF^(-1)g=1, so the scale is sqrt(0.04)=0.2 and x=0.1. This is a local prediction; the nonlinear policy must still be checked after applying a candidate step.
+
+<a id="section-30-7"></a>
+
+## 30.7 Explain conjugate gradients and line search
+
+Large networks cannot conveniently store a dense Fisher matrix. Conjugate gradients approximately solve Fx=g using matrix-vector products. A backtracking line search then checks candidate steps against the actual sampled surrogate and KL constraint.
+
+Approximate solves, damping, finite samples, and line-search acceptance criteria all affect the result. Report them if implementing TRPO. Omitting the constraint check while keeping the name hides an important part of the method.
+
+<a id="section-30-8"></a>
+
+## 30.8 Identify what KL does not constrain
+
+An average KL over training states can overlook large changes at rare or unobserved states. A small KL is also not a task-level safety or correctness guarantee. It says distributions are close under a specified measurement distribution.
+
+For an agent, a low-probability change involving a powerful tool can have a large operational effect. Independent task metrics and action constraints remain necessary when those are part of the intended system contract.
+
+<a id="section-30-9"></a>
+
+## 30.9 Laboratory extension and PPO bridge
+
+The repository does not implement full TRPO. Use [Notebook 06](../../notebooks/06_ppo.ipynb) as a related policy-update lab: log actual KL and return across updates, then explain why PPO clipping differs from an explicit trust-region solve.
+
+A bounded extension is the scalar example with an exact two-action softmax policy and a line search. Verify the actual KL, not only its quadratic approximation, for several step sizes before attempting a large-network implementation.
+
+<a id="section-30-10"></a>
+
+## 30.10 Problems, worked answers, and reading
+
+1. In the scalar example, double delta to 0.04. What is the local optimal step?
+2. What distribution mismatch remains after using action probability ratios?
+3. Does average training-state KL bound the largest KL at every state?
+
+<details><summary>Worked answers</summary>
+
+1. x=sqrt(2×0.04/4)=sqrt(0.02), approximately 0.1414. Step size grows with the square root of the radius.
+2. The states were still sampled from the old policy's occupancy rather than the new policy's occupancy.
+3. No. A rare state can have a large divergence while contributing little to the average. Unobserved states may contribute nothing to the empirical constraint.
+
+</details>
+
+Read the original [TRPO paper](https://arxiv.org/abs/1502.05477). Track where its theoretical bound is replaced by practical approximations.
+
+---
+
+[← Chapter 29](../29-generalized-advantage-estimation/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 31 →](../31-proximal-policy-optimization/README.md)

@@ -1,0 +1,6 @@
+# Optional real pretrained-model lab (Notebook 09); original lessons need only requirements.txt.
+-r requirements.txt
+transformers==5.5.4
+huggingface-hub==1.11.0
+tokenizers==0.22.2
+safetensors>=0.7,<1

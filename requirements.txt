@@ -1,4 +1,4 @@
-# Python 3.10+; the lessons use CPU only and download no datasets or models.
+# Python 3.10+; CPU lessons. Notebook 09 additionally needs requirements-modern.txt.
 numpy>=1.26,<3
 matplotlib>=3.8,<4
 torch>=2.2,<3
