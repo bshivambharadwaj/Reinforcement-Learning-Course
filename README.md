@@ -2,14 +2,24 @@
 
 # Reinforcement Learning: From Fundamentals to Modern RL
 
-A GitHub-native short course that builds Reinforcement Learning from first principles to modern methods used in deep RL, RLHF, reasoning models, multimodal systems, and AI agents.
+**40 topics • 7 notebooks • Classical RL → Modern RL**
+
+**Created by [Shivam Bharadwaj](https://github.com/bshivambharadwaj)**
+
+Learn how agents make decisions—from your first Bellman update to PPO, LLM alignment, GRPO, and reasoning agents. Build intuition with a delivery robot, work through the mathematics, and run seven small, documented experiments on your CPU.
+
+**[Start Learning](#topic-1) | [Notebooks](#practical-track) | [Advanced RL](#part-ii-advanced-and-modern-reinforcement-learning) | [Exercises](#exercises)**
+
+⭐ If this course helps you, star this repo to help others discover it.
 
 > **Course philosophy:** intuition → mathematics → algorithm → implementation → modern connection.
 
 ## Contents
 
 - [How to Use This Course](#how-to-use-this-course)
+- [Prerequisites](#prerequisites)
 - [Course Roadmap](#course-roadmap)
+- [What Makes This Course Different?](#what-makes-this-course-different)
 - [Who This Course Is For](#who-this-course-is-for)
 - [What You Will Learn](#what-you-will-learn)
 - [Part I — Reinforcement Learning Fundamentals](#part-i-reinforcement-learning-fundamentals)
@@ -74,7 +84,18 @@ A GitHub-native short course that builds Reinforcement Learning from first princ
 
 Read each topic in this order: intuition, equation, worked example, then algorithm. Keep asking: **what is observed, what is learned, and what target drives the update?** You do not need to memorize every equation on the first pass.
 
-**Prerequisites:** basic Python; vectors and functions; expectations and conditional probability; derivatives and gradient descent. Neural-network familiarity becomes useful in Part II. This README is a conceptual course with numerical examples, not a complete set of runnable implementations.
+Use the README for intuition and worked examples, then follow the **Try it in Notebook** links to runnable experiments. Each notebook includes saved results, correctness checks, and exercises with hints.
+
+<a id="prerequisites"></a>
+
+### Prerequisites
+
+- **Python:** functions, loops, arrays, and basic NumPy.
+- **Calculus:** derivatives, partial derivatives, and the chain rule.
+- **Probability:** expectations, conditional probability, and sampling.
+- **Linear algebra:** vectors, matrices, and dot products.
+
+You do not need previous RL experience. Basic neural-network and gradient-descent knowledge will help from Topic 21 onward. Difficulty labels below describe the progression within this course.
 
 **Visual guide:** these course notes use ink-plum, antique gold, sage, and warm paper. Each diagram labels context, decisions, learning, and results; small numbered arrows refer to the notes below the chart.
 
@@ -113,9 +134,32 @@ Uppercase letters denote random variables; lowercase letters usually denote obse
 
 ## Course Roadmap
 
+**Foundations → Value-Based RL → Deep RL → Policy Optimization → RLHF → Reasoning/Agents**
+
 <p align="center">
-  <img src="assets/diagrams/course-roadmap.svg" alt="Your path through reinforcement learning" width="760">
+  <img src="assets/diagrams/course-roadmap.svg" alt="Six stages: Foundations, Value-Based RL, Deep RL, Policy Optimization, RLHF, and Reasoning/Agents" width="760">
 </p>
+
+| Stage | Difficulty | Learning progression | Practice |
+|---|---|---|---|
+| [Foundations · 1–11](#topic-1) | Beginner | Define the decision problem, then connect rewards, returns, values, and Bellman equations. | Trace a small MDP in Notebook 01. |
+| [Value-Based RL · 12–20](#topic-12) | Beginner → Intermediate | First plan with a known model; then learn values from sampled experience using MC, TD, SARSA, and Q-learning. | Notebooks 01–03. |
+| [Deep RL · 21–24](#topic-21) | Intermediate | Replace a Q-table with a network and learn why replay and target networks matter. | Notebook 04. |
+| [Policy Optimization · 25–32](#topic-25) | Intermediate → Advanced | Optimize action probabilities directly, then add baselines, a critic, GAE, and PPO clipping. | Notebooks 05–06. |
+| [RLHF and Preferences · 36–38](#topic-36) | Advanced | Replace a hand-written reward with preference feedback; distinguish reward modeling, PPO-based RLHF, and DPO. | Notebook 07: synthetic preferences and DPO. |
+| [Reasoning and Agents · 39–40](#topic-39) | Advanced | Connect group-relative advantages to reasoning tasks, then define observations, actions, and feedback for multimodal and tool-using agents. | Notebook 07: simplified GRPO; Topic 40 design exercises. |
+
+After policy optimization, read **[Topics 33–35](#topic-33)** as a bridge: offline data changes what you can learn from, world models change how you plan, and multiple agents change whose behavior affects the environment. Then continue to preference learning and reasoning.
+
+Before moving on, explain the current method's **data source, update target, and evaluation rule** without looking at the notes. The modern lessons build on these same choices; Notebook 07 illustrates their objectives with a small response space rather than training a language model.
+
+<a id="what-makes-this-course-different"></a>
+
+### What Makes This Course Different?
+
+- **One connected progression:** Bellman equations lead into deep RL, PPO, LLM alignment, DPO, and GRPO.
+- **Intuition you can test:** analogies and worked examples connect to seven self-contained notebooks with saved plots and seeded experiments.
+- **Modern systems in context:** reasoning, multimodal RL, and agents build on the classical foundations, with clear distinctions between working toy implementations and conceptual extensions.
 
 <a id="who-this-course-is-for"></a>
 
@@ -222,6 +266,8 @@ A **time step** is one interaction; an **episode** contains many steps; a **trai
 <a id="topic-3"></a>
 
 ## 3. Markov Decision Processes
+
+**[Try it in Notebook 01 → MDPs and Dynamic Programming](notebooks/01_mdp_dynamic_programming.ipynb)**
 
 A Markov Decision Process (MDP) provides the standard mathematical model for RL:
 
@@ -577,7 +623,7 @@ The key operation is a **Bellman backup**:
 
 DP is rarely the final solution for huge modern environments because exact dynamics and full state sweeps are often unavailable. But it provides the conceptual blueprint for much of RL.
 
-**Notebook:** [01_mdp_dynamic_programming](notebooks/01_mdp_dynamic_programming.ipynb)
+**[Try it in Notebook 01 → MDPs and Dynamic Programming](notebooks/01_mdp_dynamic_programming.ipynb)**
 
 
 ### What having a model means
@@ -691,7 +737,7 @@ Once values converge, derive the greedy policy.
 
 Policy iteration performs more explicit evaluation between improvements; value iteration performs frequent improvement with shorter evaluation. Both are manifestations of **generalized policy iteration**.
 
-**Notebook:** [01_mdp_dynamic_programming](notebooks/01_mdp_dynamic_programming.ipynb)
+**[Try it in Notebook 01 → MDPs and Dynamic Programming](notebooks/01_mdp_dynamic_programming.ipynb)**
 
 
 ### Compare the two DP algorithms
@@ -710,6 +756,8 @@ After stopping, extract a greedy policy using reward plus discounted next-state 
 <a id="topic-17"></a>
 
 ## 17. Monte Carlo Methods
+
+**[Try it in Notebook 02 → Monte Carlo versus TD](notebooks/02_mc_vs_td.ipynb)**
 
 What if the transition model is unknown?
 
@@ -765,7 +813,7 @@ contains an existing estimate. This is called **bootstrapping**.
 
 TD can learn before an episode ends and is one of the most important ideas in RL.
 
-**Notebook:** [02_mc_vs_td](notebooks/02_mc_vs_td.ipynb)
+**[Try it in Notebook 02 → Monte Carlo versus TD](notebooks/02_mc_vs_td.ipynb)**
 
 
 ### A numerical TD update
@@ -787,6 +835,8 @@ At a true terminal transition, the TD target is just the reward. A time-limit cu
 <a id="topic-19"></a>
 
 ## 19. SARSA
+
+**[Try it in Notebook 03 → SARSA and Q-Learning](notebooks/03_q_learning.ipynb)**
 
 SARSA is an **on-policy** TD control algorithm. Its name comes from the transition tuple:
 
@@ -842,7 +892,7 @@ A common exploration strategy is ε-greedy:
 
 This introduces the **exploration–exploitation trade-off**: use what we know, or gather information that may improve future decisions?
 
-**Notebook:** [03_q_learning](notebooks/03_q_learning.ipynb)
+**[Try it in Notebook 03 → SARSA and Q-Learning](notebooks/03_q_learning.ipynb)**
 
 
 ### Q-learning learns a greedy target while exploring
@@ -893,6 +943,8 @@ The **deadly triad** refers to function approximation, bootstrapping, and off-po
 <a id="topic-22"></a>
 
 ## 22. Deep Q-Networks
+
+**[Try it in Notebook 04 → DQN](notebooks/04_dqn.ipynb)**
 
 A Deep Q-Network (DQN) approximates
 
@@ -983,7 +1035,7 @@ The target parameters are periodically copied or slowly updated from the online 
 
 Together, **experience replay + target networks** address two major sources of instability in deep Q-learning.
 
-**Notebook:** [04_dqn](notebooks/04_dqn.ipynb)
+**[Try it in Notebook 04 → DQN](notebooks/04_dqn.ipynb)**
 
 
 ### Hold the measuring stick steady
@@ -1005,6 +1057,8 @@ A minimal DQN loop is: collect transitions, store them, sample a minibatch, cons
 <a id="topic-25"></a>
 
 ## 25. Policy Gradient Methods
+
+**[Try it in Notebook 05 → Policy Gradients](notebooks/05_policy_gradient.ipynb)**
 
 Instead of learning values and deriving a policy, policy-gradient methods optimize policy parameters directly:
 
@@ -1062,7 +1116,7 @@ Its weakness is high variance. A baseline can reduce variance:
 
 Choosing b(S<sub>t</sub>)=V(S<sub>t</sub>) leads naturally toward advantage-based actor–critic methods.
 
-**Notebook:** [05_policy_gradient](notebooks/05_policy_gradient.ipynb)
+**[Try it in Notebook 05 → Policy Gradients](notebooks/05_policy_gradient.ipynb)**
 
 
 ### A complete REINFORCE update
@@ -1085,6 +1139,8 @@ A state-only baseline preserves the expected gradient because ∑<sub>a</sub>π(
 <a id="topic-27"></a>
 
 ## 27. Actor–Critic Methods
+
+**[Try it in Notebook 06 → PPO](notebooks/06_ppo.ipynb)**
 
 Actor–critic methods combine two learners:
 
@@ -1152,6 +1208,8 @@ With the exact V<sup>π</sup>, the expected one-step TD error conditioned on (s,
 <a id="topic-29"></a>
 
 ## 29. Generalized Advantage Estimation
+
+**[Try it in Notebook 06 → PPO](notebooks/06_ppo.ipynb)**
 
 Generalized Advantage Estimation (GAE) balances bias and variance by combining multi-step TD residuals:
 
@@ -1245,7 +1303,7 @@ The clipping mechanism discourages excessively large policy changes.
 
 PPO became influential because it combines strong empirical performance with a relatively simple optimization procedure and later became a major algorithm in RLHF pipelines.
 
-**Notebook:** [06_ppo](notebooks/06_ppo.ipynb)
+**[Try it in Notebook 06 → PPO](notebooks/06_ppo.ipynb)**
 
 
 ### What clipping does
@@ -1389,6 +1447,8 @@ In **centralized training with decentralized execution**, training can use joint
 
 ## 36. Reinforcement Learning from Human Feedback
 
+**[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
+
 RLHF aligns a model's behavior with human preferences rather than relying only on next-token prediction.
 
 A classic pipeline is:
@@ -1429,6 +1489,8 @@ The reference is typically a frozen starting policy for the RL stage. It differs
 
 ## 37. Reward Models and Preference Learning
 
+**[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
+
 Suppose humans prefer response y<sub>w</sub> over y<sub>l</sub> for prompt x.
 
 A reward model can assign scores
@@ -1467,6 +1529,8 @@ Minimizing it encourages larger score differences in favor of preferred response
 
 ## 38. Direct Preference Optimization
 
+**[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
+
 Direct Preference Optimization (DPO) shows that, under a particular KL-regularized preference-learning formulation, preference optimization can be expressed directly as a classification-style objective without explicitly training a separate reward model and then running an online RL optimizer.
 
 For preferred y<sub>w</sub> and rejected y<sub>l</sub>, DPO favors a larger log-likelihood margin between them, measured relative to a reference policy.
@@ -1501,6 +1565,8 @@ DPO's formulation is connected to KL-regularized reward optimization, but standa
 
 ## 39. GRPO and Reinforcement Learning for Reasoning
 
+**[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
+
 Group Relative Policy Optimization (GRPO) is a policy-optimization approach used in modern reasoning-model training. Instead of requiring a separately learned value model for every update, it can estimate relative advantages by comparing rewards among multiple outputs generated for the same prompt.
 
 A simplified intuition is:
@@ -1513,7 +1579,7 @@ This is attractive for reasoning tasks where many candidate solutions can be sam
 
 Modern reasoning RL raises deeper questions than simply maximizing final-answer correctness: how should intermediate reasoning, efficiency, exploration, tool use, and robustness be rewarded without teaching the model to exploit the evaluator?
 
-**Notebook:** [07_preference_and_grpo](notebooks/07_preference_and_grpo.ipynb)
+**[Try it in Notebook 07 → Preferences, DPO, and GRPO](notebooks/07_preference_and_grpo.ipynb)**
 
 
 ### A group-relative advantage example
