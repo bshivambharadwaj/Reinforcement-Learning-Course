@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 20](../20-q-learning-and-exploration/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 22 →](../22-deep-q-networks/README.md)
+[← Chapter 20](../20-q-learning-and-exploration/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 22 →](../22-deep-q-networks/README.md)
 
-[Quick-read Topic 21](../../README.md#topic-21) · [Notation](../NOTATION.md)
+[Quick-read Topic 21](../../quick-read/21-function-approximation.md) · [Notation](../NOTATION.md)
 
 - [21.1 Share experience across states](#section-21-1)
 - [21.2 Start with a linear value function](#section-21-2)
@@ -53,6 +53,14 @@ With known true values, one could minimize sum_s d(s)[V_w(s)−V_pi(s)]² for a 
 
 TD generally solves a different projected fixed-point problem under appropriate linear settings. Low error on frequently visited states does not certify accuracy everywhere. A policy change can shift visitation toward precisely the states that were poorly represented.
 
+### Derive the linear projected TD system
+
+Let Phi contain one feature row per state and D be a diagonal matrix of state weights. For fixed-policy linear TD under the corresponding sampling assumptions, a zero expected semi-gradient update satisfies PhiᵀD[r+gamma P Phi w−Phi w]=0.
+
+Rearrange to Aw=b, with A=PhiᵀD(I−gamma P)Phi and b=PhiᵀDr. Ordinary weighted least-squares fitting to the true value instead solves PhiᵀD Phi w=PhiᵀD V_pi. These are generally different systems. Equality in a special example does not establish equivalence for every representation and weighting distribution.
+
+Invertibility and stability require additional conditions, such as appropriate features and sampling. Writing a linear system does not alone establish convergence of the stochastic update used to solve it.
+
 <a id="section-21-5"></a>
 
 ## 21.5 Identify irreducible state aliasing
@@ -60,6 +68,12 @@ TD generally solves a different projected fixed-point problem under appropriate 
 Suppose two observations map to the same feature vector but one requires left and the other right because their hidden destinations differ. No parameter setting can represent distinct values from identical inputs in a deterministic feedforward model.
 
 More training steps cannot recover information that the representation discards. Add the destination, time, or sufficient history when those variables determine transitions or rewards. A recurrent model can summarize history, but does not guarantee that it learns a sufficient statistic.
+
+### Calculate the best fit under unavoidable aliasing
+
+Two states have true values 0 and 10, but the representation maps both to a shared scalar prediction w. If their fitting weights are 0.9 and 0.1, the squared-error objective is 0.9w²+0.1(w−10)². Differentiation gives w=1.
+
+The minimum weighted mean-squared error is 9. With equal weights, the best prediction becomes 5 and the minimum error becomes 25. Neither solution recovers both true values because the feature map cannot distinguish them. Changing sampling weights changes the compromise rather than restoring missing information.
 
 <a id="section-21-6"></a>
 
@@ -90,6 +104,12 @@ Hold out states, layouts, goals, or task templates depending on the intended cla
 
 Plot errors by goal and time remaining, not just a single aggregate loss. Compare against a tabular or linear baseline on small tasks. A larger network with lower training loss can still make worse decisions if its ranking errors concentrate at important choice points.
 
+### Separate approximation, estimation, and optimization error
+
+Approximation error remains even with unlimited data and perfect optimization within the chosen function class. Estimation error comes from finite observations. Optimization error comes from not finding the intended fit or fixed point with available computation.
+
+Use an exact small model to construct the best representable value fit, then compare a finite-data fit and the actual iterative learner against it. This decomposes plausible failure explanations. Increasing model capacity may reduce approximation error while increasing data requirements; running more epochs primarily addresses optimization and can worsen overfitting.
+
 <a id="section-21-9"></a>
 
 ## 21.9 Laboratory and prefix-value connection
@@ -118,4 +138,4 @@ Read [Sutton and Barto, Chapters 9 and 11](http://incompleteideas.net/book/the-b
 
 ---
 
-[← Chapter 20](../20-q-learning-and-exploration/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 22 →](../22-deep-q-networks/README.md)
+[← Chapter 20](../20-q-learning-and-exploration/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 22 →](../22-deep-q-networks/README.md)

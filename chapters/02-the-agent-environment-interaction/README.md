@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 1](../01-what-is-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 3 →](../03-markov-decision-processes/README.md)
+[← Chapter 1](../01-what-is-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 3 →](../03-markov-decision-processes/README.md)
 
-[Quick-read Topic 2](../../README.md#topic-2) · [Notation](../NOTATION.md)
+[Quick-read Topic 2](../../quick-read/02-the-agent-environment-interaction.md) · [Notation](../NOTATION.md)
 
 - [2.1 Define the interaction contract before the learner](#section-2-1)
 - [2.2 Time indexing and what a transition contains](#section-2-2)
@@ -75,6 +75,12 @@ This is the chain rule plus the conditional-independence assumptions of the mode
 
 That observation explains why reinforcement learning can train through nondifferentiable tools. It does not imply that arbitrary hidden environmental dependencies can be ignored. Parameter-dependent reset rules or simulators require a more careful derivative.
 
+### Derive the factorization from conditional independence
+
+The chain rule alone expresses the next outcome as conditioned on the entire preceding history. The Markov assumption allows replacing that history in the environment term by (s_t,a_t). A stationary Markov policy separately allows replacing the decision history by s_t in the policy term. These are two assumptions, not one.
+
+For a two-transition trajectory, write rho(s_0)pi(a_0|s_0)p(s_1,r_1|s_0,a_0)pi(a_1|s_1)p(s_2,r_2|s_1,a_1). Summing over every legal trajectory must give one. This normalization is a useful finite-model check: missing termination branches or omitted stochastic outcomes can make a seemingly reasonable trajectory generator lose probability mass.
+
 <a id="section-2-5"></a>
 
 ## 2.5 Work through a two-step trace
@@ -106,6 +112,18 @@ This is interface pseudocode; reset conventions differ among environments. Test 
 
 In vectorized collection, masks are per environment. A single global `done` variable can erase or mix trajectories when one worker terminates before the others. Episode statistics and gradient targets need their own boundary handling.
 
+### A concrete boundary test table
+
+Use reward 2, gamma=0.5, current value 1, final-observation value 6, and reset-observation value 100. The correct one-step target at true termination is 2. At an external cutoff of a continuing task it is 5. At an ordinary nonterminal transition it is also 5. Their equality in the last two cases does not imply the trajectory trace may cross a reset.
+
+| Event | Bootstrap target | May the stored trace continue? |
+|---|---:|---|
+| True termination | 2 | No |
+| External cutoff followed by reset | 5 | No |
+| Ordinary transition in the same episode | 5 | Yes |
+
+The reset-observation bug gives target 52. A terminal mask incorrectly applied to every cutoff gives 2. These errors push in different directions, so “handle done correctly” is too vague to be a useful test specification.
+
 <a id="section-2-7"></a>
 
 ## 2.7 A numerical reset bug and its consequence
@@ -136,6 +154,12 @@ An agent trace should therefore distinguish generated tokens, tool calls, tool o
 
 The transfer is structural: both robot trajectories and tool transcripts require correctly attributed actions, rewards, and boundaries. Their raw data formats differ substantially.
 
+### Decide what counts as a policy action in a transcript
+
+Imagine a transcript containing a user prompt, an agent-generated tool call, a tool result, and an agent-generated answer. Only the generated choices belong in the actor's action log likelihood. The tool output can affect later decisions without being an action sampled from the agent policy.
+
+If a wrapper repairs tool arguments after generation, record both the proposed action and executed action, along with the repair rule. A learning update based on the proposal may no longer describe the probability of the executed behavior. Treat repair as part of the environment/interface model or explicitly include it in the policy definition, then evaluate that complete system.
+
 <a id="section-2-10"></a>
 
 ## 2.10 Problems, worked answers, and sources
@@ -156,4 +180,4 @@ A: the trace probability becomes 0.6×0.8×0.75=0.36. Its realized return remain
 
 ---
 
-[← Chapter 1](../01-what-is-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 3 →](../03-markov-decision-processes/README.md)
+[← Chapter 1](../01-what-is-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 3 →](../03-markov-decision-processes/README.md)

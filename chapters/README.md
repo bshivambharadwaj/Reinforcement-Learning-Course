@@ -1,8 +1,9 @@
 # Chapters: From Bellman Equations to Reasoning Agents
 
-**Created by Shivam Bharadwaj** · [Quick-read course](../README.md) · [Notebooks](../README.md#practical-track)
+**Created by Shivam Bharadwaj** · [Course home](../README.md) · [Notebooks](../README.md#practical-track)
 
-The main README remains the quick-read course. These chapters provide the companion path:
+The main README is the course home and navigation page. The [quick reads](../quick-read/README.md)
+preserve the concise topic lessons. These chapters provide the deeper path:
 precise definitions, derivations, fully specified examples, failure analysis, engineering
 decisions, and exercises with worked answers. Choose either reading depth and move between
 them through the links at the top and bottom of every chapter.
@@ -24,7 +25,9 @@ replace the need to understand an expectation, a bootstrap target, or an objecti
 Every chapter has ten numbered sections, such as 3.1–3.10. Chapter prerequisites are stated
 in the text. Equations use readable plain notation and the course's existing SVG assets;
 raw renderer-dependent LaTeX is avoided. Chapters include small proofs where assumptions
-support them, and explicitly distinguish empirical observations from guarantees.
+support them, and explicitly distinguish empirical observations from guarantees. Extended
+investigations develop sensitivity bounds, estimator variance, policy-update mechanics,
+data coverage, and evaluator design within the existing numbered sections.
 
 ## All chapters
 

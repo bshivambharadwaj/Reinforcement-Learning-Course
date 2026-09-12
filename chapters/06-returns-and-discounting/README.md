@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 5](../05-policies/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 7 →](../07-state-value-functions/README.md)
+[← Chapter 5](../05-policies/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 7 →](../07-state-value-functions/README.md)
 
-[Quick-read Topic 6](../../README.md#topic-6) · [Notation](../NOTATION.md)
+[Quick-read Topic 6](../../quick-read/06-returns-and-discounting.md) · [Notation](../NOTATION.md)
 
 - [6.1 Choose the objective before calculating it](#section-6-1)
 - [6.2 Finite and infinite return definitions](#section-6-2)
@@ -74,6 +74,12 @@ If rewards are bounded by R_max, ignoring all rewards after H steps creates an a
 
 For gamma=0.9, R_max=1, and H=50, the bound is about 0.0515. It is conservative because it assumes every future reward has the worst possible magnitude and aligned sign. Higher gamma makes both long-term effects and error propagation more significant.
 
+### Solve for a horizon from an error tolerance
+
+For 0<gamma<1, require R_max gamma^H/(1−gamma)≤epsilon. When epsilon(1−gamma)/R_max<1, taking logarithms gives H≥log[epsilon(1−gamma)/R_max]/log gamma. Both logarithms in this expression are negative; forgetting that division by a negative quantity reverses the inequality is a common algebra error.
+
+With R_max=1, gamma=0.9, and epsilon=0.01, H must be at least 66. H=65 gives a tail bound about 0.01061; H=66 gives about 0.00955. This is a worst-case truncation certificate, not a prediction that every environment needs 66 meaningful decisions.
+
 <a id="section-6-6"></a>
 
 ## 6.6 Return variability is not just reward variability
@@ -83,6 +89,12 @@ As a deliberately simplified model, suppose continuing rewards are independent w
 Real RL rewards are usually correlated through states and actions, so covariance terms also contribute. A policy can change both the mean reward sequence and its correlation structure. Do not use the independent-reward formula as a general RL variance estimator.
 
 Higher return variance can make Monte Carlo estimation expensive. Lowering gamma can reduce some variance while changing the objective. That is not a free statistical improvement when the intended task values distant consequences.
+
+### Add back the covariance terms
+
+For a finite reward sequence, Var(G_0)=sum_t gamma^(2t)Var(R_(t+1))+2sum_(i<j)gamma^(i+j)Cov(R_(i+1),R_(j+1)). Independence removes the second sum; shared hidden conditions can make it substantial.
+
+Let two rewards each equal the same random variable X with variance 1. At gamma=0.5, G=1.5X has variance 2.25. Treating the rewards as independent would predict 1+0.25=1.25. If the second reward instead equals −X, variance becomes 0.25. Marginal reward variances are identical in both examples, while temporal dependence changes return uncertainty sharply.
 
 <a id="section-6-7"></a>
 
@@ -103,6 +115,12 @@ Use the return-to-go function in [Notebook 05](../../notebooks/05_policy_gradien
 Then compare two gamma values on the same saved trajectories. This isolates changed weighting from changed exploration. A second experiment can retrain policies under each objective, but the comparison now includes both changed targets and changed data collection.
 
 For the fixed-horizon [comparison lab](../../notebooks/08_one_problem_many_algorithms.ipynb), explain why gamma=1 is well defined and why all learners receive the same number of transitions. Do not import its return scale into another environment without checking reward conventions.
+
+### Compare objectives on a fixed trajectory set first
+
+Take trajectory A with rewards [3,0] and trajectory B with [0,4]. At gamma=0.5, A returns 3 and B returns 2; at gamma=1, B wins 4 versus 3. No learning algorithm or sampling change is needed to reverse the ranking.
+
+Before retraining with a new discount, recompute the returns of the same stored trajectories. This isolates the objective change from exploration and optimization effects. A subsequent training comparison should report performance under the original desired metric as well as the training objective when those differ.
 
 <a id="section-6-9"></a>
 
@@ -130,4 +148,4 @@ A: G_2=−1, G_1=−0.5, G_0=1.75. B: the bound is 2×0.8^10/0.2≈1.07374. C: i
 
 ---
 
-[← Chapter 5](../05-policies/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 7 →](../07-state-value-functions/README.md)
+[← Chapter 5](../05-policies/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 7 →](../07-state-value-functions/README.md)

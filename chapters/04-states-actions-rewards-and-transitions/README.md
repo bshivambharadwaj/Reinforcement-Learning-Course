@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 3](../03-markov-decision-processes/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 5 →](../05-policies/README.md)
+[← Chapter 3](../03-markov-decision-processes/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 5 →](../05-policies/README.md)
 
-[Quick-read Topic 4](../../README.md#topic-4) · [Notation](../NOTATION.md)
+[Quick-read Topic 4](../../quick-read/04-states-actions-rewards-and-transitions.md) · [Notation](../NOTATION.md)
 
 - [4.1 The components are design decisions](#section-4-1)
 - [4.2 State variables and information leakage](#section-4-2)
@@ -55,6 +55,12 @@ Actions can also take different amounts of time. If a macro-action lasts k eleme
 
 For a two-step macro action with rewards −1 and +4, gamma=0.9, and next-state value 3, its target is −1+0.9×4+0.9²×3=5.03. Using a single gamma on the continuation would incorrectly yield 5.3 under the same elementary-step objective.
 
+### Random-duration actions require an expectation over duration
+
+For an action lasting a random number K of elementary steps, define its discounted accumulated reward as R_macro=sum_(j=0 to K−1)gamma^j R_(t+j+1). Its backup is E[R_macro+gamma^K V(S_next)|s,a]. Duration, reward, and successor may be correlated, so replacing gamma^K by gamma raised to the mean duration is generally invalid.
+
+For K equal to 1 or 3 with equal probability and gamma=0.5, E[gamma^K]=0.3125, while gamma^E[K]=0.25. Even with zero internal rewards and a constant continuation value 8, these produce 2.5 versus 2. The difference comes from applying a nonlinear function before versus after averaging.
+
 <a id="section-4-4"></a>
 
 ## 4.4 Joint outcomes versus expected rewards
@@ -75,6 +81,12 @@ Adding a constant per step is more subtle. In an infinite discounted continuing 
 
 With policy-dependent episode lengths and no rewards after termination, a per-step constant changes the incentive to stop. A +1 living bonus can make stalling attractive. Do not apply the continuing-task invariance result to variable-length episodes without checking its assumptions.
 
+### Clarify when adding a constant preserves rankings
+
+With exactly H rewarded transitions for every policy, adding c per transition adds c(1−gamma^H)/(1−gamma) for gamma≠1, or cH for gamma=1. This is independent of action choices and therefore preserves rankings. If episodes can terminate early and the addition stops at termination, policies receive different numbers of added terms.
+
+An absorbing-state representation does not automatically resolve this ambiguity. Adding c to every absorbing-state reward continues paying after nominal completion; adding it only to preterminal transitions does not. These implement different objectives even if both are described informally as “adding a living reward.” Write the rule at the transition level.
+
 <a id="section-4-6"></a>
 
 ## 4.6 Derive potential-based shaping
@@ -88,6 +100,12 @@ sum_(t=0..T-1) gamma^t F_t = −Phi(s_0) + gamma^T Phi(s_T)
 If terminal potential is zero in a finite episodic task, the change is a start-dependent constant rather than a route-dependent bonus. For bounded potential in an infinite discounted task, the endpoint term vanishes as T grows. Under these conditions the return ordering is preserved.
 
 Boundary conventions matter. A nonzero terminal potential can introduce a length- or terminal-state-dependent change. A hand-written reward for every apparent progress event is not automatically potential-based; reversible progress can be farmed repeatedly if the reverse movement is not accounted for.
+
+### Show why a shaping loop cannot create free discounted reward
+
+Consider A→B→A with Phi(A)=0, Phi(B)=2, and gamma=0.9. The first shaping reward is 1.8; the second is −2. Their discounted sum is 1.8+0.9×(−2)=0, matching the telescoping formula because the start and end potentials are both zero.
+
+If only positive progress is paid and the reverse move is unpenalized, the loop earns 1.8 instead. That is a different reward function and can encourage repeated movement. A good shaping audit enumerates reversible transitions and checks complete discounted cycles, including their boundary potentials, rather than checking isolated positive rewards.
 
 <a id="section-4-7"></a>
 
@@ -135,4 +153,4 @@ A: −1+0.9×4=2.6. B: −2, regardless of the intermediate potentials, assuming
 
 ---
 
-[← Chapter 3](../03-markov-decision-processes/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 5 →](../05-policies/README.md)
+[← Chapter 3](../03-markov-decision-processes/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 5 →](../05-policies/README.md)

@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 36](../36-reinforcement-learning-from-human-feedback/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 38 →](../38-direct-preference-optimization/README.md)
+[← Chapter 36](../36-reinforcement-learning-from-human-feedback/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 38 →](../38-direct-preference-optimization/README.md)
 
-[Quick-read Topic 37](../../README.md#topic-37) · [Notation](../NOTATION.md)
+[Quick-read Topic 37](../../quick-read/37-reward-models-and-preference-learning.md) · [Notation](../NOTATION.md)
 
 - [37.1 Learn a preference score without mistaking it for truth](#section-37-1)
 - [37.2 Define the pairwise model](#section-37-2)
@@ -53,6 +53,12 @@ With score gap log 3≈1.0986, predicted preference probability is 0.75 and loss
 
 Therefore pairwise data do not identify an absolute reward origin for each prompt. Multiplying all scores changes preference confidence under a fixed sigmoid temperature. Reward scale and calibration matter when the score later enters a KL-regularized policy objective.
 
+### Show how prompt-wise reward offsets affect interpretation
+
+Pairwise comparisons within one prompt cannot distinguish r(x,y) from r(x,y)+c(x). A policy-gradient update conditioned on a fixed prompt can treat a response-independent offset as a baseline under the usual assumptions, but a reported average reward across prompts changes if those offsets change.
+
+Therefore absolute scores across prompt families need a calibration convention. A model assigning scores near 100 to one domain and near 0 to another may still rank each domain's response pairs correctly. Its aggregate score can be dominated by prompt composition rather than genuine quality differences.
+
 <a id="section-37-5"></a>
 
 ## 37.5 Design the annotation process
@@ -69,6 +75,12 @@ Pairs sharing prompts or near-identical candidates are dependent. Split by promp
 
 Report pairwise accuracy, probability calibration, and subgroup behavior. A model can rank most easy pairs correctly while failing precisely on the subtle cases a strong policy generates. Validation candidates should include the policy distribution encountered during optimization when feasible.
 
+### Separate discrimination from calibration numerically
+
+Consider ten labeled pairs where the model chooses the preferred response correctly eight times. Pair accuracy is 80% whether its winning confidence is 0.8 or 0.99 on every pair. Yet the average negative log likelihood differs: for confidence 0.8 it is approximately 0.5004, while for confidence 0.99 it is approximately 0.9291.
+
+The second model is more severely penalized for its confident errors. Calibration assesses how probabilities correspond to empirical frequencies; discrimination assesses ordering. Neither alone guarantees that optimization against the scorer produces useful responses outside the validation distribution.
+
 <a id="section-37-7"></a>
 
 ## 37.7 Analyze best-of-N selection pressure
@@ -84,6 +96,12 @@ In the extreme case where all candidates have identical true quality and indepen
 Construct controlled pairs that vary one suspected shortcut: length, formatting, confident language, answer correctness, or copied rubric phrases. Hold other properties as constant as possible and inspect score changes.
 
 Then evaluate candidates selected by the model, not only randomly sampled candidates. Use an independent checker or blinded human review under a defined rubric. A second learned judge can share biases, so independence should be argued from data, design, and task checks rather than model naming alone.
+
+### Build a shortcut challenge with matched pairs
+
+Create four response variants for the same task: correct concise, correct verbose, incorrect concise, and incorrect verbose. Compare scores while preserving as much phrasing and presentation as possible. If verbosity consistently overwhelms correctness, the scorer has a shortcut relevant to the intended metric.
+
+Repeat across held-out task families rather than drawing a conclusion from one anecdote. Keep challenge-set design separate from final evaluation, since repeatedly tuning to the challenge can turn it into training feedback. The deliverable is a table of controlled contrasts and error cases, not only the model's overall pair accuracy.
 
 <a id="section-37-9"></a>
 
@@ -113,4 +131,4 @@ Read [Deep Reinforcement Learning from Human Preferences](https://arxiv.org/abs/
 
 ---
 
-[← Chapter 36](../36-reinforcement-learning-from-human-feedback/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 38 →](../38-direct-preference-optimization/README.md)
+[← Chapter 36](../36-reinforcement-learning-from-human-feedback/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 38 →](../38-direct-preference-optimization/README.md)

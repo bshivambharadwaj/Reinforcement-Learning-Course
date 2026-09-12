@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Capstone →](../../notebooks/11_tool_agent_capstone.ipynb)
+[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Capstone →](../../notebooks/11_tool_agent_capstone.ipynb)
 
-[Quick-read Topic 40](../../README.md#topic-40) · [Notation](../NOTATION.md)
+[Quick-read Topic 40](../../quick-read/40-multimodal-rl-and-rl-for-ai-agents.md) · [Notation](../NOTATION.md)
 
 - [40.1 Bring perception, reasoning, and action into one task](#section-40-1)
 - [40.2 Define the task contract before the policy](#section-40-2)
@@ -61,6 +61,14 @@ Two identical screenshots can represent different hidden backend states. Two too
 
 Memory should preserve task-relevant evidence, not merely accumulate text. Record which facts came from tools, which are hypotheses, and whether later observations supersede earlier ones. A summary can reduce context cost while losing a critical constraint; evaluate that failure explicitly.
 
+### Calculate the value of a noisy observation
+
+Suppose an agent must choose between two tools, each correct in one of two equally likely hidden states. Without information, its best success probability is 0.5. A sensor identifies the hidden state correctly with probability 0.8 and costs 0.1 reward; correct execution pays 1 and failure pays 0, with gamma=1.
+
+Using the sensor and following its indication yields expected reward 0.8−0.1=0.7, better than 0.5. If the sensor cost exceeds 0.3, that strategy is no longer preferable under this objective. Information-gathering actions can thus be evaluated using the same return accounting as ordinary actions.
+
+With a different prior, apply Bayes' rule before choosing. A noisy indication need not overturn a sufficiently strong prior belief. Treating every observation as certain evidence can produce worse decisions than explicitly representing uncertainty.
+
 <a id="section-40-4"></a>
 
 ## 40.4 Explain what multimodality changes
@@ -91,6 +99,14 @@ Potential-based shaping uses F=gamma Phi(s')−Phi(s). Over an episode, discount
 
 Consider a naive evaluator that awards one point whenever the agent writes “done.” Repeating that claim can produce high reward without changing the task state. The fix is not a more eloquent instruction to be honest; the evaluator must check the actual completion condition. Then test the exploit again to verify that it no longer scores.
 
+### Test a reward exploit as an executable specification
+
+Define a task whose authoritative completion flag changes only after a valid submission. Create a scripted policy that repeatedly emits success claims without submitting anything. Under a correct completion evaluator, verified success must remain zero regardless of the wording or frequency of those claims.
+
+Then test duplicate submissions, stale tool outputs, and invalid arguments under the documented contract. Each should have a defined state transition, cost, and success interpretation. These tests target concrete evaluator loopholes; they are stronger than a general instruction telling the agent to behave correctly.
+
+Keep training reward and evaluation implementation sufficiently separate to avoid reproducing the same mistake in both. Independence can come from an authoritative state check or an independently specified checker, not merely from naming a second function `evaluate`.
+
 <a id="section-40-7"></a>
 
 ## 40.7 Work an end-to-end tool episode
@@ -112,6 +128,14 @@ Test missing data, malformed tool outputs, delayed observations, duplicate actio
 A scalar penalty can trade constraint violations against reward. If a rule is a hard constraint, enforce it in the action interface or use an appropriate constrained formulation and evaluation. A high mean reward does not prove zero violations, and a finite test set with none observed does not prove they are impossible.
 
 For statistical interpretation, distinguish episodes from seeds and task families. Zero failures in n independent trials still leaves uncertainty about a nonzero failure probability; under a binomial model, the one-sided 95% upper bound is 1−0.05^(1/n), approximately 3/n for large n. Dependence or distribution shift weakens that simple interpretation.
+
+### Compare systems under a resource frontier
+
+Evaluate success at several fixed budgets, such as one, four, and eight allowed tool calls, rather than reporting only each system's favorite setting. Plot verified success against actual resource use, and report how timeouts and invalid calls consume the budget.
+
+A system dominates another at a tested budget if it achieves better success without using more of the controlled resource, but different resources can create tradeoffs. Fewer tool calls may require more model tokens or latency. State which axis is controlled and retain the others as measured costs.
+
+Use held-out task families to test whether the frontier persists beyond familiar examples. If results are based on a compact tool simulator, the supported conclusion concerns that simulator's contract. A production claim requires evidence about real tool failures, permissions, changing interfaces, and the deployment task distribution.
 
 <a id="section-40-9"></a>
 
@@ -145,4 +169,4 @@ Read [WebArena](https://arxiv.org/abs/2307.13854) for realistic web-task evaluat
 
 ---
 
-[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Capstone →](../../notebooks/11_tool_agent_capstone.ipynb)
+[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Capstone →](../../notebooks/11_tool_agent_capstone.ipynb)

@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 26](../26-reinforce/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 28 →](../28-advantage-actor-critic/README.md)
+[← Chapter 26](../26-reinforce/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 28 →](../28-advantage-actor-critic/README.md)
 
-[Quick-read Topic 27](../../README.md#topic-27) · [Notation](../NOTATION.md)
+[Quick-read Topic 27](../../quick-read/27-actor-critic-methods.md) · [Notation](../NOTATION.md)
 
 - [27.1 Couple a decision-maker with an evaluator](#section-27-1)
 - [27.2 Define a one-step advantage estimate](#section-27-2)
@@ -64,6 +64,12 @@ E[delta | s,a] = A_pi(s,a)
 
 The state-only term −e(s) cancels in the expected action score at s, but successor error can depend on a and bias the actor direction. This explains why “a baseline may be inaccurate” does not justify every bootstrapped advantage estimate.
 
+### Construct an actor bias from successor-value error
+
+Two actions at s both pay zero and lead deterministically to different terminal-on-next-step states with the same true continuation value 5. Their true advantages under a uniform policy are zero. Suppose the critic estimates those successors as 7 and 3.
+
+With gamma=0.9, the difference between their expected TD-based actor weights is 0.9×(7−3)=3.6, despite equal true action values. A state-only baseline at s cannot cancel that action-dependent difference. The actor can therefore prefer one action due entirely to the critic's uneven successor errors.
+
 <a id="section-27-5"></a>
 
 ## 27.5 Choose separate losses
@@ -71,6 +77,12 @@ The state-only term −e(s) cancels in the expected action score at s, but succe
 The actor minimizes negative log probability times detached advantage. The critic minimizes a regression loss toward a detached return target. Entropy can be added to the actor objective with an explicitly reported coefficient.
 
 If actor and critic share an encoder, the critic loss also changes policy features. Loss coefficients then affect policy behavior indirectly. Separate optimizers do not by themselves isolate parameters that are intentionally shared.
+
+### Separate update paths in a shared network
+
+Consider a shared feature encoder with a policy head and value head. The actor loss should send gradients through the policy log probability and shared encoder; the detached advantage should not create a second actor gradient through the value head. The critic loss can independently send gradients through the value head and shared encoder.
+
+Inspect gradient norms by parameter group after each loss separately. A zero policy-head gradient from the critic loss is expected with separate heads, while a nonzero shared-encoder gradient is intentional. This diagnostic makes shared representation interference concrete instead of attributing every effect to an abstract “unstable critic.”
 
 <a id="section-27-6"></a>
 
@@ -95,6 +107,12 @@ Do not mix an arbitrary replay buffer into an on-policy implementation merely be
 Track return, entropy, advantage statistics, critic error on held-out rollouts, and policy change. A critic's explained variance can help describe fit but is unstable when target variance is tiny and does not certify unbiased actor updates.
 
 Probe a known state-action pair with an analytical advantage. If the actor moves in the wrong direction, inspect loss signs and masks before tuning learning rates. If signs are correct but returns worsen, investigate approximation and distribution change.
+
+### Build a frozen-actor critic audit
+
+Freeze the policy and gather independent evaluation trajectories. Fit or evaluate the critic against empirical returns on these trajectories, then compare its state-wise errors with the actor's subsequent update weights.
+
+If critic accuracy deteriorates mainly after actor updates resume, policy nonstationarity is a plausible explanation. If it remains poor under a frozen actor, investigate representation, coverage, target boundaries, and optimization. This controlled separation is more informative than changing both actor and critic learning rates simultaneously.
 
 <a id="section-27-9"></a>
 
@@ -124,4 +142,4 @@ Read [Sutton and Barto, Chapter 13](http://incompleteideas.net/book/the-book-2nd
 
 ---
 
-[← Chapter 26](../26-reinforce/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 28 →](../28-advantage-actor-critic/README.md)
+[← Chapter 26](../26-reinforce/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 28 →](../28-advantage-actor-critic/README.md)

@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 38](../38-direct-preference-optimization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 40 →](../40-multimodal-rl-and-rl-for-ai-agents/README.md)
+[← Chapter 38](../38-direct-preference-optimization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 40 →](../40-multimodal-rl-and-rl-for-ai-agents/README.md)
 
-[Quick-read Topic 39](../../README.md#topic-39) · [Notation](../NOTATION.md)
+[Quick-read Topic 39](../../quick-read/39-grpo-and-reinforcement-learning-for-reasoning.md) · [Notation](../NOTATION.md)
 
 - [39.1 Learn from groups of verifiable attempts](#section-39-1)
 - [39.2 Define a common group-relative construction](#section-39-2)
@@ -59,6 +59,12 @@ For independent samples and unnormalized centered rewards, subtracting the group
 
 A leave-one-out mean removes this particular self-inclusion factor under the same assumptions. Dividing by a sample standard deviation adds further dependence, so the simple factor no longer describes the full normalized estimator. Group normalization is useful, but should not be labeled automatically identical to an unbiased value-baseline estimator.
 
+### Derive the self-inclusion factor explicitly
+
+Let z_i be sample i's score gradient and let mu_G=(r_i+sum_(j≠i)r_j)/G. For independent samples at a fixed prompt, E[r_j z_i]=E[r_j]E[z_i]=0 when j≠i. Therefore E[(r_i−mu_G)z_i]=(1−1/G)E[r_i z_i].
+
+For G=4, this is a factor 0.75. A leave-one-out mean uses only the other G−1 rewards and avoids that particular shrinkage under the same independence assumptions. Standard-deviation normalization adds a random shared denominator, so multiplying by G/(G−1) does not generally make the fully normalized estimator unbiased.
+
 <a id="section-39-5"></a>
 
 ## 39.5 Connect the group signal to policy optimization
@@ -83,6 +89,12 @@ If each independent response succeeds with probability p, the probability that a
 
 At p=0.1 and G=8, at-least-one success is about 0.5695. Larger groups improve the chance of observing contrast but consume more samples. If p is essentially zero, an affordable group may still provide little useful signal; warm starts or a curriculum can change that regime.
 
+### Choose group size from the probability of contrast
+
+For binary reward, the probability of a useful mixed group is 1−p^G−(1−p)^G. At p=0.01 and G=8 it is approximately 0.07726; most groups are all failures. At p=0.5 the same group size gives 0.99219.
+
+Group-based learning is therefore sensitive to the policy's starting competence and task difficulty. Increasing G costs more generations per prompt. Compare total sampled responses, not merely the number of prompt groups, when evaluating a warm start, curriculum, or larger group size.
+
 <a id="section-39-8"></a>
 
 ## 39.8 Separate training gains from search gains
@@ -90,6 +102,12 @@ At p=0.1 and G=8, at-least-one success is about 0.5695. Larger groups improve th
 Report single-attempt accuracy, intermediate-step validity, and success under a fixed multi-sample budget. Best-of-k or verifier-selected performance uses extra inference compute and should be compared with baselines using the same allowance.
 
 Split by meaningful problem structure and inspect duplicates. Holding out arithmetic tuples tests one kind of generalization; larger operands, longer chains, or new operators test others. A small task's success does not establish open-ended reasoning ability or faithful explanations.
+
+### Distinguish verifier-selected success from oracle pass rate
+
+The probability that at least one candidate is correct differs from the probability that a fallible verifier selects a correct candidate. Best-of-k with an oracle measures an upper opportunity under that sample set; a deployed selector must identify the successful candidate from available evidence.
+
+Report candidate correctness, selected-answer correctness, and verifier false positives separately. A verifier that rewards an answer-format exploit can make both training score and selected score rise while actual success falls. For process evaluation, also record whether intermediate steps are valid rather than inferring them from the final answer alone.
 
 <a id="section-39-9"></a>
 
@@ -119,4 +137,4 @@ Read [DeepSeekMath](https://arxiv.org/abs/2402.03300) for the original GRPO form
 
 ---
 
-[← Chapter 38](../38-direct-preference-optimization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 40 →](../40-multimodal-rl-and-rl-for-ai-agents/README.md)
+[← Chapter 38](../38-direct-preference-optimization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 40 →](../40-multimodal-rl-and-rl-for-ai-agents/README.md)

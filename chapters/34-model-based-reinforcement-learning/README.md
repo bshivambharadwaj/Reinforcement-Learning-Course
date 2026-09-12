@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 33](../33-offline-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 35 →](../35-multi-agent-reinforcement-learning/README.md)
+[← Chapter 33](../33-offline-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 35 →](../35-multi-agent-reinforcement-learning/README.md)
 
-[Quick-read Topic 34](../../README.md#topic-34) · [Notation](../NOTATION.md)
+[Quick-read Topic 34](../../quick-read/34-model-based-reinforcement-learning.md) · [Notation](../NOTATION.md)
 
 - [34.1 Learn or use a model of consequences](#section-34-1)
 - [34.2 Separate three components](#section-34-2)
@@ -67,6 +67,14 @@ Suppose a coupling gives per-step probability at most epsilon that a model and r
 
 With nonnegative rewards bounded by R_max, this crude argument can yield an undiscounted return-difference bound of order R_max epsilon H² when rewards agree on matched transitions. This is not a universal bound for any learned model; it states explicit assumptions and illustrates horizon amplification.
 
+### Derive a finite-horizon coupling bound step by step
+
+Assume model and real trajectories begin together, use the same policy, and can be coupled so that each matched-state transition disagrees with probability at most epsilon. Assume each reward lies in [0,R_max] and matched transitions have equal rewards.
+
+By time t+1, mismatch probability is at most (t+1)epsilon, capped at one. The expected reward difference at that transition is therefore at most R_max min(1,(t+1)epsilon). Summing over H transitions gives a return-difference bound no larger than R_max epsilon H(H+1)/2, and trivially no larger than HR_max.
+
+For signed rewards in [−R_max,R_max], the maximum per-transition difference becomes 2R_max. This derivation exposes the norm and reward-range conventions hidden by an informal O(H²epsilon) statement.
+
 <a id="section-34-6"></a>
 
 ## 34.6 Work a planner-exploitation example
@@ -74,6 +82,12 @@ With nonnegative rewards bounded by R_max, this crude argument can yield an undi
 Two routes have true returns 5 and 1. A learned model predicts 4.8 and 7 because the second route enters an unfamiliar state. Planning chooses the second route and obtains 1.
 
 Average prediction error on the logged first route can be tiny while decision quality is poor. Optimization preferentially searches for high predicted values, including positive model errors. Evaluate model accuracy on planner-selected trajectories, not only random held-out transitions.
+
+### Separate random prediction error from optimizer-selected error
+
+Suppose every candidate plan has true return 5, while the learned model predicts 5 plus independent noise. Randomly evaluating model accuracy can show zero mean error. Selecting the largest predicted plan instead preferentially selects a positive error.
+
+Measure prediction calibration on the plans the optimizer actually chooses, including repeated optimization rounds. Increasing search budget can worsen this selected error even with an unchanged model. A planner should therefore be evaluated as a model-plus-search system, not by combining unrelated claims about average model accuracy and search thoroughness.
 
 <a id="section-34-7"></a>
 
@@ -99,6 +113,12 @@ The course's DP reference in [Notebook 08](../../notebooks/08_one_problem_many_a
 
 For tool agents, executing a tool in a sandbox can provide a real transition rather than an imagined one. For reasoning agents, internal text simulation is a learned prediction. Distinguish these sources of evidence when counting search and judging reliability.
 
+### Design a model-learning budget that can be compared fairly
+
+Train a model from a fixed number of real transitions, then vary the number of imagined updates while keeping that dataset fixed. Report real interaction count, model-query count, and actual evaluated policy return separately.
+
+If imagined updates first help and then hurt, inspect whether the planner is exploiting unsupported transitions or simply overfitting a limited task distribution. An oracle-model version of the same experiment can isolate model error from planning/optimization limitations. This is a proposed extension to the known-model reference, not a claim that the current notebook already trains a world model.
+
 <a id="section-34-10"></a>
 
 ## 34.10 Problems, worked answers, and reading
@@ -119,4 +139,4 @@ Read [Sutton and Barto, Chapter 8](http://incompleteideas.net/book/the-book-2nd.
 
 ---
 
-[← Chapter 33](../33-offline-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 35 →](../35-multi-agent-reinforcement-learning/README.md)
+[← Chapter 33](../33-offline-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 35 →](../35-multi-agent-reinforcement-learning/README.md)

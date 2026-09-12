@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 37](../37-reward-models-and-preference-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 39 →](../39-grpo-and-reinforcement-learning-for-reasoning/README.md)
+[← Chapter 37](../37-reward-models-and-preference-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 39 →](../39-grpo-and-reinforcement-learning-for-reasoning/README.md)
 
-[Quick-read Topic 38](../../README.md#topic-38) · [Notation](../NOTATION.md)
+[Quick-read Topic 38](../../quick-read/38-direct-preference-optimization.md) · [Notation](../NOTATION.md)
 
 - [38.1 Optimize preferences through policy likelihoods](#section-38-1)
 - [38.2 Start from the regularized reward problem](#section-38-2)
@@ -56,6 +56,12 @@ In a pairwise score difference for the same prompt, beta log Z(x) cancels. Subst
 
 Define m=(log pi(y_w|x)−log pi(y_l|x))−(log pi_ref(y_w|x)−log pi_ref(y_l|x)). The DPO loss is −log sigmoid(beta m). This cancellation depends on comparing responses for the same prompt and using the specified preference model.
 
+### Track the gradients of winner and loser likelihoods
+
+Let z=beta[(log pi_w−log pi_l)−(log ref_w−log ref_l)]. The derivative of −log sigmoid(z) with respect to log pi_w is beta(sigmoid(z)−1); the derivative with respect to log pi_l is its negative. Reference terms are fixed.
+
+These derivatives describe pressure on likelihood coordinates. Actual model parameters couple many sequences through normalization and shared representations, so the winner's absolute probability need not increase after a full minibatch update. Distinguish a local loss coefficient from a guaranteed change in every generated response probability.
+
 <a id="section-38-4"></a>
 
 ## 38.4 Work a numerical loss
@@ -80,6 +86,12 @@ For autoregressive models, response log probability is the sum of log probabilit
 
 State whether EOS is included. Apply the same tokenization, truncation, and mask conventions to policy and reference. A length-normalized average is a different quantity from the sequence log probability used in the basic derivation and must be described as such.
 
+### Trace a masked causal-language-model likelihood
+
+Suppose the token sequence is [prompt_1,prompt_2,response_1,response_2,EOS,pad]. The logit after prompt_2 predicts response_1, the next predicts response_2, and the next predicts EOS. If EOS is included by the stated convention, exactly those three next-token log probabilities contribute to the completion sum.
+
+Prompt prediction and padding positions are excluded. The mask applies to the shifted labels, so using an unshifted attention mask without checking alignment can score the wrong tokens. Validate a tiny hand-constructed sequence before trusting aggregate pair margins. Policy and reference must use identical token boundaries and masking conventions.
+
 <a id="section-38-7"></a>
 
 ## 38.7 Freeze and identify the reference
@@ -95,6 +107,12 @@ Using the base model versus the SFT model changes the relative objective. Updati
 The winner-versus-loser margin can improve because the loser becomes less likely even if the winner's absolute likelihood also falls. Pairwise preference accuracy does not guarantee the model will generate a good response under its actual decoding procedure.
 
 Evaluate generated outputs as well as likelihood metrics. Hold out meaningful prompt or template groups. Check format, correctness, response length, and any task-specific constraints independently of the training pair labels.
+
+### Design a preference-generalization split
+
+When prompts follow templates, randomly splitting response pairs can place nearly identical tasks in both train and test. Split by a meaningful source of novelty, such as template, entity group, or task family, according to the claim you intend to make.
+
+Evaluate winner/loser margins, generated correctness, format compliance, and response length on the same held-out prompts. If margins improve but generated correctness is unchanged, report that narrower result. A post-training stage can alter likelihood structure without producing a measurable gain on a small saturated task.
 
 <a id="section-38-9"></a>
 
@@ -124,4 +142,4 @@ Read [Direct Preference Optimization: Your Language Model is Secretly a Reward M
 
 ---
 
-[← Chapter 37](../37-reward-models-and-preference-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 39 →](../39-grpo-and-reinforcement-learning-for-reasoning/README.md)
+[← Chapter 37](../37-reward-models-and-preference-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 39 →](../39-grpo-and-reinforcement-learning-for-reasoning/README.md)

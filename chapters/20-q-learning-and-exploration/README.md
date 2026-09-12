@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 19](../19-sarsa/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 21 →](../21-function-approximation/README.md)
+[← Chapter 19](../19-sarsa/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 21 →](../21-function-approximation/README.md)
 
-[Quick-read Topic 20](../../README.md#topic-20) · [Notation](../NOTATION.md)
+[Quick-read Topic 20](../../quick-read/20-q-learning-and-exploration.md) · [Notation](../NOTATION.md)
 
 - [20.1 Separate the data policy from greedy continuation](#section-20-1)
 - [20.2 Define the target](#section-20-2)
@@ -62,6 +62,12 @@ Finite tabular convergence to Q_star uses sufficient visitation of all relevant 
 
 The theorem does not automatically extend to a deep network trained on a small fixed dataset. Function approximation couples states; unsupported action values can enter the maximum; and distribution mismatch can amplify errors.
 
+### Relate the sampled target to the optimal operator
+
+Conditioned on a visited state-action pair and the current fixed Q table, the expected Q-learning target is the optimal Bellman backup of that table. The expected update points toward T_star Q−Q at the visited entry.
+
+The sampling policy determines how often each entry is updated, while the maximum determines the continuation target. This separation explains the term off-policy. It does not eliminate the requirement that relevant entries receive sufficient updates, nor ensure that a restricted approximator can independently correct each entry.
+
 <a id="section-20-5"></a>
 
 ## 20.5 Design exploration as a data strategy
@@ -78,6 +84,12 @@ Suppose two true action values are zero and independent estimates are each +1 or
 
 Each estimate is individually unbiased, but selecting the larger produces an upward bias. This can feed into bootstrapped targets. Double Q-learning separates selection and evaluation across estimators to reduce this coupling; it is not a universal guarantee of zero error.
 
+### Calculate a Double Q target with disagreement
+
+Suppose estimator A assigns next-action values [6,5], while estimator B assigns [2,7]. An A-selected/B-evaluated continuation is B(argmax A)=2. A maximum taken wholly in B would be 7. With reward 1 and gamma=0.9, these targets are 2.8 and 7.3.
+
+The smaller cross-estimated target is not automatically more accurate on this individual sample: the true values could favor either result. The statistical motivation is reduced selection/evaluation error coupling across repeated estimation, not a rule that smaller targets are always better.
+
 <a id="section-20-7"></a>
 
 ## 20.7 Distinguish GLIE from a convenient schedule
@@ -85,6 +97,12 @@ Each estimate is individually unbiased, but selecting the larger produces an upw
 Greedy in the limit with infinite exploration is a property of the induced visitation process, not merely a label for decaying epsilon. Even epsilon_t=1/t does not by itself guarantee every deep state is visited infinitely often in an arbitrary environment.
 
 Long action sequences may need coordinated exploration. A reward at the end of ten specific choices is unlikely under independent random actions. This motivates structured exploration and model-based planning, while preserving the need to measure actual coverage.
+
+### Explore a sequence, not just one action
+
+If a rewarding state requires ten specific binary choices and exploration chooses independently and uniformly at each step, one attempt reaches it with probability 2^(−10)=1/1024. The expected number of independent attempts before the first success is 1024.
+
+An epsilon schedule that becomes tiny after a few dozen attempts can leave that state practically unexplored. Structured exploration, demonstrations, or a curriculum may improve access, but each adds information or changes the training process. Report those additions rather than attributing the gain entirely to the Q-learning update equation.
 
 <a id="section-20-8"></a>
 
@@ -122,4 +140,4 @@ Read [Sutton and Barto, Chapter 6.5](http://incompleteideas.net/book/the-book-2n
 
 ---
 
-[← Chapter 19](../19-sarsa/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 21 →](../21-function-approximation/README.md)
+[← Chapter 19](../19-sarsa/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 21 →](../21-function-approximation/README.md)

@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 7](../07-state-value-functions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 9 →](../09-advantage-functions/README.md)
+[← Chapter 7](../07-state-value-functions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 9 →](../09-advantage-functions/README.md)
 
-[Quick-read Topic 8](../../README.md#topic-8) · [Notation](../NOTATION.md)
+[Quick-read Topic 8](../../quick-read/08-action-value-functions.md) · [Notation](../NOTATION.md)
 
 - [8.1 Why condition on the first action?](#section-8-1)
 - [8.2 Two equivalent decompositions](#section-8-2)
@@ -74,6 +74,12 @@ Suppose two routes lead to a later junction where the current policy makes a poo
 
 Exact policy iteration alternates evaluation and improvement to address this dependency. Q-learning instead uses a greedy bootstrap target intended to learn optimal action values under suitable tabular sampling and step-size conditions. A symbol named `q` does not tell you which object it estimates.
 
+### Work through a misleading early action ranking
+
+At A, `stop` pays 2 and terminates; `continue` pays 0 and reaches B. At B, the current policy chooses an action paying 1, although another action pays 10. With gamma=0.9, Q_pi(A,continue)=0.9, so a first-action comparison under the old continuation favors stopping.
+
+After improving the policy at B, continuing is worth 9 and becomes preferable. The difference is not a contradiction: Q_pi and Q_new condition on different future behavior. A one-pass greedy change using stale continuation values can miss an upstream improvement that becomes visible after reevaluation.
+
 <a id="section-8-6"></a>
 
 ## 8.6 Greedy decisions and estimation error
@@ -84,6 +90,14 @@ This is a local ranking bound. It does not automatically bound total policy regr
 
 Estimate uncertainty and action-value margins together. A nearly tied choice may be fragile even when average squared error is small.
 
+### Prove the action-gap robustness criterion
+
+Let the best true action have value q_1 and the runner-up q_2, with gap Delta=q_1−q_2>0. If every action estimate has absolute error at most epsilon, then the estimated best action's value is at least q_1−epsilon, while any competitor's is at most q_2+epsilon.
+
+Thus Delta>2epsilon guarantees the true best action remains the unique estimated maximizer. When Delta=2epsilon, a tie can occur; when it is smaller, reversal is possible. For values [4,3] and epsilon=0.4, ranking is protected. At epsilon=0.6, estimates [3.4,3.6] reverse it.
+
+This explains why value error alone does not fully describe control error: the same error magnitude can be harmless in a large-gap state and decisive near a tie.
+
 <a id="section-8-7"></a>
 
 ## 8.7 Maximization turns noise into optimism
@@ -93,6 +107,12 @@ If several action estimates contain zero-mean noise, their maximum tends to sele
 This does not require a biased estimator for each action. Selection creates the effect. When the selected maximum becomes a bootstrap target, optimism can propagate backward through value learning.
 
 Double Q-style methods separate selection from evaluation to address this mechanism. They do not imply that all optimism is harmful or that the numerical example exactly describes correlated neural-network errors.
+
+### Extend maximization bias to more actions
+
+For m independent action estimates that are each +1 or −1 with equal probability around a true value of zero, the maximum is −1 only if all m estimates are −1. Therefore E[max]=1−2×2^(−m)=1−2^(1−m).
+
+For m=2 the bias is 0.5; for m=4 it is 0.875. More candidates can increase optimistic selection even when each candidate estimator remains unbiased. Correlated errors change this calculation, so action count alone is not a complete bias model. The same controlled construction helps explain why searching more model-scored responses can exploit evaluator noise.
 
 <a id="section-8-8"></a>
 
@@ -130,4 +150,4 @@ A: inspect becomes −1+0.9×0.75×4=1.7, below leave's 3. B: at most 0.6 under 
 
 ---
 
-[← Chapter 7](../07-state-value-functions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 9 →](../09-advantage-functions/README.md)
+[← Chapter 7](../07-state-value-functions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 9 →](../09-advantage-functions/README.md)

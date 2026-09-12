@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 30](../30-trust-region-policy-optimization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 32 →](../32-entropy-regularization/README.md)
+[← Chapter 30](../30-trust-region-policy-optimization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 32 →](../32-entropy-regularization/README.md)
 
-[Quick-read Topic 31](../../README.md#topic-31) · [Notation](../NOTATION.md)
+[Quick-read Topic 31](../../quick-read/31-proximal-policy-optimization.md) · [Notation](../NOTATION.md)
 
 - [31.1 Reuse a recent rollout with a restrained surrogate](#section-31-1)
 - [31.2 Define the clipped actor objective](#section-31-2)
@@ -63,6 +63,12 @@ Clipping the ratio alone and multiplying by A would suppress some penalties as w
 
 This is not a projection of the policy into a permitted set. Shared parameters and other samples can still change a clipped action's probability. Unobserved actions and states can move without appearing directly in the batch objective.
 
+### Derive the piecewise objective for each sign
+
+For positive A, the clipped sample objective equals rA when r≤1+epsilon and (1+epsilon)A when r exceeds that boundary. The lower clipping boundary does not flatten the harmful direction. For negative A, the objective equals (1−epsilon)A below the lower boundary and rA above it.
+
+Consequently, a positive-advantage sample with a very low ratio still has an incentive to recover probability, while a negative-advantage sample with a very high ratio remains penalized. This sign-sensitive behavior is why taking the minimum is essential. At the boundaries the function is continuous but has a change in derivative.
+
 <a id="section-31-5"></a>
 
 ## 31.5 Freeze the correct old policy information
@@ -70,6 +76,12 @@ This is not a projection of the policy into a permitted set. Shared parameters a
 Collect trajectories under pi_old and store each sampled action's old log probability. During several update epochs, keep those numbers unchanged. After the collection/update cycle, gather a fresh rollout using the updated policy.
 
 Recomputing “old” probabilities after every optimizer step collapses the meaning of the ratio. In LLM alignment, a separate fixed reference model may define a KL anchor; it is not the rollout-generating old policy unless explicitly identical at that stage.
+
+### Explain why the first ratio should be one
+
+Before any update, evaluating the collected actions under the same policy snapshot should reproduce their old log probabilities, so ratios should be one up to numerical precision. A systematic mismatch can indicate different action masks, preprocessing, dropout behavior, or a mismatch between the actual sampling distribution and the scored distribution.
+
+For language generation with temperature or top-k filtering, the behavior distribution may differ from the raw model softmax. Decide which distribution generated the data and which likelihoods the objective requires. Calling both quantities “policy probability” does not make them equal.
 
 <a id="section-31-6"></a>
 
@@ -94,6 +106,12 @@ Record rollout size, minibatch size, epochs, clip range, learning rates, value l
 Clip fraction measures how many sampled ratios fall outside the clip interval under a defined convention. It is not the fraction of all policy changes constrained. Approximate KL estimates can be noisy and depend on the estimator and sampling distribution.
 
 Early stopping based on KL is an additional practical control, not part of the algebraic clipping guarantee. Check actual return and task outcomes alongside surrogate metrics. A rising surrogate on a reused batch can coexist with worsening performance.
+
+### Derive two sampled KL diagnostics
+
+With samples from pi_old and ratio r=pi_new/pi_old, E_old[−log r]=D_KL(old||new). Individual values −log r can be negative. Under shared normalized support, E_old[r−1]=0, so E_old[(r−1)−log r] equals the same KL; each sample of this second expression is nonnegative by log r≤r−1.
+
+These identities assume the action ratios correspond to the distributions being compared. Finite-sample estimates differ, and restricted support or approximate scoring can break the cancellation. Record the diagnostic formula, not just a column labeled KL.
 
 <a id="section-31-8"></a>
 
@@ -131,4 +149,4 @@ Read [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347)
 
 ---
 
-[← Chapter 30](../30-trust-region-policy-optimization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 32 →](../32-entropy-regularization/README.md)
+[← Chapter 30](../30-trust-region-policy-optimization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 32 →](../32-entropy-regularization/README.md)

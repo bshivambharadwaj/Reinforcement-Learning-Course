@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 8](../08-action-value-functions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 10 →](../10-bellman-expectation-equations/README.md)
+[← Chapter 8](../08-action-value-functions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 10 →](../10-bellman-expectation-equations/README.md)
 
-[Quick-read Topic 9](../../README.md#topic-9) · [Notation](../NOTATION.md)
+[Quick-read Topic 9](../../quick-read/09-advantage-functions.md) · [Notation](../NOTATION.md)
 
 - [9.1 Relative feedback answers a different question](#section-9-1)
 - [9.2 Definition and zero-mean property](#section-9-2)
@@ -44,6 +44,12 @@ sum_a pi(a|s) A_pi(s,a)
 The result depends on using compatible exact Q_pi and V_pi and on averaging with pi. Estimated advantages need not have exactly zero sample mean, and an average under another policy need not be zero.
 
 Subtracting a state-dependent constant preserves the ranking of actions within that state. It does not preserve comparisons of raw numbers across different states with different baselines, which is precisely why advantage and value answer different questions.
+
+### Distinguish weighted centering from arithmetic centering
+
+For exact A_pi, sum_a pi(a|s)A_pi(s,a)=0 because V_pi is the policy-weighted Q average. The unweighted sum over actions need not be zero. If pi=[0.9,0.1] and Q=[2,12], then V=3 and advantages are [−1,9]. Their arithmetic mean is 4, but their policy-weighted mean is zero.
+
+Subtracting the arithmetic mean of these advantages would produce [−5,5]. This is a different centered signal. As a state-only baseline shift it can retain the expected score gradient under suitable conditions, but the resulting numbers no longer equal the defined Q_pi−V_pi advantages.
 
 <a id="section-9-3"></a>
 
@@ -85,6 +91,12 @@ Thus replacing a return weight by return minus b(s) does not change the expected
 
 An arbitrary action-dependent baseline does not cancel. Specialized correction methods exist, but merely subtracting a number called `baseline` is not enough. A same-batch statistic can also depend on the sampled action through its own return; Chapter 26 examines this subtlety.
 
+### Derive the variance-minimizing scalar baseline
+
+At a fixed state, let z=gradient log pi(a|s) and use estimator (G−b)z. Its expected gradient is independent of an action-independent b. Minimizing its second moment E[(G−b)²||z||²] gives derivative −2E[(G−b)||z||²]. Setting that derivative to zero yields b_star=E[G||z||²]/E[||z||²], provided the denominator is nonzero.
+
+The ordinary value E[G|s] is recovered when score magnitude is constant or suitably uncorrelated with return. Otherwise the variance-optimal scalar baseline weights outcomes by score magnitude. This result concerns one state's score estimator; it does not guarantee that fitting an approximate value network minimizes the variance of a full correlated trajectory gradient.
+
 <a id="section-9-7"></a>
 
 ## 9.7 Normalization is an engineering choice, not the definition
@@ -115,6 +127,12 @@ A tool agent may use a critic to judge whether a call was better than expected g
 
 Advantage helps assign update direction relative to a baseline. It is not, by itself, a causal explanation of which internal reasoning operation produced success.
 
+### Test whether a positive advantage means correctness
+
+Suppose a verifier rewards a wrong response 0.2 and two other wrong responses 0 and 0.1. Relative to their mean, the first wrong response receives positive centered reward. The signal asks the policy to prefer it within the sampled comparison, not to certify it as correct.
+
+Conversely, a correct response can receive negative advantage if the reward also measures cost and the comparison includes cheaper correct responses. Log correctness and relative training signal separately. This makes a group-based learning curve interpretable when score ranking and binary task success do not coincide.
+
 <a id="section-9-10"></a>
 
 ## 9.10 Problems, worked answers, and sources
@@ -131,4 +149,4 @@ A: V=3.4 and A=[1.6,−2.4]; 0.6×1.6+0.4×(−2.4)=0. B: continuing delta is 1+
 
 ---
 
-[← Chapter 8](../08-action-value-functions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 10 →](../10-bellman-expectation-equations/README.md)
+[← Chapter 8](../08-action-value-functions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 10 →](../10-bellman-expectation-equations/README.md)

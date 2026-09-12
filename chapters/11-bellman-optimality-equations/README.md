@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 10](../10-bellman-expectation-equations/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 12 →](../12-dynamic-programming/README.md)
+[← Chapter 10](../10-bellman-expectation-equations/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 12 →](../12-dynamic-programming/README.md)
 
-[Quick-read Topic 11](../../README.md#topic-11) · [Notation](../NOTATION.md)
+[Quick-read Topic 11](../../quick-read/11-bellman-optimality-equations.md) · [Notation](../NOTATION.md)
 
 - [11.1 Optimality changes the action operator](#section-11-1)
 - [11.2 Define optimal values and the operator](#section-11-2)
@@ -60,6 +60,12 @@ If one incorrectly computes E[max_a R(a,coin)], the answer is 10. That calculati
 
 The general inequality E[max X_a]≥max E[X_a] reflects this advantage of outcome-dependent selection. Equality can occur, but it is not guaranteed. In an MDP the action maximum must sit at the decision point where its conditioning information is available.
 
+### Timing of information changes the attainable value
+
+Return to two actions that pay 10 on opposite outcomes of an unseen fair coin. Without observing the coin, the optimal expected reward is 5. If an information action reveals it perfectly and costs c before the terminal choice, then at gamma=1 the informed strategy returns 10−c. Information is worthwhile when c<5.
+
+If information is noisy, compute the posterior success probability before choosing. A signal identifying the correct action with probability 0.8 gives expected terminal reward 8, so its undiscounted value is 8−c and its threshold cost is 3. The Bellman maximum must use the information available after the observation, not an imagined perfect signal.
+
 <a id="section-11-4"></a>
 
 ## 11.4 Work through a one-step optimal backup
@@ -90,6 +96,12 @@ To see the mechanism, use T_pi_v v=T_star v and insert these equal terms between
 
 This is conservative and requires a uniform value approximation to V_star, not merely a low regression loss on visited states. It helps explain why a small residual needs stronger tolerances when gamma is near one.
 
+### Convert an optimality residual into a policy certificate
+
+Let v be a candidate vector with residual d=||T_star v−v||∞ and let pi_v be greedy with respect to its backups. Discounted contraction first gives ||v−V_star||∞≤d/(1−gamma). Substituting into the approximate-greedy bound gives ||V_star−V_pi_v||∞≤2gamma d/(1−gamma)².
+
+For gamma=0.9 and d=0.001, this guarantees policy loss at most 0.18. This can be conservative: direct policy evaluation on a small known model may show a much smaller gap. The certificate is useful because it depends on a computable all-state residual, but a minibatch TD loss does not supply that residual.
+
 <a id="section-11-7"></a>
 
 ## 11.7 Ties, finite horizons, and model error
@@ -109,6 +121,12 @@ Use [Notebook 01](../../notebooks/01_mdp_dynamic_programming.ipynb) to compare o
 Construct the hidden-coin example as a one-step environment and calculate both operator orders. The correct learner without coin observation cannot average above 5 in expectation. If an implementation does, inspect whether the observation or evaluator leaked the coin.
 
 For [Notebook 08](../../notebooks/08_one_problem_many_algorithms.ipynb), explain why its DP optimum is a model-informed baseline rather than a competitor with zero sample complexity under the same information budget.
+
+### Build a counterexample before trusting a maximum
+
+Create a model with one legal action worth −2 and one illegal action whose array entry is zero. An unmasked maximum returns zero and prefers an impossible choice. Because zero initialization is common, negative-return tasks expose this error clearly.
+
+Then create a stochastic action with outcomes 10 and −10 and compare its expected value with a safe action worth 1. The safe action wins despite the risky action's best possible outcome. Together these tests distinguish legal-action selection and averaging over environmental uncertainty, the two operations an optimal backup must keep in the correct order.
 
 <a id="section-11-9"></a>
 
@@ -136,4 +154,4 @@ A: solve −1+0.72v(B)=3, so v(B)=50/9≈5.5556. B: 2×0.9×0.01/0.1=0.18. C: be
 
 ---
 
-[← Chapter 10](../10-bellman-expectation-equations/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 12 →](../12-dynamic-programming/README.md)
+[← Chapter 10](../10-bellman-expectation-equations/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 12 →](../12-dynamic-programming/README.md)

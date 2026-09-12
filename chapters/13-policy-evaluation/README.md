@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 12](../12-dynamic-programming/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 14 →](../14-policy-improvement/README.md)
+[← Chapter 12](../12-dynamic-programming/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 14 →](../14-policy-improvement/README.md)
 
-[Quick-read Topic 13](../../README.md#topic-13) · [Notation](../NOTATION.md)
+[Quick-read Topic 13](../../quick-read/13-policy-evaluation.md) · [Notation](../NOTATION.md)
 
 - [13.1 Evaluation asks a conditional question](#section-13-1)
 - [13.2 Construct policy-induced quantities](#section-13-2)
@@ -43,6 +43,12 @@ v_pi = r_pi + gamma P_pi v_pi
 
 For masked terminal continuation, the transient-state matrix can be substochastic. Its missing mass represents termination. Alternatively include an absorbing state with value zero. Do not mix the two conventions by counting terminal rewards twice.
 
+### Derive the transient-state convention explicitly
+
+Partition a fixed policy's transition matrix into nonterminal states and a terminal absorbing state. The nonterminal block P_N can have row sums below one because some probability mass exits to termination. Since terminal value is zero, nonterminal values satisfy v_N=r_N+gamma P_N v_N.
+
+For one state that pays 2, then terminates with probability 0.25 and returns to itself otherwise, v=2+0.75gamma v. At gamma=0.9 this is 80/13≈6.1538. At gamma=1 it is 8, still finite because expected episode length is four. This example shows why undiscounted episodic evaluation can work even though the discounted contraction argument does not apply unchanged.
+
 <a id="section-13-3"></a>
 
 ## 13.3 Solve a coupled example
@@ -75,6 +81,12 @@ therefore ||v_pi−v|| ≤ d/(1−gamma)
 
 This is a full-model, all-state certificate. A sampled residual on one minibatch is not the same quantity. At gamma=0.99, residual 0.01 allows value error up to 1; the discount strongly affects useful stopping tolerances.
 
+### Compare update size with residual after an in-place sweep
+
+In synchronous evaluation, the full update difference T_pi v−v is directly a Bellman residual of the old vector. In an in-place sweep, each state uses a mixture of old and newly updated entries. The largest assignment change during that sweep is not automatically the full residual of either the initial or final vector.
+
+After an in-place sweep, independently recompute T_pi v using the completed vector if you want the standard residual certificate. This extra pass costs computation but removes ambiguity. A stopping tolerance should be attached to a precisely defined measured quantity, not simply to a variable named `delta`.
+
 <a id="section-13-6"></a>
 
 ## 13.6 Interpret state weighting
@@ -102,6 +114,12 @@ With function approximation, evaluation includes projection onto a restricted cl
 | Logged-data evaluation | Another policy's trajectories | Coverage, weighting, and model assumptions |
 
 For fresh rollouts, report independent episodes and uncertainty rather than treating correlated timesteps as independent trials. Logged-data evaluation needs additional assumptions developed in Chapter 33.
+
+### Estimate a confidence interval under a stated sampling model
+
+For independent evaluation returns G_1,…,G_n with sample standard deviation s, the estimated standard error of the mean is s/sqrt(n). A large-sample approximate 95% interval is mean±1.96s/sqrt(n), subject to the approximation and sampling assumptions.
+
+If n=100, mean=3, and s=2, the interval is approximately [2.608,3.392]. Heavy-tailed outcomes, small samples, dependent episodes, and repeated model selection can make this approximation unreliable. Always report the raw sample count and grouping unit so readers know what the uncertainty calculation treats as independent.
 
 <a id="section-13-9"></a>
 
@@ -131,4 +149,4 @@ Read [Sutton and Barto, Chapter 4.1](http://incompleteideas.net/book/the-book-2n
 
 ---
 
-[← Chapter 12](../12-dynamic-programming/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 14 →](../14-policy-improvement/README.md)
+[← Chapter 12](../12-dynamic-programming/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 14 →](../14-policy-improvement/README.md)

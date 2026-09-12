@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 23](../23-experience-replay/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 25 →](../25-policy-gradient-methods/README.md)
+[← Chapter 23](../23-experience-replay/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 25 →](../25-policy-gradient-methods/README.md)
 
-[Quick-read Topic 24](../../README.md#topic-24) · [Notation](../NOTATION.md)
+[Quick-read Topic 24](../../quick-read/24-target-networks.md) · [Notation](../NOTATION.md)
 
 - [24.1 Slow down the regression reference](#section-24-1)
 - [24.2 Define hard synchronization](#section-24-2)
@@ -53,6 +53,12 @@ If the online parameter stays fixed at theta_star, after k updates the target er
 
 For tau=0.1, the half-life is about 6.58 updates. For small tau, it is approximately 0.693/tau. If the online parameters keep changing, this fixed-target calculation describes smoothing scale rather than the full tracking error.
 
+### Derive the expected age of a soft target contribution
+
+Ignoring initialization after a long run, the soft target is an exponential mixture of past online parameters with weights tau(1−tau)^k for lag k≥0. These weights sum to one. Their mean lag is sum_k k tau(1−tau)^k=(1−tau)/tau.
+
+For tau=0.01, the mean lag is 99 updates. This differs from the half-life, approximately 68.97 updates. Both describe the smoothing kernel, not actual prediction error. A nonlinear network's prediction at averaged parameters is not the weighted average of historical predictions.
+
 <a id="section-24-5"></a>
 
 ## 24.5 Understand what remains coupled
@@ -60,6 +66,12 @@ For tau=0.1, the half-life is about 6.58 updates. For small tau, it is approxima
 Even with a frozen target network, batches share data, online parameters generalize across states, and the behavior policy changes future replay content. At synchronization, the target can shift abruptly.
 
 Target networks reduce one source of rapid movement. They do not guarantee contraction of the neural training process, eliminate off-policy instability, or prevent reward-model exploitation. A stable loss curve can still represent a poor policy.
+
+### Examine the two extremes
+
+At tau=1, the target copies the online parameters every soft update, removing the intended lag. As tau approaches zero, the target changes very slowly; with tau exactly zero it never learns beyond initialization.
+
+Neither extreme is universally optimal. A stale target can remain consistently wrong after useful data arrive, while immediate copying can intensify feedback. A meaningful ablation reports the target-online prediction gap and policy return, because a large parameter gap does not necessarily imply a large behavioral difference.
 
 <a id="section-24-6"></a>
 
@@ -81,6 +93,12 @@ These objects cannot be interchanged merely because each is a copy of a model. T
 A target must have independent parameter storage. Assigning a second variable to the same module does not create a frozen copy. Disable target gradients and update it only through the documented synchronization mechanism.
 
 Also consider non-parameter state such as normalization statistics. A network in training mode can change buffers even when gradients are disabled. Verify which state is copied and whether stochastic layers are intended in target computation.
+
+### Test storage independence instead of trusting variable names
+
+Record target outputs on a fixed batch. Perform an online optimizer step without synchronization, then verify the target parameters and outputs remain unchanged under deterministic evaluation. Next apply the documented synchronization and verify the expected hard copy or soft combination.
+
+This test catches shallow copies, accidental optimizer membership, and stateful-forward mutations. If dropout is deliberately active, compare parameters or controlled-randomness outputs rather than assuming output differences imply a parameter update. The test should match the claimed freezing contract precisely.
 
 <a id="section-24-8"></a>
 
@@ -118,4 +136,4 @@ Read [DQN](https://doi.org/10.1038/nature14236) for hard targets and [DDPG](http
 
 ---
 
-[← Chapter 23](../23-experience-replay/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 25 →](../25-policy-gradient-methods/README.md)
+[← Chapter 23](../23-experience-replay/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 25 →](../25-policy-gradient-methods/README.md)

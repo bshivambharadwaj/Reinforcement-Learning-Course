@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 17](../17-monte-carlo-methods/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 19 →](../19-sarsa/README.md)
+[← Chapter 17](../17-monte-carlo-methods/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 19 →](../19-sarsa/README.md)
 
-[Quick-read Topic 18](../../README.md#topic-18) · [Notation](../NOTATION.md)
+[Quick-read Topic 18](../../quick-read/18-temporal-difference-learning.md) · [Notation](../NOTATION.md)
 
 - [18.1 Learn before an episode ends](#section-18-1)
 - [18.2 Define the TD error](#section-18-2)
@@ -63,6 +63,12 @@ Under a fixed policy and the correct conditional transition distribution, E[y_t|
 
 At V=V_pi, the expected TD error is zero even though individual errors need not vanish. Stochastic rewards and transitions continue to produce sample variation. A loss that does not approach zero can therefore be compatible with correct expected values.
 
+### Analyze the expected scalar update
+
+In a one-state continuing task with mean reward r_bar and self-loop dynamics, expected TD updates satisfy E[V_next|V]=V+alpha[r_bar−(1−gamma)V]. The fixed point is r_bar/(1−gamma).
+
+Writing e=V−V_star gives expected error multiplier 1−alpha(1−gamma). With gamma=0.9 and alpha=0.1, this is 0.99, so even this simple expected recursion can move slowly. This deterministic-mean analysis does not characterize all stochastic fluctuations or generalize directly to coupled neural parameters; it isolates how discounting affects the restoring force in one dimension.
+
 <a id="section-18-5"></a>
 
 ## 18.5 State convergence assumptions carefully
@@ -84,6 +90,12 @@ G_t^(n) = sum_(k=0 to n−1) gamma^k R_(t+k+1)
 
 Larger n reduces reliance on an early continuation estimate but exposes the target to more random outcomes. At termination, shorten the sum and remove continuation. The optimal choice depends on reward noise, horizon, value accuracy, and data availability; there is no universal ordering of MC and TD.
 
+### Calculate the bootstrap-error contribution of an n-step target
+
+Suppose every endpoint value estimate differs from V_pi by at most epsilon, and the n observed rewards and transition distribution are otherwise correct under the evaluated policy. The expected n-step target's deviation due solely to endpoint approximation is bounded by gamma^n epsilon.
+
+With gamma=0.9 and epsilon=2, one-step continuation error can contribute up to 1.8, while five-step continuation error contributes up to 1.18098. Longer targets reduce this particular source of error but expose more sampled rewards and transitions. The bound therefore does not prove five-step TD has smaller total mean-squared error in every task.
+
 <a id="section-18-7"></a>
 
 ## 18.7 Distinguish target bias from objective bias
@@ -99,6 +111,12 @@ With restricted function approximation, the eventual projected solution may diff
 Do not accidentally backpropagate through the target when implementing a semi-gradient critic. Log target scale, value scale, and terminal/cutoff counts. For batched code, verify predictions and targets have the same intended shape before subtraction.
 
 A batch of B predictions shaped [B,1] and targets shaped [B] can broadcast into [B,B], producing a plausible scalar loss for the wrong task. One manual transition is a more revealing first check than a long training curve.
+
+### Distinguish a TD fixed point from minimizing Bellman residual loss
+
+The semi-gradient update treats the target as fixed, so its expected direction need not equal the gradient of the expected squared Bellman residual. Differentiating that residual fully introduces target derivatives and, in stochastic settings, products of conditional expectations that can require additional independent successor samples for unbiased estimation.
+
+This is why adding target gradients is not an automatic mathematical improvement to TD. State which objective or fixed-point method is intended, then verify the estimator for that method. A neural autograd graph can be syntactically valid while implementing a different learning rule.
 
 <a id="section-18-9"></a>
 
@@ -128,4 +146,4 @@ Read [Sutton and Barto, Chapters 6–7](http://incompleteideas.net/book/the-book
 
 ---
 
-[← Chapter 17](../17-monte-carlo-methods/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 19 →](../19-sarsa/README.md)
+[← Chapter 17](../17-monte-carlo-methods/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 19 →](../19-sarsa/README.md)

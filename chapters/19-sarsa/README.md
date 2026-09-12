@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 18](../18-temporal-difference-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 20 →](../20-q-learning-and-exploration/README.md)
+[← Chapter 18](../18-temporal-difference-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 20 →](../20-q-learning-and-exploration/README.md)
 
-[Quick-read Topic 19](../../README.md#topic-19) · [Notation](../NOTATION.md)
+[Quick-read Topic 19](../../quick-read/19-sarsa.md) · [Notation](../NOTATION.md)
 
 - [19.1 Evaluate the behavior that will actually continue](#section-19-1)
 - [19.2 Define the update and its timing](#section-19-2)
@@ -64,6 +64,12 @@ y = r + gamma * sum_a pi(a|s') Q(s',a)
 
 With epsilon=0.2 and two actions, uniform random exploration gives safe probability 0.9 and risky probability 0.1. The expected continuation is 3, so the target is 1.7. It still samples the environment transition, but integrates over the action choice at s'.
 
+### Quantify the variance removed by Expected SARSA
+
+At a fixed sampled successor, let Q values be [4,−6] and next-action probabilities [0.9,0.1]. The sampled next Q has mean 3 and variance 0.9(4−3)²+0.1(−6−3)²=9.
+
+With gamma=0.9 and a fixed immediate reward, the SARSA target's conditional variance from next-action sampling is 0.9²×9=7.29. Expected SARSA replaces that sampled Q with its mean, removing this conditional action variance. Random successor states and rewards still contribute variance, so the whole target does not generally become deterministic.
+
 <a id="section-19-5"></a>
 
 ## 19.5 Explain the cliff effect without a slogan
@@ -71,6 +77,12 @@ With epsilon=0.2 and two actions, uniform random exploration gives safe probabil
 When exploratory actions can trigger a large penalty, an on-policy value includes that future risk. A longer route can have higher expected return under an epsilon-soft policy even if the shortest route is best under deterministic execution.
 
 This does not make SARSA universally “safer.” Safety depends on the reward, constraints, exploration distribution, and state coverage. A severe outcome absent from training can still be missed, and expected return is not a hard risk constraint.
+
+### Derive an exploration-sensitive route threshold
+
+At a dangerous junction, the greedy action completes for +10, while an exploratory mistake ends for −100. If the probability of that mistake is q, expected terminal reward is 10−110q. A safe route yielding 5 is preferable under this execution policy when q>1/22, approximately 0.04545.
+
+The deterministic best action still has return 10. The route comparison changes because the behavior policy includes mistakes. This example isolates the mechanism behind exploration-aware on-policy values without asserting that one algorithm satisfies a formal safety constraint.
 
 <a id="section-19-6"></a>
 
@@ -95,6 +107,12 @@ Action masks change m by state. Sampling uniformly over all actions and rejectin
 Use the same transition budget, initialization, seeds, and environment for SARSA and Q-learning. Evaluate each learned table under both its exploratory policy and its greedy policy.
 
 If differences disappear under greedy evaluation, explain that the training continuation assumptions still differed. Also report catastrophic events during training, not only final reward. An algorithm that learns a good final policy after many failures may be unsuitable under a constrained data-collection budget.
+
+### Evaluate training and deployment policies separately
+
+Save the learned Q table and run two frozen evaluations: one with the training epsilon and one greedily. Keep the environment distribution identical. Record severe failures as well as mean return in both evaluations.
+
+A policy can show a substantial gap between these scores even when its value estimates correctly describe exploratory continuation. If deployment uses a different temperature, action filter, or retry wrapper, evaluate that complete behavior too. The phrase “the learned policy” is insufficient unless the action-selection rule is specified.
 
 <a id="section-19-9"></a>
 
@@ -124,4 +142,4 @@ Read [Sutton and Barto, Chapter 6.4](http://incompleteideas.net/book/the-book-2n
 
 ---
 
-[← Chapter 18](../18-temporal-difference-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 20 →](../20-q-learning-and-exploration/README.md)
+[← Chapter 18](../18-temporal-difference-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 20 →](../20-q-learning-and-exploration/README.md)

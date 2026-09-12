@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 2](../02-the-agent-environment-interaction/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 4 →](../04-states-actions-rewards-and-transitions/README.md)
+[← Chapter 2](../02-the-agent-environment-interaction/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 4 →](../04-states-actions-rewards-and-transitions/README.md)
 
-[Quick-read Topic 3](../../README.md#topic-3) · [Notation](../NOTATION.md)
+[Quick-read Topic 3](../../quick-read/03-markov-decision-processes.md) · [Notation](../NOTATION.md)
 
 - [3.1 What the Markov model promises](#section-3-1)
 - [3.2 Specify all components and their types](#section-3-2)
@@ -71,6 +71,12 @@ For gamma<1 and finite states, the inverse representation is V_pi=(I−gamma P_p
 
 In numerical code solve the linear system rather than explicitly constructing an inverse. At gamma=1, the discounted argument no longer applies; episodic/transience conditions or finite-horizon backward recursion must replace it.
 
+### Read matrix powers as future occupancy
+
+The entry P_pi²(s,u) sums over every intermediate state z the product P_pi(s,z)P_pi(z,u). It is the probability of reaching u after two transitions under the fixed policy. Consequently, the term gamma²P_pi²r_pi weights the reward expected on the third transition, since r_pi already represents the next transition's reward.
+
+This indexing explains why the series starts with r_pi rather than gamma r_pi. For a deterministic chain A→B→terminal with rewards 2 then 5, r=[2,5] and the transient P has P(A,B)=1. The series terminates after one continuation term, giving V(A)=2+gamma×5 and V(B)=5. The matrix and trajectory calculations must agree.
+
 <a id="section-3-5"></a>
 
 ## 3.5 Time and hidden state change the model
@@ -91,6 +97,12 @@ Why? If the abstract next-state distribution and reward agree, a Bellman backup 
 
 For a counterexample, group two depot states with different battery levels while a long movement succeeds only from the charged state. The abstract action has no single history-independent success probability unless the hidden-state mixture is fixed in a way the policy cannot change. Different visitation histories can break that assumption.
 
+### Verify an exact abstraction on a small model
+
+Let states A_1 and A_2 share an action `ship`. From either, reward is −1 and the probability of reaching delivery group D is 0.8, with the remaining 0.2 entering failure group F. If their other corresponding actions also agree in expected reward and group-transition probabilities, a value constant on each group remains constant after a Bellman backup.
+
+Now change A_2's delivery probability to 0.4 while keeping its immediate expected reward −1. With candidate continuation values v(D)=10 and v(F)=0 at gamma=0.9, the two backups are 6.2 and 2.6. Grouping the states forces two different answers into one entry. Equal immediate reward was insufficient because continuation distributions mattered.
+
 <a id="section-3-7"></a>
 
 ## 3.7 Audit a model before solving it
@@ -110,6 +122,12 @@ In [Notebook 01](../../notebooks/01_mdp_dynamic_programming.ipynb), inspect the 
 Extend the grid with a two-level battery state. First solve the augmented MDP. Then deliberately collapse the battery feature and identify states for which the collapsed transition distribution is history dependent. The deliverable is a concrete counterexample, not simply a lower average score.
 
 For [Notebook 08](../../notebooks/08_one_problem_many_algorithms.ipynb), explain why time is in DeliveryLine-v1's state and why backward DP gives an exact oracle there. The sampled learners do not receive that oracle during training.
+
+### Turn a Markov claim into a falsifiable investigation
+
+Construct two histories that end in the same proposed observation but imply different hidden battery levels. Apply the same next action repeatedly from each history using independent simulator randomness. Compare successor distributions and rewards conditioned on the histories.
+
+A reproducible difference disproves sufficiency of that observation for the tested dynamics. Failure to detect a difference in a small sample does not prove the Markov property across every history. This asymmetric logic is useful: a counterexample can refute a universal representation claim, while finite empirical agreement supports only the conditions examined.
 
 <a id="section-3-9"></a>
 
@@ -141,4 +159,4 @@ A: V(B)=0.5×4+0.5×(−1+0.9V(B))=1.5+0.45V(B). Thus V(B)=30/11≈2.7273 and V(
 
 ---
 
-[← Chapter 2](../02-the-agent-environment-interaction/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 4 →](../04-states-actions-rewards-and-transitions/README.md)
+[← Chapter 2](../02-the-agent-environment-interaction/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 4 →](../04-states-actions-rewards-and-transitions/README.md)

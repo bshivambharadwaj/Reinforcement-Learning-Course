@@ -1,6 +1,6 @@
 # Notation and reading guide
 
-[Chapters](README.md) · [Quick-read course](../README.md) · [Assessment](ASSESSMENT.md)
+[Chapters](README.md) · [Course home](../README.md) · [Assessment](ASSESSMENT.md)
 
 **Created by Shivam Bharadwaj**
 

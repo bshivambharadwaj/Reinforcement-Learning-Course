@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 34](../34-model-based-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 36 →](../36-reinforcement-learning-from-human-feedback/README.md)
+[← Chapter 34](../34-model-based-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 36 →](../36-reinforcement-learning-from-human-feedback/README.md)
 
-[Quick-read Topic 35](../../README.md#topic-35) · [Notation](../NOTATION.md)
+[Quick-read Topic 35](../../quick-read/35-multi-agent-reinforcement-learning.md) · [Notation](../NOTATION.md)
 
 - [35.1 Decisions interact through other learners](#section-35-1)
 - [35.2 Extend the MDP to joint actions](#section-35-2)
@@ -45,6 +45,12 @@ Two agents choose left or right simultaneously. Both receive 1 if their choices 
 
 Both-left and both-right each yield reward 1 and are Nash equilibria: neither agent gains by changing alone. The existence of several good conventions creates a coordination problem. Two agents trained separately can each be competent with their own partners yet fail together.
 
+### Derive best responses in the coordination game
+
+If the other agent chooses left with probability p, choosing left yields expected reward p and choosing right yields 1−p. Left is the unique best response for p>0.5; right is best for p<0.5; both tie at p=0.5.
+
+This gives pure equilibria at both-left and both-right, plus a mixed equilibrium where both randomize equally. The mixed equilibrium has lower team reward, 0.5 rather than 1. An equilibrium concept specifies unilateral incentives, not a ranking by team quality.
+
 <a id="section-35-4"></a>
 
 ## 35.4 Distinguish equilibrium from social welfare
@@ -69,6 +75,12 @@ With a shared team reward, an individual action's contribution can be obscured b
 
 Such baselines depend on model/critic quality and careful conditioning. They do not reveal a unique philosophical attribution of responsibility; they construct a learning signal for a specified objective. Joint action spaces can also grow exponentially with the number of agents.
 
+### Work a counterfactual baseline with a fixed teammate action
+
+Suppose a centralized critic assigns joint-action values Q(L,L)=4 and Q(R,L)=1 when the teammate chooses L. If the first agent's policy chooses its own L with probability 0.25, its counterfactual baseline for that teammate action is 0.25×4+0.75×1=1.75.
+
+Choosing L gives advantage 2.25; choosing R gives −0.75. The policy-weighted mean is zero for this fixed teammate action. The construction compares one agent's alternatives while holding others' actions fixed, relying on the critic's joint-action estimates. It does not reveal counterfactual outcomes directly from one observed trajectory.
+
 <a id="section-35-7"></a>
 
 ## 35.7 Recognize replay and nonstationarity issues
@@ -84,6 +96,12 @@ Self-play can generate a useful curriculum but may overfit a narrow population o
 Evaluate each trained agent with multiple partners or opponents, including independently trained seeds, scripted policies, and held-out strategies. Report a payoff matrix rather than only self-play reward.
 
 In the coordination game, one team may learn left and another right. High within-team scores but low cross-team scores reveal convention dependence. For zero-sum games, exploitability can be informative when a sufficiently strong best-response computation is available; approximate responses only provide limited evidence.
+
+### Interpret a cross-play matrix
+
+Train two independent populations in the coordination task. If population A always chooses left and B always chooses right, within-population reward is 1 but cross-population reward is 0. A matrix with train-seed populations as rows and partners as columns makes this immediately visible.
+
+Now introduce a partner that randomizes equally. Either deterministic convention scores 0.5 against it. Report the partner distribution used for an aggregate score; changing mixture weights changes the evaluation objective. In LLM teams, different prompts using the same underlying model may still share a convention or error, so apparent agent count is not evidence of independent expertise.
 
 <a id="section-35-9"></a>
 
@@ -113,4 +131,4 @@ Read [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](h
 
 ---
 
-[← Chapter 34](../34-model-based-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 36 →](../36-reinforcement-learning-from-human-feedback/README.md)
+[← Chapter 34](../34-model-based-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 36 →](../36-reinforcement-learning-from-human-feedback/README.md)

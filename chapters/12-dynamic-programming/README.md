@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 11](../11-bellman-optimality-equations/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 13 →](../13-policy-evaluation/README.md)
+[← Chapter 11](../11-bellman-optimality-equations/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 13 →](../13-policy-evaluation/README.md)
 
-[Quick-read Topic 12](../../README.md#topic-12) · [Notation](../NOTATION.md)
+[Quick-read Topic 12](../../quick-read/12-dynamic-programming.md) · [Notation](../NOTATION.md)
 
 - [12.1 Planning before learning](#section-12-1)
 - [12.2 Specify the planning contract](#section-12-2)
@@ -55,6 +55,12 @@ With H decisions remaining, write V_h(s), where h counts remaining decisions. Se
 
 A state-only policy can be wrong when deadlines matter. With two steps remaining, a detour to charge a battery can be worthwhile; with one, it may waste the last action. Recording h makes the policy Markov again. Finite-horizon DP works with gamma=1 because the recursion stops, whereas discounted fixed-point proofs require gamma<1.
 
+### Prove backward induction by induction on remaining decisions
+
+At h=0, no actions remain, so the boundary value is known. Assume V_(h−1) gives the optimal return for every state with h−1 decisions. Any h-step policy first chooses an action, receives a reward and successor, and then follows an (h−1)-step continuation whose value cannot exceed V_(h−1).
+
+Maximizing the resulting expected backup therefore gives an upper bound on every h-step policy. Choosing an action attaining the maximum and then an optimal (h−1)-step continuation attains that bound. This proves the recursion, including for gamma=1 and finite bounded rewards. It also explains why a policy may depend on remaining time.
+
 <a id="section-12-4"></a>
 
 ## 12.4 Calculate a deadline decision
@@ -87,6 +93,12 @@ A dense sweep over S states and A actions costs O(S²A), because each action ave
 
 Finite-horizon planning takes H backward sweeps. Discounted infinite-horizon iteration has a tolerance-dependent number of sweeps. A neural network can compress the state-value representation, but that does not make exact summation over an enormous transition space free.
 
+### Compute an actual model-storage budget
+
+A dense transition tensor for 10,000 states and four actions has 400 million entries. At eight bytes per float, the transition values alone occupy 3.2 billion bytes, before rewards, indices, and solver workspaces. If each action has at most three successors, there are at most 120,000 nonzero transition entries.
+
+Sparse storage introduces index overhead but can still change feasibility dramatically. The computational advantage depends on whether transitions are actually sparse and whether the implementation exploits that structure. Replacing a table with a network changes representation cost; it does not make unknown transition probabilities available for free.
+
 <a id="section-12-7"></a>
 
 ## 12.7 Use asynchronous computation carefully
@@ -102,6 +114,12 @@ Prioritized sweeping focuses computation where changes are likely to matter. A s
 Check probability normalization, action legality, boundary values, and an analytically solvable case before benchmarking speed. Then introduce a deliberate model mismatch: change delivery success from 0.9 in planning to 0.6 in evaluation.
 
 An exact optimum of the wrong model may lose to a learned policy trained in the real environment. Report planning compute separately from environment interactions; a DP oracle has information unavailable to a model-free learner and should be labeled accordingly.
+
+### Separate access to a model from access to a simulator
+
+A generative simulator can sample a successor for a queried state-action pair. A full tabular model supplies the complete transition distribution and expected rewards. Computing an exact backup from the first interface generally requires estimating an expectation through samples; from the second, it can sum the supplied probabilities.
+
+When comparing a planner with a sampled learner, state whether arbitrary state resets and model queries are allowed. A robot collecting one continuous stream has less data-access freedom than an algorithm that can repeatedly query any rare state. Counting only ordinary rollout steps can conceal this information advantage.
 
 <a id="section-12-9"></a>
 
@@ -131,4 +149,4 @@ Read Sutton and Barto, [Chapter 4](http://incompleteideas.net/book/the-book-2nd.
 
 ---
 
-[← Chapter 11](../11-bellman-optimality-equations/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 13 →](../13-policy-evaluation/README.md)
+[← Chapter 11](../11-bellman-optimality-equations/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 13 →](../13-policy-evaluation/README.md)

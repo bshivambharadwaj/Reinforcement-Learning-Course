@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 13](../13-policy-evaluation/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 15 →](../15-policy-iteration/README.md)
+[← Chapter 13](../13-policy-evaluation/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 15 →](../15-policy-iteration/README.md)
 
-[Quick-read Topic 14](../../README.md#topic-14) · [Notation](../NOTATION.md)
+[Quick-read Topic 14](../../quick-read/14-policy-improvement.md) · [Notation](../NOTATION.md)
 
 - [14.1 Improvement is a statement about future behavior](#section-14-1)
 - [14.2 State the sufficient condition](#section-14-2)
@@ -54,6 +54,14 @@ v_old ≤ T_new v_old ≤ T_new² v_old ≤ ... → v_new
 
 The last step follows from discounted contraction. Thus v_new≥v_old at every state. This proof identifies two distinct ingredients: monotonicity preserves the order, and convergence identifies the limit as the new policy's value.
 
+### Write improvement as a resolvent of local advantages
+
+Let g=T_new V_old−V_old be the vector of one-step improvement margins. Subtract the two policy Bellman equations and rearrange to obtain V_new−V_old=(I−gamma P_new)^(-1)g.
+
+The inverse is a sum of nonnegative matrices, I+gamma P_new+gamma²P_new²+…, so g≥0 implies V_new−V_old≥0. This gives another proof of improvement and shows where gains propagate: a state's improvement includes discounted visits to states with positive local margins under the new policy.
+
+If g is positive only in states unreachable from the chosen start distribution, the start-state objective need not improve strictly. Componentwise policy improvement and strictly higher average evaluation return are related but distinct claims.
+
 <a id="section-14-4"></a>
 
 ## 14.4 Calculate a stochastic improvement
@@ -86,6 +94,12 @@ Suppose |Q_hat(s,a)−Q_old(s,a)|≤epsilon for all actions at a state. The acti
 
 If the estimated improvement over the old action exceeds 2epsilon, its true one-step improvement is positive. When errors are only known on average, this robust sign argument is unavailable. Confidence intervals must also account for how an action was selected from the same noisy estimates.
 
+### Bound the damage from imperfect improvement
+
+If the new policy only satisfies g(s)≥−eta everywhere, the same inverse expression gives V_new−V_old≥−eta/(1−gamma) componentwise. A small local violation can accumulate along future visits.
+
+At gamma=0.95 and eta=0.02, the bound permits a loss of 0.4. If g≥0 on sampled states but is unknown elsewhere, the all-state bound is unavailable. This is one reason conservative policy changes can help in practice: they reduce opportunities to enter poorly estimated regions, although a heuristic small update does not prove the required inequality.
+
 <a id="section-14-8"></a>
 
 ## 14.8 Design a falsifiable experiment
@@ -93,6 +107,12 @@ If the estimated improvement over the old action exceeds 2epsilon, its true one-
 On a small known MDP, evaluate pi_old exactly. Construct a greedy policy, verify the improvement condition at every state, and then solve for V_new. Assert the full vector inequality within numerical tolerance.
 
 Next add bounded perturbations to Q and look for states where the condition fails. This extension separates an exact theorem from its approximate implementation. Record the largest negative true improvement margin, not just the mean start-state return.
+
+### Test strict improvement and tie handling separately
+
+Build one state with two equally valuable terminal actions and another with a clearly better alternative. Verify that the implementation preserves the old action in the tie state while changing the strictly improvable state.
+
+Then evaluate both policies independently. Checking only whether an action changed can falsely label an equivalent policy as better; checking only whether average return changed can hide improvements outside the selected start distribution. Log the full value vector and the local improvement margins on a tiny test MDP before relying on an aggregate result.
 
 <a id="section-14-9"></a>
 
@@ -122,4 +142,4 @@ Read [Sutton and Barto, Chapter 4.2](http://incompleteideas.net/book/the-book-2n
 
 ---
 
-[← Chapter 13](../13-policy-evaluation/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 15 →](../15-policy-iteration/README.md)
+[← Chapter 13](../13-policy-evaluation/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 15 →](../15-policy-iteration/README.md)

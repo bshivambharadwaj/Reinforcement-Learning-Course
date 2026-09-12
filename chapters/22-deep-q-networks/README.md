@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 21](../21-function-approximation/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 23 →](../23-experience-replay/README.md)
+[← Chapter 21](../21-function-approximation/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 23 →](../23-experience-replay/README.md)
 
-[Quick-read Topic 22](../../README.md#topic-22) · [Notation](../NOTATION.md)
+[Quick-read Topic 22](../../quick-read/22-deep-q-networks.md) · [Notation](../NOTATION.md)
 
 - [22.1 Approximate a value for every action](#section-22-1)
 - [22.2 State the objective and data source](#section-22-2)
@@ -37,6 +37,12 @@ Sample transitions (s,a,r,s',terminated) from replay. The original target is y=r
 
 Behavior commonly uses epsilon-greedy actions from Q_online. The replay distribution, behavior policy, and greedy target policy are therefore distinct objects. The loss is a sampled fitted update, not an exact application of a tabular Bellman operator.
 
+### View a frozen-target phase as fitted regression
+
+During a phase with fixed target parameters and a fixed replay dataset, DQN fits predictions to a set of bootstrap labels. Improving that supervised fit can be meaningful, but the labels still depend on the target network's errors and the replay support.
+
+After target synchronization, the labels change. Therefore a sequence of decreasing within-phase losses need not represent descent of one fixed global loss. Plotting loss across target-copy events can reveal abrupt label shifts that a single smoothed curve obscures. Keep optimizer progress and Bellman consistency conceptually separate.
+
 <a id="section-22-3"></a>
 
 ## 22.3 Trace a two-transition batch
@@ -61,6 +67,12 @@ With threshold 1, Huber loss is 0.5e² for |e|≤1 and |e|−0.5 otherwise. It l
 
 This can reduce sensitivity to outliers but does not correct an invalid reward, missing action mask, or unstable bootstrap loop. Reward clipping also changes the effective objective and must be distinguished from a robust regression loss.
 
+### Compare the gradients of squared and Huber losses
+
+For prediction error e=q−y, half-squared loss has derivative e. Unit-threshold Huber has derivative e for |e|≤1 and sign(e) outside that interval. At e=10, the derivatives are 10 and 1, so Huber reduces one large residual's direct influence on the selected prediction.
+
+The full parameter gradient multiplies this derivative by gradient Q_theta(s,a). A bounded scalar error derivative does not bound that network Jacobian or the total gradient norm. Huber loss and gradient-norm clipping address different mechanisms and should not be treated as interchangeable stabilization devices.
+
 <a id="section-22-6"></a>
 
 ## 22.6 Separate selection from evaluation in Double DQN
@@ -84,6 +96,12 @@ Tune and report them as experimental factors. A comparison with equal environmen
 Track independent evaluation return, predicted Q scale, TD residuals, replay age, and action frequencies. A low replay loss can reflect overfitting a narrow buffer or mutually consistent incorrect estimates.
 
 Use multiple seeds and retain failed runs. Check whether the learned greedy policy actually reaches the goal. In a known small model, evaluate its policy exactly and compare predicted versus true action values at important states.
+
+### Design a diagnostic probe set outside the replay batch
+
+Choose fixed states representing initial decisions, near-terminal choices, and low-coverage branches. At each checkpoint, record online Q, target Q, greedy action, and actual return of that frozen action policy under an independent evaluator.
+
+If predicted values rise while measured returns stay flat, inspect unsupported actions, terminal masking, and reward scale. If values remain accurate but actions oscillate, examine small action gaps and update noise. The point is to link a diagnostic to a failure mechanism; collecting many metrics without a hypothesis does not explain the learning process.
 
 <a id="section-22-9"></a>
 
@@ -113,4 +131,4 @@ Read the original [DQN paper](https://doi.org/10.1038/nature14236) and [Double D
 
 ---
 
-[← Chapter 21](../21-function-approximation/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 23 →](../23-experience-replay/README.md)
+[← Chapter 21](../21-function-approximation/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 23 →](../23-experience-replay/README.md)

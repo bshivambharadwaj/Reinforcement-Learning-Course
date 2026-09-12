@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 35](../35-multi-agent-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 37 →](../37-reward-models-and-preference-learning/README.md)
+[← Chapter 35](../35-multi-agent-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 37 →](../37-reward-models-and-preference-learning/README.md)
 
-[Quick-read Topic 36](../../README.md#topic-36) · [Notation](../NOTATION.md)
+[Quick-read Topic 36](../../quick-read/36-reinforcement-learning-from-human-feedback.md) · [Notation](../NOTATION.md)
 
 - [36.1 Turn human judgments into a training signal](#section-36-1)
 - [36.2 Specify the sequential decision problem](#section-36-2)
@@ -64,6 +64,14 @@ An illustrative objective is E_(x,y~pi)[r_phi(x,y)]−beta E_x[D_KL(pi(.|x)||pi_
 
 For an autoregressive response, log pi(y|x) is a sum over generated tokens. A sampled log-ratio sum can estimate the sequence KL under the policy distribution with matching support and boundaries. A single sampled log ratio may be negative even though the expected KL is nonnegative.
 
+### Derive sequence KL as expected prefix-level KL
+
+For autoregressive policies with compatible support and termination conventions, log[pi(y|x)/pi_ref(y|x)] is the sum of token log ratios along the generated response. Taking expectation under pi and conditioning on each visited prefix gives a sum of expected conditional token KLs.
+
+The prefixes themselves are distributed under the updated policy, not the reference. A calculation on fixed reference-generated prefixes estimates a different weighting unless corrected. EOS and maximum-length handling determine which terms exist; prompt tokens supplied externally are not generated actions in this response policy.
+
+This chain-rule interpretation connects a sequence-level anchor with per-token costs while making the required sampling distribution explicit.
+
 <a id="section-36-5"></a>
 
 ## 36.5 Distinguish the four models people confuse
@@ -88,6 +96,12 @@ Preference labels reflect a rubric, prompt distribution, annotator population, a
 
 Split data by prompts or underlying task families before forming train/test response pairs when possible. Near-duplicate prompts, shared generated candidates, and templated responses can leak information across random pair splits. Report subgroup performance and disagreement rather than hiding them in a single accuracy.
 
+### Define what an annotation disagreement means
+
+Suppose two equally represented reviewer groups disagree systematically about whether concise or elaborate answers are preferable. A scalar reward model can learn the majority or average labeling pattern, but that does not remove the underlying tradeoff.
+
+Record rubric dimensions separately when they matter, and evaluate relevant groups rather than presenting a single preference accuracy as universal agreement. If correctness is a requirement, verify it independently where possible; a preferred style can correlate with incorrect content. Dataset documentation should identify who labeled which prompts and what evidence they could inspect.
+
 <a id="section-36-8"></a>
 
 ## 36.8 Anticipate reward overoptimization
@@ -95,6 +109,12 @@ Split data by prompts or underlying task families before forming train/test resp
 The policy searches for responses that receive high predicted reward. As optimization becomes stronger, it can exploit features the reward model mistakenly favors, such as verbosity, formatting, or unsupported confidence.
 
 Track reward-model score alongside independent correctness, human judgments, and task-specific outcomes. If score rises while held-out quality stalls or falls, more optimization is not necessarily progress. KL anchoring can limit movement, but it does not make a flawed evaluator correct.
+
+### Separate optimization failure from objective mismatch
+
+If both training reward and independently judged quality decrease, optimization or implementation failure is plausible. If reward increases while independent quality decreases, the policy may be successfully optimizing a flawed proxy or making an unintended tradeoff. If both improve on familiar prompts but fail on a new domain, distribution shift is a distinct explanation.
+
+Build a result table with these measurements at every selected checkpoint under a fixed evaluation protocol. It should let a reader identify which explanation is consistent with the evidence instead of treating every disappointing result as the same kind of RLHF failure.
 
 <a id="section-36-9"></a>
 
@@ -124,4 +144,4 @@ Read [Learning to Summarize from Human Feedback](https://arxiv.org/abs/2009.0132
 
 ---
 
-[← Chapter 35](../35-multi-agent-reinforcement-learning/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 37 →](../37-reward-models-and-preference-learning/README.md)
+[← Chapter 35](../35-multi-agent-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 37 →](../37-reward-models-and-preference-learning/README.md)

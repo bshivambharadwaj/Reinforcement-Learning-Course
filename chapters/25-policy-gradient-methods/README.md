@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 24](../24-target-networks/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 26 →](../26-reinforce/README.md)
+[← Chapter 24](../24-target-networks/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 26 →](../26-reinforce/README.md)
 
-[Quick-read Topic 25](../../README.md#topic-25) · [Notation](../NOTATION.md)
+[Quick-read Topic 25](../../quick-read/25-policy-gradient-methods.md) · [Notation](../NOTATION.md)
 
 - [25.1 Optimize decisions directly](#section-25-1)
 - [25.2 Define a finite-episode objective](#section-25-2)
@@ -60,6 +60,12 @@ gradient J = E[sum_t gamma^t G_t * gradient log pi(A_t|S_t)]
 
 The outer gamma^t matters for this precise start-state discounted objective. Implementations sometimes use an undiscounted episodic objective or another state-weighting convention; document the convention rather than quietly dropping a factor in a proof.
 
+### Prove why past rewards vanish from the score expectation
+
+Let h_t denote the information before choosing A_t. Any past reward is measurable from that history and does not depend on the new sampled action after conditioning on h_t. The conditional expected score is sum_a pi(a|h_t)gradient log pi(a|h_t)=gradient sum_a pi(a|h_t)=0.
+
+Multiplying this zero conditional expectation by a past reward and averaging over histories gives zero. Future rewards cannot be removed the same way because A_t can change their distribution. This is the causality argument behind reward-to-go, not a claim that past rewards are numerically zero on an individual trajectory.
+
 <a id="section-25-5"></a>
 
 ## 25.5 Calculate a one-step gradient
@@ -75,6 +81,12 @@ The score for choosing the first action is 1−p=0.75; for the second it is −p
 For an action-independent b(s), E_(a~pi)[b(s) gradient log pi(a|s)]=b(s) gradient sum_a pi(a|s)=0. Subtracting such a baseline preserves the expected score estimator.
 
 The baseline should be treated as constant in the actor loss. If it depends on the sampled action, the cancellation generally fails. A baseline estimated from a batch that includes the same action outcome can introduce subtle finite-sample dependence; do not assume every normalization is exactly unbiased.
+
+### A state-dependent baseline can depend on parameters without joining the actor derivative
+
+A learned b_w(s) may share features with the actor, but the score-function control-variate argument treats its numerical value as a coefficient for the actor update. If the actor loss differentiates through b_w, it introduces terms involving gradient b_w that are absent from that argument.
+
+Detach the advantage coefficient for the actor while allowing a separately defined critic loss to train value parameters. Shared encoders can still receive both actor and critic gradients intentionally. This is a choice of combined optimization, not a violation of detachment when the losses are kept explicit.
 
 <a id="section-25-7"></a>
 
@@ -95,6 +107,12 @@ Increasing probability for positive weights and decreasing it for negative weigh
 An unbiased gradient estimate need not have low variance or produce monotonic improvement at a finite step size. Rare high returns can dominate; long trajectories add many noisy score terms; approximate critics can bias weights.
 
 Fresh on-policy data are central to the basic derivation. Reusing old samples requires a justified correction or a different objective. A high training surrogate after repeated optimization on one batch does not certify better expected return.
+
+### Compare an exact gradient with a finite-step outcome
+
+For J(z)=4sigmoid(z), the gradient points toward increasing z. In more complex multi-state policies, a stochastic ascent estimate can be correct in expectation while one sampled update lowers actual return. Even an exact local gradient describes an infinitesimal direction, not arbitrary step lengths.
+
+Use a tiny analytically evaluable policy to plot J(theta+alpha g) over several alpha values. In a nonlinear multi-parameter example, compare local predictions with actual changes. This exercise separates estimator correctness, step-size choice, and monotonic performance rather than treating them as one property.
 
 <a id="section-25-9"></a>
 
@@ -124,4 +142,4 @@ Read [Policy Gradient Methods for Reinforcement Learning with Function Approxima
 
 ---
 
-[← Chapter 24](../24-target-networks/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 26 →](../26-reinforce/README.md)
+[← Chapter 24](../24-target-networks/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 26 →](../26-reinforce/README.md)

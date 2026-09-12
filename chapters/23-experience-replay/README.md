@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 22](../22-deep-q-networks/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 24 →](../24-target-networks/README.md)
+[← Chapter 22](../22-deep-q-networks/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 24 →](../24-target-networks/README.md)
 
-[Quick-read Topic 23](../../README.md#topic-23) · [Notation](../NOTATION.md)
+[Quick-read Topic 23](../../quick-read/23-experience-replay.md) · [Notation](../NOTATION.md)
 
 - [23.1 Turn experience into a reusable dataset](#section-23-1)
 - [23.2 Define the stored transition contract](#section-23-2)
@@ -51,6 +51,12 @@ Suppose a buffer is full with C entries, each environment step inserts one trans
 
 It remains for about C steps in a FIFO ring buffer, giving approximately UB total sampled appearances before eviction. With U=2 and B=32, this is 64 appearances. Capacity affects age and diversity even when this steady-state expected reuse stays the same.
 
+### Calculate the age distribution in a full FIFO buffer
+
+With one new transition per environment step and uniform sampling from a full capacity-C FIFO buffer, stored ages run approximately from 0 to C−1. Their mean is (C−1)/2 steps. Capacity therefore controls how far training looks into past behavior even when the expected total reuse per transition stays near UB.
+
+For C=1,000 the mean age is 499.5 steps; for C=100,000 it is 49,999.5. If the environment or policy changes quickly, those samples can reflect different conditions. Log age in environment steps rather than assuming buffer size directly equals elapsed wall time.
+
 <a id="section-23-4"></a>
 
 ## 23.4 Distinguish decorrelation from independence
@@ -75,6 +81,12 @@ One scheme samples item i with P(i)=p_i^alpha/sum_j p_j^alpha, where p_i might b
 
 The identity E_(i~P)[f_i/(N P(i))]=(1/N)sum_i f_i requires positive support. Priorities must be updated as predictions change. High error can also indicate irreducible noise, so priority is not synonymous with usefulness.
 
+### Derive the objective induced by partial correction
+
+If item i is sampled with P(i) and weighted by [1/(N P(i))]^beta, its expected gradient coefficient is N^(−beta)P(i)^(1−beta). At beta=1 this becomes 1/N, recovering the uniform dataset objective under support assumptions. At beta=0 it is P(i), retaining full prioritization.
+
+For intermediate beta, the expected update optimizes a reweighted objective when priorities and weights are treated as fixed for the update. If priorities depend on current parameters, practical methods usually do not differentiate through the sampling distribution. State that convention when deriving the intended gradient.
+
 <a id="section-23-7"></a>
 
 ## 23.7 Work a prioritized example
@@ -90,6 +102,12 @@ If weights are normalized by the maximum, they become [0.25,1]. That preserves t
 Vanilla on-policy policy gradients assume data from the current policy. Reusing old trajectories without correction changes the expectation. PPO reuses a recent rollout for several epochs using old-policy ratios; this is not an unrestricted replay buffer.
 
 For n-step targets, ensure stored sequences do not cross episode resets. For recurrent training, consider burn-in and hidden-state reconstruction. Buffer convenience should not override the mathematical data requirements of the learner.
+
+### Preserve temporal context when replaying sequences
+
+A recurrent policy or critic conditions on hidden state produced by earlier observations. Sampling an isolated transition and initializing memory to zero may provide a different input than the one used during collection. Storing the old hidden state also introduces staleness when network parameters change.
+
+Sequence replay with a burn-in prefix can reconstruct a current hidden state before computing losses on later steps. Mask boundaries so burn-in never continues through an unrelated reset. Compare this with isolated-transition replay on a deliberately partially observed task, where remembering an earlier cue is necessary.
 
 <a id="section-23-9"></a>
 
@@ -119,4 +137,4 @@ Read [Prioritized Experience Replay](https://arxiv.org/abs/1511.05952). Identify
 
 ---
 
-[← Chapter 22](../22-deep-q-networks/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 24 →](../24-target-networks/README.md)
+[← Chapter 22](../22-deep-q-networks/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 24 →](../24-target-networks/README.md)

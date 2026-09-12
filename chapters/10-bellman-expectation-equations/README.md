@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 9](../09-advantage-functions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 11 →](../11-bellman-optimality-equations/README.md)
+[← Chapter 9](../09-advantage-functions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 11 →](../11-bellman-optimality-equations/README.md)
 
-[Quick-read Topic 10](../../README.md#topic-10) · [Notation](../NOTATION.md)
+[Quick-read Topic 10](../../quick-read/10-bellman-expectation-equations.md) · [Notation](../NOTATION.md)
 
 - [10.1 A recursive definition becomes a solvable equation](#section-10-1)
 - [10.2 Define the fixed-policy operator](#section-10-2)
@@ -60,6 +60,14 @@ That series gives a second interpretation: P_pi^k r_pi is the vector of expected
 
 Use a numerical linear solver rather than explicitly multiplying by a computed inverse. Check the residual afterward, especially when gamma is close to one and numerical conditioning can worsen. The identity is exact mathematics; finite-precision computation is an approximation to it.
 
+### Interpret the inverse as discounted visitation
+
+Define the fundamental discounted matrix M=(I−gamma P_pi)^(-1). Its entry M(s,u)=sum_k gamma^k Pr(S_k=u|S_0=s,pi) counts expected discounted visits to u, including the initial visit when s=u.
+
+Then V_pi(s)=sum_u M(s,u)r_pi(u). A small reward change at u affects the starting value in proportion to how often the policy reaches u, discounted by arrival time. In particular, the derivative of V_pi(s) with respect to r_pi(u), holding transitions fixed, is M(s,u).
+
+For an absorbing reward-free state, occupancy can be nonzero even though its reward contribution is zero. Value depends on occupancy and reward together; frequent visitation alone does not imply usefulness.
+
 <a id="section-10-4"></a>
 
 ## 10.4 Solve a recurrent two-state example
@@ -104,6 +112,12 @@ Thus residual 0.001 with gamma=0.9 implies a maximum value error at most 0.01 un
 
 If the operator itself uses approximate rewards or transitions, this residual measures consistency with that approximate operator. It does not directly bound error relative to an unknown true environment without a model-error term.
 
+### Derive a certificate from consecutive updates
+
+If v_(k+1)=T_pi v_k and d_k=||v_(k+1)−v_k||∞, contraction gives each subsequent difference at most gamma^j d_k. Summing the geometric tail yields ||V_pi−v_k||∞≤d_k/(1−gamma).
+
+For the returned updated vector, the remaining tail starts one step later, giving ||V_pi−v_(k+1)||∞≤gamma d_k/(1−gamma). At gamma=0.8 and d_k=0.01, these bounds are 0.05 and 0.04. Document which vector a stopping test returns; otherwise a correct inequality can be attached to the wrong iterate.
+
 <a id="section-10-7"></a>
 
 ## 10.7 Expectations, samples, and projection are different updates
@@ -123,6 +137,12 @@ With a neural approximator, a small supervised training loss on sampled states d
 Repeat with several gamma values. Compare iteration counts at the same desired value-error tolerance rather than the same raw residual tolerance. Then change initialization to optimistic and pessimistic vectors and check that both approach the same fixed point.
 
 The experiment should include a deliberately perturbed reward model to show the difference between solver convergence and model correctness. Solving a perturbed model accurately is expected behavior, not a solver failure.
+
+### Separate algebraic correctness from numerical conditioning
+
+Solve the same finite system using a direct solver and iterative backups, then compute residuals with the original matrix and reward vector. Agreement between two results is useful, but both can still be sensitive to small input changes when discounting creates a long effective horizon.
+
+Perturb one reward by 0.001 and compare the change in values against M times the perturbation. This checks the sensitivity interpretation independently of the iterative stopping logic. Do not claim that all systems have identical conditioning merely because the worst-case bound contains 1/(1−gamma); transition structure also matters.
 
 <a id="section-10-9"></a>
 
@@ -150,4 +170,4 @@ A: the second vector is [0.9,1.45], so the third is [1.305, 1+0.9×(0.45+0.725)]
 
 ---
 
-[← Chapter 9](../09-advantage-functions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 11 →](../11-bellman-optimality-equations/README.md)
+[← Chapter 9](../09-advantage-functions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 11 →](../11-bellman-optimality-equations/README.md)

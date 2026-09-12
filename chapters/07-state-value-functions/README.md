@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 6](../06-returns-and-discounting/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 8 →](../08-action-value-functions/README.md)
+[← Chapter 6](../06-returns-and-discounting/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 8 →](../08-action-value-functions/README.md)
 
-[Quick-read Topic 7](../../README.md#topic-7) · [Notation](../NOTATION.md)
+[Quick-read Topic 7](../../quick-read/07-state-value-functions.md) · [Notation](../NOTATION.md)
 
 - [7.1 A value answers a conditional question](#section-7-1)
 - [7.2 Define the expectation and its conditioning](#section-7-2)
@@ -54,6 +54,12 @@ This equation is a consequence of the definition, not a separate reward signal. 
 
 An absorbing zero-reward terminal state has V=0. The reward for entering it belongs to the preceding transition and is not removed by setting its future value to zero.
 
+### Separate aleatoric spread from value-estimation error
+
+Suppose a terminal transition pays either 0 or 10 with equal probability. The exact state value is 5, but its one-sample return has variance 25. A value prediction of 5 is correct despite an error of magnitude 5 on every individual observed outcome.
+
+For n independent visits under the same fixed policy, the sample-mean standard error is 5/sqrt(n). At n=100 it is 0.5. This calculation concerns uncertainty in the estimated mean under independence, not the spread of the next actual outcome. An evaluator that expects prediction residuals to vanish would confuse these two quantities.
+
 <a id="section-7-4"></a>
 
 ## 7.4 A state with repeated chances to finish
@@ -94,6 +100,14 @@ This argument does not cover arbitrary transition-model errors without additiona
 
 > **Failure Mode:** value estimates may be accurately fitted to a biased reward process. A numerical value solver can diagnose internal consistency but cannot establish that the reward represents the intended task.
 
+### Extend sensitivity from reward errors to transition errors
+
+Let v and v_hat evaluate the same policy under models (r,P) and (r_hat,P_hat), with the same discount. Subtract their Bellman equations and write v−v_hat=(r−r_hat)+gamma P(v−v_hat)+gamma(P−P_hat)v_hat.
+
+If reward error is bounded by epsilon_r and the maximum row L1 difference of transition matrices is epsilon_P, then ||v−v_hat||∞≤[epsilon_r+gamma epsilon_P||v_hat||∞]/(1−gamma). With |r_hat|≤R_max, substitute ||v_hat||∞≤R_max/(1−gamma). Transition error can therefore acquire two inverse-discount factors in this crude bound.
+
+The row L1 convention matters: if a source defines total variation as half the L1 distance, its numerical coefficient differs. State the norm before comparing bounds across papers.
+
 <a id="section-7-8"></a>
 
 ## 7.8 Lab: compare against an independent oracle
@@ -103,6 +117,12 @@ This argument does not cover arbitrary transition-model errors without additiona
 In [Notebook 02](../../notebooks/02_mc_vs_td.ipynb), compare learned random-walk values with the analytical line. Report errors per state as well as their average. Change the start distribution and inspect which states become harder to estimate without changing the underlying fixed policy's value definition.
 
 An extension is to bootstrap confidence intervals over independent runs rather than pretend every correlated transition is an independent value sample.
+
+### Build a diagnostic value table
+
+For each state in a small model, record exact value, learned value, visitation count, and start-state probability. Sort once by absolute error and once by contribution to the start-state objective. These orderings need not agree.
+
+A rarely visited state can have large estimation error but little current objective weight. It may become important after policy improvement changes visitation. This is why a single average value loss can hide future control problems: it summarizes errors under a chosen distribution rather than certifying every possible decision state.
 
 <a id="section-7-9"></a>
 
@@ -130,4 +150,4 @@ A: V=2+0.8V, so V=10. B: V=0.25×8+0.75×2=3.5. C: 0.02/(1−0.95)=0.4. The boun
 
 ---
 
-[← Chapter 6](../06-returns-and-discounting/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 8 →](../08-action-value-functions/README.md)
+[← Chapter 6](../06-returns-and-discounting/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 8 →](../08-action-value-functions/README.md)

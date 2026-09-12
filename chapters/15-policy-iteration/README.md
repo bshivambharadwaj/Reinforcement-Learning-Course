@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 14](../14-policy-improvement/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 16 →](../16-value-iteration/README.md)
+[← Chapter 14](../14-policy-improvement/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 16 →](../16-value-iteration/README.md)
 
-[Quick-read Topic 15](../../README.md#topic-15) · [Notation](../NOTATION.md)
+[Quick-read Topic 15](../../quick-read/15-policy-iteration.md) · [Notation](../NOTATION.md)
 
 - [15.1 Alternate understanding and revision](#section-15-1)
 - [15.2 Write the algorithm precisely](#section-15-2)
@@ -70,6 +70,12 @@ There are finitely many deterministic policies. Exact evaluation and greedy impr
 
 Thus the process cannot revisit a previous policy indefinitely. When it stops, the evaluated policy is greedy with respect to its own values, so those values satisfy the optimal Bellman equation. Uniqueness identifies them as V_star.
 
+### Why revisiting a policy contradicts strict progress
+
+With exact evaluation, a deterministic policy determines a unique discounted value vector. If a changed action is strictly better under the old values and ties retain the old action, policy improvement produces a value vector that is no worse everywhere and strictly better somewhere.
+
+Suppose a later iteration revisited an earlier policy. Its value would equal that policy's earlier value, contradicting the chain of componentwise nondecrease with at least one strict improvement along the cycle. This argument relies on exact comparisons and a finite deterministic-policy set. Approximate evaluation and numerical tolerances require an approximate stopping interpretation instead.
+
 <a id="section-15-5"></a>
 
 ## 15.5 Separate theorem from complexity
@@ -86,6 +92,12 @@ Modified policy iteration performs a limited number of evaluation sweeps before 
 
 This can save work, but the exact theorem's premise must be reconsidered when discussing each intermediate policy. A small change in the value vector does not necessarily certify accurate evaluation under the newly changed policy. Document the evaluation sweep count and stopping rule.
 
+### Inspect a modified-policy-iteration step
+
+Suppose evaluation is stopped after k Bellman expectation sweeps from a previous estimate v. The new vector is T_pi^k v, with error at most gamma^k||v−V_pi||∞ under exact tabular backups. Increasing k reduces this evaluation error geometrically for the fixed current policy.
+
+But after improvement changes pi, the target value V_pi changes too. A small residual for the previous policy does not certify the new one. Record the policy identity alongside every residual. This prevents a log from presenting an accurately evaluated old policy as evidence that a newly updated policy has already been evaluated.
+
 <a id="section-15-7"></a>
 
 ## 15.7 Handle numerical ties deliberately
@@ -101,6 +113,12 @@ This choice introduces approximation. Log the final optimal Bellman residual so 
 In a small MDP, run policy iteration and value iteration independently. Compare final values, not just action labels: two different actions can be exactly tied. Check each reported policy by a fresh evaluation solve.
 
 Deliberately initialize an unfavorable policy and a near-optimal one. Measure total backups and evaluations, then ask whether the observed speed difference is due to initialization or algorithm structure. Include unsuccessful or slow cases in the report.
+
+### Compare algorithms using work that actually occurred
+
+For a dense model, count state-action-successor terms processed during improvement and evaluation. A policy-evaluation solve has a different cost structure from a sweep, so record solve time and matrix size as well as sweep counts.
+
+Use the same final policy-value error or residual target when comparing value iteration and policy iteration. Equal outer iteration counts do not represent equal accuracy or compute. Finally evaluate the extracted policies with a separate routine; matching internal stopping flags is weaker evidence than matching independently calculated returns.
 
 <a id="section-15-9"></a>
 
@@ -130,4 +148,4 @@ Read [Sutton and Barto, Chapters 4.3 and 4.6](http://incompleteideas.net/book/th
 
 ---
 
-[← Chapter 14](../14-policy-improvement/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 16 →](../16-value-iteration/README.md)
+[← Chapter 14](../14-policy-improvement/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 16 →](../16-value-iteration/README.md)

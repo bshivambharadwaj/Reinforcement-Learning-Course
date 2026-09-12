@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 25](../25-policy-gradient-methods/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 27 →](../27-actor-critic-methods/README.md)
+[← Chapter 25](../25-policy-gradient-methods/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 27 →](../27-actor-critic-methods/README.md)
 
-[Quick-read Topic 26](../../README.md#topic-26) · [Notation](../NOTATION.md)
+[Quick-read Topic 26](../../quick-read/26-reinforce.md) · [Notation](../NOTATION.md)
 
 - [26.1 Turn the policy-gradient identity into an algorithm](#section-26-1)
 - [26.2 Specify the objective before the loss](#section-26-2)
@@ -37,6 +37,12 @@ For an undiscounted episodic objective, the actor loss sums −log pi(A_t|S_t)×
 
 Batch aggregation also matters. Averaging trajectory sums gives equal episode weighting; averaging over all timesteps can reweight variable-length episodes through the denominator. State whether the optimization targets episode return or a different normalization convention.
 
+### Variable episode length changes loss reduction
+
+Suppose one episode has two action-score terms summing to g_1 and another has eight terms summing to g_2. Averaging episode sums gives (g_1+g_2)/2. Averaging all ten terms gives (g_1+g_2)/10 for this fixed batch, a common scaling difference.
+
+Across batches with different total lengths, the second denominator is random and can correlate with outcomes and gradients. Averaging per-episode mean losses gives yet another expression, (g_1/2+g_2/8)/2, which explicitly downweights long trajectories. State the reduction before comparing learning rates or claiming the estimator corresponds exactly to an episode-return objective.
+
 <a id="section-26-3"></a>
 
 ## 26.3 Calculate reward-to-go backward
@@ -66,6 +72,12 @@ For the one-step two-action problem paying 4 or 0 at p=0.5, the score is +0.5 or
 
 With baseline 2, both outcomes give gradient estimate 1: (4−2)×0.5=1 and (0−2)×(−0.5)=1. Variance is zero in this special example. Larger tasks usually do not permit such a perfect scalar cancellation.
 
+### Work a nonuniform-policy baseline example
+
+In the terminal reward-[4,0] task at p=0.25, the score is 0.75 for the first action and −0.25 for the second. The variance-optimal scalar baseline from the score-weighted formula is 3, while V=1.
+
+With baseline 3, both sampled estimates equal 0.75: (4−3)×0.75=0.75 and (0−3)×(−0.25)=0.75. With value baseline 1, the estimates are 2.25 and 0.25, still with mean 0.75 but nonzero variance. A value baseline is useful and general-purpose; it is not always the exact variance-minimizing scalar for a parameterization.
+
 <a id="section-26-6"></a>
 
 ## 26.6 Treat normalization as an algorithmic choice
@@ -89,6 +101,12 @@ Repeatedly optimizing the same trajectories without correction is not vanilla RE
 If every sampled trajectory receives zero reward and the baseline is zero, the batch supplies no return-based policy gradient. Increasing optimizer steps on that same batch cannot invent evidence of success.
 
 Investigate exploration, curriculum, reward design, and episode length. Any shaping must be described separately from the task metric. For reasoning, a terminal verifier may make successful traces too rare; process feedback changes which intermediate behavior receives signal.
+
+### Estimate how much data sparse success requires
+
+If independent episodes succeed with probability p and only successes receive nonzero reward, a batch of B episodes contains no success with probability (1−p)^B. At p=0.01 and B=32, this probability is approximately 0.725.
+
+Most batches then contain no direct positive-success evidence. Larger batches increase the chance of seeing success but cost more interaction. A baseline can change relative weights in a batch, yet it cannot identify an unseen successful action sequence from zero outcome information alone. Record the fraction of zero-success batches when diagnosing stalled learning.
 
 <a id="section-26-9"></a>
 
@@ -118,4 +136,4 @@ Read Williams's [Simple Statistical Gradient-Following Algorithms for Connection
 
 ---
 
-[← Chapter 25](../25-policy-gradient-methods/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 27 →](../27-actor-critic-methods/README.md)
+[← Chapter 25](../25-policy-gradient-methods/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 27 →](../27-actor-critic-methods/README.md)

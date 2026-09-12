@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 32](../32-entropy-regularization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 34 →](../34-model-based-reinforcement-learning/README.md)
+[← Chapter 32](../32-entropy-regularization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 34 →](../34-model-based-reinforcement-learning/README.md)
 
-[Quick-read Topic 33](../../README.md#topic-33) · [Notation](../NOTATION.md)
+[Quick-read Topic 33](../../quick-read/33-offline-reinforcement-learning.md) · [Notation](../NOTATION.md)
 
 - [33.1 Learn when new exploration is unavailable](#section-33-1)
 - [33.2 Specify the dataset and deployment setting](#section-33-2)
@@ -45,6 +45,12 @@ There is one state and two terminal actions. The dataset contains only action le
 
 No method using only these observations can determine which model is true without extra assumptions. A policy that confidently chooses right is not justified by the data alone. This is an information limitation, not an optimizer failure.
 
+### Extend the unsupported-action example to a minimax choice
+
+Let q be the probability of choosing the unobserved right action. The two compatible environments give values 1+9q and 1−11q. The worst-case value across them is 1−11q for q≥0, maximized at q=0.
+
+This robust choice retains the known left action. It does not prove right is bad; it protects against a plausible environment the data cannot rule out. If an additional trustworthy assumption bounds right's reward below by 2, the robust decision changes. Offline conclusions depend jointly on observations and stated assumptions.
+
 <a id="section-33-4"></a>
 
 ## 33.4 Explain extrapolation through a maximum
@@ -69,6 +75,12 @@ Conservative Q-learning adds pressure against high values on broadly sampled or 
 
 This expression alone is not a complete implementation or a universal lower-bound theorem. The full method's sampling, weighting, function class, and theoretical assumptions matter. Use the original paper when implementing a particular variant.
 
+### Differentiate a simple conservative penalty
+
+For one state with dataset action L, the illustrative penalty is log(exp(Q_L)+exp(Q_R))−Q_L. Its derivative with respect to Q_R is softmax_R, positive; its derivative with respect to Q_L is softmax_L−1, negative.
+
+Minimizing this term suppresses R relative to the supported action L. It must be combined with the specified value-learning objective; on its own, it does not identify either true action value. The relative penalty and Bellman regression can pull in different directions, and their coefficient affects how conservatism trades against fitting observed returns.
+
 <a id="section-33-7"></a>
 
 ## 33.7 Evaluate with logged data cautiously
@@ -76,6 +88,12 @@ This expression alone is not a complete implementation or a universal lower-boun
 Importance sampling needs behavior support and reliable behavior probabilities; long products can have severe variance. Fitted Q evaluation trains an evaluator for a fixed candidate policy, but inherits approximation and coverage risks. Doubly robust methods combine models and weighting under their own assumptions.
 
 An effective sample size diagnostic, (sum_i w_i)²/sum_i w_i², can reveal weight concentration. It is not a guarantee against model misspecification or missing support. Confidence claims should describe both statistical uncertainty and identification assumptions.
+
+### Explain why evaluation and policy selection interact
+
+An evaluator that is approximately unbiased for one fixed candidate can still produce optimistic selected results when many candidates are ranked using the same noisy estimates. The chosen policy can be the one with the most favorable evaluation error.
+
+Separate validation-based model selection from a final untouched test when possible. If only a fixed archive is available, describe how candidate count, coverage, and estimator uncertainty affect selection. A narrow confidence interval conditional on a selected dataset estimate need not account for all adaptive choices made during development.
 
 <a id="section-33-8"></a>
 
@@ -113,4 +131,4 @@ Read the [Offline RL tutorial](https://arxiv.org/abs/2005.01643) and [Conservati
 
 ---
 
-[← Chapter 32](../32-entropy-regularization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 34 →](../34-model-based-reinforcement-learning/README.md)
+[← Chapter 32](../32-entropy-regularization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 34 →](../34-model-based-reinforcement-learning/README.md)

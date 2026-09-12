@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 27](../27-actor-critic-methods/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 29 →](../29-generalized-advantage-estimation/README.md)
+[← Chapter 27](../27-actor-critic-methods/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 29 →](../29-generalized-advantage-estimation/README.md)
 
-[Quick-read Topic 28](../../README.md#topic-28) · [Notation](../NOTATION.md)
+[Quick-read Topic 28](../../quick-read/28-advantage-actor-critic.md) · [Notation](../NOTATION.md)
 
 - [28.1 Build a rollout-based actor–critic learner](#section-28-1)
 - [28.2 Define an n-step bootstrapped return](#section-28-2)
@@ -37,6 +37,12 @@ At a nonterminal rollout boundary, initialize the backward return with V(s_T). A
 
 The advantage estimate is G_t−V(s_t). Longer rollouts include more observed rewards and rely on a more distant bootstrap estimate. They also delay updates and can increase return variability.
 
+### Derive how an endpoint error reaches earlier targets
+
+If a nonterminal rollout's final value estimate has error e, its contribution to the n-step return target at the first decision is gamma^n e. Every earlier step multiplies the endpoint contribution by another gamma.
+
+At gamma=1, no discount attenuates that error within the finite rollout. Longer rollouts may still reduce reliance on endpoint estimates by reaching true termination more often. This is a distinct mechanism from discount attenuation, so finite-horizon gamma=1 experiments should explain why changing rollout length affects their targets.
+
 <a id="section-28-3"></a>
 
 ## 28.3 Work a three-step rollout
@@ -65,6 +71,12 @@ Store rollout tensors with explicit time and environment axes, commonly [T,N,...
 
 If an environment resets within a rollout, do not let the next episode's rewards flow backward into the previous one. At a timeout, bootstrap from the final observation when appropriate, but do not continue the trace through the reset state.
 
+### Work through a reset inside one vectorized stream
+
+One worker collects rewards [1,5,2,3], where the second transition terminates and the last two rewards belong to a new episode. With gamma=1 and both episodes completed, correct returns are [6,5,5,3]. An unmasked backward accumulator gives [11,10,5,3], leaking the later episode into the earlier targets.
+
+Other workers may have different boundary locations. A [T,N] mask must apply independently to each worker; a single boundary flag for a whole timestep can incorrectly cut valid traces or preserve invalid ones. A four-step hand-built batch can test this more clearly than a long rollout printout.
+
 <a id="section-28-6"></a>
 
 ## 28.6 Contrast A2C and A3C
@@ -80,6 +92,12 @@ Both use actor–critic ideas, but their systems behavior differs. Calling any m
 Increasing N adds parallel trajectories; increasing T extends temporal context before bootstrapping. Equal products T×N do not imply identical estimators. Longer T can change bootstrap bias and temporal correlation, while more environments can broaden start-state coverage.
 
 Compare these settings at equal transition budgets and report update counts. A large batch can reduce gradient noise while producing fewer policy revisions for the same amount of experience.
+
+### Equal batch size does not imply equal credit assignment
+
+Compare T=32,N=4 with T=8,N=16. Both collect 128 transitions per batch, but the first can observe longer within-worker reward chains before bootstrapping. The second can cover more independent initial states in parallel.
+
+For a reward delayed by twelve decisions, the short rollout often places that reward beyond its endpoint bootstrap. For a highly variable initial-state distribution, more workers can improve batch diversity. Predict which property matters in the chosen environment, then compare both target error and return at the same total transition budget.
 
 <a id="section-28-8"></a>
 
@@ -117,4 +135,4 @@ Read [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/ab
 
 ---
 
-[← Chapter 27](../27-actor-critic-methods/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 29 →](../29-generalized-advantage-estimation/README.md)
+[← Chapter 27](../27-actor-critic-methods/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 29 →](../29-generalized-advantage-estimation/README.md)

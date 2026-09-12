@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 28](../28-advantage-actor-critic/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 30 →](../30-trust-region-policy-optimization/README.md)
+[← Chapter 28](../28-advantage-actor-critic/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 30 →](../30-trust-region-policy-optimization/README.md)
 
-[Quick-read Topic 29](../../README.md#topic-29) · [Notation](../NOTATION.md)
+[Quick-read Topic 29](../../quick-read/29-generalized-advantage-estimation.md) · [Notation](../NOTATION.md)
 
 - [29.1 Blend short and long credit assignment](#section-29-1)
 - [29.2 Define the estimator](#section-29-2)
@@ -48,6 +48,12 @@ Repeated substitution gives A_hat_t=delta_t+(gamma lambda)delta_(t+1)+(gamma lam
 
 At lambda=0, GAE is one-step TD. At lambda=1 over a complete episode, TD residuals telescope to G_t−V(s_t). At a nonterminal finite rollout, the endpoint value remains in that telescoping expression.
 
+### Prove the lambda-one telescoping identity
+
+Over a segment of length n without an internal boundary, sum_(k=0 to n−1)gamma^k delta_(t+k) expands into discounted rewards plus value terms. Each intermediate positive continuation term cancels the next residual's negative current-value term.
+
+The result is sum_k gamma^k r_(t+k)+gamma^n V(s_(t+n))−V(s_t). With true terminal continuation zero, this becomes the observed return minus current value. With a nonterminal endpoint, it remains a bootstrapped return-minus-value estimator. Lambda below one changes the cancellation weights and prevents this simple full telescoping.
+
 <a id="section-29-4"></a>
 
 ## 29.4 Calculate a terminal two-step example
@@ -72,6 +78,14 @@ With an exact V_pi, each appropriately conditioned TD residual supports correct 
 
 The common bias–variance description is a design guide, not a universal monotonic theorem for every finite batch, critic, and environment. Gamma also changes the objective or weighting convention; it should not be treated as merely another harmless variance knob.
 
+### Track the coefficient on each critic error
+
+Write V_hat=V_pi+e. For an unbroken n-step GAE segment, the value-error contribution is −e_t+gamma(1−lambda)sum_(j=1 to n−1)(gamma lambda)^(j−1)e_(t+j)+gamma^n lambda^(n−1)e_(t+n).
+
+This follows by collecting each state's positive continuation error and negative current error across adjacent weighted residuals. At lambda=1, intermediate errors cancel, leaving −e_t+gamma^n e_endpoint. At lambda=0, the expression reduces to the one-step error gamma e_(t+1)−e_t, interpreting the n=1 boundary case separately.
+
+The derivation explains the role of lambda more precisely than saying it “smooths advantages.” It changes how errors from interior and endpoint critic estimates enter the signal.
+
 <a id="section-29-7"></a>
 
 ## 29.7 Construct value targets consistently
@@ -87,6 +101,12 @@ Do not train the critic toward normalized actor advantages plus values unless th
 Use a hand-built rollout containing a nonterminal step, a true termination, and a separate timeout. Compare the backward recursion with an explicit weighted sum on each segment.
 
 Check that no reward from a reset episode influences the previous episode's advantage. Freeze values while computing the batch, detach targets, and verify that changing the timeout endpoint value affects only the intended preceding segment.
+
+### Use a direct-sum implementation as a small oracle
+
+For a short stored segment, compute each advantage by explicitly summing all later TD residuals with powers of gamma lambda until the appropriate trace boundary. Compare this slow O(T²) calculation with the fast O(T) backward recursion.
+
+Use nonuniform values and rewards so an indexing error cannot cancel accidentally. Include a true termination and a timeout with a nonzero final value. This is an independent formulation of the same estimator, suitable for checking the optimized recursion without repeating its exact implementation.
 
 <a id="section-29-9"></a>
 
@@ -116,4 +136,4 @@ Read [High-Dimensional Continuous Control Using Generalized Advantage Estimation
 
 ---
 
-[← Chapter 28](../28-advantage-actor-critic/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 30 →](../30-trust-region-policy-optimization/README.md)
+[← Chapter 28](../28-advantage-actor-critic/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 30 →](../30-trust-region-policy-optimization/README.md)

@@ -2,9 +2,9 @@
 
 **Intermediate** · **Created by Shivam Bharadwaj**
 
-[← Chapter 16](../16-value-iteration/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 18 →](../18-temporal-difference-learning/README.md)
+[← Chapter 16](../16-value-iteration/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 18 →](../18-temporal-difference-learning/README.md)
 
-[Quick-read Topic 17](../../README.md#topic-17) · [Notation](../NOTATION.md)
+[Quick-read Topic 17](../../quick-read/17-monte-carlo-methods.md) · [Notation](../NOTATION.md)
 
 - [17.1 Learn from complete experience](#section-17-1)
 - [17.2 Define the prediction estimator](#section-17-2)
@@ -42,6 +42,12 @@ V(s) += [G_t − V(s)] / count(s)
 
 First-visit MC selects the first occurrence of s within each episode. Every-visit MC selects all occurrences. Returns from the same episode can be correlated; treating them as independent observations understates uncertainty.
 
+### Derive the incremental sample average
+
+After n−1 returns, let the estimate be V_(n−1)=(G_1+…+G_(n−1))/(n−1). Adding G_n gives V_n=[(n−1)V_(n−1)+G_n]/n, which rearranges to V_n=V_(n−1)+(G_n−V_(n−1))/n.
+
+This identity explains the 1/n step size without invoking an optimizer. A constant alpha instead assigns geometrically decaying weights to older returns. It can track nonstationarity, but is no longer the equal-weight sample mean. Store counts per state or state-action pair; a global timestep denominator gives different weighting when visitation is uneven.
+
 <a id="section-17-3"></a>
 
 ## 17.3 Calculate first-visit and every-visit targets
@@ -74,6 +80,12 @@ To estimate a target policy from behavior-policy episodes, a trajectory suffix c
 
 Ordinary importance sampling averages W×G and can have high variance. Self-normalized weighting divides the weighted-return sum by the weight sum; it generally introduces finite-sample bias while often reducing variability. Ratios must refer to the policy that actually generated each action.
 
+### Show why normalized importance sampling is biased at small n
+
+Consider a one-step target distribution [0.5,0.5], behavior [0.9,0.1], and rewards [0,10]. The target value is 5. With one sampled episode, self-normalized importance sampling divides its weighted reward by its own weight, leaving the observed reward unchanged.
+
+Its expectation is therefore the behavior value 1, not 5. Ordinary importance sampling uses weight 5 on the rewarding action and 5/9 on the other; its expected weighted return is 0.1×5×10=5. The ordinary estimator is unbiased here but highly variable. This concrete case makes the finite-sample bias/variance tradeoff visible rather than treating normalization as a free correction.
+
 <a id="section-17-7"></a>
 
 ## 17.7 See how horizon amplifies weights
@@ -98,6 +110,12 @@ For very long or nonterminating tasks, this is a practical limitation rather tha
 
 [Notebook 08](../../notebooks/08_one_problem_many_algorithms.ipynb) distinguishes fixed-policy prediction from control. Do not rank an MC predictor against a controller using final task reward as if their objectives were identical.
 
+### Estimate error across independent datasets
+
+Freeze the policy and generate several independent sets of episodes, each with the same size. Compute an MC estimate from each set and compare the empirical spread with the analytical value where available. This separates estimator variability from variability caused by learning different policies.
+
+For every-visit MC, retain the episode identifier for each return. Resampling individual visits as if independent can understate uncertainty because several returns share a future reward sequence. Resampling complete episodes better preserves that dependence structure when a bootstrap analysis is appropriate.
+
 <a id="section-17-10"></a>
 
 ## 17.10 Problems, worked answers, and reading
@@ -118,4 +136,4 @@ Read [Sutton and Barto, Chapter 5](http://incompleteideas.net/book/the-book-2nd.
 
 ---
 
-[← Chapter 16](../16-value-iteration/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 18 →](../18-temporal-difference-learning/README.md)
+[← Chapter 16](../16-value-iteration/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 18 →](../18-temporal-difference-learning/README.md)

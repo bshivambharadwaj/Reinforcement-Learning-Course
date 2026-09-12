@@ -21,9 +21,11 @@ Do not discard unsuccessful seeds or describe a toy task as a general benchmark.
 For explanations, connect intuition → update → experiment → limitation. Prefer original
 papers or official documentation near the relevant claim. Keep new visuals consistent
 with ink-plum, antique gold, sage, muted plum, and warm paper. Preserve readable alt text.
-README equations use rendered SVGs to avoid the renderer errors encountered earlier.
+Quick-read equations use rendered SVGs to avoid the renderer errors encountered earlier.
 
-Keep the main README as the quick-read course. Put deeper derivations and original
+Keep the main README as the course home and topic index. Concise lessons belong in
+[quick-read/](quick-read/README.md), with a direct link to the matching chapter.
+Put deeper derivations and original
 worked exercises in the corresponding [chapter](chapters/README.md), preserving its
 ten numbered sections and navigation. Follow the [notation guide](chapters/NOTATION.md),
 state assumptions before guarantees, and distinguish implemented labs from proposed

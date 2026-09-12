@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 15](../15-policy-iteration/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 17 →](../17-monte-carlo-methods/README.md)
+[← Chapter 15](../15-policy-iteration/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 17 →](../17-monte-carlo-methods/README.md)
 
-[Quick-read Topic 16](../../README.md#topic-16) · [Notation](../NOTATION.md)
+[Quick-read Topic 16](../../quick-read/16-value-iteration.md) · [Notation](../NOTATION.md)
 
 - [16.1 Plan with repeated optimal backups](#section-16-1)
 - [16.2 Specify initialization and boundaries](#section-16-2)
@@ -66,6 +66,12 @@ Contraction gives ||v_k−V_star||≤gamma^k||v_0−V_star||. The geometric rate
 
 If d_k=||v_(k+1)−v_k||, this residual directly certifies v_k. The newly computed v_(k+1) has error at most gamma d_k/(1−gamma) by contraction. Indexing the certificate matters when a program reports the updated vector.
 
+### Derive an iteration budget from bounded rewards
+
+Starting from zero with |r|≤R_max, the initial value error is at most R_max/(1−gamma). Contraction yields ||v_k−V_star||∞≤gamma^k R_max/(1−gamma). To guarantee error at most epsilon, choose k satisfying the same geometric inequality used for a discounted return tail.
+
+At gamma=0.9, R_max=1, and epsilon=0.01, k=66 suffices under exact synchronous backups. This is a worst-case bound. A finite acyclic chain can converge exactly after its maximum path length, so the bound should not replace observed residuals when those are cheaply available.
+
 <a id="section-16-5"></a>
 
 ## 16.5 Extract the policy with a full backup
@@ -73,6 +79,12 @@ If d_k=||v_(k+1)−v_k||, this residual directly certifies v_k. The newly comput
 Choose actions maximizing r(s,a)+gamma P(s,a) dot v. Do not choose a successor merely because it has the largest value: actions may differ in immediate costs, probabilities, and termination.
 
 If v approximates V_star uniformly within epsilon, the extracted policy has value loss at most 2gamma epsilon/(1−gamma). This bound can be loose; evaluate the extracted policy exactly when a small model makes that affordable.
+
+### A greedy policy can be correct before values converge
+
+In a one-state problem, action A gives reward 1 and self-loops; action B gives reward 0 and self-loops. With any common candidate continuation v and gamma=0.9, A's backup exceeds B's by 1. The greedy action is correct immediately, while zero-initialized value iteration approaches the true value 10 over many sweeps.
+
+This explains why action-map stability can coexist with significant value error. It can be useful if the goal is control, but it is not an all-purpose stopping proof: in other models, continuation errors can still reverse a close ranking at an unexamined state.
 
 <a id="section-16-6"></a>
 
@@ -89,6 +101,12 @@ Choose whether the objective is accurate values, a sufficiently good policy, or 
 Starting from a componentwise upper bound can preserve an upper-bounding sequence when backups are applied correctly. For bounded absolute rewards R_max, the constant R_max/(1−gamma) bounds discounted values above, with terminal boundaries handled separately.
 
 Optimism in a planner is an initialization strategy, not exploration of an unknown environment. In Q-learning, optimistic estimates can influence which data are gathered; exact DP already has the transition model and does not need to discover its rows.
+
+### Establish monotone lower and upper sequences
+
+If v_0≤T_star v_0, monotonicity implies v_0≤v_1≤v_2≤…≤V_star when v_0 is also a lower bound. Similarly, an upper initialization with v_0≥T_star v_0 produces a decreasing upper sequence.
+
+For rewards in [−R_max,R_max], constant vectors ±R_max/(1−gamma) provide crude bounds under compatible absorbing-state conventions. Running both sequences gives a bracket for each value. The gap can certify convergence without knowing V_star, but both sequences still rely on the correct model and exact backups.
 
 <a id="section-16-8"></a>
 
@@ -126,4 +144,4 @@ Read [Sutton and Barto, Chapters 4.4–4.5](http://incompleteideas.net/book/the-
 
 ---
 
-[← Chapter 15](../15-policy-iteration/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 17 →](../17-monte-carlo-methods/README.md)
+[← Chapter 15](../15-policy-iteration/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 17 →](../17-monte-carlo-methods/README.md)

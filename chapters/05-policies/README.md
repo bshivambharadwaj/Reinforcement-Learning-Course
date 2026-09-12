@@ -2,9 +2,9 @@
 
 **Foundations** · **Created by Shivam Bharadwaj**
 
-[← Chapter 4](../04-states-actions-rewards-and-transitions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 6 →](../06-returns-and-discounting/README.md)
+[← Chapter 4](../04-states-actions-rewards-and-transitions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 6 →](../06-returns-and-discounting/README.md)
 
-[Quick-read Topic 5](../../README.md#topic-5) · [Notation](../NOTATION.md)
+[Quick-read Topic 5](../../quick-read/05-policies.md) · [Notation](../NOTATION.md)
 
 - [5.1 Separate a decision rule from its optimizer](#section-5-1)
 - [5.2 Conditional distributions and legal actions](#section-5-2)
@@ -53,6 +53,12 @@ d log pi(a) / d z_j = indicator(j=a) − pi(j)
 
 This derivative is useful because increasing the sampled action's log probability necessarily redistributes probability mass. There is no independent knob that increases every action probability simultaneously. The score vector sums to zero across its logit components, consistent with the invariance to a common shift.
 
+### Derive the complete softmax Jacobian
+
+For probabilities p_i=exp(z_i)/sum_j exp(z_j), differentiation gives dp_i/dz_j=p_i(1[i=j]−p_j). The diagonal derivative is positive when 0<p_i<1; increasing one logit decreases the probabilities of other actions. The coupling comes from the shared normalization denominator.
+
+Dividing by p_i gives d log p_i/dz_j=1[i=j]−p_j. Summing these score derivatives over j yields zero, reflecting invariance to adding the same constant to every logit. A numerical gradient check can perturb each logit independently and compare a central finite difference with this Jacobian on a small example.
+
 <a id="section-5-4"></a>
 
 ## 5.4 Work through a probability and gradient example
@@ -72,6 +78,12 @@ The behavior policy mu generates data. A target policy pi is the policy whose va
 At a state, if mu chooses an action with probability 0.5 and pi chooses it with probability 0.8, its one-step importance ratio is 1.6. If mu never chooses an action to which pi assigns positive mass, ordinary importance weighting cannot recover that action's unseen outcomes: the support condition fails.
 
 Ratios can also have high variance even when support exists. A tiny behavior probability creates a very large weight. Off-policy does not mean that arbitrary data can be safely reused without checking what the estimator requires.
+
+### Importance ratios change an expectation only with support
+
+Suppose behavior b=[0.75,0.25], target pi=[0.5,0.5], and action outcomes f=[2,6]. The target expectation is 4. Behavior ratios are [2/3,2], and the weighted behavior expectation is 0.75×(2/3)×2+0.25×2×6=4.
+
+Without weights, behavior gives 3. If behavior's second probability becomes zero, the second contribution cannot be recovered from samples of the first action. This is why storing a behavior probability is useful but not sufficient: the denominator must be positive on target-supported events, and sufficiently rare events can still create high variance.
 
 <a id="section-5-6"></a>
 
@@ -113,6 +125,12 @@ A sequence-level preference objective can act on the summed log probability with
 
 For continuous robot actions, a policy might output a Gaussian distribution. Clipping sampled values at action bounds changes the executed distribution; transformations such as squashing require their own probability accounting. We return to this representation issue in policy gradients.
 
+### A hierarchical tool policy has more than one likelihood term
+
+If a policy first chooses tool k and then arguments u, its joint probability is pi(k|h)pi(u|h,k). The joint log probability is the sum of the two log probabilities. Training only the tool selector treats argument construction as fixed or external; training both components requires accounting for both sampled choices.
+
+For pi(tool=add)=0.4 and conditional probability 0.25 of a particular argument sequence, that complete call has probability 0.1. Using only 0.4 in a ratio would compare tool-selection probabilities, not full-call probabilities. Define the learned decision boundary before deciding what likelihood belongs in the loss.
+
 <a id="section-5-10"></a>
 
 ## 5.10 Problems, worked answers, and sources
@@ -129,4 +147,4 @@ A: [−0.2,0.5,−0.3]. B: the ratio is 4; target-positive actions must have pos
 
 ---
 
-[← Chapter 4](../04-states-actions-rewards-and-transitions/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 6 →](../06-returns-and-discounting/README.md)
+[← Chapter 4](../04-states-actions-rewards-and-transitions/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 6 →](../06-returns-and-discounting/README.md)

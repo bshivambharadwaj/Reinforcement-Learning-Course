@@ -2,9 +2,9 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 31](../31-proximal-policy-optimization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 33 →](../33-offline-reinforcement-learning/README.md)
+[← Chapter 31](../31-proximal-policy-optimization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 33 →](../33-offline-reinforcement-learning/README.md)
 
-[Quick-read Topic 32](../../README.md#topic-32) · [Notation](../NOTATION.md)
+[Quick-read Topic 32](../../quick-read/32-entropy-regularization.md) · [Notation](../NOTATION.md)
 
 - [32.1 Reward a distribution, not only an action](#section-32-1)
 - [32.2 Define discrete entropy](#section-32-2)
@@ -45,6 +45,12 @@ Maximize sum_a pi(a)Q(a)+alpha H(pi), subject to probabilities summing to one an
 
 Rearranging and normalizing yields pi(a)=exp(Q(a)/alpha)/sum_b exp(Q(b)/alpha). The optimized value is alpha log sum_a exp(Q(a)/alpha). This derivation assumes a finite action set and unconstrained probability choices beyond normalization.
 
+### Bound the soft maximum's approximation error
+
+Let q_max=max_a Q(a). Factor exp(q_max/alpha) from the log-sum-exp. Since the remaining sum lies between 1 and A, q_max≤alpha log sum_a exp(Q(a)/alpha)≤q_max+alpha log A.
+
+The bound shows how temperature and action count control the gap between a hard maximum and the entropy-regularized soft value. A larger action set can increase the bonus even if the best task value is unchanged. With variable legal-action sets, this can influence preferences among states when entropy is accumulated over time.
+
 <a id="section-32-4"></a>
 
 ## 32.4 Calculate the temperature effect
@@ -69,6 +75,12 @@ For max_pi E_pi[Q]−beta D_KL(pi||pi_ref), the analogous Lagrange calculation g
 
 An action with zero reference probability cannot receive positive mass at finite KL under this direction. This is a support restriction, not just a numerical issue. Chapter 38 uses this form to connect reward optimization with preference learning.
 
+### Calculate a nonuniform-reference optimum
+
+Let Q=[2,0], reference probabilities [0.1,0.9], and beta=1. The regularized optimum is proportional to [0.1exp(2),0.9], giving probability about 0.4509 to the higher-reward action. The strong reference preference can outweigh the task-value advantage at this coefficient.
+
+With a uniform reference the same Q and coefficient give probability about 0.8808. This numerical contrast shows that reference-KL regularization retains information from a particular prior policy, while entropy alone favors uniformity. Changing the reference changes the objective even when beta is unchanged.
+
 <a id="section-32-7"></a>
 
 ## 32.7 Recognize continuous-action differences
@@ -84,6 +96,12 @@ The discrete bound 0≤H≤log A does not apply to arbitrary continuous distribu
 High entropy can spread probability onto harmful or irrelevant actions. Low entropy can be appropriate once evidence strongly favors one action. An entropy curve should be interpreted with action quality, task stage, and constraints.
 
 Reward scaling also matters: multiplying all rewards by ten while holding alpha fixed weakens regularization relative to task reward. Report coefficients together with reward units and normalization conventions.
+
+### Distinguish state-wise diversity from useful trajectory coverage
+
+A policy can have high entropy at many irrelevant states yet almost never visit a crucial branch. Conversely, low entropy at routine states can coexist with deliberate exploration at an uncertain junction.
+
+Measure visitation and task-relevant action diversity alongside mean entropy. If an entropy bonus increases random movement but decreases completed deliveries, it may be optimizing its added objective without improving useful data collection. A coefficient schedule is a design choice whose effects need evidence; decreasing entropy over training is not a universal success criterion.
 
 <a id="section-32-9"></a>
 
@@ -113,4 +131,4 @@ Read [Soft Actor-Critic](https://arxiv.org/abs/1801.01290) and the regularized-p
 
 ---
 
-[← Chapter 31](../31-proximal-policy-optimization/README.md) | [Chapters](../README.md) | [Quick-read course](../../README.md) | [Chapter 33 →](../33-offline-reinforcement-learning/README.md)
+[← Chapter 31](../31-proximal-policy-optimization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 33 →](../33-offline-reinforcement-learning/README.md)
