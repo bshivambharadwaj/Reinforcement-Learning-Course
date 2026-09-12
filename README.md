@@ -337,9 +337,13 @@ Study [Topics 41–48](quick-read/41-from-policy-learning-to-inference-time-plan
 Notebooks 12–14 to separate frozen-policy search from a later learning stage. Compare selected
 correctness, valid intermediate steps, candidate oracle success, and actual computation.
 
-The [interactive practical demo](demos/inference-time/README.md) compares five strategies and
-includes a misleading-scorer experiment. It runs locally without downloads or API keys.
-Follow the [Part III exercises and capstone](chapters/PART_III_EXERCISES.md) for written and coding tasks.
+### Practical demo: one policy, five inference strategies
+
+The [interactive practical demo](demos/inference-time/README.md) asks: **where should the next unit of inference compute go?** A frozen policy proposes intermediate arithmetic steps. Compare single sampling, self-consistency, best-of-N, sampled beam search, and best-first search on the same tasks.
+
+- **Explore:** switch the compute budget and scoring signal, compare success against actual cost, and inspect the selected trajectory and search expansion log.
+- **Investigate failure:** use a deliberately misleading scorer to see how search can favor mistakes. Check intermediate steps as well as the final answer, since errors can cancel out.
+- **Reproduce:** generate the report locally without model downloads or API keys. Browser controls filter recorded experiments; the Python command runs the experiments.
 
 ```bash
 python -m rl_course.inference_demo --output /tmp/rl-inference-demo.html
@@ -347,6 +351,24 @@ python -m rl_course.inference_demo --output /tmp/rl-inference-demo.html
 
 Open the generated HTML in a browser. This is a transparent arithmetic simulator, not an LLM
 benchmark; the chapter references explain the connection to real inference-time reasoning systems.
+
+| Continue in a notebook | What you investigate |
+|---|---|
+| [12: Sampling and Selection](notebooks/12_sampling_and_selection.ipynb) | When voting and scoring choose different answers from the same candidates. |
+| [13: Budgeted Reasoning Search](notebooks/13_budgeted_reasoning_search.ipynb) | How branching, scorer cost, and a hard budget affect search and completion. |
+| [14: Learning from Search](notebooks/14_learning_from_search.ipynb) | Fit a separate student from accepted traces and compare its quality and cost with teacher search. |
+
+The [Part III exercises and final project](chapters/PART_III_EXERCISES.md) turn these experiments into a reproducible comparison: state your hypothesis, hold evaluation conditions fixed, test scorer failures, and explain the quality-versus-cost tradeoff with results and example traces.
+
+### Course project: train a tool-using agent
+
+The earlier capstone, [Notebook 11: Tool-Agent Project](notebooks/11_tool_agent_capstone.ipynb), connects RL training to agent behavior. In **ToolDesk-v1**, an agent reads an arithmetic task, chooses an addition or multiplication tool, and submits the result within a six-action budget. Think of a dispatcher learning which specialist to call and when the job is ready to submit. The tools perform arithmetic; the policy learns routing through interaction.
+
+Compare three training rewards: verified success, verified success with potential-based shaping, and a deliberately flawed evaluator that rewards claiming success. Evaluate all policies with the same independent checker on held-out operands to expose the gap between high training reward and completed tasks.
+
+**Build on it:** add tool failures and retries, introduce tool-specific costs, or compare Q-learning and PPO under equal interaction budgets. Submit a reproducible results table, successful and failed traces, and an evaluator-exploit test. These are project extensions; the notebook provides the starting experiment and acceptance criteria.
+
+Together, the projects connect two stages of an agent system: Notebook 11 updates a policy from interaction, while the Part III demo allocates computation with a frozen policy. Notebook 14 then introduces a separate learning stage using accepted search traces.
 
 ---
 
