@@ -1,0 +1,8295 @@
+{
+  "configuration": {
+    "tasks": 100,
+    "task_seed": 2026,
+    "generation_seeds": [
+      7,
+      19,
+      41
+    ],
+    "budgets": [
+      6,
+      12,
+      24,
+      48
+    ],
+    "depth": 3,
+    "score_cost": 1,
+    "policy": [
+      0.1,
+      0.4,
+      0.5
+    ],
+    "operand_range": [
+      10,
+      30
+    ],
+    "task": "ArithmeticTrace-v1",
+    "methods": [
+      "single",
+      "self_consistency",
+      "best_of_n",
+      "beam",
+      "best_first"
+    ]
+  },
+  "rows": [
+    {
+      "method": "single",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.32,
+      "candidates": 2.0,
+      "proposal_steps": 6.0,
+      "score_calls": 0.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 1.0,
+      "spent": 4.0
+    },
+    {
+      "method": "beam",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_first",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "single",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.39,
+      "candidates": 2.0,
+      "proposal_steps": 6.0,
+      "score_calls": 0.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 1.0,
+      "spent": 4.0
+    },
+    {
+      "method": "beam",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_first",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "single",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.4,
+      "candidates": 2.0,
+      "proposal_steps": 6.0,
+      "score_calls": 0.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 1.0,
+      "spent": 4.0
+    },
+    {
+      "method": "beam",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_first",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "single",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.17,
+      "process_valid": 0.05,
+      "candidate_oracle_success": 0.54,
+      "candidates": 4.0,
+      "proposal_steps": 12.0,
+      "score_calls": 0.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.23,
+      "process_valid": 0.2,
+      "candidate_oracle_success": 0.45,
+      "candidates": 3.0,
+      "proposal_steps": 9.0,
+      "score_calls": 3.0,
+      "spent": 12.0
+    },
+    {
+      "method": "beam",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_first",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 0.92,
+      "answer_correct": 0.3,
+      "process_valid": 0.26,
+      "candidate_oracle_success": 0.36,
+      "candidates": 1.84,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "single",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.57,
+      "candidates": 4.0,
+      "proposal_steps": 12.0,
+      "score_calls": 0.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.18,
+      "candidate_oracle_success": 0.48,
+      "candidates": 3.0,
+      "proposal_steps": 9.0,
+      "score_calls": 3.0,
+      "spent": 12.0
+    },
+    {
+      "method": "beam",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_first",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 0.95,
+      "answer_correct": 0.3,
+      "process_valid": 0.22,
+      "candidate_oracle_success": 0.39,
+      "candidates": 1.9,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "single",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.16,
+      "process_valid": 0.04,
+      "candidate_oracle_success": 0.59,
+      "candidates": 4.0,
+      "proposal_steps": 12.0,
+      "score_calls": 0.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.14,
+      "candidate_oracle_success": 0.54,
+      "candidates": 3.0,
+      "proposal_steps": 9.0,
+      "score_calls": 3.0,
+      "spent": 12.0
+    },
+    {
+      "method": "beam",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_first",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 0.91,
+      "answer_correct": 0.32,
+      "process_valid": 0.24,
+      "candidate_oracle_success": 0.4,
+      "candidates": 1.82,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "single",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.13,
+      "process_valid": 0.03,
+      "candidate_oracle_success": 0.77,
+      "candidates": 8.0,
+      "proposal_steps": 24.0,
+      "score_calls": 0.0,
+      "spent": 24.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.36,
+      "process_valid": 0.35,
+      "candidate_oracle_success": 0.66,
+      "candidates": 6.0,
+      "proposal_steps": 18.0,
+      "score_calls": 6.0,
+      "spent": 24.0
+    },
+    {
+      "method": "beam",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.42,
+      "process_valid": 0.37,
+      "candidate_oracle_success": 0.64,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.38,
+      "process_valid": 0.35,
+      "candidate_oracle_success": 0.62,
+      "candidates": 6.0,
+      "proposal_steps": 12.0,
+      "score_calls": 12.0,
+      "spent": 24.0
+    },
+    {
+      "method": "single",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.14,
+      "process_valid": 0.06,
+      "candidate_oracle_success": 0.84,
+      "candidates": 8.0,
+      "proposal_steps": 24.0,
+      "score_calls": 0.0,
+      "spent": 24.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.37,
+      "process_valid": 0.34,
+      "candidate_oracle_success": 0.74,
+      "candidates": 6.0,
+      "proposal_steps": 18.0,
+      "score_calls": 6.0,
+      "spent": 24.0
+    },
+    {
+      "method": "beam",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.27,
+      "process_valid": 0.26,
+      "candidate_oracle_success": 0.52,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.29,
+      "process_valid": 0.26,
+      "candidate_oracle_success": 0.64,
+      "candidates": 6.0,
+      "proposal_steps": 12.0,
+      "score_calls": 12.0,
+      "spent": 24.0
+    },
+    {
+      "method": "single",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.1,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.83,
+      "candidates": 8.0,
+      "proposal_steps": 24.0,
+      "score_calls": 0.0,
+      "spent": 24.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.31,
+      "process_valid": 0.26,
+      "candidate_oracle_success": 0.75,
+      "candidates": 6.0,
+      "proposal_steps": 18.0,
+      "score_calls": 6.0,
+      "spent": 24.0
+    },
+    {
+      "method": "beam",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.37,
+      "process_valid": 0.35,
+      "candidate_oracle_success": 0.73,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.34,
+      "process_valid": 0.27,
+      "candidate_oracle_success": 0.73,
+      "candidates": 6.0,
+      "proposal_steps": 12.0,
+      "score_calls": 12.0,
+      "spent": 24.0
+    },
+    {
+      "method": "single",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.08,
+      "process_valid": 0.04,
+      "candidate_oracle_success": 0.96,
+      "candidates": 16.0,
+      "proposal_steps": 48.0,
+      "score_calls": 0.0,
+      "spent": 48.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.6,
+      "process_valid": 0.6,
+      "candidate_oracle_success": 0.89,
+      "candidates": 12.0,
+      "proposal_steps": 36.0,
+      "score_calls": 12.0,
+      "spent": 48.0
+    },
+    {
+      "method": "beam",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.42,
+      "process_valid": 0.37,
+      "candidate_oracle_success": 0.64,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.38,
+      "process_valid": 0.35,
+      "candidate_oracle_success": 0.67,
+      "candidates": 8.0,
+      "proposal_steps": 14.0,
+      "score_calls": 14.0,
+      "spent": 28.0
+    },
+    {
+      "method": "single",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.09,
+      "process_valid": 0.02,
+      "candidate_oracle_success": 0.97,
+      "candidates": 16.0,
+      "proposal_steps": 48.0,
+      "score_calls": 0.0,
+      "spent": 48.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.55,
+      "process_valid": 0.54,
+      "candidate_oracle_success": 0.94,
+      "candidates": 12.0,
+      "proposal_steps": 36.0,
+      "score_calls": 12.0,
+      "spent": 48.0
+    },
+    {
+      "method": "beam",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.27,
+      "process_valid": 0.26,
+      "candidate_oracle_success": 0.52,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.29,
+      "process_valid": 0.26,
+      "candidate_oracle_success": 0.7,
+      "candidates": 8.0,
+      "proposal_steps": 14.0,
+      "score_calls": 14.0,
+      "spent": 28.0
+    },
+    {
+      "method": "single",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.1,
+      "process_valid": 0.03,
+      "candidate_oracle_success": 0.96,
+      "candidates": 16.0,
+      "proposal_steps": 48.0,
+      "score_calls": 0.0,
+      "spent": 48.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.45,
+      "process_valid": 0.44,
+      "candidate_oracle_success": 0.93,
+      "candidates": 12.0,
+      "proposal_steps": 36.0,
+      "score_calls": 12.0,
+      "spent": 48.0
+    },
+    {
+      "method": "beam",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.37,
+      "process_valid": 0.35,
+      "candidate_oracle_success": 0.73,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "process",
+      "completed": 1.0,
+      "answer_correct": 0.34,
+      "process_valid": 0.27,
+      "candidate_oracle_success": 0.76,
+      "candidates": 8.0,
+      "proposal_steps": 14.0,
+      "score_calls": 14.0,
+      "spent": 28.0
+    },
+    {
+      "method": "single",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.32,
+      "candidates": 2.0,
+      "proposal_steps": 6.0,
+      "score_calls": 0.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 1.0,
+      "spent": 4.0
+    },
+    {
+      "method": "beam",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_first",
+      "budget": 6,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "single",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.39,
+      "candidates": 2.0,
+      "proposal_steps": 6.0,
+      "score_calls": 0.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 1.0,
+      "spent": 4.0
+    },
+    {
+      "method": "beam",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_first",
+      "budget": 6,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "single",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.4,
+      "candidates": 2.0,
+      "proposal_steps": 6.0,
+      "score_calls": 0.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 1.0,
+      "spent": 4.0
+    },
+    {
+      "method": "beam",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "best_first",
+      "budget": 6,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 3.0,
+      "score_calls": 3.0,
+      "spent": 6.0
+    },
+    {
+      "method": "single",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.17,
+      "process_valid": 0.05,
+      "candidate_oracle_success": 0.54,
+      "candidates": 4.0,
+      "proposal_steps": 12.0,
+      "score_calls": 0.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.05,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.45,
+      "candidates": 3.0,
+      "proposal_steps": 9.0,
+      "score_calls": 3.0,
+      "spent": 12.0
+    },
+    {
+      "method": "beam",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_first",
+      "budget": 12,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 0.93,
+      "answer_correct": 0.04,
+      "process_valid": 0.01,
+      "candidate_oracle_success": 0.12,
+      "candidates": 1.86,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "single",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.57,
+      "candidates": 4.0,
+      "proposal_steps": 12.0,
+      "score_calls": 0.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.06,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.48,
+      "candidates": 3.0,
+      "proposal_steps": 9.0,
+      "score_calls": 3.0,
+      "spent": 12.0
+    },
+    {
+      "method": "beam",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_first",
+      "budget": 12,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 0.94,
+      "answer_correct": 0.06,
+      "process_valid": 0.01,
+      "candidate_oracle_success": 0.1,
+      "candidates": 1.88,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "single",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.16,
+      "process_valid": 0.04,
+      "candidate_oracle_success": 0.59,
+      "candidates": 4.0,
+      "proposal_steps": 12.0,
+      "score_calls": 0.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.07,
+      "process_valid": 0.01,
+      "candidate_oracle_success": 0.54,
+      "candidates": 3.0,
+      "proposal_steps": 9.0,
+      "score_calls": 3.0,
+      "spent": 12.0
+    },
+    {
+      "method": "beam",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 0.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.0,
+      "candidates": 0.0,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "best_first",
+      "budget": 12,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 0.97,
+      "answer_correct": 0.06,
+      "process_valid": 0.01,
+      "candidate_oracle_success": 0.11,
+      "candidates": 1.94,
+      "proposal_steps": 6.0,
+      "score_calls": 6.0,
+      "spent": 12.0
+    },
+    {
+      "method": "single",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.13,
+      "process_valid": 0.03,
+      "candidate_oracle_success": 0.77,
+      "candidates": 8.0,
+      "proposal_steps": 24.0,
+      "score_calls": 0.0,
+      "spent": 24.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.66,
+      "candidates": 6.0,
+      "proposal_steps": 18.0,
+      "score_calls": 6.0,
+      "spent": 24.0
+    },
+    {
+      "method": "beam",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.32,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 24,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.55,
+      "candidates": 6.0,
+      "proposal_steps": 12.0,
+      "score_calls": 12.0,
+      "spent": 24.0
+    },
+    {
+      "method": "single",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.14,
+      "process_valid": 0.06,
+      "candidate_oracle_success": 0.84,
+      "candidates": 8.0,
+      "proposal_steps": 24.0,
+      "score_calls": 0.0,
+      "spent": 24.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.74,
+      "candidates": 6.0,
+      "proposal_steps": 18.0,
+      "score_calls": 6.0,
+      "spent": 24.0
+    },
+    {
+      "method": "beam",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.27,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 24,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.51,
+      "candidates": 6.0,
+      "proposal_steps": 12.0,
+      "score_calls": 12.0,
+      "spent": 24.0
+    },
+    {
+      "method": "single",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.1,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.83,
+      "candidates": 8.0,
+      "proposal_steps": 24.0,
+      "score_calls": 0.0,
+      "spent": 24.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.75,
+      "candidates": 6.0,
+      "proposal_steps": 18.0,
+      "score_calls": 6.0,
+      "spent": 24.0
+    },
+    {
+      "method": "beam",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.32,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 24,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.04,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.55,
+      "candidates": 6.0,
+      "proposal_steps": 12.0,
+      "score_calls": 12.0,
+      "spent": 24.0
+    },
+    {
+      "method": "single",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.22,
+      "process_valid": 0.1,
+      "candidate_oracle_success": 0.22,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.08,
+      "process_valid": 0.04,
+      "candidate_oracle_success": 0.96,
+      "candidates": 16.0,
+      "proposal_steps": 48.0,
+      "score_calls": 0.0,
+      "spent": 48.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.89,
+      "candidates": 12.0,
+      "proposal_steps": 36.0,
+      "score_calls": 12.0,
+      "spent": 48.0
+    },
+    {
+      "method": "beam",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.32,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 48,
+      "seed": 7,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.7,
+      "candidates": 8.0,
+      "proposal_steps": 14.0,
+      "score_calls": 14.0,
+      "spent": 28.0
+    },
+    {
+      "method": "single",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.25,
+      "process_valid": 0.08,
+      "candidate_oracle_success": 0.25,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.09,
+      "process_valid": 0.02,
+      "candidate_oracle_success": 0.97,
+      "candidates": 16.0,
+      "proposal_steps": 48.0,
+      "score_calls": 0.0,
+      "spent": 48.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.94,
+      "candidates": 12.0,
+      "proposal_steps": 36.0,
+      "score_calls": 12.0,
+      "spent": 48.0
+    },
+    {
+      "method": "beam",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.27,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 48,
+      "seed": 19,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.67,
+      "candidates": 8.0,
+      "proposal_steps": 14.0,
+      "score_calls": 14.0,
+      "spent": 28.0
+    },
+    {
+      "method": "single",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.21,
+      "process_valid": 0.07,
+      "candidate_oracle_success": 0.21,
+      "candidates": 1.0,
+      "proposal_steps": 3.0,
+      "score_calls": 0.0,
+      "spent": 3.0
+    },
+    {
+      "method": "self_consistency",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.1,
+      "process_valid": 0.03,
+      "candidate_oracle_success": 0.96,
+      "candidates": 16.0,
+      "proposal_steps": 48.0,
+      "score_calls": 0.0,
+      "spent": 48.0
+    },
+    {
+      "method": "best_of_n",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.0,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.93,
+      "candidates": 12.0,
+      "proposal_steps": 36.0,
+      "score_calls": 12.0,
+      "spent": 48.0
+    },
+    {
+      "method": "beam",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.01,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.32,
+      "candidates": 4.0,
+      "proposal_steps": 10.0,
+      "score_calls": 10.0,
+      "spent": 20.0
+    },
+    {
+      "method": "best_first",
+      "budget": 48,
+      "seed": 41,
+      "scorer": "misleading",
+      "completed": 1.0,
+      "answer_correct": 0.04,
+      "process_valid": 0.0,
+      "candidate_oracle_success": 0.77,
+      "candidates": 8.0,
+      "proposal_steps": 14.0,
+      "score_calls": 14.0,
+      "spent": 28.0
+    }
+  ],
+  "traces": [
+    {
+      "scorer": "process",
+      "budget": 6,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 6,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 2,
+        "proposal_steps": 6,
+        "score_calls": 0,
+        "spent": 6
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 6,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 1,
+        "spent": 4
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 4
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 6,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": null,
+      "metrics": {
+        "completed": false,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 0,
+        "proposal_steps": 3,
+        "score_calls": 3,
+        "spent": 6
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 6,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": null,
+      "metrics": {
+        "completed": false,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 0,
+        "proposal_steps": 3,
+        "score_calls": 3,
+        "spent": 6
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 12,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 12,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 4,
+        "proposal_steps": 12,
+        "score_calls": 0,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 12,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          33,
+          59,
+          85
+        ],
+        "log_probability": -2.748872195622465
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": true,
+        "process_valid": true,
+        "candidate_oracle_success": true,
+        "candidates": 3,
+        "proposal_steps": 9,
+        "score_calls": 3,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 4
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": 1.0,
+          "spent": 8
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 12,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": null,
+      "metrics": {
+        "completed": false,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 0,
+        "proposal_steps": 6,
+        "score_calls": 6,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 12,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          86
+        ],
+        "log_probability": -2.525728644308255
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 2,
+        "proposal_steps": 6,
+        "score_calls": 6,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 24,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 24,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 8,
+        "proposal_steps": 24,
+        "score_calls": 0,
+        "spent": 24
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [],
+          "values": [
+            32
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            32
+          ],
+          "values": [
+            32,
+            57
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "prefix": [
+            32,
+            57
+          ],
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": null,
+          "spent": 24
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 24,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          33,
+          59,
+          85
+        ],
+        "log_probability": -2.748872195622465
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": true,
+        "process_valid": true,
+        "candidate_oracle_success": true,
+        "candidates": 6,
+        "proposal_steps": 18,
+        "score_calls": 6,
+        "spent": 24
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 4
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": 1.0,
+          "spent": 8
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 16
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 20
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 24
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 24,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          86
+        ],
+        "log_probability": -2.525728644308255
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 4,
+        "proposal_steps": 10,
+        "score_calls": 10,
+        "spent": 20
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 20
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 24,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          86
+        ],
+        "log_probability": -2.525728644308255
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 6,
+        "proposal_steps": 12,
+        "score_calls": 12,
+        "spent": 24
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": 0.0,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": 0.0,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 24
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 48,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 48,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          86
+        ],
+        "log_probability": -2.525728644308255
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 16,
+        "proposal_steps": 48,
+        "score_calls": 0,
+        "spent": 48
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [],
+          "values": [
+            32
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            32
+          ],
+          "values": [
+            32,
+            57
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "prefix": [
+            32,
+            57
+          ],
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": null,
+          "spent": 24
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 25
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            59
+          ],
+          "score": null,
+          "spent": 26
+        },
+        {
+          "prefix": [
+            34,
+            59
+          ],
+          "values": [
+            34,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 27
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 28
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 29
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 30
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 31
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            58
+          ],
+          "score": null,
+          "spent": 32
+        },
+        {
+          "prefix": [
+            33,
+            58
+          ],
+          "values": [
+            33,
+            58,
+            84
+          ],
+          "score": null,
+          "spent": 33
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 34
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 35
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": null,
+          "spent": 36
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 37
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 38
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 39
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 40
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 41
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": null,
+          "spent": 42
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 43
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 44
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 45
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 46
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 47
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 48
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 48,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          33,
+          59,
+          85
+        ],
+        "log_probability": -2.748872195622465
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": true,
+        "process_valid": true,
+        "candidate_oracle_success": true,
+        "candidates": 12,
+        "proposal_steps": 36,
+        "score_calls": 12,
+        "spent": 48
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 4
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": 1.0,
+          "spent": 8
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 16
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 20
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 24
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 25
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 26
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 27
+        },
+        {
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 28
+        },
+        {
+          "prefix": [],
+          "values": [
+            32
+          ],
+          "score": null,
+          "spent": 29
+        },
+        {
+          "prefix": [
+            32
+          ],
+          "values": [
+            32,
+            57
+          ],
+          "score": null,
+          "spent": 30
+        },
+        {
+          "prefix": [
+            32,
+            57
+          ],
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": null,
+          "spent": 31
+        },
+        {
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": 0.0,
+          "spent": 32
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 33
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            59
+          ],
+          "score": null,
+          "spent": 34
+        },
+        {
+          "prefix": [
+            34,
+            59
+          ],
+          "values": [
+            34,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 35
+        },
+        {
+          "values": [
+            34,
+            59,
+            86
+          ],
+          "score": 0.0,
+          "spent": 36
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 37
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 38
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 39
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 40
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 41
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            58
+          ],
+          "score": null,
+          "spent": 42
+        },
+        {
+          "prefix": [
+            33,
+            58
+          ],
+          "values": [
+            33,
+            58,
+            84
+          ],
+          "score": null,
+          "spent": 43
+        },
+        {
+          "values": [
+            33,
+            58,
+            84
+          ],
+          "score": 0.6666666666666666,
+          "spent": 44
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 45
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 46
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": null,
+          "spent": 47
+        },
+        {
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": 0.3333333333333333,
+          "spent": 48
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 48,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          86
+        ],
+        "log_probability": -2.525728644308255
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 4,
+        "proposal_steps": 10,
+        "score_calls": 10,
+        "spent": 20
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 20
+        }
+      ]
+    },
+    {
+      "scorer": "process",
+      "budget": 48,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          86
+        ],
+        "log_probability": -2.525728644308255
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 8,
+        "proposal_steps": 14,
+        "score_calls": 14,
+        "spent": 28
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 0.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": 0.0,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": 0.0,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 24
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 26
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.3333333333333333,
+          "spent": 28
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 6,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 6,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 2,
+        "proposal_steps": 6,
+        "score_calls": 0,
+        "spent": 6
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 6,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 1,
+        "spent": 4
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 4
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 6,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": null,
+      "metrics": {
+        "completed": false,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 0,
+        "proposal_steps": 3,
+        "score_calls": 3,
+        "spent": 6
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 6,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": null,
+      "metrics": {
+        "completed": false,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 0,
+        "proposal_steps": 3,
+        "score_calls": 3,
+        "spent": 6
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 12,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 12,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 4,
+        "proposal_steps": 12,
+        "score_calls": 0,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 12,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 3,
+        "proposal_steps": 9,
+        "score_calls": 3,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 4
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": 0.0,
+          "spent": 8
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 12,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": null,
+      "metrics": {
+        "completed": false,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 0,
+        "proposal_steps": 6,
+        "score_calls": 6,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 12,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": null,
+      "metrics": {
+        "completed": false,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 0,
+        "proposal_steps": 6,
+        "score_calls": 6,
+        "spent": 12
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 24,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 24,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 8,
+        "proposal_steps": 24,
+        "score_calls": 0,
+        "spent": 24
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [],
+          "values": [
+            32
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            32
+          ],
+          "values": [
+            32,
+            57
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "prefix": [
+            32,
+            57
+          ],
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": null,
+          "spent": 24
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 24,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 6,
+        "proposal_steps": 18,
+        "score_calls": 6,
+        "spent": 24
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 4
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": 0.0,
+          "spent": 8
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 16
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 20
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 24
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 24,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 4,
+        "proposal_steps": 10,
+        "score_calls": 10,
+        "spent": 20
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 20
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 24,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 6,
+        "proposal_steps": 12,
+        "score_calls": 12,
+        "spent": 24
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 24
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 48,
+      "method": "single",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 1,
+        "proposal_steps": 3,
+        "score_calls": 0,
+        "spent": 3
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 48,
+      "method": "self_consistency",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          86
+        ],
+        "log_probability": -2.525728644308255
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 16,
+        "proposal_steps": 48,
+        "score_calls": 0,
+        "spent": 48
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [],
+          "values": [
+            32
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            32
+          ],
+          "values": [
+            32,
+            57
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "prefix": [
+            32,
+            57
+          ],
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": null,
+          "spent": 24
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 25
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            59
+          ],
+          "score": null,
+          "spent": 26
+        },
+        {
+          "prefix": [
+            34,
+            59
+          ],
+          "values": [
+            34,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 27
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 28
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 29
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 30
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 31
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            58
+          ],
+          "score": null,
+          "spent": 32
+        },
+        {
+          "prefix": [
+            33,
+            58
+          ],
+          "values": [
+            33,
+            58,
+            84
+          ],
+          "score": null,
+          "spent": 33
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 34
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 35
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": null,
+          "spent": 36
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 37
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 38
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 39
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 40
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 41
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": null,
+          "spent": 42
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 43
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 44
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 45
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 46
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 47
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 48
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 48,
+      "method": "best_of_n",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          61,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": true,
+        "candidates": 12,
+        "proposal_steps": 36,
+        "score_calls": 12,
+        "spent": 48
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 1
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            61
+          ],
+          "score": null,
+          "spent": 2
+        },
+        {
+          "prefix": [
+            34,
+            61
+          ],
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": null,
+          "spent": 3
+        },
+        {
+          "values": [
+            34,
+            61,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 4
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 5
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": null,
+          "spent": 7
+        },
+        {
+          "values": [
+            33,
+            59,
+            85
+          ],
+          "score": 0.0,
+          "spent": 8
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 9
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 11
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 12
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 13
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": null,
+          "spent": 15
+        },
+        {
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 16
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 17
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 19
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 20
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 21
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            59
+          ],
+          "score": null,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            33,
+            59
+          ],
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 23
+        },
+        {
+          "values": [
+            33,
+            59,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 24
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 25
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": null,
+          "spent": 26
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 27
+        },
+        {
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 28
+        },
+        {
+          "prefix": [],
+          "values": [
+            32
+          ],
+          "score": null,
+          "spent": 29
+        },
+        {
+          "prefix": [
+            32
+          ],
+          "values": [
+            32,
+            57
+          ],
+          "score": null,
+          "spent": 30
+        },
+        {
+          "prefix": [
+            32,
+            57
+          ],
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": null,
+          "spent": 31
+        },
+        {
+          "values": [
+            32,
+            57,
+            84
+          ],
+          "score": 0.3333333333333333,
+          "spent": 32
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": null,
+          "spent": 33
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            59
+          ],
+          "score": null,
+          "spent": 34
+        },
+        {
+          "prefix": [
+            34,
+            59
+          ],
+          "values": [
+            34,
+            59,
+            86
+          ],
+          "score": null,
+          "spent": 35
+        },
+        {
+          "values": [
+            34,
+            59,
+            86
+          ],
+          "score": 0.6666666666666666,
+          "spent": 36
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 37
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 38
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": null,
+          "spent": 39
+        },
+        {
+          "values": [
+            33,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 40
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 41
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            58
+          ],
+          "score": null,
+          "spent": 42
+        },
+        {
+          "prefix": [
+            33,
+            58
+          ],
+          "values": [
+            33,
+            58,
+            84
+          ],
+          "score": null,
+          "spent": 43
+        },
+        {
+          "values": [
+            33,
+            58,
+            84
+          ],
+          "score": 0.0,
+          "spent": 44
+        },
+        {
+          "prefix": [],
+          "values": [
+            33
+          ],
+          "score": null,
+          "spent": 45
+        },
+        {
+          "prefix": [
+            33
+          ],
+          "values": [
+            33,
+            60
+          ],
+          "score": null,
+          "spent": 46
+        },
+        {
+          "prefix": [
+            33,
+            60
+          ],
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": null,
+          "spent": 47
+        },
+        {
+          "values": [
+            33,
+            60,
+            85
+          ],
+          "score": 0.3333333333333333,
+          "spent": 48
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 48,
+      "method": "beam",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 4,
+        "proposal_steps": 10,
+        "score_calls": 10,
+        "spent": 20
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 20
+        }
+      ]
+    },
+    {
+      "scorer": "misleading",
+      "budget": 48,
+      "method": "best_first",
+      "operands": [
+        13,
+        20,
+        26,
+        26
+      ],
+      "selected": {
+        "values": [
+          34,
+          60,
+          87
+        ],
+        "log_probability": -2.3025850929940455
+      },
+      "metrics": {
+        "completed": true,
+        "answer_correct": false,
+        "process_valid": false,
+        "candidate_oracle_success": false,
+        "candidates": 8,
+        "proposal_steps": 14,
+        "score_calls": 14,
+        "spent": 28
+      },
+      "events": [
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 2
+        },
+        {
+          "prefix": [],
+          "values": [
+            34
+          ],
+          "score": 1.0,
+          "spent": 4
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 6
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 8
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 10
+        },
+        {
+          "prefix": [
+            34
+          ],
+          "values": [
+            34,
+            60
+          ],
+          "score": 0.5,
+          "spent": 12
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 14
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 16
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 18
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            87
+          ],
+          "score": 0.6666666666666666,
+          "spent": 20
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 22
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 24
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 26
+        },
+        {
+          "prefix": [
+            34,
+            60
+          ],
+          "values": [
+            34,
+            60,
+            86
+          ],
+          "score": 0.3333333333333333,
+          "spent": 28
+        }
+      ]
+    }
+  ]
+}

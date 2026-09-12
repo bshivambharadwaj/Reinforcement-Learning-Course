@@ -1,6 +1,7 @@
 # Reproduce the course experiments
 
-The course has 40 theory topics, seven core notebooks, and four integrated labs. Every
+The course has 48 theory topics, seven core notebooks, four integrated labs, and three
+Part III inference-time notebooks. Every
 notebook includes saved outputs and should run from **Restart Kernel and Run All Cells**.
 Saved results are observations from specific configurations, not guaranteed outcomes.
 
@@ -39,7 +40,7 @@ The model's Apache-2.0 license is separate from the course licenses.
 ## Run in Colab
 
 Badges open the published `main` version. Notebooks 01–07 use Colab's installed scientific
-Python packages. Notebooks 08–11 clone the course's implementation modules into the runtime;
+Python packages. Notebooks 08–14 clone the course's implementation modules into the runtime when needed;
 Notebook 09 also installs its pinned modern dependencies. All defaults use CPU. If you have
 already imported a conflicting library, restart the runtime after installation.
 
@@ -49,7 +50,7 @@ Colab session. Keep the versions printed by your run when reporting a difference
 
 ## What each result means
 
-All eleven notebooks passed fresh-kernel execution in a clean virtual environment on
+Notebooks 01–11 passed fresh-kernel execution in a clean virtual environment on
 2026-09-08. The verification uses Linux x86_64 and Python 3.12.4, with the following
 resolved versions. The core dependency ranges also allow other compatible versions;
 record yours because floating-point details and training trajectories may differ.
@@ -74,6 +75,27 @@ record yours because floating-point details and training trajectories may differ
 | 09 | SyntheticSentiment-v1; one seed; 48 train / 24 test prompts | Tests unseen nouns under the same template, not general alignment |
 | 10 | TwoStepArithmetic-v1; three seeds; disjoint input tuples | Structured neural policy, not pretrained-LM GRPO; fixed-length trajectories |
 | 11 | ToolDesk-v1; three seeds; disjoint operand ranges | Learns routing, while tools perform arithmetic; schema stays fixed |
+| 12 | ArithmeticTrace-v1; 100 tasks; generation seeds 7/19/41 | Frozen categorical simulator; candidate-matched and budget-matched selection are distinct |
+| 13 | Same tasks; five strategies; scorer costs one and three | Counts proposals and score queries, including unfinished runs and finite-tree plateaus |
+| 14 | 100 train / 100 held-out tasks; disjoint operand ranges | Fits new categorical students after teacher search; not an LLM or policy-gradient update |
+
+Notebooks 12–14 passed fresh-kernel execution on 2026-09-13 using the same clean
+environment listed above. All three use generated data and require no model downloads.
+The [standalone demo](demos/inference-time/README.md) also runs with only Python's standard
+library. Its recorded report contains every configured generation-seed aggregate and
+example traces; the seeds vary sampling from a single frozen proposal policy.
+
+The Part III budget counts one unit per proposed arithmetic step plus a configurable
+cost per score query. Final benchmark truth checks occur after selection, outside that
+allowance, and are inaccessible to search. A prefix query and a complete-trace query each
+count as one query in this abstraction; these are not measured FLOPs or latency.
+Arithmetic is supplied by the simulator, so held-out operand results do not establish
+learned arithmetic generalization. The exact process checker is explicitly an oracle
+for local arithmetic, not a learned value model.
+
+Run the inference invariants with `python -m unittest discover -s tests -v`. They check
+budget boundaries, evaluator isolation, compensating errors, scorer-driven wrong selection,
+reproducibility, and separation of teacher search from student fitting.
 
 Notebook 08 reports exact expected return, across-seed variation, time to a sampled
 checkpoint threshold, peak-to-final regression, and wall-clock time. Equal interaction

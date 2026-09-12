@@ -4,7 +4,7 @@
 
 These pages preserve the original quick-read lessons from the main README. Start with a topic,
 then use its chapter link for derivations, extended examples, and practice. Previous/next links
-let you follow all 40 topics in order. The course home contains setup, notebooks, and the roadmap.
+let you follow all 48 topics in order. The course home contains setup, notebooks, and the roadmap.
 
 | Topic | Quick read | Chapter |
 |---|---|---|
@@ -48,5 +48,13 @@ let you follow all 40 topics in order. The course home contains setup, notebooks
 | 38 | [Direct Preference Optimization](38-direct-preference-optimization.md) | [Study Chapter 38](../chapters/38-direct-preference-optimization/README.md) |
 | 39 | [GRPO and Reinforcement Learning for Reasoning](39-grpo-and-reinforcement-learning-for-reasoning.md) | [Study Chapter 39](../chapters/39-grpo-and-reinforcement-learning-for-reasoning/README.md) |
 | 40 | [Multimodal RL and RL for AI Agents](40-multimodal-rl-and-rl-for-ai-agents.md) | [Study Chapter 40](../chapters/40-multimodal-rl-and-rl-for-ai-agents/README.md) |
+| 41 | [From Policy Learning to Inference-Time Planning](41-from-policy-learning-to-inference-time-planning.md) | [Study Chapter 41](../chapters/41-from-policy-learning-to-inference-time-planning/README.md) |
+| 42 | [Reasoning as a Sequential Decision Problem](42-reasoning-as-a-sequential-decision-problem.md) | [Study Chapter 42](../chapters/42-reasoning-as-a-sequential-decision-problem/README.md) |
+| 43 | [Sampling and Candidate Selection](43-sampling-and-candidate-selection.md) | [Study Chapter 43](../chapters/43-sampling-and-candidate-selection/README.md) |
+| 44 | [Verifiers, Process Rewards, and Value Models](44-verifiers-process-rewards-and-value-models.md) | [Study Chapter 44](../chapters/44-verifiers-process-rewards-and-value-models/README.md) |
+| 45 | [Search over Reasoning Trajectories](45-search-over-reasoning-trajectories.md) | [Study Chapter 45](../chapters/45-search-over-reasoning-trajectories/README.md) |
+| 46 | [Budget-Aware Reasoning](46-budget-aware-reasoning.md) | [Study Chapter 46](../chapters/46-budget-aware-reasoning/README.md) |
+| 47 | [Learning from Search](47-learning-from-search.md) | [Study Chapter 47](../chapters/47-learning-from-search/README.md) |
+| 48 | [Evaluating Inference-Time Reasoning](48-evaluating-inference-time-reasoning.md) | [Study Chapter 48](../chapters/48-evaluating-inference-time-reasoning/README.md) |
 
 Text and diagrams use [CC BY 4.0](../LICENSE-CC-BY-4.0); code uses [MIT](../LICENSE-MIT).

@@ -140,3 +140,5 @@ Read [Sutton and Barto, Chapter 8](http://incompleteideas.net/book/the-book-2nd.
 ---
 
 [← Chapter 33](../33-offline-reinforcement-learning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 35 →](../35-multi-agent-reinforcement-learning/README.md)
+
+**Continue into Part III:** [From Policy Learning to Inference-Time Planning](../41-from-policy-learning-to-inference-time-planning/README.md).

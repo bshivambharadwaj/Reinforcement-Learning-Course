@@ -2,7 +2,7 @@
 
 **Advanced** · **Created by Shivam Bharadwaj**
 
-[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Capstone →](../../notebooks/11_tool_agent_capstone.ipynb)
+[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 41 →](../41-from-policy-learning-to-inference-time-planning/README.md)
 
 [Quick-read Topic 40](../../quick-read/40-multimodal-rl-and-rl-for-ai-agents.md) · [Notation](../NOTATION.md)
 
@@ -169,4 +169,6 @@ Read [WebArena](https://arxiv.org/abs/2307.13854) for realistic web-task evaluat
 
 ---
 
-[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Capstone →](../../notebooks/11_tool_agent_capstone.ipynb)
+[← Chapter 39](../39-grpo-and-reinforcement-learning-for-reasoning/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 41 →](../41-from-policy-learning-to-inference-time-planning/README.md)
+
+**Continue into Part III:** [From Policy Learning to Inference-Time Planning](../41-from-policy-learning-to-inference-time-planning/README.md).

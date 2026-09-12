@@ -2,7 +2,7 @@
 
 # From Bellman Equations to Reasoning Agents
 
-**40 topics • 11 notebooks • Classical RL → Reasoning Agents**
+**48 topics • 14 notebooks • Classical RL → Inference-Time Reasoning**
 
 *A systems-oriented course connecting classical reinforcement learning to modern reasoning models and AI agents.*
 
@@ -10,11 +10,11 @@
 
 For the learner who says: **“I know ML and LLMs, but how did we get from Q-learning to PPO, RLHF, and GRPO?”**
 
-Follow **classical RL → deep RL → PPO → RLHF → DPO → GRPO → reasoning RL → agents**. Reuse a delivery-robot intuition, inspect the updates, compare methods on one task, fine-tune a real small language model, and train a tool-selection agent. The original seven lessons need no model downloads; the optional small-model lab downloads a pinned public checkpoint.
+Follow **classical RL → deep RL → post-training → agents → inference-time reasoning**. Reuse a delivery-robot intuition, inspect the updates, compare methods on one task, fine-tune a real small language model, train a tool-selection agent, and compare frozen-policy search strategies. The original seven lessons need no model downloads; the optional small-model lab downloads a pinned public checkpoint.
 
 **[Start Learning](quick-read/01-what-is-reinforcement-learning.md) | [Notebooks](#practical-track) | [Advanced RL](#part-ii-advanced-and-modern-reinforcement-learning) | [Exercises](#exercises)**
 
-**Choose your reading depth:** select a topic below for its [quick read](quick-read/README.md), then follow its chapter link for deeper study. All 40 [Chapters](chapters/README.md) include derivations, worked examples, and exercises with answers.
+**Choose your reading depth:** select a topic below for its [quick read](quick-read/README.md), then follow its chapter link for deeper study. All 48 [Chapters](chapters/README.md) include derivations, worked examples, and exercises with answers.
 
 ⭐ If this course helps you, star this repo to help others discover it.
 
@@ -72,6 +72,15 @@ Follow **classical RL → deep RL → PPO → RLHF → DPO → GRPO → reasonin
   - <a id="topic-38"></a> [38. Direct Preference Optimization](quick-read/38-direct-preference-optimization.md)
   - <a id="topic-39"></a> [39. GRPO and Reinforcement Learning for Reasoning](quick-read/39-grpo-and-reinforcement-learning-for-reasoning.md)
   - <a id="topic-40"></a> [40. Multimodal RL and RL for AI Agents](quick-read/40-multimodal-rl-and-rl-for-ai-agents.md)
+- <a id="part-iii-inference-time-reasoning-and-planning"></a> [Part III: Inference-Time Reasoning and Planning](#inference-time-practical-track)
+  - <a id="topic-41"></a> [41. From Policy Learning to Inference-Time Planning](quick-read/41-from-policy-learning-to-inference-time-planning.md)
+  - <a id="topic-42"></a> [42. Reasoning as a Sequential Decision Problem](quick-read/42-reasoning-as-a-sequential-decision-problem.md)
+  - <a id="topic-43"></a> [43. Sampling and Candidate Selection](quick-read/43-sampling-and-candidate-selection.md)
+  - <a id="topic-44"></a> [44. Verifiers, Process Rewards, and Value Models](quick-read/44-verifiers-process-rewards-and-value-models.md)
+  - <a id="topic-45"></a> [45. Search over Reasoning Trajectories](quick-read/45-search-over-reasoning-trajectories.md)
+  - <a id="topic-46"></a> [46. Budget-Aware Reasoning](quick-read/46-budget-aware-reasoning.md)
+  - <a id="topic-47"></a> [47. Learning from Search](quick-read/47-learning-from-search.md)
+  - <a id="topic-48"></a> [48. Evaluating Inference-Time Reasoning](quick-read/48-evaluating-inference-time-reasoning.md)
 - [Algorithm Comparison](#algorithm-comparison)
 - [Practical Track](#practical-track)
 - [Hands-on Checkpoints](#hands-on-checkpoints)
@@ -157,6 +166,7 @@ Uppercase letters denote random variables; lowercase letters usually denote obse
 | [RLHF and Preferences · 36–38](quick-read/36-reinforcement-learning-from-human-feedback.md) | Advanced | Replace a hand-written reward with preference feedback; distinguish reward modeling, PPO-based RLHF, and DPO. | Notebooks 07 and 09: synthetic objectives and real small-model SFT/DPO. |
 | [Reasoning RL · 39](quick-read/39-grpo-and-reinforcement-learning-for-reasoning.md) | Advanced | Generate candidate trajectories, verify outcomes, and inspect group-relative credit. | Notebook 10: two-step reasoning and GRPO-style updates. |
 | [Agents and Multimodal RL · 40](quick-read/40-multimodal-rl-and-rl-for-ai-agents.md) | Advanced | Specify tool observations, delayed feedback, constraints, and independent evaluation. | Notebook 11: a learned tool-selection agent and evaluator-gaming capstone. |
+| [Inference-Time Reasoning · 41–48](quick-read/41-from-policy-learning-to-inference-time-planning.md) | Advanced | Separate proposals, verifiers, values, search, and compute allocation. | Notebooks 12–14 and an interactive five-strategy demo. |
 
 After policy optimization, read **[Topics 33–35](quick-read/33-offline-reinforcement-learning.md)** as a bridge: offline data changes what you can learn from, world models change how you plan, and multiple agents change whose behavior affects the environment. Then continue to preference learning and reasoning.
 
@@ -167,7 +177,7 @@ Before moving on, explain the current method's **data source, update target, and
 ### What Makes This Course Different?
 
 - **One connected progression:** Bellman equations lead into deep RL, PPO, LLM alignment, DPO, and GRPO.
-- **Intuition you can test:** analogies and worked examples connect to eleven notebooks with saved plots, result tables, and seeded experiments.
+- **Intuition you can test:** analogies and worked examples connect to fourteen notebooks with saved plots, result tables, and seeded experiments.
 - **Modern systems in context:** reasoning, multimodal RL, and agents build on the classical foundations, with explicit distinctions between a pretrained-model lab, structured reasoning experiments, and open research problems.
 
 <a id="algorithm-family-tree"></a>
@@ -252,9 +262,9 @@ Offline and model-based RL are broad settings or method families, not single upd
 
 The **seven core notebooks** build the fundamentals with NumPy and small CPU PyTorch experiments.
 **Four integrated labs** add algorithm comparisons, real small-model post-training, verified reasoning,
-and a tool-agent capstone. Each links to theory, documents its experiment, and includes saved outputs.
+and a tool-agent capstone. **Three Part III labs** cover inference-time selection, search, and learning from search. Each links to theory, documents its experiment, and includes saved outputs.
 Notebook 09 requires a public pretrained-model download and the optional modern dependencies; the
-other ten use generated environments/data and need no model downloads or API keys.
+other thirteen use generated environments/data and need no model downloads or API keys.
 
 | Notebook | Concepts |
 |---|---|
@@ -269,6 +279,9 @@ other ten use generated environments/data and need no model downloads or API key
 | [09 — Small-Model SFT → DPO](notebooks/09_small_model_sft_dpo.ipynb) | Real SmolLM2-135M, completion masking, cached SFT reference, synthetic preferences, held-out generation |
 | [10 — Verifiable Reasoning and GRPO](notebooks/10_verifiable_reasoning_grpo.ipynb) | Two-step neural reasoning policy, grouped candidates, outcome/process feedback, evaluator attack |
 | [11 — Tool-Agent Capstone](notebooks/11_tool_agent_capstone.ipynb) | Learned tool routing, potential shaping, held-out operands, reward gaming versus verified success |
+| [12: Sampling and Selection](notebooks/12_sampling_and_selection.ipynb) | Frozen policy, best-of-N, self-consistency, oracle candidate success, scorer exploitation |
+| [13: Budgeted Reasoning Search](notebooks/13_budgeted_reasoning_search.ipynb) | Sampled beam and best-first search, trace inspection, scoring cost, completion and correctness |
+| [14: Learning from Search](notebooks/14_learning_from_search.ipynb) | Teacher search, outcome/process filtering, categorical imitation, held-out student evaluation |
 
 The integrated labs share readable implementations under [`rl_course/`](rl_course/). This is learner-facing
 algorithm code, not an authoring tool. Keep the whole repository when running these notebooks.
@@ -285,7 +298,7 @@ python -m ipykernel install --sys-prefix --name python3 --display-name "Python (
 jupyter lab
 ```
 
-On Windows PowerShell, replace the activation command with `.venv\Scripts\Activate.ps1`. Open a notebook and select the **Python (RL Course)** kernel. Choose **Restart Kernel and Run All Cells** to reproduce the experiment from scratch. Start with notebooks 01–07, then choose integrated labs 08–11. Each runs independently from the full repository. GitHub displays the saved outputs without installing anything.
+On Windows PowerShell, replace the activation command with `.venv\Scripts\Activate.ps1`. Open a notebook and select the **Python (RL Course)** kernel. Choose **Restart Kernel and Run All Cells** to reproduce the experiment from scratch. Start with notebooks 01–07, then choose integrated labs 08–11 and Part III labs 12–14. Each runs independently from the full repository. GitHub displays the saved outputs without installing anything.
 
 For the real small-model lab, also run `python -m pip install -r requirements-modern.txt`.
 It uses a pinned model revision and trains only its final decoder layer and normalization. Allow
@@ -310,6 +323,30 @@ before they appear there. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for check
 | 09 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/09_small_model_sft_dpo.ipynb) |
 | 10 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/10_verifiable_reasoning_grpo.ipynb) |
 | 11 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/11_tool_agent_capstone.ipynb) |
+| 12 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/12_sampling_and_selection.ipynb) |
+| 13 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/13_budgeted_reasoning_search.ipynb) |
+| 14 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/14_learning_from_search.ipynb) |
+
+---
+
+<a id="inference-time-practical-track"></a>
+
+## Part III practical track
+
+Study [Topics 41–48](quick-read/41-from-policy-learning-to-inference-time-planning.md), then use
+Notebooks 12–14 to separate frozen-policy search from a later learning stage. Compare selected
+correctness, valid intermediate steps, candidate oracle success, and actual computation.
+
+The [interactive practical demo](demos/inference-time/README.md) compares five strategies and
+includes a misleading-scorer experiment. It runs locally without downloads or API keys.
+Follow the [Part III exercises and capstone](chapters/PART_III_EXERCISES.md) for written and coding tasks.
+
+```bash
+python -m rl_course.inference_demo --output /tmp/rl-inference-demo.html
+```
+
+Open the generated HTML in a browser. This is a transparent arithmetic simulator, not an LLM
+benchmark; the chapter references explain the connection to real inference-time reasoning systems.
 
 ---
 
@@ -461,19 +498,19 @@ For fast-moving topics such as reasoning RL and GRPO, prefer the original model 
 
 # Repository Structure
 
-The repository includes eleven executable notebooks with saved outputs, shared lab implementations, and setup dependencies. Exercises appear in this README and inside each notebook. Rendered diagrams and equations are included so the course displays without running generation tools.
+The repository includes fourteen executable notebooks with saved outputs, shared lab implementations, and setup dependencies. Exercises appear in this README and inside each notebook. Rendered diagrams and equations are included so the course displays without running generation tools.
 
 ```text
 reinforcement-learning-course/
 │
 ├── README.md
-├── quick-read/               # 40 concise topic pages and their index
-├── chapters/                 # 40 chapters, each with ten numbered sections
+├── quick-read/               # 48 concise topic pages and their index
+├── chapters/                 # 48 chapters, each with ten numbered sections
 │   ├── README.md             # Chapter index and learning paths
 │   ├── NOTATION.md           # Mathematical conventions and reading guide
 │   ├── ASSESSMENT.md         # Problem sets, capstone, and assessment rubric
 │   ├── 01-what-is-reinforcement-learning/
-│   └── ...                  # One README per chapter, through Chapter 40
+│   └── ...                  # One README per chapter, through Chapter 48
 ├── notebooks/
 │   ├── 01_mdp_dynamic_programming.ipynb
 │   ├── 02_mc_vs_td.ipynb
@@ -485,7 +522,10 @@ reinforcement-learning-course/
 │   ├── 08_one_problem_many_algorithms.ipynb
 │   ├── 09_small_model_sft_dpo.ipynb
 │   ├── 10_verifiable_reasoning_grpo.ipynb
-│   └── 11_tool_agent_capstone.ipynb
+│   ├── 11_tool_agent_capstone.ipynb
+│   ├── 12_sampling_and_selection.ipynb
+│   ├── 13_budgeted_reasoning_search.ipynb
+│   └── 14_learning_from_search.ipynb
 │
 ├── assets/
 │   ├── course-banner.png
@@ -494,6 +534,8 @@ reinforcement-learning-course/
 │   ├── diagrams/             # Rendered SVG diagrams
 │   └── equations/            # Rendered SVG equations
 │
+├── demos/inference-time/     # Interactive demo, recorded results, and run instructions
+├── tests/                    # Inference budget and evaluator invariants
 ├── rl_course/                # Learner-facing implementations for integrated labs
 ├── requirements.txt
 ├── requirements-modern.txt

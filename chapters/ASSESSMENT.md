@@ -5,6 +5,7 @@
 **Created by Shivam Bharadwaj**
 
 These original assignments combine the chapters into a sustained course of study.
+For inference-time reasoning, use the additional [Part III exercises and practical assessment](PART_III_EXERCISES.md).
 The chapter exercises check local understanding; these assessments require transferring
 ideas, defending assumptions, and producing reproducible evidence. A correct final
 number without the model or reasoning is incomplete.

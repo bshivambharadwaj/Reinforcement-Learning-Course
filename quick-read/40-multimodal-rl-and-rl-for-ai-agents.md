@@ -1,6 +1,6 @@
 **Quick read** · **Created by Shivam Bharadwaj**
 
-[← Topic 39](39-grpo-and-reinforcement-learning-for-reasoning.md) | [Course home](../README.md) | [Quick reads](README.md) | [Practice →](../README.md#practical-track)
+[← Topic 39](39-grpo-and-reinforcement-learning-for-reasoning.md) | [Course home](../README.md) | [Quick reads](README.md) | [Topic 41 →](41-from-policy-learning-to-inference-time-planning.md)
 
 **Go deeper:** [Chapter 40: Multimodal RL and RL for AI Agents](../chapters/40-multimodal-rl-and-rl-for-ai-agents/README.md)
 
@@ -170,4 +170,4 @@ References: [WebArena](https://arxiv.org/abs/2307.13854),
 
 **Continue in depth:** [Read Chapter 40](../chapters/40-multimodal-rl-and-rl-for-ai-agents/README.md)
 
-[← Topic 39](39-grpo-and-reinforcement-learning-for-reasoning.md) | [Course home](../README.md) | [Quick reads](README.md) | [Practice →](../README.md#practical-track)
+[← Topic 39](39-grpo-and-reinforcement-learning-for-reasoning.md) | [Course home](../README.md) | [Quick reads](README.md) | [Topic 41 →](41-from-policy-learning-to-inference-time-planning.md)

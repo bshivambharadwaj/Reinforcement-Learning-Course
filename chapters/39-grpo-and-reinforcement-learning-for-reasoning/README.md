@@ -138,3 +138,5 @@ Read [DeepSeekMath](https://arxiv.org/abs/2402.03300) for the original GRPO form
 ---
 
 [← Chapter 38](../38-direct-preference-optimization/README.md) | [Chapters](../README.md) | [Course home](../../README.md) | [Chapter 40 →](../40-multimodal-rl-and-rl-for-ai-agents/README.md)
+
+**Continue into Part III:** [From Policy Learning to Inference-Time Planning](../41-from-policy-learning-to-inference-time-planning/README.md).

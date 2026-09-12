@@ -73,6 +73,20 @@ data coverage, and evaluator design within the existing numbered sections.
 | 38 | [Direct Preference Optimization](38-direct-preference-optimization/README.md) | Advanced |
 | 39 | [GRPO and Reinforcement Learning for Reasoning](39-grpo-and-reinforcement-learning-for-reasoning/README.md) | Advanced |
 | 40 | [Multimodal RL and RL for AI Agents](40-multimodal-rl-and-rl-for-ai-agents/README.md) | Advanced |
+| 41 | [From Policy Learning to Inference-Time Planning](41-from-policy-learning-to-inference-time-planning/README.md) | Advanced · Part III |
+| 42 | [Reasoning as a Sequential Decision Problem](42-reasoning-as-a-sequential-decision-problem/README.md) | Advanced · Part III |
+| 43 | [Sampling and Candidate Selection](43-sampling-and-candidate-selection/README.md) | Advanced · Part III |
+| 44 | [Verifiers, Process Rewards, and Value Models](44-verifiers-process-rewards-and-value-models/README.md) | Advanced · Part III |
+| 45 | [Search over Reasoning Trajectories](45-search-over-reasoning-trajectories/README.md) | Advanced · Part III |
+| 46 | [Budget-Aware Reasoning](46-budget-aware-reasoning/README.md) | Advanced · Part III |
+| 47 | [Learning from Search](47-learning-from-search/README.md) | Advanced · Part III |
+| 48 | [Evaluating Inference-Time Reasoning](48-evaluating-inference-time-reasoning/README.md) | Advanced · Part III |
+
+## Part III: inference-time reasoning and planning
+
+Chapters 41–48 connect frozen-policy candidate generation, verifiers, search, budget allocation,
+and a separate learning-from-search stage. Use [Part III exercises](PART_III_EXERCISES.md) and
+the [interactive demo](../demos/inference-time/README.md) alongside Notebooks 12–14.
 
 ## Study and assessment
 

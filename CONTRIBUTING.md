@@ -1,7 +1,7 @@
 # Contributing
 
 Help learners understand an update, reproduce an experiment, or diagnose a failure.
-Corrections and focused pull requests are welcome. Keep the course's 40-topic structure;
+Corrections and focused pull requests are welcome. Keep the course's 48-topic structure;
 prefer a deeper example or a clearer connection over another algorithm heading.
 
 For an issue, include the notebook/topic, expected behavior, actual result, and enough
