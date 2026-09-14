@@ -552,7 +552,6 @@ reinforcement-learning-course/
 ├── assets/
 │   ├── course-banner.png
 │   ├── course-cover.svg
-│   ├── course-social-preview.png
 │   ├── diagrams/             # Rendered SVG diagrams
 │   └── equations/            # Rendered SVG equations
 │

@@ -141,5 +141,3 @@ pass/fail threshold. Keep private paths and credentials out of saved outputs.
 | v3 | Tool-agent capstone, expanded Topic 40, evaluation and shaping experiments |
 
 Full language-model PPO/GRPO and VLM fine-tuning are **extensions**, not implemented claims.
-The new cover and [social preview](assets/course-social-preview.png) are ready to share;
-uploading a GitHub social preview or publishing to LinkedIn/X is a separate account action.
