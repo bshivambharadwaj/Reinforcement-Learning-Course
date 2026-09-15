@@ -1,6 +1,6 @@
 ![Reinforcement Learning — From Fundamentals to Modern RL](assets/course-banner.png)
 
-# From Bellman Equations to Reasoning Agents and Flagship Project: GoalLab
+<h1>From Bellman Equations to Reasoning Agents<br><sub>Flagship Project: GoalLab</sub></h1>
 
 **48 topics • 14 course notebooks • 14 GoalLab stages • Classical RL → Inference-Time Reasoning**
 
@@ -10,7 +10,7 @@
 
 For the learner who says: **“I know ML and LLMs, but how did we get from Q-learning to PPO, RLHF, and GRPO?”**
 
-Follow **classical RL → deep RL → post-training → agents → inference-time reasoning**. Reuse a delivery-robot intuition, inspect the updates, compare methods on one task, fine-tune a real small language model, train a tool-selection agent, and compare frozen-policy search strategies. The original seven lessons need no model downloads; the optional small-model lab downloads a pinned public checkpoint.
+Follow **classical RL → deep RL → post-training → agents → inference-time reasoning**. Reuse a delivery-robot intuition, inspect the updates, compare methods on one task, fine-tune a real small language model, train a tool-selection agent, and compare frozen-policy search strategies.
 
 **[Start Learning](quick-read/01-what-is-reinforcement-learning.md) | [Notebooks](#practical-track) | [Advanced RL](#part-ii-advanced-and-modern-reinforcement-learning) | [Exercises](#exercises)**
 
