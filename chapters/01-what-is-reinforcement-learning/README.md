@@ -204,7 +204,7 @@ What additional evidence would establish completion?
 
 An independent check of the task's actual output or environment state. Self-reported
 completion is insufficient when the agent can produce that report without doing the work.
-The tool-agent capstone demonstrates this distinction with a trained policy.
+The tool-agent lab demonstrates this distinction with a trained policy.
 
 </details>
 
@@ -522,7 +522,7 @@ familiar. The quick-read course develops those distinctions in Topics 36–39.
 
 A tool-using agent adds another layer: an action can execute a tool, and the tool result
 becomes a new observation. A system that always follows a fixed tool sequence is not
-necessarily learning. In the course capstone, the routing policy is actually updated
+necessarily learning. In the course tool-agent lab, the routing policy is actually updated
 from outcomes, while the arithmetic tools themselves remain ordinary Python functions.
 
 > **Failure Mode — optimizing the evaluator:** if an agent can earn reward without
@@ -562,7 +562,7 @@ algorithm before settling those questions.
 
 - [Notebook 01: MDPs and dynamic programming](../../notebooks/01_mdp_dynamic_programming.ipynb) makes a decision model explicit. Return after studying the planning topics if its equations are unfamiliar.
 - [Notebook 08: One Problem, Many Algorithms](../../notebooks/08_one_problem_many_algorithms.ipynb) shows why prediction, planning, and control require different comparisons.
-- [Notebook 11: Tool-Agent Capstone](../../notebooks/11_tool_agent_capstone.ipynb) is a later application of the same task-contract and evaluator questions.
+- [Notebook 11: Tool-Agent Lab](../../notebooks/11_tool_agent_lab.ipynb) is a later application of the same task-contract and evaluator questions.
 
 **Further reading:** [Sutton and Barto, *Reinforcement Learning: An Introduction*, Chapter 1](http://incompleteideas.net/book/the-book-2nd.html).
 For modern methods, use the source links in [Topic 36](../../quick-read/36-reinforcement-learning-from-human-feedback.md),

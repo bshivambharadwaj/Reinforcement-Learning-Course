@@ -141,7 +141,7 @@ Use held-out task families to test whether the frontier persists beyond familiar
 
 ## 40.9 Build the capstone from existing laboratories
 
-[Notebook 11](../../notebooks/11_tool_agent_capstone.ipynb) provides a small tool-routing agent and a comparison between naive reward and verified completion. It uses a compact learned controller, not an LLM or multimodal model. The restricted task makes evaluator exploits and action traces easy to inspect.
+[Notebook 11](../../notebooks/11_tool_agent_lab.ipynb) provides a small tool-routing agent and a comparison between naive reward and verified completion. It uses a compact learned controller, not an LLM or multimodal model. The restricted task makes evaluator exploits and action traces easy to inspect.
 
 Use [Notebook 08](../../notebooks/08_one_problem_many_algorithms.ipynb) for the shared-environment method comparison, [Notebook 09](../../notebooks/09_small_model_sft_dpo.ipynb) for actual small-model post-training, and [Notebook 10](../../notebooks/10_verifiable_reasoning_grpo.ipynb) for verifiable structured reasoning. These are complementary experiments, not one already-integrated production agent.
 

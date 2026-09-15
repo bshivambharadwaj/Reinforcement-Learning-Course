@@ -107,7 +107,7 @@ Now introduce a partner that randomizes equally. Either deterministic convention
 
 ## 35.9 Laboratory extension and LLM teams
 
-The repository does not ship a multi-agent trainer. A bounded extension is the two-action coordination game with independent learners and a cross-play matrix. [Notebook 11](../../notebooks/11_tool_agent_capstone.ipynb) supplies related tool-evaluation ideas, not a multi-agent implementation.
+The repository does not ship a multi-agent trainer. A bounded extension is the two-action coordination game with independent learners and a cross-play matrix. [Notebook 11](../../notebooks/11_tool_agent_lab.ipynb) supplies related tool-evaluation ideas, not a multi-agent implementation.
 
 For multiple LLM agents, separate diversity of prompts from diversity of learned policies. Shared model errors can make several agents agree confidently. Measure final verified outcomes and total tool/token budgets against a strong single-agent baseline.
 

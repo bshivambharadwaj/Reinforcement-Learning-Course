@@ -206,7 +206,7 @@ the actual small language model in Notebook 09 from the structured policy in Not
 Choose one primary task and a comparison that can answer a clear question. Two supported
 starting points are the common environment in
 [Notebook 08](../notebooks/08_one_problem_many_algorithms.ipynb) and the tool task in
-[Notebook 11](../notebooks/11_tool_agent_capstone.ipynb). A new environment is acceptable
+[Notebook 11](../notebooks/11_tool_agent_lab.ipynb). A new environment is acceptable
 if its implementation and evaluator are fully specified.
 
 Produce these artifacts:

@@ -5,6 +5,8 @@ Part III inference-time notebooks. Every
 notebook includes saved outputs and should run from **Restart Kernel and Run All Cells**.
 Saved results are observations from specific configurations, not guaranteed outcomes.
 
+The original course experiments and their saved outputs are preserved. A separate [GoalLab notebook track](projects/goallab/STAGES.md) applies the same concepts to one project; its current validation details are in the [project reproducibility guide](projects/goallab/REPRODUCIBILITY.md). Each course notebook links to its project counterpart.
+
 ## Install locally
 
 Use Python 3.10 or newer and clone the complete repository. The integrated labs import
@@ -138,6 +140,6 @@ pass/fail threshold. Keep private paths and credentials out of saved outputs.
 | v1.5 | Algorithm family tree, motivation callouts, failure-mode track, nearby references, knowledge checks |
 | v2 | One-problem/many-algorithms lab and experiment tables |
 | v2.5 | Real small-model SFT/DPO and structured verifiable-reasoning GRPO labs |
-| v3 | Tool-agent capstone, expanded Topic 40, evaluation and shaping experiments |
+| v3 | Tool-agent lab, expanded Topic 40, evaluation and shaping experiments |
 
 Full language-model PPO/GRPO and VLM fine-tuning are **extensions**, not implemented claims.

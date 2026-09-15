@@ -115,7 +115,7 @@ embodied multimodal representations, not evidence that every such system uses RL
 For potential-based shaping, add **gamma × Phi(next state) − Phi(current state)** with boundary
 conditions appropriate to the task. In a finite episode with gamma=1 and zero terminal potential,
 the additions telescope; arbitrary “progress bonuses” need not preserve the original objective.
-[Notebook 11](../notebooks/11_tool_agent_capstone.ipynb) checks this identity on an actual tool trace.
+[Notebook 11](../notebooks/11_tool_agent_lab.ipynb) checks this identity on an actual tool trace.
 
 A constrained objective can maximize expected return subject to an expected cost budget. That
 is weaker than forbidding a dangerous action on every trajectory. Enforce unavailable operations
@@ -136,15 +136,15 @@ expected constraints; it does not replace those runtime controls.
 | Reward validity | Training score versus external success | Fake completion messages and answer-list attacks |
 
 > **Failure Mode — evaluator gaming:** an agent rewarded for printing “SUCCESS” can learn to do
-that without solving the task. In the capstone, the naive evaluator and a strict submission
+that without solving the task. In the tool-agent lab, the naive evaluator and a strict submission
 checker disagree by design. The exploit is measured with a learned policy, not just described.
 
-### Capstone: learn a tool-selection policy
+### Lab: learn a tool-selection policy
 
-**[Notebook 11 → Tool-Agent Capstone](../notebooks/11_tool_agent_capstone.ipynb)** trains a policy to
+**[Notebook 11 → Tool-Agent Lab](../notebooks/11_tool_agent_lab.ipynb)** trains a policy to
 read an arithmetic task, call the appropriate tool, and submit a checked answer. It compares
 verified reward, potential shaping, and a vulnerable evaluator across seeds, then tests unseen
-operands. Tools do arithmetic; the policy learns routing. This is an agent-RL capstone, not an
+operands. Tools do arithmetic; the policy learns routing. This is an agent-RL lab, not an
 LLM or VLM training claim. Replacing the symbolic observation with an image is an explicit extension.
 
 Submit a task contract, result table, success and failure traces, an evaluator exploit test, and

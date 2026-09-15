@@ -1,8 +1,8 @@
 ![Reinforcement Learning — From Fundamentals to Modern RL](assets/course-banner.png)
 
-# From Bellman Equations to Reasoning Agents
+# From Bellman Equations to Reasoning Agents and Flagship Project: GoalLab
 
-**48 topics • 14 notebooks • Classical RL → Inference-Time Reasoning**
+**48 topics • 14 course notebooks • 14 GoalLab stages • Classical RL → Inference-Time Reasoning**
 
 *A systems-oriented course connecting classical reinforcement learning to modern reasoning models and AI agents.*
 
@@ -19,6 +19,28 @@ Follow **classical RL → deep RL → post-training → agents → inference-tim
 ⭐ If this course helps you, star this repo to help others discover it.
 
 > **Course philosophy:** intuition → mathematics → algorithm → implementation → modern connection.
+
+## What you will build: GoalLab
+
+<p align="center">
+  <a href="projects/goallab/README.md#run-the-reference-solution">
+    <img src="assets/goallab-demo-preview.png" alt="GoalLab demo showing controller and budget controls, source investigation, and a briefing awaiting independent verification" width="100%">
+  </a>
+</p>
+
+**Watch the agent work.** Run an investigation, reveal the evidence it reads, follow its decisions, and watch a briefing pass or fail independent verification. Pause or step through individual actions, compare controllers, then change the budget or reverse the timestamps to test what breaks.
+
+**[Run the GoalLab demo →](projects/goallab/README.md#run-the-reference-solution)** · [Explore the 14-stage build](projects/goallab/STAGES.md)
+
+After cloning or downloading the repository, open [`projects/goallab/demo.html`](projects/goallab/demo.html) in your browser and select **Run agent**. The preview above is static; the HTML runs the supplied evidence cases interactively, without an API key.
+
+**Build an agent that plans, acts, and verifies.** Give it a goal in a supplied digital workspace, then teach it to gather evidence, resolve conflicting information, use tools, and verify its result within a budget. Start with a familiar task: turn documents and tables into an accurate briefing with traceable sources.
+
+One project connects **Part I: decision foundations → Part II: policy learning → Part III: inference-time planning → Flagship integration**. Each concept contributes a decision, experiment, or evaluation method to the same system.
+
+**Status:** 14 dedicated project notebooks build the GoalLab evidence task alongside the 14 original course lessons. Shared workspace code, worked exercises, reference artifacts, and a live visual demo are included.
+
+**[Follow the 14-stage build →](projects/goallab/STAGES.md)** · [Run GoalLab](projects/goallab/README.md#run-the-reference-solution) · Build → Predict → Change a constraint → Measure → Explain
 
 ## Contents
 
@@ -81,11 +103,11 @@ Follow **classical RL → deep RL → post-training → agents → inference-tim
   - <a id="topic-46"></a> [46. Budget-Aware Reasoning](quick-read/46-budget-aware-reasoning.md)
   - <a id="topic-47"></a> [47. Learning from Search](quick-read/47-learning-from-search.md)
   - <a id="topic-48"></a> [48. Evaluating Inference-Time Reasoning](quick-read/48-evaluating-inference-time-reasoning.md)
+- [Flagship Project: GoalLab](#flagship-project)
 - [Algorithm Comparison](#algorithm-comparison)
 - [Practical Track](#practical-track)
 - [Hands-on Checkpoints](#hands-on-checkpoints)
 - [Suggested Learning Paths](#suggested-learning-paths)
-- [Key Equations Cheat Sheet](#key-equations-cheat-sheet)
 - [Exercises](#exercises)
 - [Recommended References](#recommended-references)
 - [Repository Structure](#repository-structure)
@@ -165,7 +187,7 @@ Uppercase letters denote random variables; lowercase letters usually denote obse
 | [Policy Optimization · 25–32](quick-read/25-policy-gradient-methods.md) | Intermediate → Advanced | Optimize action probabilities directly, then add baselines, a critic, GAE, and PPO clipping. | Notebooks 05–06. |
 | [RLHF and Preferences · 36–38](quick-read/36-reinforcement-learning-from-human-feedback.md) | Advanced | Replace a hand-written reward with preference feedback; distinguish reward modeling, PPO-based RLHF, and DPO. | Notebooks 07 and 09: synthetic objectives and real small-model SFT/DPO. |
 | [Reasoning RL · 39](quick-read/39-grpo-and-reinforcement-learning-for-reasoning.md) | Advanced | Generate candidate trajectories, verify outcomes, and inspect group-relative credit. | Notebook 10: two-step reasoning and GRPO-style updates. |
-| [Agents and Multimodal RL · 40](quick-read/40-multimodal-rl-and-rl-for-ai-agents.md) | Advanced | Specify tool observations, delayed feedback, constraints, and independent evaluation. | Notebook 11: a learned tool-selection agent and evaluator-gaming capstone. |
+| [Agents and Multimodal RL · 40](quick-read/40-multimodal-rl-and-rl-for-ai-agents.md) | Advanced | Specify tool observations, delayed feedback, constraints, and independent evaluation. | Notebook 11: a learned GoalLab controller and evaluator-gaming experiment. |
 | [Inference-Time Reasoning · 41–48](quick-read/41-from-policy-learning-to-inference-time-planning.md) | Advanced | Separate proposals, verifiers, values, search, and compute allocation. | Notebooks 12–14 and an interactive five-strategy demo. |
 
 After policy optimization, read **[Topics 33–35](quick-read/33-offline-reinforcement-learning.md)** as a bridge: offline data changes what you can learn from, world models change how you plan, and multiple agents change whose behavior affects the environment. Then continue to preference learning and reasoning.
@@ -205,9 +227,9 @@ Treat each failure as a testable hypothesis. Track task success separately from 
 | Deadly triad and unstable bootstrapping | [Function approximation](quick-read/21-function-approximation.md), [target networks](quick-read/24-target-networks.md) | Q-value scale, TD loss, target drift, and actual return |
 | Distribution shift | [Offline RL](quick-read/33-offline-reinforcement-learning.md), [small-model lab](notebooks/09_small_model_sft_dpo.ipynb) | Support in training data; test prompts and task splits |
 | Policy collapse | [PPO](quick-read/31-proximal-policy-optimization.md), [entropy](quick-read/32-entropy-regularization.md) | Entropy, KL, and return after each update |
-| Reward hacking and overoptimization | [Reward models](quick-read/37-reward-models-and-preference-learning.md), [agent capstone](notebooks/11_tool_agent_capstone.ipynb) | Proxy reward versus an independent success checker |
+| Reward hacking and overoptimization | [Reward models](quick-read/37-reward-models-and-preference-learning.md), [tool-agent lab](notebooks/11_tool_agent_lab.ipynb) | Proxy reward versus an independent success checker |
 | Reasoning length artifacts | [GRPO](quick-read/39-grpo-and-reinforcement-learning-for-reasoning.md) | Reward by length; token/sequence normalization; fixed-budget comparisons |
-| Evaluator gaming | [Agents](quick-read/40-multimodal-rl-and-rl-for-ai-agents.md), [capstone](notebooks/11_tool_agent_capstone.ipynb) | Adversarial outputs, invalid tool calls, and hidden-test success |
+| Evaluator gaming | [Agents](quick-read/40-multimodal-rl-and-rl-for-ai-agents.md), [tool-agent lab](notebooks/11_tool_agent_lab.ipynb) | Adversarial outputs, invalid tool calls, and hidden-test success |
 
 <a id="who-this-course-is-for"></a>
 
@@ -260,28 +282,28 @@ Offline and model-based RL are broad settings or method families, not single upd
 
 # Practical Track
 
-The **seven core notebooks** build the fundamentals with NumPy and small CPU PyTorch experiments.
-**Four integrated labs** add algorithm comparisons, real small-model post-training, verified reasoning,
-and a tool-agent capstone. **Three Part III labs** cover inference-time selection, search, and learning from search. Each links to theory, documents its experiment, and includes saved outputs.
-Notebook 09 requires a public pretrained-model download and the optional modern dependencies; the
-other thirteen use generated environments/data and need no model downloads or API keys.
+**Two complementary tracks:** the 14 course notebooks teach algorithms through focused environments, diagrams, worked examples, and comparisons. The separate [14-stage GoalLab track](projects/goallab/STAGES.md) applies those ideas to one shared project. Each notebook links to its counterpart; neither requires running the other first.
 
-| Notebook | Concepts |
-|---|---|
-| [01 — MDP and Dynamic Programming](notebooks/01_mdp_dynamic_programming.ipynb) | Grid-world MDP, Bellman equations, policy evaluation, policy iteration, value iteration |
-| [02 — Monte Carlo versus TD](notebooks/02_mc_vs_td.ipynb) | Random-walk prediction, first-visit MC, TD(0), bias and variance |
-| [03 — SARSA and Q-learning](notebooks/03_q_learning.ipynb) | Cliff walking, on-policy and off-policy learning, epsilon-greedy exploration |
-| [04 — DQN](notebooks/04_dqn.ipynb) | Neural Q-values, replay buffer, target network, terminal masking |
-| [05 — Policy Gradients](notebooks/05_policy_gradient.ipynb) | REINFORCE, discounted returns, action-independent baselines |
-| [06 — PPO](notebooks/06_ppo.ipynb) | Actor–critic, vectorized rollouts, GAE, clipping, KL monitoring |
-| [07 — Preferences and GRPO](notebooks/07_preference_and_grpo.ipynb) | Synthetic preferences, reward modeling, DPO, simplified group-relative policy updates |
-| [08 — One Problem, Many Algorithms](notebooks/08_one_problem_many_algorithms.ipynb) | DP, MC/TD prediction, MC control, SARSA, Q-learning, DQN, REINFORCE, actor-critic, PPO; equal-budget comparisons |
-| [09 — Small-Model SFT → DPO](notebooks/09_small_model_sft_dpo.ipynb) | Real SmolLM2-135M, completion masking, cached SFT reference, synthetic preferences, held-out generation |
-| [10 — Verifiable Reasoning and GRPO](notebooks/10_verifiable_reasoning_grpo.ipynb) | Two-step neural reasoning policy, grouped candidates, outcome/process feedback, evaluator attack |
-| [11 — Tool-Agent Capstone](notebooks/11_tool_agent_capstone.ipynb) | Learned tool routing, potential shaping, held-out operands, reward gaming versus verified success |
-| [12: Sampling and Selection](notebooks/12_sampling_and_selection.ipynb) | Frozen policy, best-of-N, self-consistency, oracle candidate success, scorer exploitation |
-| [13: Budgeted Reasoning Search](notebooks/13_budgeted_reasoning_search.ipynb) | Sampled beam and best-first search, trace inspection, scoring cost, completion and correctness |
-| [14: Learning from Search](notebooks/14_learning_from_search.ipynb) | Teacher search, outcome/process filtering, categorical imitation, held-out student evaluation |
+Start with the course lesson, then build the corresponding GoalLab component. For example, Notebook 03 compares SARSA and Q-learning on cliff walking; GoalLab Stage 03 applies those updates to evidence-routing decisions.
+
+Notebook 09 requires a public pretrained-model download and the optional modern dependencies; the other thirteen course lessons need no model downloads or API keys.
+
+| Notebook | Concepts | Run in Colab |
+|---|---|---|
+| [01: MDP and Dynamic Programming](notebooks/01_mdp_dynamic_programming.ipynb) | Grid-world MDP, Bellman equations, policy evaluation, policy iteration, value iteration | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/01_mdp_dynamic_programming.ipynb) |
+| [02: Monte Carlo versus TD](notebooks/02_mc_vs_td.ipynb) | Random-walk prediction, first-visit MC, TD(0), bias and variance | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/02_mc_vs_td.ipynb) |
+| [03: SARSA and Q-learning](notebooks/03_q_learning.ipynb) | Cliff walking, on-policy and off-policy learning, epsilon-greedy exploration | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/03_q_learning.ipynb) |
+| [04: DQN](notebooks/04_dqn.ipynb) | Neural Q-values, replay buffer, target network, terminal masking | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/04_dqn.ipynb) |
+| [05: Policy Gradients](notebooks/05_policy_gradient.ipynb) | REINFORCE, discounted returns, action-independent baselines | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/05_policy_gradient.ipynb) |
+| [06: PPO](notebooks/06_ppo.ipynb) | Actor–critic, vectorized rollouts, GAE, clipping, KL monitoring | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/06_ppo.ipynb) |
+| [07: Preferences and GRPO](notebooks/07_preference_and_grpo.ipynb) | Synthetic preferences, reward modeling, DPO, simplified group-relative policy updates | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/07_preference_and_grpo.ipynb) |
+| [08: One Problem, Many Algorithms](notebooks/08_one_problem_many_algorithms.ipynb) | DP, MC/TD prediction, MC control, SARSA, Q-learning, DQN, REINFORCE, actor-critic, PPO; equal-budget comparisons | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/08_one_problem_many_algorithms.ipynb) |
+| [09: Small-Model SFT → DPO](notebooks/09_small_model_sft_dpo.ipynb) | Real SmolLM2-135M, completion masking, cached SFT reference, synthetic preferences, held-out generation | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/09_small_model_sft_dpo.ipynb) |
+| [10: Verifiable Reasoning and GRPO](notebooks/10_verifiable_reasoning_grpo.ipynb) | Two-step neural reasoning policy, grouped candidates, outcome/process feedback, evaluator attack | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/10_verifiable_reasoning_grpo.ipynb) |
+| [11: Tool-Agent Lab](notebooks/11_tool_agent_lab.ipynb) | Learned tool routing, potential shaping, held-out operands, reward gaming versus verified success | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/11_tool_agent_lab.ipynb) |
+| [12: Sampling and Selection](notebooks/12_sampling_and_selection.ipynb) | Frozen policy, best-of-N, self-consistency, oracle candidate success, scorer exploitation | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/12_sampling_and_selection.ipynb) |
+| [13: Budgeted Reasoning Search](notebooks/13_budgeted_reasoning_search.ipynb) | Sampled beam and best-first search, trace inspection, scoring cost, completion and correctness | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/13_budgeted_reasoning_search.ipynb) |
+| [14: Learning from Search](notebooks/14_learning_from_search.ipynb) | Teacher search, outcome/process filtering, categorical imitation, held-out student evaluation | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/14_learning_from_search.ipynb) |
 
 The integrated labs share readable implementations under [`rl_course/`](rl_course/). This is learner-facing
 algorithm code, not an authoring tool. Keep the whole repository when running these notebooks.
@@ -305,27 +327,9 @@ It uses a pinned model revision and trains only its final decoder layer and norm
 several GB of RAM and disk/cache space for the model and dependencies. Model downloading needs
 internet access on the first run. The lab prints actual training time; other machines may differ.
 
-**Colab:** use the badges below or inside each notebook. Core lessons use Colab's scientific Python
-packages; integrated labs clone the repository, and Notebook 09 installs its optional dependencies.
+**Colab:** use the badges in the notebook concepts table above or inside each notebook. Core course lessons use scientific Python packages; integrated labs load the shared course modules. GoalLab stages include their own Colab badges and repository setup. Notebook 09 also installs its optional dependencies.
 All defaults use CPU. Colab links use the published `main` branch, so local changes must be pushed
 before they appear there. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for checks, versions, and interpretation.
-
-| Notebook | Run in browser |
-|---|---|
-| 01 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/01_mdp_dynamic_programming.ipynb) |
-| 02 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/02_mc_vs_td.ipynb) |
-| 03 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/03_q_learning.ipynb) |
-| 04 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/04_dqn.ipynb) |
-| 05 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/05_policy_gradient.ipynb) |
-| 06 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/06_ppo.ipynb) |
-| 07 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/07_preference_and_grpo.ipynb) |
-| 08 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/08_one_problem_many_algorithms.ipynb) |
-| 09 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/09_small_model_sft_dpo.ipynb) |
-| 10 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/10_verifiable_reasoning_grpo.ipynb) |
-| 11 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/11_tool_agent_capstone.ipynb) |
-| 12 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/12_sampling_and_selection.ipynb) |
-| 13 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/13_budgeted_reasoning_search.ipynb) |
-| 14 | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bshivambharadwaj/Reinforcement-Learning-Course/blob/main/notebooks/14_learning_from_search.ipynb) |
 
 ---
 
@@ -337,9 +341,9 @@ Study [Topics 41–48](quick-read/41-from-policy-learning-to-inference-time-plan
 Notebooks 12–14 to separate frozen-policy search from a later learning stage. Compare selected
 correctness, valid intermediate steps, candidate oracle success, and actual computation.
 
-### Practical demo: one policy, five inference strategies
+### Mini-lab: one policy, five inference strategies
 
-The [interactive practical demo](demos/inference-time/README.md) asks: **where should the next unit of inference compute go?** A frozen policy proposes intermediate arithmetic steps. Compare single sampling, self-consistency, best-of-N, sampled beam search, and best-first search on the same tasks.
+The [standalone arithmetic illustration](demos/inference-time/README.md) asks: **where should the next unit of inference compute go?** It retains a small arithmetic simulator for the chapter examples. Course notebooks 12–14 explore this arithmetic setting. Their [GoalLab counterparts](projects/goallab/STAGES.md) apply selection, search, and distillation to evidence, with a separate [live GoalLab demo](projects/goallab/README.md#run-the-reference-solution).
 
 - **Explore:** switch the compute budget and scoring signal, compare success against actual cost, and inspect the selected trajectory and search expansion log.
 - **Investigate failure:** use a deliberately misleading scorer to see how search can favor mistakes. Check intermediate steps as well as the final answer, since errors can cancel out.
@@ -360,15 +364,30 @@ benchmark; the chapter references explain the connection to real inference-time 
 
 The [Part III exercises and final project](chapters/PART_III_EXERCISES.md) turn these experiments into a reproducible comparison: state your hypothesis, hold evaluation conditions fixed, test scorer failures, and explain the quality-versus-cost tradeoff with results and example traces.
 
-### Course project: train a tool-using agent
+### Mini-lab: train a tool-using agent
 
-The earlier capstone, [Notebook 11: Tool-Agent Project](notebooks/11_tool_agent_capstone.ipynb), connects RL training to agent behavior. In **ToolDesk-v1**, an agent reads an arithmetic task, chooses an addition or multiplication tool, and submits the result within a six-action budget. Think of a dispatcher learning which specialist to call and when the job is ready to submit. The tools perform arithmetic; the policy learns routing through interaction.
+[Course Notebook 11: Tool-Agent Lab](notebooks/11_tool_agent_lab.ipynb) teaches learned tool routing through a focused experiment. Train a policy to select operations, compare reward shaping, and test whether a high reward corresponds to independently verified success. The tools perform the arithmetic; the policy learns which operations to choose.
 
-Compare three training rewards: verified success, verified success with potential-based shaping, and a deliberately flawed evaluator that rewards claiming success. Evaluate all policies with the same independent checker on held-out operands to expose the gap between high training reward and completed tasks.
+**Apply it in GoalLab:** [Stage 11: Tool Gateway Integration](projects/goallab/notebooks/11_tool_gateway_integration.ipynb) connects the evidence controller to read permissions, a hard tool allowance, and an independent briefing evaluator. Compare verified rewards with a flawed reward for saying “done,” then inspect the saved artifact and action history.
 
-**Build on it:** add tool failures and retries, introduce tool-specific costs, or compare Q-learning and PPO under equal interaction budgets. Submit a reproducible results table, successful and failed traces, and an evaluator-exploit test. These are project extensions; the notebook provides the starting experiment and acceptance criteria.
+**Try a change:** vary tool costs in the course lab, or reduce the tool allowance in GoalLab and inspect which operation is refused.
 
-Together, the projects connect two stages of an agent system: Notebook 11 updates a policy from interaction, while the Part III demo allocates computation with a frozen policy. Notebook 14 then introduces a separate learning stage using accepted search traces.
+These mini-labs isolate individual ideas before you combine them in the flagship project. Notebook 11 learns from interaction; notebooks 12–13 allocate computation with a frozen policy; Notebook 14 learns from accepted search traces.
+
+<a id="flagship-project"></a>
+
+## Flagship Project: GoalLab
+
+**How does an agent turn an incomplete goal into a verified result using limited time, information, and tools?** GoalLab uses a self-contained workspace with generated documents and tables. Its first task family is evidence reconciliation: investigate conflicting figures and save a briefing that an independent evaluator can check.
+
+| Course contribution | GoalLab milestone |
+|---|---|
+| Part I: Foundations | Model source inspection, tool selection, information gathering, and stopping decisions. |
+| Part II: Modern RL | Train controllers and compare rewards, preferences, and verified task outcomes. |
+| Part III: Inference-Time Reasoning | Search alternative investigation plans with frozen weights and limited compute. |
+| Flagship integration | Deliver a verified artifact, supporting evidence, an action trace, and a cost report. |
+
+The repository includes a runnable reference system, fourteen guided stages, and worked constraint-changing exercises. Learners change costs, training budgets, evaluator rewards, scoring signals, and timestamp correlations, then compare results with baselines. See the [stage map](projects/goallab/STAGES.md), [reference demo](projects/goallab/README.md#run-the-reference-solution), and [recorded results](projects/goallab/results.json). The implemented benchmark is a controlled two-source evidence task; general document reasoning and operational services remain extensions.
 
 ---
 
@@ -408,66 +427,6 @@ Review Topics **3, 7–11, 17–20**, then study **21–32** and complete notebo
 Build the classical foundation with **3, 5–11, 18–20**, then focus on **25–32 and 36–40**.
 
 Do not skip the classical material: PPO, RLHF, and reasoning RL become much easier to understand once value estimation, advantages, bootstrapping, and policy optimization are clear.
-
----
-
-<a id="key-equations-cheat-sheet"></a>
-
-# Key Equations Cheat Sheet
-
-### Return
-
-<p align="center">
-  <img src="assets/equations/equation-75.svg" alt="G_t=\sum_{k=0}^{\infty}\gamma^{k}R_{t+k+1}" width="760">
-</p>
-
-### State Value
-
-<p align="center">
-  <img src="assets/equations/equation-76.svg" alt="V^{\pi}(s)=\mathbb{E}_\pi[G_t|S_t=s]" width="760">
-</p>
-
-### Action Value
-
-<p align="center">
-  <img src="assets/equations/equation-77.svg" alt="Q^{\pi}(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=a]" width="760">
-</p>
-
-### Advantage
-
-<p align="center">
-  <img src="assets/equations/equation-78.svg" alt="A^{\pi}(s,a)=Q^{\pi}(s,a)-V^{\pi}(s)" width="760">
-</p>
-
-### Bellman Expectation
-
-<p align="center">
-  <img src="assets/equations/equation-79.svg" alt="V^{\pi}(s)=\mathbb{E}_\pi[R_{t+1}+\gamma V^{\pi}(S_{t+1})|S_t=s]" width="760">
-</p>
-
-### Q-Learning
-
-<p align="center">
-  <img src="assets/equations/equation-80.svg" alt="Q(s,a)\leftarrow Q(s,a)+\alpha[r+\gamma\max_{a&#x27;}Q(s&#x27;,a&#x27;)-Q(s,a)]" width="760">
-</p>
-
-### Policy Gradient
-
-<p align="center">
-  <img src="assets/equations/equation-81.svg" alt="\nabla_\theta J(\theta)\propto\mathbb{E}[\nabla_\theta\log\pi_\theta(a|s)A(s,a)]" width="760">
-</p>
-
-### GAE
-
-<p align="center">
-  <img src="assets/equations/equation-82.svg" alt="\hat A_t=\sum_{l=0}^{\infty}(\gamma\lambda)^{l}\delta_{t+l}" width="760">
-</p>
-
-### PPO Ratio
-
-<p align="center">
-  <img src="assets/equations/equation-83.svg" alt="r_t(\theta)=\frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{old}}(a_t|s_t)}" width="760">
-</p>
 
 ---
 
@@ -544,7 +503,7 @@ reinforcement-learning-course/
 │   ├── 08_one_problem_many_algorithms.ipynb
 │   ├── 09_small_model_sft_dpo.ipynb
 │   ├── 10_verifiable_reasoning_grpo.ipynb
-│   ├── 11_tool_agent_capstone.ipynb
+│   ├── 11_tool_agent_lab.ipynb
 │   ├── 12_sampling_and_selection.ipynb
 │   ├── 13_budgeted_reasoning_search.ipynb
 │   └── 14_learning_from_search.ipynb
@@ -556,6 +515,7 @@ reinforcement-learning-course/
 │   └── equations/            # Rendered SVG equations
 │
 ├── demos/inference-time/     # Interactive demo, recorded results, and run instructions
+├── projects/goallab/         # Flagship project, 14 project notebooks, live demo, and stage map
 ├── tests/                    # Inference budget and evaluator invariants
 ├── rl_course/                # Learner-facing implementations for integrated labs
 ├── requirements.txt

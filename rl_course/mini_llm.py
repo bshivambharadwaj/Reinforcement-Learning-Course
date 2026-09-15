@@ -95,12 +95,12 @@ def generated_answers(model, tokenizer, examples):
     return responses
 
 
-def run(seed=7, sft_steps=36, dpo_steps=24):
+def run(seed=7, sft_steps=36, dpo_steps=24, train_examples=None, test_examples=None):
     torch.manual_seed(seed)
     rng = np.random.default_rng(seed)
     model, tokenizer = load()
-    train = make_data(['film', 'meal', 'book', 'game'])
-    test = make_data(['service', 'music'])
+    train = make_data(['film', 'meal', 'book', 'game']) if train_examples is None else train_examples
+    test = make_data(['service', 'music']) if test_examples is None else test_examples
     assert not {x['prompt'] for x in train} & {x['prompt'] for x in test}
     params = [p for p in model.parameters() if p.requires_grad]
     parameter_counts = (sum(p.numel() for p in model.parameters()), sum(p.numel() for p in params))

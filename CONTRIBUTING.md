@@ -10,6 +10,7 @@ seed, full error text, and whether you restarted the kernel and ran every cell.
 
 For code changes, run the affected notebook from a fresh kernel. Keep saved outputs
 readable, report failures as well as successes, and record any changed seeds or budgets.
+Course notebooks should use the clearest environment for the algorithm, preserving their diagrams, worked examples, and comparisons. Project notebooks under `projects/goallab/notebooks/` solve stages of [GoalLab](projects/goallab/STAGES.md), using its shared workspace and briefing evaluator. Maintain reciprocal links between the two tracks. Keep its input, output, algorithm role, and worked constraint-changing exercise explicit. Broader environment families should be deliberate project extensions with their own contracts.
 Add checks for substantive mistakes such as terminal masking, target gradients, or
 evaluation leakage. Avoid tests that merely repeat the implementation.
 

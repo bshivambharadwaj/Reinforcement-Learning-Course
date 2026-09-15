@@ -121,11 +121,11 @@ For tools, an invalid call needs a defined outcome: an error observation, cost, 
 
 ## 4.8 Lab: preserve the task while changing feedback timing
 
-[Notebook 11](../../notebooks/11_tool_agent_capstone.ipynb) compares verified reward with potential shaping. Gamma is one, the initial potential is zero, and terminal potential is zero; the total shaping contribution cancels. Explain why learning can still follow different paths even when total returns agree.
+[Notebook 11](../../notebooks/11_tool_agent_lab.ipynb) compares verified reward with potential shaping. Gamma is one, the initial potential is zero, and terminal potential is zero; the total shaping contribution cancels. Explain why learning can still follow different paths even when total returns agree.
 
-Extend the capstone with different tool costs and a strict action budget. Report task success and cost separately. Then add a naive +0.1 bonus for every task-read call and test whether rereading becomes attractive. The hypothesis is that the naive bonus changes the objective, whereas correctly bounded potential shaping does not.
+Extend the tool-agent lab with different tool costs and a strict action budget. Report task success and cost separately. Then add a naive +0.1 bonus for every task-read call and test whether rereading becomes attractive. The hypothesis is that the naive bonus changes the objective, whereas correctly bounded potential shaping does not.
 
-Do not describe the capstone as learning arithmetic. Its tools calculate; its policy selects operations. That boundary is precisely what makes the comparison interpretable.
+Do not describe the tool-agent lab as learning arithmetic. Its tools calculate; its policy selects operations. That boundary is precisely what makes the comparison interpretable.
 
 <a id="section-4-9"></a>
 
