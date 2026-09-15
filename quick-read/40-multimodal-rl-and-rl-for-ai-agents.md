@@ -147,9 +147,9 @@ verified reward, potential shaping, and a vulnerable evaluator across seeds, the
 operands. Tools do arithmetic; the policy learns routing. This is an agent-RL lab, not an
 LLM or VLM training claim. Replacing the symbolic observation with an image is an explicit extension.
 
-Submit a task contract, result table, success and failure traces, an evaluator exploit test, and
-a discussion of what generalizes. A second route is to extend the [shared-task comparison](../notebooks/08_one_problem_many_algorithms.ipynb)
-with another algorithm under the same interaction budget.
+**Optional experiment:** extend the [shared-task comparison](../notebooks/08_one_problem_many_algorithms.ipynb)
+with another algorithm under the same interaction budget. After training, hold policy parameters
+fixed and compare verified success on held-out tasks, including unsuccessful runs.
 
 ### Open research questions
 
@@ -159,8 +159,9 @@ How should multimodal policies distinguish uncertainty in perception from uncert
 value? How can evaluation remain independent as the policy learns to exploit observable tests?
 These are questions to investigate, not solved capabilities of this course.
 
-**Knowledge check:** would replacing the learned policy with a fixed sequence of tool calls still
-be RL? No. Tool use describes an interface; learning from interaction outcomes supplies the RL part.
+The tools provide the interface; RL trains the policy that chooses them. A hand-written tool
+workflow is a useful baseline, while an RL-trained policy can also run with fixed parameters
+after training. Tool use alone does not establish that a system was trained with RL.
 
 References: [WebArena](https://arxiv.org/abs/2307.13854),
 [potential-based shaping](https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf),

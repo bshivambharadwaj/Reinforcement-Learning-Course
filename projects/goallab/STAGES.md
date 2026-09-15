@@ -35,7 +35,7 @@ The stages build capabilities, not a chain of hidden kernel variables. Each note
 
 The two-source abstraction and frozen-proposer baselines are explicit implementation choices. Extending to arbitrary document collections requires a richer belief representation, evidence handling, and evaluation. The timestamp-shift exercise is included because success on the original generated schema alone can conceal a shortcut.
 
-## How to study and submit
+## How to study and compare experiments
 
 1. Run the reference stage and inspect its actual artifact or metric.
 2. Write a prediction before changing the supplied constraint.
@@ -43,7 +43,7 @@ The two-source abstraction and frozen-proposer baselines are explicit implementa
 4. Keep evaluation cases fixed for the comparison, and report unsuccessful runs too.
 5. Explain which component changed and whether the result transfers beyond the reference schema.
 
-Submit the changed configuration, baseline and modified results, one failed trace, and a brief interpretation. A perfectly scoring simple rule can be the correct engineering choice. Demonstrating a learned policy does not establish that learning was necessary.
+For your own comparison, record the changed configuration, baseline and modified results, one failed trace, and a brief interpretation. A perfectly scoring simple rule can be the correct engineering choice. Demonstrating a learned policy does not establish that learning was necessary.
 
 ## Course lesson → project application
 
