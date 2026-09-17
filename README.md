@@ -1,6 +1,6 @@
 ![Reinforcement Learning — From Fundamentals to Modern RL](assets/course-banner.png)
 
-<h1><img src="assets/course-title.svg" alt="From Bellman Equations to Reasoning Agents" width="100%"><br><sup><sup><sub><em>Reinforcement Learning Course: Learn the Foundations. Build AI Agents and Systems.</em></sub></sup></sup><br><sub>Flagship Project: GoalLab</sub></h1>
+<h1>From Bellman Equations To Reasoning Agents<br><sup><sup><sub><em>Reinforcement Learning Course: Learn the Foundations. Build AI Agents and Systems.</em></sub></sup></sup><br><sub>Flagship Project: GoalLab</sub></h1>
 
 **48 topics • 14 course notebooks • 14 GoalLab stages • Classical RL → Inference-Time Reasoning**
 
