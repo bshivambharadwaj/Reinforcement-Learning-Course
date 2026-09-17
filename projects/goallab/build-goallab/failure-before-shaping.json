@@ -1,0 +1,2949 @@
+{
+  "version": "GoalLab-v2",
+  "config": {
+    "episodes": 2400,
+    "cases_per_split": 50,
+    "seeds": [
+      7,
+      19,
+      31
+    ],
+    "budgets": [
+      4,
+      8,
+      12
+    ]
+  },
+  "training": [
+    {
+      "seed": 7,
+      "dqn": {
+        "algorithm": "Double DQN",
+        "episodes": 2400,
+        "actions": 9663,
+        "history": [
+          {
+            "episode": 0,
+            "actions": 5,
+            "return": 2.1374999999999997
+          },
+          {
+            "episode": 50,
+            "actions": 259,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 100,
+            "actions": 461,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 150,
+            "actions": 706,
+            "return": -0.57
+          },
+          {
+            "episode": 200,
+            "actions": 909,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 250,
+            "actions": 1109,
+            "return": 2.229375
+          },
+          {
+            "episode": 300,
+            "actions": 1313,
+            "return": -1.920625
+          },
+          {
+            "episode": 350,
+            "actions": 1536,
+            "return": -0.48
+          },
+          {
+            "episode": 400,
+            "actions": 1760,
+            "return": -2.095625
+          },
+          {
+            "episode": 450,
+            "actions": 1983,
+            "return": -2.155625
+          },
+          {
+            "episode": 500,
+            "actions": 2185,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 550,
+            "actions": 2410,
+            "return": -0.48
+          },
+          {
+            "episode": 600,
+            "actions": 2620,
+            "return": -0.48
+          },
+          {
+            "episode": 650,
+            "actions": 2833,
+            "return": -0.48
+          },
+          {
+            "episode": 700,
+            "actions": 3060,
+            "return": -2.1256250000000003
+          },
+          {
+            "episode": 750,
+            "actions": 3279,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 800,
+            "actions": 3508,
+            "return": -0.45250000000000007
+          },
+          {
+            "episode": 850,
+            "actions": 3726,
+            "return": -0.48
+          },
+          {
+            "episode": 900,
+            "actions": 3983,
+            "return": -1.920625
+          },
+          {
+            "episode": 950,
+            "actions": 4194,
+            "return": -1.7225000000000001
+          },
+          {
+            "episode": 1000,
+            "actions": 4384,
+            "return": -0.54
+          },
+          {
+            "episode": 1050,
+            "actions": 4569,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 1100,
+            "actions": 4740,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 1150,
+            "actions": 4932,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1200,
+            "actions": 5125,
+            "return": 2.1843749999999997
+          },
+          {
+            "episode": 1250,
+            "actions": 5271,
+            "return": -0.5399999999999999
+          },
+          {
+            "episode": 1300,
+            "actions": 5449,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 1350,
+            "actions": 5617,
+            "return": 2.1693749999999996
+          },
+          {
+            "episode": 1400,
+            "actions": 5788,
+            "return": -0.48
+          },
+          {
+            "episode": 1450,
+            "actions": 5939,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1500,
+            "actions": 6094,
+            "return": -0.48
+          },
+          {
+            "episode": 1550,
+            "actions": 6252,
+            "return": -0.66
+          },
+          {
+            "episode": 1600,
+            "actions": 6451,
+            "return": -0.36
+          },
+          {
+            "episode": 1650,
+            "actions": 6638,
+            "return": -0.48
+          },
+          {
+            "episode": 1700,
+            "actions": 6795,
+            "return": -0.36
+          },
+          {
+            "episode": 1750,
+            "actions": 6960,
+            "return": 2.1075
+          },
+          {
+            "episode": 1800,
+            "actions": 7139,
+            "return": 2.1843749999999997
+          },
+          {
+            "episode": 1850,
+            "actions": 7319,
+            "return": -0.48
+          },
+          {
+            "episode": 1900,
+            "actions": 7531,
+            "return": 2.2743749999999996
+          },
+          {
+            "episode": 1950,
+            "actions": 7720,
+            "return": -0.48
+          },
+          {
+            "episode": 2000,
+            "actions": 7922,
+            "return": 2.2893749999999997
+          },
+          {
+            "episode": 2050,
+            "actions": 8131,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 2100,
+            "actions": 8353,
+            "return": -0.66
+          },
+          {
+            "episode": 2150,
+            "actions": 8566,
+            "return": 2.2893749999999997
+          },
+          {
+            "episode": 2200,
+            "actions": 8772,
+            "return": 2.1693749999999996
+          },
+          {
+            "episode": 2250,
+            "actions": 8991,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 2300,
+            "actions": 9215,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 2350,
+            "actions": 9453,
+            "return": -0.41999999999999993
+          }
+        ]
+      },
+      "ppo": {
+        "algorithm": "PPO + GAE",
+        "episodes": 2400,
+        "actions": 5163,
+        "history": [
+          {
+            "episode": 24,
+            "actions": 102,
+            "return": -0.7703125000000001
+          },
+          {
+            "episode": 48,
+            "actions": 213,
+            "return": -0.3954166666666667
+          },
+          {
+            "episode": 72,
+            "actions": 322,
+            "return": -0.7555989583333335
+          },
+          {
+            "episode": 96,
+            "actions": 428,
+            "return": -0.76328125
+          },
+          {
+            "episode": 120,
+            "actions": 544,
+            "return": -0.5492447916666666
+          },
+          {
+            "episode": 144,
+            "actions": 668,
+            "return": -0.6311458333333334
+          },
+          {
+            "episode": 168,
+            "actions": 792,
+            "return": -0.5675781249999999
+          },
+          {
+            "episode": 192,
+            "actions": 901,
+            "return": -0.7676041666666668
+          },
+          {
+            "episode": 216,
+            "actions": 1000,
+            "return": -0.45984374999999994
+          },
+          {
+            "episode": 240,
+            "actions": 1099,
+            "return": -0.6516145833333333
+          },
+          {
+            "episode": 264,
+            "actions": 1200,
+            "return": -0.44507812500000005
+          },
+          {
+            "episode": 288,
+            "actions": 1317,
+            "return": -0.49976562500000005
+          },
+          {
+            "episode": 312,
+            "actions": 1431,
+            "return": -0.5355989583333333
+          },
+          {
+            "episode": 336,
+            "actions": 1522,
+            "return": -0.63515625
+          },
+          {
+            "episode": 360,
+            "actions": 1611,
+            "return": -0.5411458333333333
+          },
+          {
+            "episode": 384,
+            "actions": 1714,
+            "return": -0.5588020833333334
+          },
+          {
+            "episode": 408,
+            "actions": 1794,
+            "return": -0.26557291666666666
+          },
+          {
+            "episode": 432,
+            "actions": 1893,
+            "return": -0.1244791666666667
+          },
+          {
+            "episode": 456,
+            "actions": 1999,
+            "return": -0.770859375
+          },
+          {
+            "episode": 480,
+            "actions": 2101,
+            "return": -0.5520572916666667
+          },
+          {
+            "episode": 504,
+            "actions": 2199,
+            "return": -0.5373177083333334
+          },
+          {
+            "episode": 528,
+            "actions": 2274,
+            "return": -0.5035677083333333
+          },
+          {
+            "episode": 552,
+            "actions": 2352,
+            "return": -0.6095833333333334
+          },
+          {
+            "episode": 576,
+            "actions": 2442,
+            "return": -0.455234375
+          },
+          {
+            "episode": 600,
+            "actions": 2532,
+            "return": -0.69234375
+          },
+          {
+            "episode": 624,
+            "actions": 2612,
+            "return": -0.4016927083333333
+          },
+          {
+            "episode": 648,
+            "actions": 2696,
+            "return": -0.5874479166666666
+          },
+          {
+            "episode": 672,
+            "actions": 2788,
+            "return": -0.6194270833333333
+          },
+          {
+            "episode": 696,
+            "actions": 2868,
+            "return": -0.3354427083333333
+          },
+          {
+            "episode": 720,
+            "actions": 2934,
+            "return": -0.29968749999999994
+          },
+          {
+            "episode": 744,
+            "actions": 3013,
+            "return": -0.30726562499999993
+          },
+          {
+            "episode": 768,
+            "actions": 3080,
+            "return": -0.48690104166666676
+          },
+          {
+            "episode": 792,
+            "actions": 3153,
+            "return": -0.3714583333333333
+          },
+          {
+            "episode": 816,
+            "actions": 3219,
+            "return": -0.40124999999999994
+          },
+          {
+            "episode": 840,
+            "actions": 3287,
+            "return": -0.4663802083333333
+          },
+          {
+            "episode": 864,
+            "actions": 3365,
+            "return": -0.2527864583333333
+          },
+          {
+            "episode": 888,
+            "actions": 3430,
+            "return": -0.40572916666666664
+          },
+          {
+            "episode": 912,
+            "actions": 3483,
+            "return": -0.17046874999999997
+          },
+          {
+            "episode": 936,
+            "actions": 3540,
+            "return": -0.39624999999999994
+          },
+          {
+            "episode": 960,
+            "actions": 3595,
+            "return": -0.4662760416666667
+          },
+          {
+            "episode": 984,
+            "actions": 3653,
+            "return": -0.46638020833333327
+          },
+          {
+            "episode": 1008,
+            "actions": 3696,
+            "return": -0.42927083333333327
+          },
+          {
+            "episode": 1032,
+            "actions": 3734,
+            "return": -0.35999999999999993
+          },
+          {
+            "episode": 1056,
+            "actions": 3768,
+            "return": -0.34874999999999995
+          },
+          {
+            "episode": 1080,
+            "actions": 3802,
+            "return": -0.34874999999999995
+          },
+          {
+            "episode": 1104,
+            "actions": 3834,
+            "return": -0.34
+          },
+          {
+            "episode": 1128,
+            "actions": 3861,
+            "return": -0.34
+          },
+          {
+            "episode": 1152,
+            "actions": 3890,
+            "return": -0.33624999999999994
+          },
+          {
+            "episode": 1176,
+            "actions": 3918,
+            "return": -0.3412499999999999
+          },
+          {
+            "episode": 1200,
+            "actions": 3945,
+            "return": -0.34
+          },
+          {
+            "episode": 1224,
+            "actions": 3970,
+            "return": -0.33125
+          },
+          {
+            "episode": 1248,
+            "actions": 3996,
+            "return": -0.33874999999999994
+          },
+          {
+            "episode": 1272,
+            "actions": 4021,
+            "return": -0.33125
+          },
+          {
+            "episode": 1296,
+            "actions": 4049,
+            "return": -0.33499999999999996
+          },
+          {
+            "episode": 1320,
+            "actions": 4074,
+            "return": -0.33125
+          },
+          {
+            "episode": 1344,
+            "actions": 4100,
+            "return": -0.33249999999999996
+          },
+          {
+            "episode": 1368,
+            "actions": 4125,
+            "return": -0.33125
+          },
+          {
+            "episode": 1392,
+            "actions": 4149,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1416,
+            "actions": 4173,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1440,
+            "actions": 4197,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1464,
+            "actions": 4221,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1488,
+            "actions": 4245,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1512,
+            "actions": 4269,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1536,
+            "actions": 4293,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1560,
+            "actions": 4317,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1584,
+            "actions": 4341,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1608,
+            "actions": 4365,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1632,
+            "actions": 4389,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1656,
+            "actions": 4413,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1680,
+            "actions": 4437,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1704,
+            "actions": 4461,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1728,
+            "actions": 4485,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1752,
+            "actions": 4510,
+            "return": -0.33125
+          },
+          {
+            "episode": 1776,
+            "actions": 4534,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1800,
+            "actions": 4558,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1824,
+            "actions": 4582,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1848,
+            "actions": 4606,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1872,
+            "actions": 4630,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1896,
+            "actions": 4655,
+            "return": -0.33125
+          },
+          {
+            "episode": 1920,
+            "actions": 4679,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1944,
+            "actions": 4703,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1968,
+            "actions": 4727,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1992,
+            "actions": 4751,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2016,
+            "actions": 4775,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2040,
+            "actions": 4800,
+            "return": -0.33125
+          },
+          {
+            "episode": 2064,
+            "actions": 4824,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2088,
+            "actions": 4848,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2112,
+            "actions": 4872,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2136,
+            "actions": 4896,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2160,
+            "actions": 4921,
+            "return": -0.33125
+          },
+          {
+            "episode": 2184,
+            "actions": 4945,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2208,
+            "actions": 4970,
+            "return": -0.33125
+          },
+          {
+            "episode": 2232,
+            "actions": 4994,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2256,
+            "actions": 5018,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2280,
+            "actions": 5042,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2304,
+            "actions": 5067,
+            "return": -0.33125
+          },
+          {
+            "episode": 2328,
+            "actions": 5091,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2352,
+            "actions": 5115,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2376,
+            "actions": 5139,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2400,
+            "actions": 5163,
+            "return": -0.32999999999999996
+          }
+        ]
+      },
+      "verifier": {
+        "training_cases": 1200,
+        "examples": 16035,
+        "epochs": 30,
+        "positive_fraction": 0.06417212635278702
+      },
+      "controller_parameters": 12832,
+      "verifier_parameters": 3425
+    },
+    {
+      "seed": 19,
+      "dqn": {
+        "algorithm": "Double DQN",
+        "episodes": 2400,
+        "actions": 10491,
+        "history": [
+          {
+            "episode": 0,
+            "actions": 4,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 50,
+            "actions": 243,
+            "return": -1.8606250000000002
+          },
+          {
+            "episode": 100,
+            "actions": 467,
+            "return": -0.5906250000000001
+          },
+          {
+            "episode": 150,
+            "actions": 695,
+            "return": -0.48
+          },
+          {
+            "episode": 200,
+            "actions": 935,
+            "return": -0.5399999999999999
+          },
+          {
+            "episode": 250,
+            "actions": 1143,
+            "return": -1.7525000000000002
+          },
+          {
+            "episode": 300,
+            "actions": 1354,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 350,
+            "actions": 1576,
+            "return": -0.48
+          },
+          {
+            "episode": 400,
+            "actions": 1823,
+            "return": -0.48
+          },
+          {
+            "episode": 450,
+            "actions": 2060,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 500,
+            "actions": 2277,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 550,
+            "actions": 2511,
+            "return": -1.9025
+          },
+          {
+            "episode": 600,
+            "actions": 2732,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 650,
+            "actions": 2950,
+            "return": -0.48
+          },
+          {
+            "episode": 700,
+            "actions": 3194,
+            "return": -0.44999999999999996
+          },
+          {
+            "episode": 750,
+            "actions": 3432,
+            "return": -0.5399999999999999
+          },
+          {
+            "episode": 800,
+            "actions": 3682,
+            "return": -1.980625
+          },
+          {
+            "episode": 850,
+            "actions": 3901,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 900,
+            "actions": 4125,
+            "return": -0.48
+          },
+          {
+            "episode": 950,
+            "actions": 4342,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1000,
+            "actions": 4571,
+            "return": -0.6599999999999999
+          },
+          {
+            "episode": 1050,
+            "actions": 4799,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1100,
+            "actions": 5010,
+            "return": -0.48
+          },
+          {
+            "episode": 1150,
+            "actions": 5242,
+            "return": -0.48
+          },
+          {
+            "episode": 1200,
+            "actions": 5462,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1250,
+            "actions": 5657,
+            "return": 2.1975
+          },
+          {
+            "episode": 1300,
+            "actions": 5872,
+            "return": -0.5399999999999999
+          },
+          {
+            "episode": 1350,
+            "actions": 6105,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1400,
+            "actions": 6294,
+            "return": 2.2274999999999996
+          },
+          {
+            "episode": 1450,
+            "actions": 6504,
+            "return": -0.51
+          },
+          {
+            "episode": 1500,
+            "actions": 6707,
+            "return": 2.199375
+          },
+          {
+            "episode": 1550,
+            "actions": 6939,
+            "return": 2.2274999999999996
+          },
+          {
+            "episode": 1600,
+            "actions": 7132,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1650,
+            "actions": 7360,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1700,
+            "actions": 7580,
+            "return": -0.44999999999999996
+          },
+          {
+            "episode": 1750,
+            "actions": 7787,
+            "return": 2.259375
+          },
+          {
+            "episode": 1800,
+            "actions": 7976,
+            "return": -0.5425000000000001
+          },
+          {
+            "episode": 1850,
+            "actions": 8174,
+            "return": -0.36
+          },
+          {
+            "episode": 1900,
+            "actions": 8360,
+            "return": 2.409375
+          },
+          {
+            "episode": 1950,
+            "actions": 8587,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 2000,
+            "actions": 8779,
+            "return": -0.5399999999999999
+          },
+          {
+            "episode": 2050,
+            "actions": 9015,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 2100,
+            "actions": 9200,
+            "return": 2.2143749999999995
+          },
+          {
+            "episode": 2150,
+            "actions": 9386,
+            "return": -0.48
+          },
+          {
+            "episode": 2200,
+            "actions": 9597,
+            "return": 2.199375
+          },
+          {
+            "episode": 2250,
+            "actions": 9834,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 2300,
+            "actions": 10031,
+            "return": 2.1975
+          },
+          {
+            "episode": 2350,
+            "actions": 10259,
+            "return": -0.41999999999999993
+          }
+        ]
+      },
+      "ppo": {
+        "algorithm": "PPO + GAE",
+        "episodes": 2400,
+        "actions": 4366,
+        "history": [
+          {
+            "episode": 24,
+            "actions": 96,
+            "return": -0.5130208333333334
+          },
+          {
+            "episode": 48,
+            "actions": 185,
+            "return": -0.9545312499999999
+          },
+          {
+            "episode": 72,
+            "actions": 296,
+            "return": -0.49156249999999996
+          },
+          {
+            "episode": 96,
+            "actions": 411,
+            "return": -0.6570833333333335
+          },
+          {
+            "episode": 120,
+            "actions": 514,
+            "return": -0.5059114583333333
+          },
+          {
+            "episode": 144,
+            "actions": 619,
+            "return": -0.8224479166666668
+          },
+          {
+            "episode": 168,
+            "actions": 725,
+            "return": -0.6326302083333334
+          },
+          {
+            "episode": 192,
+            "actions": 836,
+            "return": -0.5457552083333334
+          },
+          {
+            "episode": 216,
+            "actions": 934,
+            "return": -0.27177083333333335
+          },
+          {
+            "episode": 240,
+            "actions": 1049,
+            "return": -0.7823697916666666
+          },
+          {
+            "episode": 264,
+            "actions": 1154,
+            "return": -0.6893489583333333
+          },
+          {
+            "episode": 288,
+            "actions": 1261,
+            "return": -0.4872916666666667
+          },
+          {
+            "episode": 312,
+            "actions": 1351,
+            "return": -0.5563802083333332
+          },
+          {
+            "episode": 336,
+            "actions": 1452,
+            "return": -0.760703125
+          },
+          {
+            "episode": 360,
+            "actions": 1553,
+            "return": -0.59515625
+          },
+          {
+            "episode": 384,
+            "actions": 1637,
+            "return": -0.4850000000000001
+          },
+          {
+            "episode": 408,
+            "actions": 1712,
+            "return": -0.37453125
+          },
+          {
+            "episode": 432,
+            "actions": 1824,
+            "return": -0.6385677083333333
+          },
+          {
+            "episode": 456,
+            "actions": 1916,
+            "return": -0.5566927083333333
+          },
+          {
+            "episode": 480,
+            "actions": 2006,
+            "return": -0.739296875
+          },
+          {
+            "episode": 504,
+            "actions": 2079,
+            "return": -0.612421875
+          },
+          {
+            "episode": 528,
+            "actions": 2151,
+            "return": -0.26218749999999996
+          },
+          {
+            "episode": 552,
+            "actions": 2209,
+            "return": -0.44802083333333326
+          },
+          {
+            "episode": 576,
+            "actions": 2287,
+            "return": -0.5424479166666667
+          },
+          {
+            "episode": 600,
+            "actions": 2334,
+            "return": -0.43752604166666664
+          },
+          {
+            "episode": 624,
+            "actions": 2395,
+            "return": -0.4487760416666666
+          },
+          {
+            "episode": 648,
+            "actions": 2440,
+            "return": -0.37499999999999994
+          },
+          {
+            "episode": 672,
+            "actions": 2497,
+            "return": -0.27960937499999994
+          },
+          {
+            "episode": 696,
+            "actions": 2548,
+            "return": -0.36999999999999994
+          },
+          {
+            "episode": 720,
+            "actions": 2601,
+            "return": -0.38499999999999995
+          },
+          {
+            "episode": 744,
+            "actions": 2646,
+            "return": -0.3625
+          },
+          {
+            "episode": 768,
+            "actions": 2679,
+            "return": -0.34125
+          },
+          {
+            "episode": 792,
+            "actions": 2712,
+            "return": -0.3475
+          },
+          {
+            "episode": 816,
+            "actions": 2743,
+            "return": -0.345
+          },
+          {
+            "episode": 840,
+            "actions": 2774,
+            "return": -0.33874999999999994
+          },
+          {
+            "episode": 864,
+            "actions": 2802,
+            "return": -0.33499999999999996
+          },
+          {
+            "episode": 888,
+            "actions": 2832,
+            "return": -0.3374999999999999
+          },
+          {
+            "episode": 912,
+            "actions": 2858,
+            "return": -0.33249999999999996
+          },
+          {
+            "episode": 936,
+            "actions": 2883,
+            "return": -0.33125
+          },
+          {
+            "episode": 960,
+            "actions": 2911,
+            "return": -0.33499999999999996
+          },
+          {
+            "episode": 984,
+            "actions": 2937,
+            "return": -0.33249999999999996
+          },
+          {
+            "episode": 1008,
+            "actions": 2963,
+            "return": -0.33249999999999996
+          },
+          {
+            "episode": 1032,
+            "actions": 2987,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1056,
+            "actions": 3011,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1080,
+            "actions": 3036,
+            "return": -0.33125
+          },
+          {
+            "episode": 1104,
+            "actions": 3061,
+            "return": -0.33125
+          },
+          {
+            "episode": 1128,
+            "actions": 3085,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1152,
+            "actions": 3110,
+            "return": -0.33125
+          },
+          {
+            "episode": 1176,
+            "actions": 3134,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1200,
+            "actions": 3159,
+            "return": -0.33125
+          },
+          {
+            "episode": 1224,
+            "actions": 3185,
+            "return": -0.33249999999999996
+          },
+          {
+            "episode": 1248,
+            "actions": 3210,
+            "return": -0.33125
+          },
+          {
+            "episode": 1272,
+            "actions": 3234,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1296,
+            "actions": 3258,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1320,
+            "actions": 3282,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1344,
+            "actions": 3306,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1368,
+            "actions": 3330,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1392,
+            "actions": 3354,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1416,
+            "actions": 3378,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1440,
+            "actions": 3402,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1464,
+            "actions": 3426,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1488,
+            "actions": 3450,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1512,
+            "actions": 3474,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1536,
+            "actions": 3498,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1560,
+            "actions": 3522,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1584,
+            "actions": 3546,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1608,
+            "actions": 3570,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1632,
+            "actions": 3594,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1656,
+            "actions": 3618,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1680,
+            "actions": 3642,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1704,
+            "actions": 3666,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1728,
+            "actions": 3690,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1752,
+            "actions": 3715,
+            "return": -0.33125
+          },
+          {
+            "episode": 1776,
+            "actions": 3739,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1800,
+            "actions": 3763,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1824,
+            "actions": 3788,
+            "return": -0.33125
+          },
+          {
+            "episode": 1848,
+            "actions": 3812,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1872,
+            "actions": 3837,
+            "return": -0.33125
+          },
+          {
+            "episode": 1896,
+            "actions": 3861,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1920,
+            "actions": 3885,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1944,
+            "actions": 3909,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1968,
+            "actions": 3933,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1992,
+            "actions": 3957,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2016,
+            "actions": 3981,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2040,
+            "actions": 4005,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2064,
+            "actions": 4029,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2088,
+            "actions": 4053,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2112,
+            "actions": 4077,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2136,
+            "actions": 4101,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2160,
+            "actions": 4125,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2184,
+            "actions": 4149,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2208,
+            "actions": 4173,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2232,
+            "actions": 4197,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2256,
+            "actions": 4221,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2280,
+            "actions": 4245,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2304,
+            "actions": 4269,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2328,
+            "actions": 4293,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2352,
+            "actions": 4317,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2376,
+            "actions": 4342,
+            "return": -0.33125
+          },
+          {
+            "episode": 2400,
+            "actions": 4366,
+            "return": -0.32999999999999996
+          }
+        ]
+      },
+      "verifier": {
+        "training_cases": 1200,
+        "examples": 16050,
+        "epochs": 30,
+        "positive_fraction": 0.06417445838451385
+      },
+      "controller_parameters": 12832,
+      "verifier_parameters": 3425
+    },
+    {
+      "seed": 31,
+      "dqn": {
+        "algorithm": "Double DQN",
+        "episodes": 2400,
+        "actions": 10141,
+        "history": [
+          {
+            "episode": 0,
+            "actions": 4,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 50,
+            "actions": 216,
+            "return": -0.5125000000000001
+          },
+          {
+            "episode": 100,
+            "actions": 446,
+            "return": -0.48
+          },
+          {
+            "episode": 150,
+            "actions": 677,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 200,
+            "actions": 906,
+            "return": -1.7825000000000002
+          },
+          {
+            "episode": 250,
+            "actions": 1114,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 300,
+            "actions": 1368,
+            "return": -1.9325
+          },
+          {
+            "episode": 350,
+            "actions": 1561,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 400,
+            "actions": 1782,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 450,
+            "actions": 1999,
+            "return": 2.244375
+          },
+          {
+            "episode": 500,
+            "actions": 2260,
+            "return": -0.57
+          },
+          {
+            "episode": 550,
+            "actions": 2503,
+            "return": -0.36
+          },
+          {
+            "episode": 600,
+            "actions": 2740,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 650,
+            "actions": 2973,
+            "return": -2.035625
+          },
+          {
+            "episode": 700,
+            "actions": 3204,
+            "return": -1.7825000000000002
+          },
+          {
+            "episode": 750,
+            "actions": 3445,
+            "return": -0.5399999999999999
+          },
+          {
+            "episode": 800,
+            "actions": 3675,
+            "return": -1.890625
+          },
+          {
+            "episode": 850,
+            "actions": 3893,
+            "return": -0.66
+          },
+          {
+            "episode": 900,
+            "actions": 4127,
+            "return": -0.36
+          },
+          {
+            "episode": 950,
+            "actions": 4360,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1000,
+            "actions": 4570,
+            "return": -0.48
+          },
+          {
+            "episode": 1050,
+            "actions": 4791,
+            "return": 2.1843749999999997
+          },
+          {
+            "episode": 1100,
+            "actions": 5026,
+            "return": -0.36
+          },
+          {
+            "episode": 1150,
+            "actions": 5240,
+            "return": -1.8606250000000002
+          },
+          {
+            "episode": 1200,
+            "actions": 5451,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 1250,
+            "actions": 5668,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1300,
+            "actions": 5907,
+            "return": 2.1374999999999997
+          },
+          {
+            "episode": 1350,
+            "actions": 6107,
+            "return": 2.379375
+          },
+          {
+            "episode": 1400,
+            "actions": 6302,
+            "return": -0.36
+          },
+          {
+            "episode": 1450,
+            "actions": 6485,
+            "return": -1.9156250000000001
+          },
+          {
+            "episode": 1500,
+            "actions": 6677,
+            "return": 2.1975
+          },
+          {
+            "episode": 1550,
+            "actions": 6877,
+            "return": 2.1674999999999995
+          },
+          {
+            "episode": 1600,
+            "actions": 7097,
+            "return": -0.38999999999999996
+          },
+          {
+            "episode": 1650,
+            "actions": 7294,
+            "return": 2.259375
+          },
+          {
+            "episode": 1700,
+            "actions": 7472,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1750,
+            "actions": 7622,
+            "return": 2.2893749999999997
+          },
+          {
+            "episode": 1800,
+            "actions": 7785,
+            "return": 2.0774999999999997
+          },
+          {
+            "episode": 1850,
+            "actions": 7946,
+            "return": -0.41999999999999993
+          },
+          {
+            "episode": 1900,
+            "actions": 8120,
+            "return": 2.199375
+          },
+          {
+            "episode": 1950,
+            "actions": 8310,
+            "return": 2.259375
+          },
+          {
+            "episode": 2000,
+            "actions": 8487,
+            "return": 2.244375
+          },
+          {
+            "episode": 2050,
+            "actions": 8686,
+            "return": 2.364375
+          },
+          {
+            "episode": 2100,
+            "actions": 8896,
+            "return": 2.2143749999999995
+          },
+          {
+            "episode": 2150,
+            "actions": 9094,
+            "return": 2.1843749999999997
+          },
+          {
+            "episode": 2200,
+            "actions": 9293,
+            "return": 2.2274999999999996
+          },
+          {
+            "episode": 2250,
+            "actions": 9524,
+            "return": 2.1374999999999997
+          },
+          {
+            "episode": 2300,
+            "actions": 9729,
+            "return": 2.1975
+          },
+          {
+            "episode": 2350,
+            "actions": 9938,
+            "return": 2.1975
+          }
+        ]
+      },
+      "ppo": {
+        "algorithm": "PPO + GAE",
+        "episodes": 2400,
+        "actions": 4525,
+        "history": [
+          {
+            "episode": 24,
+            "actions": 114,
+            "return": -0.8997656250000001
+          },
+          {
+            "episode": 48,
+            "actions": 224,
+            "return": -0.6771354166666668
+          },
+          {
+            "episode": 72,
+            "actions": 335,
+            "return": -0.9350260416666668
+          },
+          {
+            "episode": 96,
+            "actions": 431,
+            "return": -0.4108333333333334
+          },
+          {
+            "episode": 120,
+            "actions": 546,
+            "return": -0.6812239583333334
+          },
+          {
+            "episode": 144,
+            "actions": 662,
+            "return": -1.061484375
+          },
+          {
+            "episode": 168,
+            "actions": 768,
+            "return": -0.5569791666666667
+          },
+          {
+            "episode": 192,
+            "actions": 888,
+            "return": -0.6509375000000001
+          },
+          {
+            "episode": 216,
+            "actions": 1010,
+            "return": -0.8304427083333333
+          },
+          {
+            "episode": 240,
+            "actions": 1125,
+            "return": -0.7015625
+          },
+          {
+            "episode": 264,
+            "actions": 1220,
+            "return": -0.84734375
+          },
+          {
+            "episode": 288,
+            "actions": 1337,
+            "return": -0.66703125
+          },
+          {
+            "episode": 312,
+            "actions": 1432,
+            "return": -0.5877083333333334
+          },
+          {
+            "episode": 336,
+            "actions": 1519,
+            "return": -0.6925520833333333
+          },
+          {
+            "episode": 360,
+            "actions": 1612,
+            "return": -0.6775000000000001
+          },
+          {
+            "episode": 384,
+            "actions": 1702,
+            "return": -0.8130989583333333
+          },
+          {
+            "episode": 408,
+            "actions": 1794,
+            "return": -0.39291666666666664
+          },
+          {
+            "episode": 432,
+            "actions": 1864,
+            "return": -0.6421875
+          },
+          {
+            "episode": 456,
+            "actions": 1945,
+            "return": -0.5492968749999999
+          },
+          {
+            "episode": 480,
+            "actions": 2023,
+            "return": -0.30182291666666666
+          },
+          {
+            "episode": 504,
+            "actions": 2101,
+            "return": -0.37304687500000006
+          },
+          {
+            "episode": 528,
+            "actions": 2188,
+            "return": -0.44354166666666667
+          },
+          {
+            "episode": 552,
+            "actions": 2272,
+            "return": -0.44903645833333333
+          },
+          {
+            "episode": 576,
+            "actions": 2354,
+            "return": -0.5814583333333333
+          },
+          {
+            "episode": 600,
+            "actions": 2428,
+            "return": -0.482734375
+          },
+          {
+            "episode": 624,
+            "actions": 2510,
+            "return": -0.4306510416666667
+          },
+          {
+            "episode": 648,
+            "actions": 2571,
+            "return": -0.5946614583333333
+          },
+          {
+            "episode": 672,
+            "actions": 2636,
+            "return": -0.18828124999999996
+          },
+          {
+            "episode": 696,
+            "actions": 2688,
+            "return": -0.4496354166666667
+          },
+          {
+            "episode": 720,
+            "actions": 2726,
+            "return": -0.36624999999999996
+          },
+          {
+            "episode": 744,
+            "actions": 2755,
+            "return": -0.34249999999999997
+          },
+          {
+            "episode": 768,
+            "actions": 2801,
+            "return": -0.36375
+          },
+          {
+            "episode": 792,
+            "actions": 2845,
+            "return": -0.41802083333333334
+          },
+          {
+            "episode": 816,
+            "actions": 2879,
+            "return": -0.355
+          },
+          {
+            "episode": 840,
+            "actions": 2909,
+            "return": -0.34375
+          },
+          {
+            "episode": 864,
+            "actions": 2940,
+            "return": -0.33874999999999994
+          },
+          {
+            "episode": 888,
+            "actions": 2967,
+            "return": -0.33375
+          },
+          {
+            "episode": 912,
+            "actions": 2995,
+            "return": -0.33499999999999996
+          },
+          {
+            "episode": 936,
+            "actions": 3024,
+            "return": -0.33625
+          },
+          {
+            "episode": 960,
+            "actions": 3055,
+            "return": -0.33874999999999994
+          },
+          {
+            "episode": 984,
+            "actions": 3086,
+            "return": -0.33874999999999994
+          },
+          {
+            "episode": 1008,
+            "actions": 3116,
+            "return": -0.34375
+          },
+          {
+            "episode": 1032,
+            "actions": 3141,
+            "return": -0.3374999999999999
+          },
+          {
+            "episode": 1056,
+            "actions": 3167,
+            "return": -0.33249999999999996
+          },
+          {
+            "episode": 1080,
+            "actions": 3191,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1104,
+            "actions": 3215,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1128,
+            "actions": 3240,
+            "return": -0.33125
+          },
+          {
+            "episode": 1152,
+            "actions": 3264,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1176,
+            "actions": 3288,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1200,
+            "actions": 3314,
+            "return": -0.33249999999999996
+          },
+          {
+            "episode": 1224,
+            "actions": 3339,
+            "return": -0.33125
+          },
+          {
+            "episode": 1248,
+            "actions": 3363,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1272,
+            "actions": 3387,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1296,
+            "actions": 3412,
+            "return": -0.33125
+          },
+          {
+            "episode": 1320,
+            "actions": 3436,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1344,
+            "actions": 3460,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1368,
+            "actions": 3484,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1392,
+            "actions": 3509,
+            "return": -0.33125
+          },
+          {
+            "episode": 1416,
+            "actions": 3533,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1440,
+            "actions": 3557,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1464,
+            "actions": 3582,
+            "return": -0.33125
+          },
+          {
+            "episode": 1488,
+            "actions": 3606,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1512,
+            "actions": 3630,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1536,
+            "actions": 3654,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1560,
+            "actions": 3679,
+            "return": -0.33125
+          },
+          {
+            "episode": 1584,
+            "actions": 3704,
+            "return": -0.33749999999999997
+          },
+          {
+            "episode": 1608,
+            "actions": 3728,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1632,
+            "actions": 3753,
+            "return": -0.33125
+          },
+          {
+            "episode": 1656,
+            "actions": 3778,
+            "return": -0.33125
+          },
+          {
+            "episode": 1680,
+            "actions": 3802,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1704,
+            "actions": 3827,
+            "return": -0.33125
+          },
+          {
+            "episode": 1728,
+            "actions": 3851,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1752,
+            "actions": 3875,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1776,
+            "actions": 3900,
+            "return": -0.33125
+          },
+          {
+            "episode": 1800,
+            "actions": 3924,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1824,
+            "actions": 3948,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1848,
+            "actions": 3972,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1872,
+            "actions": 3996,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1896,
+            "actions": 4020,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1920,
+            "actions": 4044,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1944,
+            "actions": 4068,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1968,
+            "actions": 4092,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 1992,
+            "actions": 4116,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2016,
+            "actions": 4140,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2040,
+            "actions": 4165,
+            "return": -0.33125
+          },
+          {
+            "episode": 2064,
+            "actions": 4189,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2088,
+            "actions": 4213,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2112,
+            "actions": 4237,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2136,
+            "actions": 4261,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2160,
+            "actions": 4285,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2184,
+            "actions": 4309,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2208,
+            "actions": 4333,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2232,
+            "actions": 4357,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2256,
+            "actions": 4381,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2280,
+            "actions": 4405,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2304,
+            "actions": 4429,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2328,
+            "actions": 4453,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2352,
+            "actions": 4477,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2376,
+            "actions": 4501,
+            "return": -0.32999999999999996
+          },
+          {
+            "episode": 2400,
+            "actions": 4525,
+            "return": -0.32999999999999996
+          }
+        ]
+      },
+      "verifier": {
+        "training_cases": 1200,
+        "examples": 16203,
+        "epochs": 30,
+        "positive_fraction": 0.06535826623439789
+      },
+      "controller_parameters": 12832,
+      "verifier_parameters": 3425
+    }
+  ],
+  "elapsed_seconds": 86.94355583190918,
+  "torch_version": "2.11.0+cu130",
+  "summary": [
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 4,
+      "method": "DQN",
+      "runs": 150,
+      "success": 0.04666666666666667,
+      "accuracy": 0.04666666666666667,
+      "evidence_precision": 0.04666666666666667,
+      "evidence_recall": 0.04666666666666667,
+      "unsupported": 0.0,
+      "average_cost": 3.8866666666666667,
+      "average_tool_calls": 3.8866666666666667,
+      "answer_coverage": 0.04666666666666667,
+      "brier": 0.09892857142857144,
+      "ece": 0.2642857142857143,
+      "seed_success": {
+        "7": 0.1,
+        "19": 0.04,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 4,
+      "method": "Greedy",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.0,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.0,
+      "average_cost": 4.0,
+      "average_tool_calls": 4.0,
+      "answer_coverage": 0.0,
+      "brier": null,
+      "ece": null,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 4,
+      "method": "PPO",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.0,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.0,
+      "average_cost": 1.0,
+      "average_tool_calls": 1.0,
+      "answer_coverage": 0.0,
+      "brier": null,
+      "ece": null,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 4,
+      "method": "PPO + Verifier",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.35333333333333333,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 1.0,
+      "average_cost": 4.0,
+      "average_tool_calls": 2.0,
+      "answer_coverage": 1.0,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 4,
+      "method": "RL + Test-Time Search",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.35333333333333333,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 1.0,
+      "average_cost": 4.0,
+      "average_tool_calls": 2.0,
+      "answer_coverage": 1.0,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 8,
+      "method": "DQN",
+      "runs": 150,
+      "success": 0.9933333333333333,
+      "accuracy": 0.9933333333333333,
+      "evidence_precision": 0.9933333333333333,
+      "evidence_recall": 0.9933333333333333,
+      "unsupported": 0.0,
+      "average_cost": 7.073333333333333,
+      "average_tool_calls": 2.0733333333333333,
+      "answer_coverage": 0.9933333333333333,
+      "brier": 0.09265100671140941,
+      "ece": 0.2523489932885905,
+      "seed_success": {
+        "7": 1.0,
+        "19": 0.98,
+        "31": 1.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 8,
+      "method": "Greedy",
+      "runs": 150,
+      "success": 1.0,
+      "accuracy": 1.0,
+      "evidence_precision": 1.0,
+      "evidence_recall": 1.0,
+      "unsupported": 0.0,
+      "average_cost": 7.96,
+      "average_tool_calls": 7.96,
+      "answer_coverage": 1.0,
+      "brier": 0.0025000000000000044,
+      "ece": 0.04999999999999982,
+      "seed_success": {
+        "7": 1.0,
+        "19": 1.0,
+        "31": 1.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 8,
+      "method": "PPO",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.0,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.0,
+      "average_cost": 1.0,
+      "average_tool_calls": 1.0,
+      "answer_coverage": 0.0,
+      "brier": null,
+      "ece": null,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 8,
+      "method": "PPO + Verifier",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.34,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 1.0,
+      "average_cost": 8.0,
+      "average_tool_calls": 4.0,
+      "answer_coverage": 1.0,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 8,
+      "method": "RL + Test-Time Search",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.2733333333333333,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.8933333333333333,
+      "average_cost": 7.786666666666667,
+      "average_tool_calls": 3.8933333333333335,
+      "answer_coverage": 0.8933333333333333,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 12,
+      "method": "DQN",
+      "runs": 150,
+      "success": 0.98,
+      "accuracy": 0.98,
+      "evidence_precision": 0.98,
+      "evidence_recall": 0.98,
+      "unsupported": 0.0,
+      "average_cost": 9.92,
+      "average_tool_calls": 5.153333333333333,
+      "answer_coverage": 0.98,
+      "brier": 0.07607142857142858,
+      "ece": 0.22891156462585033,
+      "seed_success": {
+        "7": 0.96,
+        "19": 1.0,
+        "31": 0.98
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 12,
+      "method": "Greedy",
+      "runs": 150,
+      "success": 1.0,
+      "accuracy": 1.0,
+      "evidence_precision": 1.0,
+      "evidence_recall": 1.0,
+      "unsupported": 0.0,
+      "average_cost": 7.96,
+      "average_tool_calls": 7.96,
+      "answer_coverage": 1.0,
+      "brier": 0.0025000000000000044,
+      "ece": 0.04999999999999982,
+      "seed_success": {
+        "7": 1.0,
+        "19": 1.0,
+        "31": 1.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 12,
+      "method": "PPO",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.0,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.0,
+      "average_cost": 1.0,
+      "average_tool_calls": 1.0,
+      "answer_coverage": 0.0,
+      "brier": null,
+      "ece": null,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 12,
+      "method": "PPO + Verifier",
+      "runs": 150,
+      "success": 0.64,
+      "accuracy": 0.7266666666666667,
+      "evidence_precision": 0.64,
+      "evidence_recall": 0.64,
+      "unsupported": 0.36,
+      "average_cost": 11.886666666666667,
+      "average_tool_calls": 4.76,
+      "answer_coverage": 1.0,
+      "brier": 0.09159999999999999,
+      "ece": 0.21200000000000008,
+      "seed_success": {
+        "7": 1.0,
+        "19": 0.76,
+        "31": 0.16
+      }
+    },
+    {
+      "split": "GoalLab-Challenge",
+      "budget": 12,
+      "method": "RL + Test-Time Search",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.16666666666666666,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.6133333333333333,
+      "average_cost": 10.453333333333333,
+      "average_tool_calls": 5.226666666666667,
+      "answer_coverage": 0.6133333333333333,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 4,
+      "method": "DQN",
+      "runs": 150,
+      "success": 0.16,
+      "accuracy": 0.16666666666666666,
+      "evidence_precision": 0.16,
+      "evidence_recall": 0.16,
+      "unsupported": 0.006666666666666667,
+      "average_cost": 3.8466666666666667,
+      "average_tool_calls": 3.8466666666666667,
+      "answer_coverage": 0.16666666666666666,
+      "brier": 0.0613,
+      "ece": 0.14600000000000013,
+      "seed_success": {
+        "7": 0.16,
+        "19": 0.26,
+        "31": 0.06
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 4,
+      "method": "Greedy",
+      "runs": 150,
+      "success": 0.72,
+      "accuracy": 0.72,
+      "evidence_precision": 0.72,
+      "evidence_recall": 0.72,
+      "unsupported": 0.0,
+      "average_cost": 3.52,
+      "average_tool_calls": 3.52,
+      "answer_coverage": 0.72,
+      "brier": 0.002500000000000005,
+      "ece": 0.050000000000000044,
+      "seed_success": {
+        "7": 0.72,
+        "19": 0.72,
+        "31": 0.72
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 4,
+      "method": "PPO",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.0,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.0,
+      "average_cost": 1.0,
+      "average_tool_calls": 1.0,
+      "answer_coverage": 0.0,
+      "brier": null,
+      "ece": null,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 4,
+      "method": "PPO + Verifier",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.30666666666666664,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 1.0,
+      "average_cost": 4.0,
+      "average_tool_calls": 2.0,
+      "answer_coverage": 1.0,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 4,
+      "method": "RL + Test-Time Search",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.30666666666666664,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 1.0,
+      "average_cost": 4.0,
+      "average_tool_calls": 2.0,
+      "answer_coverage": 1.0,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 8,
+      "method": "DQN",
+      "runs": 150,
+      "success": 0.98,
+      "accuracy": 0.98,
+      "evidence_precision": 0.98,
+      "evidence_recall": 0.98,
+      "unsupported": 0.0,
+      "average_cost": 7.046666666666667,
+      "average_tool_calls": 2.2133333333333334,
+      "answer_coverage": 0.98,
+      "brier": 0.09602040816326532,
+      "ece": 0.257142857142857,
+      "seed_success": {
+        "7": 1.0,
+        "19": 0.94,
+        "31": 1.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 8,
+      "method": "Greedy",
+      "runs": 150,
+      "success": 1.0,
+      "accuracy": 1.0,
+      "evidence_precision": 1.0,
+      "evidence_recall": 1.0,
+      "unsupported": 0.0,
+      "average_cost": 4.22,
+      "average_tool_calls": 4.22,
+      "answer_coverage": 1.0,
+      "brier": 0.0025000000000000044,
+      "ece": 0.04999999999999982,
+      "seed_success": {
+        "7": 1.0,
+        "19": 1.0,
+        "31": 1.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 8,
+      "method": "PPO",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.0,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.0,
+      "average_cost": 1.0,
+      "average_tool_calls": 1.0,
+      "answer_coverage": 0.0,
+      "brier": null,
+      "ece": null,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 8,
+      "method": "PPO + Verifier",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.35333333333333333,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 1.0,
+      "average_cost": 8.0,
+      "average_tool_calls": 4.0,
+      "answer_coverage": 1.0,
+      "brier": 0.25,
+      "ece": 0.5,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 8,
+      "method": "RL + Test-Time Search",
+      "runs": 150,
+      "success": 0.48,
+      "accuracy": 0.66,
+      "evidence_precision": 0.48,
+      "evidence_recall": 0.48,
+      "unsupported": 0.5066666666666667,
+      "average_cost": 7.973333333333334,
+      "average_tool_calls": 3.986666666666667,
+      "answer_coverage": 0.9866666666666667,
+      "brier": 0.1295945945945946,
+      "ece": 0.28108108108108104,
+      "seed_success": {
+        "7": 0.48,
+        "19": 0.48,
+        "31": 0.48
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 12,
+      "method": "DQN",
+      "runs": 150,
+      "success": 0.9533333333333334,
+      "accuracy": 0.9533333333333334,
+      "evidence_precision": 0.9533333333333334,
+      "evidence_recall": 0.9533333333333334,
+      "unsupported": 0.0,
+      "average_cost": 9.886666666666667,
+      "average_tool_calls": 5.52,
+      "answer_coverage": 0.9533333333333334,
+      "brier": 0.09333916083916084,
+      "ece": 0.2583916083916083,
+      "seed_success": {
+        "7": 0.96,
+        "19": 0.96,
+        "31": 0.94
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 12,
+      "method": "Greedy",
+      "runs": 150,
+      "success": 1.0,
+      "accuracy": 1.0,
+      "evidence_precision": 1.0,
+      "evidence_recall": 1.0,
+      "unsupported": 0.0,
+      "average_cost": 4.22,
+      "average_tool_calls": 4.22,
+      "answer_coverage": 1.0,
+      "brier": 0.0025000000000000044,
+      "ece": 0.04999999999999982,
+      "seed_success": {
+        "7": 1.0,
+        "19": 1.0,
+        "31": 1.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 12,
+      "method": "PPO",
+      "runs": 150,
+      "success": 0.0,
+      "accuracy": 0.0,
+      "evidence_precision": 0.0,
+      "evidence_recall": 0.0,
+      "unsupported": 0.0,
+      "average_cost": 1.0,
+      "average_tool_calls": 1.0,
+      "answer_coverage": 0.0,
+      "brier": null,
+      "ece": null,
+      "seed_success": {
+        "7": 0.0,
+        "19": 0.0,
+        "31": 0.0
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 12,
+      "method": "PPO + Verifier",
+      "runs": 150,
+      "success": 0.68,
+      "accuracy": 0.7666666666666667,
+      "evidence_precision": 0.68,
+      "evidence_recall": 0.68,
+      "unsupported": 0.32,
+      "average_cost": 11.9,
+      "average_tool_calls": 4.68,
+      "answer_coverage": 1.0,
+      "brier": 0.0817,
+      "ece": 0.19399999999999995,
+      "seed_success": {
+        "7": 1.0,
+        "19": 0.86,
+        "31": 0.18
+      }
+    },
+    {
+      "split": "GoalLab-Test",
+      "budget": 12,
+      "method": "RL + Test-Time Search",
+      "runs": 150,
+      "success": 0.48,
+      "accuracy": 0.5933333333333334,
+      "evidence_precision": 0.48,
+      "evidence_recall": 0.48,
+      "unsupported": 0.3466666666666667,
+      "average_cost": 10.346666666666666,
+      "average_tool_calls": 5.173333333333333,
+      "answer_coverage": 0.8266666666666667,
+      "brier": 0.10629032258064515,
+      "ece": 0.2387096774193548,
+      "seed_success": {
+        "7": 0.48,
+        "19": 0.48,
+        "31": 0.48
+      }
+    }
+  ],
+  "note": "Development run before potential-based shaping. PPO collapsed to abstention. Kept as a failure case; these scores were inspected during development."
+}

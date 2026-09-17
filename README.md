@@ -1,6 +1,6 @@
 ![Reinforcement Learning — From Fundamentals to Modern RL](assets/course-banner.png)
 
-<h1>From Bellman Equations to Reasoning Agents<br><sub>Flagship Project: GoalLab</sub></h1>
+<h1><img src="assets/course-title.svg" alt="From Bellman Equations to Reasoning Agents" width="100%"><br><sup><sup><sub><em>Reinforcement Learning Course: Learn the Foundations. Build AI Agents and Systems.</em></sub></sup></sup><br><sub>Flagship Project: GoalLab</sub></h1>
 
 **48 topics • 14 course notebooks • 14 GoalLab stages • Classical RL → Inference-Time Reasoning**
 
@@ -24,21 +24,23 @@ Follow **classical RL → deep RL → post-training → agents → inference-tim
 
 <p align="center">
   <a href="projects/goallab/README.md#run-the-reference-solution">
-    <img src="assets/goallab-demo-preview.png" alt="GoalLab demo showing controller and budget controls, source investigation, and a briefing awaiting independent verification" width="100%">
+    <img src="assets/goallab-demo.gif" alt="Animated recording of a live GoalLab investigation: source checks reveal evidence, the budget decreases, and the final answer passes verification" width="100%">
   </a>
 </p>
 
-**Watch the agent work.** Run an investigation, reveal the evidence it reads, follow its decisions, and watch a briefing pass or fail independent verification. Pause or step through individual actions, compare controllers, then change the budget or reverse the timestamps to test what breaks.
+*Live demo recording: the Greedy baseline investigates a challenge case with a 12-unit budget. [Static preview](assets/goallab-benchmark-preview.png).*
+
+**Watch the agent work.** Follow its evidence graph, inspect source checks, and see why its final answer passes or fails verification. Pause or step through individual actions, compare controllers, then change the budget or try the challenge cases to test what breaks.
 
 **[Run the GoalLab demo →](projects/goallab/README.md#run-the-reference-solution)** · [Explore the 14-stage build](projects/goallab/STAGES.md)
 
-After cloning or downloading the repository, open [`projects/goallab/demo.html`](projects/goallab/demo.html) in your browser and select **Run agent**. The preview above is static; the HTML runs the supplied evidence cases interactively, without an API key.
+Open [`projects/goallab/demo.html`](projects/goallab/demo.html) locally and select **Investigate** to explore recorded reference traces. For real policy decisions and tool execution, [start the local live server](projects/goallab/README.md#run-the-reference-solution). Neither mode needs an API key.
 
 **Build an agent that plans, acts, and verifies.** Give it a goal in a supplied digital workspace, then teach it to gather evidence, resolve conflicting information, use tools, and verify its result within a budget. Start with a familiar task: turn documents and tables into an accurate briefing with traceable sources.
 
 One project connects **Part I: decision foundations → Part II: policy learning → Part III: inference-time planning → Flagship integration**. Each concept contributes a decision, experiment, or evaluation method to the same system.
 
-**Status:** 14 dedicated project notebooks build the GoalLab evidence task alongside the 14 original course lessons. Shared workspace code, worked exercises, reference artifacts, and a live visual demo are included.
+**Status:** 14 foundational GoalLab stages and [5 Build GoalLab labs](projects/goallab/build-goallab/README.md#build-and-investigate) accompany the 14 course notebooks. The six-source benchmark includes trained controllers, worked exercises, measured results, and a live evidence-graph demo.
 
 **[Follow the 14-stage build →](projects/goallab/STAGES.md)** · [Run GoalLab](projects/goallab/README.md#run-the-reference-solution) · Build → Predict → Change a constraint → Measure → Explain
 
@@ -368,7 +370,7 @@ The [Part III exercises and final project](chapters/PART_III_EXERCISES.md) turn 
 
 [Course Notebook 11: Tool-Agent Lab](notebooks/11_tool_agent_lab.ipynb) teaches learned tool routing through a focused experiment. Train a policy to select operations, compare reward shaping, and test whether a high reward corresponds to independently verified success. The tools perform the arithmetic; the policy learns which operations to choose.
 
-**Apply it in GoalLab:** [Stage 11: Tool Gateway Integration](projects/goallab/notebooks/11_tool_gateway_integration.ipynb) connects the evidence controller to read permissions, a hard tool allowance, and an independent briefing evaluator. Compare verified rewards with a flawed reward for saying “done,” then inspect the saved artifact and action history.
+**Apply it in GoalLab:** [Stage 11: Tool Gateway Integration](projects/goallab/apply-theory/11_tool_gateway_integration.ipynb) connects the evidence controller to read permissions, a hard tool allowance, and an independent briefing evaluator. Compare verified rewards with a flawed reward for saying “done,” then inspect the saved artifact and action history.
 
 **Try a change:** vary tool costs in the course lab, or reduce the tool allowance in GoalLab and inspect which operation is refused.
 
@@ -378,16 +380,23 @@ These mini-labs isolate individual ideas before you combine them in the flagship
 
 ## Flagship Project: GoalLab
 
-**How does an agent turn an incomplete goal into a verified result using limited time, information, and tools?** GoalLab uses a self-contained workspace with generated documents and tables. Its first task family is evidence reconciliation: investigate conflicting figures and save a briefing that an independent evaluator can check.
+**Train an RL agent to decide what to search, what to trust, and when to stop.** Six sources disagree about the number of completed tasks. Some are stale, incomplete, copied, irrelevant, or misleading. The agent must gather supporting evidence and answer within a limited investigation budget.
 
-| Course contribution | GoalLab milestone |
+The [GoalLab-v2 benchmark](projects/goallab/build-goallab/README.md) adds procedural cases, paid tools, explicit stopping and confidence, a learned verifier, and three named splits: **GoalLab-Train, GoalLab-Test, and GoalLab-Challenge**. Five new benchmark notebooks build on the fourteen foundational GoalLab stages.
+
+**Watch the investigation:** [open the evidence-graph explorer](projects/goallab/demo.html) for recorded runs, or [start the local live demo](projects/goallab/README.md#run-the-reference-solution) to execute real controller decisions and tools. Inspect contradictions, selected evidence, remaining budget, and the final verification result.
+
+| Course contribution | GoalLab implementation |
 |---|---|
-| Part I: Foundations | Model source inspection, tool selection, information gathering, and stopping decisions. |
-| Part II: Modern RL | Train controllers and compare rewards, preferences, and verified task outcomes. |
-| Part III: Inference-Time Reasoning | Search alternative investigation plans with frozen weights and limited compute. |
-| Flagship integration | Deliver a verified artifact, supporting evidence, an action trace, and a cost report. |
+| Part I: Foundations | Model investigation states, returns, values, and source-selection decisions. |
+| Part II: Modern RL | Train DQN and PPO controllers; learn verification and study premature stopping. |
+| Part III: Inference-Time Reasoning | Search alternative tool trajectories with frozen weights and charge discarded branches. |
+| Flagship integration | Compare strategies under identical budgets and inspect their evidence graphs and failures. |
 
-The repository includes a runnable reference system, fourteen guided stages, and worked constraint-changing exercises. Learners change costs, training budgets, evaluator rewards, scoring signals, and timestamp correlations, then compare results with baselines. See the [stage map](projects/goallab/STAGES.md), [reference demo](projects/goallab/README.md#run-the-reference-solution), and [recorded results](projects/goallab/results.json). The implemented benchmark is a controlled two-source evidence task; general document reasoning and operational services remain extensions.
+**Main metric: Verified Success @ Budget.** Compare Greedy, DQN, PPO, PPO + Verifier, and RL + Test-Time Search. The [measured reference](projects/goallab/build-goallab/RESULTS.md) includes 4,500 evaluation runs across three training seeds and retains failed policies. It does not assume that learning or search beats a strong rule.
+
+[Run GoalLab](projects/goallab/README.md) · [Build GoalLab: five notebooks](projects/goallab/build-goallab/README.md#build-and-investigate) · [Apply theory: fourteen stages](projects/goallab/STAGES.md) · [Evaluation protocol](projects/goallab/build-goallab/PROTOCOL.md)
+
 
 ---
 

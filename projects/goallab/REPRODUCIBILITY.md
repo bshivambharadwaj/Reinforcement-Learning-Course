@@ -1,6 +1,8 @@
-# Reproduce the GoalLab course stages
+# Reproduce the GoalLab foundational stages
 
 These 14 project notebooks implement GoalLab stages alongside the 14 original course notebooks. Use the course lessons for their original diagrams, environments, and algorithm experiments; use this track for the staged project application.
+
+For the six-source GoalLab-v2 benchmark, see its [protocol](build-goallab/PROTOCOL.md) and [measured results](build-goallab/RESULTS.md). The records below describe GoalLab-v1 only.
 
 ## Install and run
 
@@ -73,13 +75,13 @@ Stage 14 fitted a student from 86 accepted training traces. Mean held-out single
 
 The [GoalLab report](results.json) uses a separate 40-case configuration and seed 7; its percentages differ from notebook aggregates. The [older arithmetic demo](../../demos/inference-time/README.md) is a separate experiment.
 
-The [visual demo](demo.html) executes an in-browser workspace engine with exported Q-policy and student parameters. It supports Run/Pause/Step/Reset, budget changes, and timestamp shift. Its seeded sampler differs from Python's, so compare contracts and distributions rather than expecting identical individual sampled paths. The recorded Python benchmark is shown separately. No external account or live LLM is connected.
+The [visual demo](foundations-demo.html) executes an in-browser workspace engine with exported Q-policy and student parameters. It supports Run/Pause/Step/Reset, budget changes, and timestamp shift. Its seeded sampler differs from Python's, so compare contracts and distributions rather than expecting identical individual sampled paths. The recorded Python benchmark is shown separately. No external account or live LLM is connected.
 
 ## Repeat checks
 
 ```bash
 python -m unittest discover -s tests -v
-jupyter execute projects/goallab/notebooks/01_mdp_dynamic_programming.ipynb --timeout=600
+jupyter execute projects/goallab/apply-theory/01_mdp_dynamic_programming.ipynb --timeout=600
 python -m rl_course.goallab_demo --output /tmp/goallab.html --json /tmp/goallab-results.json
 ```
 
