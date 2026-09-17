@@ -1,4 +1,4 @@
-# Apply RL Theory with GoalLab
+# Apply Theory with GoalLab
 
 **Fourteen focused notebooks turn course concepts into working GoalLab components.**
 

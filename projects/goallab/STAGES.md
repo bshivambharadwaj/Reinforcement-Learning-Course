@@ -1,4 +1,4 @@
-# Apply RL theory with GoalLab: fourteen stages
+# Apply Theory with GoalLab: fourteen stages
 
 [Project home](README.md) · [Course home](../../README.md)
 

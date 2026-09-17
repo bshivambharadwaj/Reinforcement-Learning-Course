@@ -24,14 +24,14 @@ python -m rl_course.goallab_benchmark_demo \
 
 Open `http://127.0.0.1:8765`. The page now says **LIVE**: each Step executes a policy decision and workspace tools in Python. Pause stops further requests; Reset creates a fresh investigation. Search displays explored branches and charges their costs, including discarded ones. No external account, paid API, or pretrained model download is needed.
 
-The controller and verifier are deliberately small. Reference training runs on CPU; Colab setup is included in the benchmark notebooks. Hosted free-T4 runtime and memory usage have not been independently measured.
+The controller and verifier are deliberately small. Reference training runs on CPU; Colab setup is included in the Build GoalLab notebooks. Hosted free-T4 runtime and memory usage have not been independently measured.
 
 ## Build it in two layers
 
 | Learning layer | What you build | Start |
 |---|---|---|
-| Apply theory: fourteen notebooks | MDPs, value estimation, Q-learning, DQN, policy gradients, preferences, and search on a deliberately simple evidence task. | [Apply theory](apply-theory/README.md) |
-| Build GoalLab: five project labs | Richer case generation, cost-aware controllers, a learned verifier, explicit stopping, fair evaluation, and a visual investigation demo. | [Benchmark notebooks](build-goallab/README.md#build-and-investigate) |
+| Apply Theory with GoalLab: fourteen notebooks | MDPs, value estimation, Q-learning, DQN, policy gradients, preferences, and search on a deliberately simple evidence task. | [Apply theory](apply-theory/README.md) |
+| Build GoalLab: five project labs | Richer case generation, cost-aware controllers, a learned verifier, explicit stopping, fair evaluation, and a visual investigation demo. | [Build GoalLab notebooks](build-goallab/README.md#build-and-investigate) |
 
 The foundational notebooks retain their working two-source environment. The benchmark is GoalLab-v2: six sources, variable-length investigations, three named splits, paid tools, and answer/abstention decisions. The course's separate [algorithm notebooks](../../notebooks/) retain their own focused examples and diagrams.
 

@@ -1,6 +1,6 @@
 # GoalLab-v2 benchmark protocol
 
-[Benchmark home](README.md)
+[Build GoalLab](README.md)
 
 ## Cases and splits
 

@@ -1,6 +1,6 @@
 # GoalLab benchmark results
 
-[Benchmark home](README.md) · [Protocol](PROTOCOL.md) · [All-run records](results.json)
+[Build GoalLab](README.md) · [Protocol](PROTOCOL.md) · [All-run records](results.json)
 
 These are measured CPU development results, not a leaderboard or a claim that RL beats a strong rule. Test and challenge results were inspected during development. A publishable generalization claim should use a new locked evaluation set after fixing the implementation and hyperparameters.
 
@@ -73,6 +73,6 @@ All final outcomes and observations are retained in the checked-in report. Full 
 
 ## Validation
 
-All five benchmark notebooks executed successfully in fresh Python kernels. The full course and project suite contains 33 structurally valid notebooks. The 38 automated checks passed, including evaluation isolation, hard budgets, dependency reads, shaping telescoping, and safe HTML data embedding.
+All five Build GoalLab notebooks executed successfully in fresh Python kernels. The full course and project suite contains 33 structurally valid notebooks. The 38 automated checks passed, including evaluation isolation, hard budgets, dependency reads, shaping telescoping, and safe HTML data embedding.
 
 The live localhost API reproduced all 150 preview runs' recorded outcomes and costs. Desktop and 500-pixel-wide browser checks passed for all 150 playback traces and Run/Pause/Step/Reset controls. The optional group-relative trainer passed a short finite-parameter smoke run; it is not part of the five-method reference comparison. Hosted Colab execution remains unverified.

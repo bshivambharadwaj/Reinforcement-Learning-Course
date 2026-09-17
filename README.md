@@ -40,7 +40,7 @@ Open [`projects/goallab/demo.html`](projects/goallab/demo.html) locally and sele
 
 One project connects **Part I: decision foundations → Part II: policy learning → Part III: inference-time planning → Flagship integration**. Each concept contributes a decision, experiment, or evaluation method to the same system.
 
-**Status:** 14 foundational GoalLab stages and [5 Build GoalLab labs](projects/goallab/build-goallab/README.md#build-and-investigate) accompany the 14 course notebooks. The six-source benchmark includes trained controllers, worked exercises, measured results, and a live evidence-graph demo.
+**Status:** 14 Apply Theory with GoalLab stages and [5 Build GoalLab labs](projects/goallab/build-goallab/README.md#build-and-investigate) accompany the 14 course notebooks. The six-source benchmark includes trained controllers, worked exercises, measured results, and a live evidence-graph demo.
 
 **[Follow the 14-stage build →](projects/goallab/STAGES.md)** · [Run GoalLab](projects/goallab/README.md#run-the-reference-solution) · Build → Predict → Change a constraint → Measure → Explain
 
@@ -382,7 +382,7 @@ These mini-labs isolate individual ideas before you combine them in the flagship
 
 **Train an RL agent to decide what to search, what to trust, and when to stop.** Six sources disagree about the number of completed tasks. Some are stale, incomplete, copied, irrelevant, or misleading. The agent must gather supporting evidence and answer within a limited investigation budget.
 
-The [GoalLab-v2 benchmark](projects/goallab/build-goallab/README.md) adds procedural cases, paid tools, explicit stopping and confidence, a learned verifier, and three named splits: **GoalLab-Train, GoalLab-Test, and GoalLab-Challenge**. Five new benchmark notebooks build on the fourteen foundational GoalLab stages.
+The [GoalLab-v2 benchmark](projects/goallab/build-goallab/README.md) adds procedural cases, paid tools, explicit stopping and confidence, a learned verifier, and three named splits: **GoalLab-Train, GoalLab-Test, and GoalLab-Challenge**. Five Build GoalLab notebooks build on the fourteen Apply Theory with GoalLab stages.
 
 **Watch the investigation:** [open the evidence-graph explorer](projects/goallab/demo.html) for recorded runs, or [start the local live demo](projects/goallab/README.md#run-the-reference-solution) to execute real controller decisions and tools. Inspect contradictions, selected evidence, remaining budget, and the final verification result.
 
